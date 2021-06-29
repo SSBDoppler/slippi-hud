@@ -1,0 +1,98 @@
+#overlay {
+width: 1920px;
+height: 1080px;
+
+}
+.player-left {
+	background: url(../img/barleft.png) no-repeat;
+    width: 305;
+    height: 1080;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+
+}
+.player-right {
+    background: url(../img/barright.png) no-repeat;
+    width: 305;
+    height: 1080;
+    position: absolute;
+    left: 1615px;
+    top: 0px;
+
+}
+#player1 {
+    width: 300;
+    height: 64;
+    position: absolute;
+    left: 2px;
+    top: 365px;
+
+}
+#player4 {
+    width: 300;
+    height: 64;
+    position: absolute;
+    left: 2px;
+    bottom: 3px;
+
+
+}
+#player2 {
+    width: 300;
+    height: 64;
+    position: absolute;
+    right: 2px;
+    top: 365px;
+
+}
+#player3 {
+    width: 300;
+    height: 64;
+    position: absolute;
+    right: 2px;
+    bottom: 3px;
+
+}
+#panela {
+	font-size: 48px;
+    width: 300;
+    height: 64;
+    position: absolute;
+    left: 4px;
+    top: 0px;
+
+}
+#panelb {
+    width: 300;
+    height: 64;
+    position: absolute;
+    left: 1618px;
+    top: 0px;
+
+}
+#panelc {
+    width: 300;
+    height: 64;
+    position: absolute;
+    left: 1618px;
+    top: 649px;
+
+}
+#paneld {
+    width: 300;
+    height: 64;
+    position: absolute;
+    left: 4px;
+    top: 649px;
+
+}
+
+@keyframes scroll-left {
+ 0%   { 
+ transform: translateX(100%); 		
+ }
+ 100% { 
+ transform: translateX(-100%); 
+ }
+}

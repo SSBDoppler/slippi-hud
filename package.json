@@ -1,0 +1,26 @@
+{
+  "name": "SlippiHUD",
+  	"version": "0.1.0",
+	"description": "NodeCG bundle for SSBM custom HUD",
+	"hompeage": "https://github.com/SSBDoppler/",
+	"license": "MIT",
+	"author": "Steven Knepper <SlippiHUD@gmail.com>",
+	
+  "nodecg": {
+    "compatibleRange": "~1.7.4",
+    "bundleDependencies": {
+	
+    },
+    "dashboardPanels": [
+
+    ],
+    "graphics": [
+      {
+        "file": "fsoverlay.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      }
+    ]
+  }
+}
