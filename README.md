@@ -54,9 +54,9 @@ That's not a question, but you likely need to install the [Metropolis Light Font
 ### I don't like the way it looks
 And? All you have to do is make your own html/css, the source code is right here.
 ### What are all the variables I can call?
-See that folder labeled schemas? There be the awnsers you seek.
+See that folder labeled schemas? There be the answers you seek.
 ### Whats this coded in?
-Python, Node, Javascript, and Lit as I understand.
+Node, Javascript, and [Lit](https://lit.dev)
 # Credits
 ## Design Director
 ### Steven 'Doppler12' Knepper
