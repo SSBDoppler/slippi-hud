@@ -14,6 +14,17 @@ just start nodecg in terminal(command line)
 
 then open up your browser and head to [http://localhost:9090](http://localhost:9090) The default webpage.
 
+## Getting the HUD on screen
+go to graphics tab on the dashboard and copy the graphics url you want to use
+
+open your streaming software of choice
+
+paste that URL into a browser source
+
+Set the width to 1920
+
+Set the height to 1080
+
 ## Finally how are you connecting to melee?
 
 ### In-Person
