@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Tournament Panel</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+
+	<script type="module" src="elements/tournament-info/tournament-info.js"></script>
+	<style>
+		body {
+			background: #525F78;
+		}
+	</style>
+
+	<dom-module id="vaadin-styles-text" theme-for="vaadin-text-field vaadin-text-area">
+		<template>
+			<style>
+
+				:host([theme~="slippi-style"]) [part="label"] {
+					color: white;
+				}
+
+				:host([theme~="slippi-style"]:hover:not([readonly]):not([focused])) [part="label"] {
+					color: lightgray;
+				}
+
+				:host([theme~="slippi-style"]) [part="input-field"] {
+					border: 1px solid #ccc;
+					background-color: #fff;
+				}
+
+				:host([theme~="slippi-style"][focused]) [part="input-field"] {
+					border-color: #aaa;
+				}
+			</style>
+		</template>
+	</dom-module>
+
+	<dom-module id="vaadin-styles-checkbox" theme-for="vaadin-checkbox">
+		<template>
+			<style>
+				:host([theme~="slippi-style"]) [part="checkbox"] {
+					border: 2px solid #fff;
+				}
+				:host([theme~="slippi-style"][checked]) [part="checkbox"] {
+					border: 2px solid transparent;
+				}
+			</style>
+		</template>
+	</dom-module>
+
+	<custom-style>
+	</custom-style>
+</head>
+<body>
+	<tournament-info></tournament-info>
+</body>
+</html>

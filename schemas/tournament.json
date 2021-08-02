@@ -1,0 +1,42 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"type": "object",
+	"properties": {
+		"name": {
+			"type": "string",
+			"default": ""
+		},
+		"round": {
+			"type": "string",
+			"default": ""
+		},
+		"scores": {
+			"type": "array",
+			"default": [],
+			"items": {
+				"type": "object",
+				"properties": {
+					"score": {
+						"type": "number",
+						"default": 0
+					},
+					"rawResults": {
+						"type": "array",
+						"items": {
+							"type": "number",
+							"default": 0
+						}
+					}
+				}
+			}
+		},
+		"autoScore": {
+			"type": "boolean",
+			"default": false
+		},
+		"inputDisplay": {
+			"type": "boolean",
+			"default": false
+		}
+	}
+}

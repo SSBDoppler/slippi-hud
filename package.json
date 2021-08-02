@@ -1,26 +1,114 @@
 {
-  "name": "SlippiHUD",
-  	"version": "0.1.0",
-	"description": "NodeCG bundle for SSBM custom HUD",
-	"hompeage": "https://github.com/SSBDoppler/",
-	"license": "MIT",
-	"author": "Steven Knepper <SlippiHUD@gmail.com>",
-	
+  "name": "slippi-hud",
+  "description": "Slippi HUD",
+  "version": "1.0.0",
+  "contributors": [
+    "Marwin Misselhorn"
+  ],
+  "dependencies": {
+    "@polymer/app-layout": "^3.0.0",
+    "@polymer/app-route": "^3.0.0",
+    "@polymer/iron-collapse": "^3.0.0",
+    "@polymer/iron-flex-layout": "^3.0.0",
+    "@polymer/iron-icons": "^3.0.0",
+    "@polymer/iron-image": "^3.0.0",
+    "@polymer/iron-localstorage": "^3.0.0",
+    "@polymer/iron-pages": "^3.0.0",
+    "@polymer/iron-selector": "^3.0.0",
+    "@polymer/paper-button": "^3.0.0",
+    "@polymer/paper-card": "^3.0.0",
+    "@polymer/paper-dialog": "^3.0.0",
+    "@polymer/paper-dialog-behavior": "^3.0.0",
+    "@polymer/paper-dialog-scrollable": "^3.0.0",
+    "@polymer/paper-icon-button": "^3.0.0",
+    "@polymer/paper-item": "^3.0.0",
+    "@polymer/paper-slider": "^3.0.0",
+    "@polymer/paper-spinner": "^3.0.0",
+    "@polymer/paper-styles": "^3.0.0",
+    "@polymer/paper-tabs": "^3.0.0",
+    "@polymer/paper-toast": "^3.0.0",
+    "@polymer/paper-toolbar": "^3.0.0",
+    "@polymer/polymer": "^3.0.0",
+    "@types/node": "^10.14.4",
+    "@vaadin/vaadin-checkbox": "^21.0.0-alpha9",
+    "@vaadin/vaadin-combo-box": "21.0.0-alpha9",
+    "@vaadin/vaadin-text-field": "^21.0.0-alpha9",
+    "@vaadin/vaadin-button": "^21.0.0-alpha9",
+    "@vaadin/vaadin-grid": "^21.0.0-alpha9",
+    "@vaadin/vaadin-ordered-layout": "^21.0.0-alpha9",
+    "@vaadin/vaadin-select": "^21.0.0-alpha9",
+    "@vaadin/vaadin-template-renderer": "21.0.0-alpha9",
+    "@webcomponents/webcomponentsjs": "^2.2.10",
+    "@slippi/slippi-js": "^6.1.1",
+    "@vinceau/slp-realtime": "https://github.com/dragonbane0/slp-realtime/tarball/cf95435d7ce9a0854b766d9ed34b4238b1cfe0a4",
+    "rxjs": "^6.6.7",
+    "lit": "^2.0.0-rc.2"
+  },
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "bundleDependencies": [],
+  "homepage": "",
+  "license": "",
   "nodecg": {
-    "compatibleRange": "~1.7.4",
-    "bundleDependencies": {
-	
-    },
+    "compatibleRange": "^1.8.1",
+    "transformBareModuleSpecifiers": true,
     "dashboardPanels": [
-
+      {
+        "name": "test",
+        "title": "Test",
+        "file": "dashboard.html",
+        "headerColor": "#2d4e8a",
+        "fullbleed": true
+      },
+      {
+        "name": "connection",
+        "title": "Slippi Connection",
+        "width": 2,
+        "file": "slippi-connection-panel.html",
+        "headerColor": "#2d4e8a",
+        "workspace": "Main Dash"
+      },
+      {
+        "name": "timer",
+        "title": "Match Timer",
+        "width": 2,
+        "file": "match-timer-panel.html",
+        "headerColor": "#2d4e8a",
+        "workspace": "Main Dash"
+      },
+      {
+        "name": "tournament",
+        "title": "Tournament",
+        "width": 3,
+        "file": "tournament-panel.html",
+        "headerColor": "#2d4e8a",
+        "workspace": "Main Dash"
+      },
+      {
+        "name": "players",
+        "title": "Player Info",
+        "width": 3,
+        "file": "player-panel.html",
+        "headerColor": "#2d4e8a",
+        "workspace": "Main Dash"
+      },
+      {
+        "name": "scores",
+        "title": "Score",
+        "width": 2,
+        "file": "score-panel.html",
+        "headerColor": "#2d4e8a",
+        "workspace": "Main Dash"
+      }
     ],
     "graphics": [
       {
-        "file": "fsoverlay.html",
-        "width": 1920,
-        "height": 1080,
+        "file": "test.html",
+        "width": 1280,
+        "height": 720,
         "singleInstance": false
       }
     ]
-  }
+  },
+  "scripts": {}
 }

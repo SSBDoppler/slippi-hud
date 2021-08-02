@@ -1,0 +1,224 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"type": "object",
+	"properties": {
+		"connection": {
+			"type": "object",
+			"properties": {
+				"connected": {
+					"type": "boolean",
+					"default": false
+				},
+				"type": {
+					"type": "string",
+					"default": "dolphin"
+				},
+				"address": {
+					"type": "string",
+					"default": "0.0.0.0"
+				},
+				"port": {
+					"type": "number",
+					"default": 1667
+				}
+			}
+		},
+		"gameInfo": {
+			"type": "object",
+			"properties": {
+				"started": {
+					"type": "boolean",
+					"default": false
+				},
+				"finished": {
+					"type": "boolean",
+					"default": false
+				},
+				"elapsedFrames": {
+					"type": "number",
+					"default": 0
+				},
+				"timer": {
+					"type": "object",
+					"properties": {
+						"minutes": {
+							"type": "number",
+							"default": 0
+						},
+						"seconds": {
+							"type": "number",
+							"default": 0
+						},
+						"milliseconds": {
+							"type": "number",
+							"default": 0
+						},
+						"formatted": {
+							"type": "string",
+							"default": ""
+						},
+						"rawFrames": {
+							"type": "number",
+							"default": 0
+						},
+						"framerate": {
+							"type": "number",
+							"default": 60
+						}
+					}
+				},
+				"stage": {
+					"type": "object",
+					"properties": {
+						"id": {
+							"type": "number",
+							"default": 0
+						},
+						"fullName": {
+							"type": "string",
+							"default": ""
+						},
+						"shortName": {
+							"type": "string",
+							"default": ""
+						}
+					}
+				}
+
+			}
+		},
+		"playerInfo": {
+			"type": "array",
+			"default": [],
+			"items": {
+				"type": "object",
+				"properties": {
+					"port": {
+						"type": "number",
+						"default": 0
+					},
+					"character": {
+						"type": "object",
+						"properties": {
+							"id": {
+								"type": "number",
+								"default": 0
+							},
+							"fullName": {
+								"type": "string",
+								"default": ""
+							},
+							"shortName": {
+								"type": "string",
+								"default": ""
+							},
+							"costumeId": {
+								"type": "number",
+								"default": 0
+							},
+							"costumeName": {
+								"type": "string",
+								"default": ""
+							}
+						}
+					},
+					"stockCountStart": {
+						"type": "number",
+						"default": 0
+					},
+					"stockCountNow": {
+						"type": "number",
+						"default": 0
+					},
+					"tag": {
+						"type": "string",
+						"default": ""
+					},
+					"damage": {
+						"type": "number",
+						"default": 0
+					},
+					"controller": {
+						"type": "object",
+						"properties": {
+							"mainStickX": {
+								"type": "number",
+								"default": 0
+							},
+							"mainStickY": {
+								"type": "number",
+								"default": 0
+							},
+							"cStickX": {
+								"type": "number",
+								"default": 0
+							},
+							"cStickY": {
+								"type": "number",
+								"default": 0
+							},
+							"rawButtons": {
+								"type": "number",
+								"default": 0
+							},
+							"pressedButtons": {
+								"type": "object",
+								"properties": {
+									"A": {
+										"type": "boolean",
+										"default": false
+									},
+									"B": {
+										"type": "boolean",
+										"default": false
+									},
+									"X": {
+										"type": "boolean",
+										"default": false
+									},
+									"Y": {
+										"type": "boolean",
+										"default": false
+									},
+									"Z": {
+										"type": "boolean",
+										"default": false
+									},
+									"L": {
+										"type": "boolean",
+										"default": false
+									},
+									"R": {
+										"type": "boolean",
+										"default": false
+									},
+									"START": {
+										"type": "boolean",
+										"default": false
+									},
+									"D_UP": {
+										"type": "boolean",
+										"default": false
+									},
+									"D_RIGHT": {
+										"type": "boolean",
+										"default": false
+									},
+									"D_DOWN": {
+										"type": "boolean",
+										"default": false
+									},
+									"D_LEFT": {
+										"type": "boolean",
+										"default": false
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"required": [ "connection", "gameInfo", "playerInfo" ]
+}

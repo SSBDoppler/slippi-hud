@@ -1,0 +1,22 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"type": "array",
+	"items": {
+		"type": "object",
+		"properties": {
+			"id": {
+				"type": "number",
+				"default": 0
+			},
+			"slippiIndex": {
+				"type": "number",
+				"default": 0
+			},
+			"name": {
+				"type": "string",
+				"default": ""
+			}
+		}
+	},
+	"default": []
+}

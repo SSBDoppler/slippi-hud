@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Slippi Connection</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+
+	<script type="module" src="elements/slippi-connection/slippi-connection.js"></script>
+	<style>
+		body {
+			background: #525F78;
+		}
+	</style>
+
+	<dom-module id="vaadin-styles" theme-for="vaadin-text-field vaadin-text-area">
+		<template>
+			<style>
+
+				:host([theme~="slippi-style"]) [part="label"] {
+					color: white;
+				}
+
+				:host([theme~="slippi-style"]:hover:not([readonly]):not([focused])) [part="label"] {
+					color: lightgray;
+				}
+
+				:host([theme~="slippi-style"]) [part="input-field"] {
+					border: 1px solid #ccc;
+					background-color: #fff;
+				}
+
+				:host([theme~="slippi-style"][focused]) [part="input-field"] {
+					border-color: #aaa;
+				}
+			</style>
+		</template>
+	</dom-module>
+
+	<custom-style>
+		<style>
+		html {
+
+		}
+	    </style>
+		<!--
+		<style>
+			html {
+
+				--lumo-base-color: hsl(214, 35%, 21%);
+				--lumo-primary-color-10pct: hsla(214, 90%, 63%, 0.1);
+				--lumo-primary-color-50pct: hsla(214, 86%, 55%, 0.5);
+				--lumo-primary-color: hsl(214, 86%, 55%);
+				--lumo-primary-contrast-color: #FFF;
+				--_lumo-button-background-color: #645BA6;
+			}
+		</style>
+			-->
+	</custom-style>
+</head>
+<body>
+	<slippi-connection></slippi-connection>
+</body>
+</html>
