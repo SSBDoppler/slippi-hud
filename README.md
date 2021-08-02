@@ -3,7 +3,7 @@
 
 Welcome to Slippi-HUD, a nodecg package that can be used to power all kinds of slippi powered melee streams. You can create your own custom HUD, or an auto updating stream overlay.
 
-To get started you should probably head over and [install nodecg](https://node.dev)
+To get started you should probably head over and [install nodecg](https://nodecg.dev)
 
 Learning command-line might be worth your while.
 
