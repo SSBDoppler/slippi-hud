@@ -32,7 +32,10 @@ Select dolphin in the drop-down
 
 press connect
 
-#FAQ
+### Known Issues
+Currently doesn't work if players are not plugged into ports 1 & 2, should be resolved soon.
+
+# FAQ
 ### Why, just Why?
 I'm a madman, obviously
 ### Hey, my font doesn't look right.
