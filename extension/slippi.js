@@ -93,9 +93,13 @@ function runConnection() {
 		//Set players
 		slippi.value.playerInfo = [];
 
+		let playerId = 0;
+
 		for (let player of startState.players) {
 
 			let slippiPlayer = {
+				id: playerId++,
+				index: player.playerIndex,
 				port: player.port,
 				character: getCharacterObject(player.characterId, player.characterColor),
 				stockCountStart: player.startStocks,
@@ -144,13 +148,17 @@ function runConnection() {
 	}));
 
 	realTimeSubs.push(realtime.stock.percentChange$.subscribe((event) => {
-		slippi.value.playerInfo[event.playerIndex].damage = Math.floor(event.percent);
-		//console.log(`player ${event.playerIndex + 1} percent: ${event.percent}`);
+
+		let player = slippi.value.playerInfo.find(player => player.index === event.playerIndex);
+		player.damage = Math.floor(event.percent);
+		//console.log(`player ${player.id + 1} percent: ${event.percent}`);
 	}));
 
 	realTimeSubs.push(realtime.stock.countChange$.subscribe((event) => {
-		slippi.value.playerInfo[event.playerIndex].stockCountNow = event.stocksRemaining;
-		console.log(`player ${event.playerIndex + 1} stocks change: ${event.stocksRemaining}`);
+
+		let player = slippi.value.playerInfo.find(player => player.index === event.playerIndex);
+		player.stockCountNow = event.stocksRemaining;
+		console.log(`player ${player.id + 1} stocks change: ${event.stocksRemaining}`);
 	}));
 
 	/*
@@ -174,45 +182,47 @@ function runConnection() {
 		} 
 
 		//Per player checks
-		for (let i = 0; i < frame.players.length; i++) {
+		for (let framePlayer of frame.players) {
 
-			let player = frame.players[i];
+			if (!framePlayer || !("post" in framePlayer))
+				continue;
+
+			let player = slippi.value.playerInfo.find(player => player.index === framePlayer.post.playerIndex);
+
+			if (!player)
+				continue;
 
 			//Detect real time character changes (Sheik <--> Zelda)
 			//Zelda to Sheik: 0x12 --> 0x13 (internal: 0x13 ---> 0x07)
-			if (slippi.value.playerInfo[i].character.id == 0x12 && player.post.internalCharacterId == 0x07) {
-				slippi.value.playerInfo[i].character = getCharacterObject(0x13, slippi.value.playerInfo[i].character.costumeId);
+			if (player.character.id == 0x12 && framePlayer.post.internalCharacterId == 0x07) {
+				player.character = getCharacterObject(0x13, player.character.costumeId);
 			}
 			//Sheik to Zelda: 0x13 --> 0x12 (internal: 0x07 ---> 0x13)
-			else if (slippi.value.playerInfo[i].character.id == 0x13 && player.post.internalCharacterId == 0x13) {
-				slippi.value.playerInfo[i].character = getCharacterObject(0x12, slippi.value.playerInfo[i].character.costumeId);
+			else if (player.character.id == 0x13 && framePlayer.post.internalCharacterId == 0x13) {
+				player.character = getCharacterObject(0x12, player.character.costumeId);
 			}
 
 			//Update controller sticks every time
-			slippi.value.playerInfo[i].controller.mainStickX = player.pre.joystickX;
-			slippi.value.playerInfo[i].controller.mainStickY = player.pre.joystickY;
+			player.controller.mainStickX = framePlayer.pre.joystickX;
+			player.controller.mainStickY = framePlayer.pre.joystickY;
 
-			slippi.value.playerInfo[i].controller.cStickX = player.pre.cStickX;
-			slippi.value.playerInfo[i].controller.cStickY = player.pre.cStickY;
+			player.controller.cStickX = framePlayer.pre.cStickX;
+			player.controller.cStickY = framePlayer.pre.cStickY;
 
-			slippi.value.playerInfo[i].controller.leftTrigger = player.pre.physicalLTrigger;
-			slippi.value.playerInfo[i].controller.rightTrigger = player.pre.physicalRTrigger;
+			player.controller.leftTrigger = framePlayer.pre.physicalLTrigger;
+			player.controller.rightTrigger = framePlayer.pre.physicalRTrigger;
 
 			//Only update button inputs if the bitmask changed
-			if (player.pre.physicalButtons != slippi.value.playerInfo[i].controller.rawButtons) {
+			if (framePlayer.pre.physicalButtons != player.controller.rawButtons) {
 
-				slippi.value.playerInfo[i].controller.rawButtons = player.pre.physicalButtons;
+				player.controller.rawButtons = framePlayer.pre.physicalButtons;
 
-				let pressedButtons = bitmaskToButtons(player.pre.physicalButtons);
-				slippi.value.playerInfo[i].controller.pressedButtons = buttonsToBoolObject(pressedButtons);
+				let pressedButtons = bitmaskToButtons(framePlayer.pre.physicalButtons);
+				player.controller.pressedButtons = buttonsToBoolObject(pressedButtons);
 
-				//console.log("Button inputs changed, now:", slippi.value.playerInfo[i].controller);
+				//console.log("Button inputs changed, now:", player.controller);
 			}
 		}
-
-
-		//console.log("player 1 buttons:", frame.players[0].pre.buttons);
-		//console.log("player 2 buttons:", frame.players[1].pre.buttons);
 	}));
 }
 

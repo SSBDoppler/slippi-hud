@@ -4,6 +4,7 @@
 const nodecg = require('./util/nodecg-api-context').get();
 
 const tournament = nodecg.Replicant('tournament');
+const slippi = nodecg.Replicant('slippi');
 
 //Statics
 const minScoreCount = 2;
@@ -158,14 +159,25 @@ nodecg.listenFor('tournament_autoGameEnd', (data) => {
 	if (winnerIndex == -1)
 		return;
 
+	//Find the real index
+	let winnerPlayer = slippi.value.playerInfo.find(player => player.index === winnerIndex);
+
 	//Add +1 to the winner
-	tournament.value.scores[winnerIndex].score++;
+	tournament.value.scores[winnerPlayer.id].score++;
 
 	//Add raw result to every player
-	for (let player of data.finalFrame.players) {
+	for (let framePlayer of data.finalFrame.players) {
 
-		let score = player.post.playerIndex == winnerIndex ? 1 : 0;
-		tournament.value.scores[player.post.playerIndex].rawResults.push(score);
+		if (!framePlayer || !("post" in framePlayer))
+			continue;
+
+		let player = slippi.value.playerInfo.find(player => player.index === framePlayer.post.playerIndex);
+
+		if (!player)
+			continue;
+
+		let score = framePlayer.post.playerIndex == winnerIndex ? 1 : 0;
+		tournament.value.scores[player.id].rawResults.push(score);
 	}
 
 	console.log("New score is:", tournament.value.scores);

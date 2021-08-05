@@ -103,9 +103,9 @@
     ],
     "graphics": [
       {
-        "file": "test.html",
-        "width": 1280,
-        "height": 720,
+        "file": "SlippiHUD.html",
+        "width": 1920,
+        "height": 1080,
         "singleInstance": false
       }
     ]

@@ -14,17 +14,6 @@ just start nodecg in terminal(command line)
 
 then open up your browser and head to [http://localhost:9090](http://localhost:9090) The default webpage.
 
-## Getting the HUD on screen
-go to graphics tab on the dashboard and copy the graphics url you want to use
-
-open your streaming software of choice
-
-paste that URL into a browser source
-
-Set the width to 1920
-
-Set the height to 1080
-
 ## Finally how are you connecting to melee?
 
 ### In-Person
@@ -54,9 +43,9 @@ That's not a question, but you likely need to install the [Metropolis Light Font
 ### I don't like the way it looks
 And? All you have to do is make your own html/css, the source code is right here.
 ### What are all the variables I can call?
-See that folder labeled schemas? There be the answers you seek.
+See that folder labeled schemas? There be the awnsers you seek.
 ### Whats this coded in?
-Node, Javascript, and [Lit](https://lit.dev)
+Python, Node, Javascript, and Lit as I understand.
 # Credits
 ## Design Director
 ### Steven 'Doppler12' Knepper

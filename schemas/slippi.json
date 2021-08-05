@@ -93,6 +93,14 @@
 			"items": {
 				"type": "object",
 				"properties": {
+					"id": {
+						"type": "number",
+						"default": 0
+					},
+					"index": {
+						"type": "number",
+						"default": 0
+					},
 					"port": {
 						"type": "number",
 						"default": 0
@@ -158,6 +166,14 @@
 								"default": 0
 							},
 							"rawButtons": {
+								"type": "number",
+								"default": 0
+							},
+							"leftTrigger": {
+								"type": "number",
+								"default": 0
+							},
+							"rightTrigger": {
 								"type": "number",
 								"default": 0
 							},
