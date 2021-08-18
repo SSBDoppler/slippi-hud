@@ -1,7 +1,7 @@
 import { LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
-import { style, template } from './templates/test-hud-template.js';
+import { style, template } from './templates/slippi-hud-template.js';
 
 //Replicants
 const slippi = nodecg.Replicant('slippi');

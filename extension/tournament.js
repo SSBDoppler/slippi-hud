@@ -52,6 +52,12 @@ function determineWinner(data) {
 
 			winnerPlayer = data.finalFrame.players.reduce((a, b) => {
 
+				if (!a)
+					return b;
+
+				if (!b)
+					return a;
+
 				//Stock Count
 				if (a.post.stocksRemaining > b.post.stocksRemaining) {
 					return a;
@@ -78,6 +84,12 @@ function determineWinner(data) {
 
 			winnerPlayer = data.finalFrame.players.reduce((a, b) => {
 
+				if (!a)
+					return b;
+
+				if (!b)
+					return a;
+
 				//Stock Count
 				if (a.post.stocksRemaining > 0) {
 					return a;
@@ -97,7 +109,8 @@ function determineWinner(data) {
 
 			//Find first player who isn't the loser index
 			winnerPlayer = data.finalFrame.players.find(player => {
-				if (player.post.playerIndex == loserIndex)
+
+				if (!player || !player.post || player.post.playerIndex == loserIndex)
 					return false;
 				else
 					return true;
@@ -153,7 +166,7 @@ nodecg.listenFor('tournament_autoGameEnd', (data) => {
 
 	let winnerIndex = determineWinner(data);
 
-	console.log("Winner id:", winnerIndex);
+	//console.log("Winner id:", winnerIndex);
 
 	//Exit early if we have a tie
 	if (winnerIndex == -1)
