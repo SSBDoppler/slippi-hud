@@ -13,4 +13,5 @@ module.exports = function(nodecg) {
 	require('./players');
 	require('./tournament');
 	require('./slippi');
+	require('./templates');
 };

@@ -1,17 +1,36 @@
-import { LitElement } from 'lit';
+import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-
-import { style, template } from './templates/slippi-hud-template.js';
 
 //Replicants
 const slippi = nodecg.Replicant('slippi');
 const players = nodecg.Replicant('players');
 const tournament = nodecg.Replicant('tournament');
+const templates = nodecg.Replicant('templates');
 
+//Global vars
+var style = null;
+var template = null;
+
+//Global functions
+function supportsDynamicImport() {
+	try {
+		new Function('import("")');
+		return true;
+	} catch (err) {
+		return false;
+	}
+}
+
+
+//Class
 export class TestHud extends LitElement {
 
 	static get styles() {
-		return style.call(this);
+
+		if (this.ready && style)
+			return style.call(this);
+		else
+			return css``;
 	}
 
 	static get properties() {
@@ -23,7 +42,11 @@ export class TestHud extends LitElement {
 	}
 
 	render() {
-		return template.call(this);
+
+		if (this.ready && template)
+			return template.call(this);
+		else
+			return html``;
 	}
 
 	constructor() {
@@ -44,7 +67,8 @@ export class TestHud extends LitElement {
 			[
 				slippi,
 				players,
-				tournament
+				tournament,
+				templates
 			];
 
 		let numDeclared = 0;
@@ -102,10 +126,45 @@ export class TestHud extends LitElement {
 						this.readyCheck();
 						this.requestUpdate();
 					});
+
+					templates.on('change', (newVal, oldVal) => {
+
+						if (!newVal)
+							return;
+
+						if (oldVal && oldVal.activeTemplate.name == newVal.activeTemplate.name)
+							return;
+
+						if (!supportsDynamicImport()) { //No dynamic module support available
+							console.error("Dynamic module loading support is NOT available! Can not load template file!");
+							alert("Your browser is not supported. Please use one of the following: Firefox 67+, Chrome 63+, Edge Chromium Branch, Opera 50+, Safari 11.1+");
+							return;
+						}
+
+						var self = this;
+
+						console.log("Load template:", `./templates/${newVal.activeTemplate.name}`);
+						
+						//Import template module
+						(new Function(`return import("./templates/${newVal.activeTemplate.name}")`))().then(module => {
+
+							style = module.style;
+							template = module.template;
+
+							console.log("Loaded template module:", newVal.activeTemplate.name);
+
+							self.readyCheck();
+							self.requestUpdate();
+
+						}).catch(ex => { //Load failure
+							console.log(ex);
+							alert("Template load error!");
+							alert(ex);
+						});										
+					});
 				}
 			});
 		});
-
 	}
 
 	readyCheck() {
@@ -113,7 +172,7 @@ export class TestHud extends LitElement {
 		if (this.ready)
 			return;
 
-		if (this.readyCount < 2)
+		if (this.readyCount < 3)
 			this.readyCount++;
 		else
 			this.ready = true;

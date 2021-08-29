@@ -10,97 +10,7 @@ if (!this.ready)
 return html``;
 
 return html`
-
-	<div id="overlay">
-			<div id='cameraleft'>
-			<div id='cameraname'>${this.playerData[0].player.name}</div>
-		</div>
-		<div id='cameraright'>
-			<div id='cameraname'>${this.playerData[1].player.name}</div>
-		</div>
-			<div id="player1" class="port-${this.playerData[0].slippi.port}">
-					<div id="stocks" style="width: ${this.playerData[0].slippi.stockCountNow*40}px;">
-						<div id="stock" class="stock-1" style="background: url('./img/slippi-hud/stocks/${this.playerData[0].slippi.character.id}/${this.playerData[0].slippi.character.costumeId}.png'); transform: scale(${1/6}); width: 192px; height: 192px;"></div>
-						<div id="stock" class="stock-2" style="background: url('./img/slippi-hud/stocks/${this.playerData[0].slippi.character.id}/${this.playerData[0].slippi.character.costumeId}.png'); transform: scale(${1/6}); width: 192px; height: 192px;"></div>
-						<div id="stock" class="stock-3" style="background: url('./img/slippi-hud/stocks/${this.playerData[0].slippi.character.id}/${this.playerData[0].slippi.character.costumeId}.png'); transform: scale(${1/6}); width: 192px; height: 192px;"></div>
-						<div id="stock" class="stock-4" style="background: url('./img/slippi-hud/stocks/${this.playerData[0].slippi.character.id}/${this.playerData[0].slippi.character.costumeId}.png'); transform: scale(${1/6}); width: 192px; height: 192px;"></div>
-					</div>
-					<div id="score" style= "width: ${this.playerData[0].score.score*40}px;"></div>
-					<div id="dmg" class="damage">${this.playerData[0].slippi.damage}</div>
-						<div id="name" class="name">${this.playerData[0].player.name}</div>
-
-			
-			</div>
-			<div id="player2" class="port-${this.playerData[1].slippi.port}">
-					<div id="stocks" style="width: ${this.playerData[1].slippi.stockCountNow*40}px;">
-						<div id="stock" class="stock-1" style="background: url('./img/slippi-hud/stocks/${this.playerData[1].slippi.character.id}/${this.playerData[1].slippi.character.costumeId}.png'); transform: scale(${1/6}); width: 192px; height: 192px;"></div>
-						<div id="stock" class="stock-2" style="background: url('./img/slippi-hud/stocks/${this.playerData[1].slippi.character.id}/${this.playerData[1].slippi.character.costumeId}.png'); transform: scale(${1/6}); width: 192px; height: 192px;"></div>
-						<div id="stock" class="stock-3" style="background: url('./img/slippi-hud/stocks/${this.playerData[1].slippi.character.id}/${this.playerData[1].slippi.character.costumeId}.png'); transform: scale(${1/6}); width: 192px; height: 192px;"></div>
-						<div id="stock" class="stock-4" style="background: url('./img/slippi-hud/stocks/${this.playerData[1].slippi.character.id}/${this.playerData[1].slippi.character.costumeId}.png'); transform: scale(${1/6}); width: 192px; height: 192px;"></div>
-					</div>
-					<div id="score" style= "width: ${this.playerData[1].score.score*40}px;"></div>
-					<div id="dmg" class="damage">${this.playerData[1].slippi.damage}</div>
-					<div id="name" class="name">${this.playerData[1].player.name}</div>
-
-			</div>
-		<div id="panels" class="panel-container">
-			<div id="timer">${this.generalData.slippi.timer.formatted}</div>
-			<div id="tournament">${this.generalData.tournament.name}</div>
-			<div id="round">${this.generalData.tournament.round}</div>
-			<div id="game"><div id="gametext">GAME ${this.playerData[1].score.score+this.playerData[0].score.score+1}</div></div>
-		</div>
-${this.generalData.tournament.inputDisplay
-? html`
-<div id="p1buttons" class="sticks">
-	<div id="p1stick" class="astick" style="position: absolute; top: ${Math.round(40-(this.playerData[0].slippi.controller.mainStickY*17))}px; left: ${Math.round(56+(this.playerData[0].slippi.controller.mainStickX*17))}px"></div>
-	<div id="p1cstick" class="cstick"  style="position: absolute; top: ${49-(this.playerData[0].slippi.controller.cStickY*18)}px; left: ${147+(this.playerData[0].slippi.controller.cStickX*18)}px"></div>
-	<div id="Abutton" class="${this.playerData[0].slippi.controller.pressedButtons.A}"></div>
-	<div id="Bbutton" class="${this.playerData[0].slippi.controller.pressedButtons.B}"></div>
-	<div id="Xbutton" class="${this.playerData[0].slippi.controller.pressedButtons.X}"></div>
-	<div id="Ybutton" class="${this.playerData[0].slippi.controller.pressedButtons.Y}"></div>
-	<div id="Zbutton" class="${this.playerData[0].slippi.controller.pressedButtons.Z}"></div>
-	<div id="Rbutton" class="${this.playerData[0].slippi.controller.pressedButtons.R}"></div>
-	<div id="Lbutton" class="${this.playerData[0].slippi.controller.pressedButtons.L}"></div>
-	<div id="Startbutton" class="${this.playerData[0].slippi.controller.pressedButtons.START}"></div>
-	<div id="DUbutton" class="${this.playerData[0].slippi.controller.pressedButtons.D_UP}"></div>
-	<div id="DDbutton" class="${this.playerData[0].slippi.controller.pressedButtons.D_DOWN}"></div>
-	<div id="DRbutton" class="${this.playerData[0].slippi.controller.pressedButtons.D_RIGHT}"></div>
-	<div id="DLbutton" class="${this.playerData[0].slippi.controller.pressedButtons.D_LEFT}"></div>
-	<div id="LTrigger" style="height: ${this.playerData[0].slippi.controller.leftTrigger*103}px;"></div>
-	<div id="RTrigger" style="height: ${this.playerData[0].slippi.controller.rightTrigger*103}px;"></div>
-	<div id="outline" class="button"><img src="./img/slippi-hud/buttons/buttons.png" width="300" height="124"></img></div>
-</div>
-<div id="p2buttons" class="sticks">
-	<div id="p2stick" class="astick" style="position: absolute; top: ${Math.round(40-(this.playerData[1].slippi.controller.mainStickY*17))}px; left: ${Math.round(56+(this.playerData[1].slippi.controller.mainStickX*17))}px"></div>
-	<div id="p2cstick" class="cstick"  style="position: absolute; top: ${49-(this.playerData[1].slippi.controller.cStickY*18)}px; left: ${147+(this.playerData[1].slippi.controller.cStickX*18)}px"></div>
-	<div id="Abutton" class="${this.playerData[1].slippi.controller.pressedButtons.A}"></div>
-	<div id="Bbutton" class="${this.playerData[1].slippi.controller.pressedButtons.B}"></div>
-	<div id="Xbutton" class="${this.playerData[1].slippi.controller.pressedButtons.X}"></div>
-	<div id="Ybutton" class="${this.playerData[1].slippi.controller.pressedButtons.Y}"></div>
-	<div id="Zbutton" class="${this.playerData[1].slippi.controller.pressedButtons.Z}"></div>
-	<div id="Rbutton" class="${this.playerData[1].slippi.controller.pressedButtons.R}"></div>
-	<div id="Lbutton" class="${this.playerData[1].slippi.controller.pressedButtons.L}"></div>
-	<div id="Startbutton" class="${this.playerData[1].slippi.controller.pressedButtons.START}"></div>
-	<div id="DUbutton" class="${this.playerData[1].slippi.controller.pressedButtons.D_UP}"></div>
-	<div id="DDbutton" class="${this.playerData[1].slippi.controller.pressedButtons.D_DOWN}"></div>
-	<div id="DRbutton" class="${this.playerData[1].slippi.controller.pressedButtons.D_RIGHT}"></div>
-	<div id="DLbutton" class="${this.playerData[1].slippi.controller.pressedButtons.D_LEFT}"></div>
-	<div id="LTrigger" style="height: ${this.playerData[1].slippi.controller.leftTrigger*103}px;"></div>
-	<div id="RTrigger" style="height: ${this.playerData[1].slippi.controller.rightTrigger*103}px;"></div>
-	<div id="outline" class="button"><img src="./img/slippi-hud/buttons/buttons.png" width="300" height="124"></img></div>
-</div>
-`
-: html``
-}
-	</div>
-
-`;
-
-}
-
-export const style = function () {
-
-return css`
+<style>
 #cameraname {
 	text-align: center;
 	top: 5px;
@@ -417,6 +327,108 @@ left: 47px;
     width: 178px;
     text-align: center;	
 }
+
+#logo {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	background: url(./img/slippi-hud/hud/logo.png) no-repeat;
+	width: 305px;
+	height: 142px;
+}
+
+</style>
+	<div id="overlay">
+		<div id='logo'></div>
+			<div id='cameraleft'>
+			<div id='cameraname'>${this.playerData[0].player.name}</div>
+		</div>
+		<div id='cameraright'>
+			<div id='cameraname'>${this.playerData[1].player.name}</div>
+		</div>
+			<div id="player1" class="port-${this.playerData[0].slippi.port}">
+					<div id="stocks" style="width: ${this.playerData[0].slippi.stockCountNow*40}px;">
+						<div id="stock" class="stock-1" style="background: url('./img/slippi-hud/stocks/${this.playerData[0].slippi.character.id}/${this.playerData[0].slippi.character.costumeId}.png'); transform: scale(${1/6}); width: 192px; height: 192px;"></div>
+						<div id="stock" class="stock-2" style="background: url('./img/slippi-hud/stocks/${this.playerData[0].slippi.character.id}/${this.playerData[0].slippi.character.costumeId}.png'); transform: scale(${1/6}); width: 192px; height: 192px;"></div>
+						<div id="stock" class="stock-3" style="background: url('./img/slippi-hud/stocks/${this.playerData[0].slippi.character.id}/${this.playerData[0].slippi.character.costumeId}.png'); transform: scale(${1/6}); width: 192px; height: 192px;"></div>
+						<div id="stock" class="stock-4" style="background: url('./img/slippi-hud/stocks/${this.playerData[0].slippi.character.id}/${this.playerData[0].slippi.character.costumeId}.png'); transform: scale(${1/6}); width: 192px; height: 192px;"></div>
+					</div>
+					<div id="score" style= "width: ${this.playerData[0].score.score*40}px;"></div>
+					<div id="dmg" class="damage">${this.playerData[0].slippi.damage}</div>
+						<div id="name" class="name">${this.playerData[0].player.name}</div>
+
+			
+			</div>
+			<div id="player2" class="port-${this.playerData[1].slippi.port}">
+					<div id="stocks" style="width: ${this.playerData[1].slippi.stockCountNow*40}px;">
+						<div id="stock" class="stock-1" style="background: url('./img/slippi-hud/stocks/${this.playerData[1].slippi.character.id}/${this.playerData[1].slippi.character.costumeId}.png'); transform: scale(${1/6}); width: 192px; height: 192px;"></div>
+						<div id="stock" class="stock-2" style="background: url('./img/slippi-hud/stocks/${this.playerData[1].slippi.character.id}/${this.playerData[1].slippi.character.costumeId}.png'); transform: scale(${1/6}); width: 192px; height: 192px;"></div>
+						<div id="stock" class="stock-3" style="background: url('./img/slippi-hud/stocks/${this.playerData[1].slippi.character.id}/${this.playerData[1].slippi.character.costumeId}.png'); transform: scale(${1/6}); width: 192px; height: 192px;"></div>
+						<div id="stock" class="stock-4" style="background: url('./img/slippi-hud/stocks/${this.playerData[1].slippi.character.id}/${this.playerData[1].slippi.character.costumeId}.png'); transform: scale(${1/6}); width: 192px; height: 192px;"></div>
+					</div>
+					<div id="score" style= "width: ${this.playerData[1].score.score*40}px;"></div>
+					<div id="dmg" class="damage">${this.playerData[1].slippi.damage}</div>
+					<div id="name" class="name">${this.playerData[1].player.name}</div>
+
+			</div>
+		<div id="panels" class="panel-container">
+			<div id="timer">${this.generalData.slippi.timer.formatted}</div>
+			<div id="tournament">${this.generalData.tournament.name}</div>
+			<div id="round">${this.generalData.tournament.round}</div>
+			<div id="game"><div id="gametext">GAME ${this.playerData[1].score.score+this.playerData[0].score.score+1}</div></div>
+		</div>
+${this.generalData.tournament.inputDisplay
+? html`
+<div id="p1buttons" class="sticks">
+	<div id="p1stick" class="astick" style="position: absolute; top: ${Math.round(40-(this.playerData[0].slippi.controller.mainStickY*17))}px; left: ${Math.round(56+(this.playerData[0].slippi.controller.mainStickX*17))}px"></div>
+	<div id="p1cstick" class="cstick"  style="position: absolute; top: ${49-(this.playerData[0].slippi.controller.cStickY*18)}px; left: ${147+(this.playerData[0].slippi.controller.cStickX*18)}px"></div>
+	<div id="Abutton" class="${this.playerData[0].slippi.controller.pressedButtons.A}"></div>
+	<div id="Bbutton" class="${this.playerData[0].slippi.controller.pressedButtons.B}"></div>
+	<div id="Xbutton" class="${this.playerData[0].slippi.controller.pressedButtons.X}"></div>
+	<div id="Ybutton" class="${this.playerData[0].slippi.controller.pressedButtons.Y}"></div>
+	<div id="Zbutton" class="${this.playerData[0].slippi.controller.pressedButtons.Z}"></div>
+	<div id="Rbutton" class="${this.playerData[0].slippi.controller.pressedButtons.R}"></div>
+	<div id="Lbutton" class="${this.playerData[0].slippi.controller.pressedButtons.L}"></div>
+	<div id="Startbutton" class="${this.playerData[0].slippi.controller.pressedButtons.START}"></div>
+	<div id="DUbutton" class="${this.playerData[0].slippi.controller.pressedButtons.D_UP}"></div>
+	<div id="DDbutton" class="${this.playerData[0].slippi.controller.pressedButtons.D_DOWN}"></div>
+	<div id="DRbutton" class="${this.playerData[0].slippi.controller.pressedButtons.D_RIGHT}"></div>
+	<div id="DLbutton" class="${this.playerData[0].slippi.controller.pressedButtons.D_LEFT}"></div>
+	<div id="LTrigger" style="height: ${this.playerData[0].slippi.controller.leftTrigger*103}px;"></div>
+	<div id="RTrigger" style="height: ${this.playerData[0].slippi.controller.rightTrigger*103}px;"></div>
+	<div id="outline" class="button"><img src="./img/slippi-hud/buttons/buttons.png" width="300" height="124"></img></div>
+</div>
+<div id="p2buttons" class="sticks">
+	<div id="p2stick" class="astick" style="position: absolute; top: ${Math.round(40-(this.playerData[1].slippi.controller.mainStickY*17))}px; left: ${Math.round(56+(this.playerData[1].slippi.controller.mainStickX*17))}px"></div>
+	<div id="p2cstick" class="cstick"  style="position: absolute; top: ${49-(this.playerData[1].slippi.controller.cStickY*18)}px; left: ${147+(this.playerData[1].slippi.controller.cStickX*18)}px"></div>
+	<div id="Abutton" class="${this.playerData[1].slippi.controller.pressedButtons.A}"></div>
+	<div id="Bbutton" class="${this.playerData[1].slippi.controller.pressedButtons.B}"></div>
+	<div id="Xbutton" class="${this.playerData[1].slippi.controller.pressedButtons.X}"></div>
+	<div id="Ybutton" class="${this.playerData[1].slippi.controller.pressedButtons.Y}"></div>
+	<div id="Zbutton" class="${this.playerData[1].slippi.controller.pressedButtons.Z}"></div>
+	<div id="Rbutton" class="${this.playerData[1].slippi.controller.pressedButtons.R}"></div>
+	<div id="Lbutton" class="${this.playerData[1].slippi.controller.pressedButtons.L}"></div>
+	<div id="Startbutton" class="${this.playerData[1].slippi.controller.pressedButtons.START}"></div>
+	<div id="DUbutton" class="${this.playerData[1].slippi.controller.pressedButtons.D_UP}"></div>
+	<div id="DDbutton" class="${this.playerData[1].slippi.controller.pressedButtons.D_DOWN}"></div>
+	<div id="DRbutton" class="${this.playerData[1].slippi.controller.pressedButtons.D_RIGHT}"></div>
+	<div id="DLbutton" class="${this.playerData[1].slippi.controller.pressedButtons.D_LEFT}"></div>
+	<div id="LTrigger" style="height: ${this.playerData[1].slippi.controller.leftTrigger*103}px;"></div>
+	<div id="RTrigger" style="height: ${this.playerData[1].slippi.controller.rightTrigger*103}px;"></div>
+	<div id="outline" class="button"><img src="./img/slippi-hud/buttons/buttons.png" width="300" height="124"></img></div>
+</div>
+`
+: html``
+}
+	</div>
+
+`;
+
+}
+
+export const style = function () {
+
+return css`
 
 :host {
 }

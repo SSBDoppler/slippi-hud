@@ -99,11 +99,19 @@
         "file": "score-panel.html",
         "headerColor": "#2d4e8a",
         "workspace": "Main Dash"
+      },
+      {
+        "name": "templates",
+        "title": "Templates",
+        "width": 2,
+        "file": "template-panel.html",
+        "headerColor": "#2d4e8a",
+        "workspace": "Main Dash"
       }
     ],
     "graphics": [
       {
-        "file": "SlippiHUD.html",
+        "file": "slippiHUD.html",
         "width": 1920,
         "height": 1080,
         "singleInstance": false

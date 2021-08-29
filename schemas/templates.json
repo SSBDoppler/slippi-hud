@@ -1,0 +1,36 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"type": "object",
+	"properties": {
+		"activeTemplate": {
+			"type": "object",
+			"properties": {
+				"index": {
+					"type": "number",
+					"default": -1
+				},
+				"name": {
+					"type": "string",
+					"default": ""
+				}
+			}
+		},
+		"availableTemplates": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"fileName": {
+						"type": "string",
+						"default": ""
+					},
+					"fullPath": {
+						"type": "string",
+						"default": ""
+					}
+				}
+			},
+			"default": []
+		}
+	}
+}
