@@ -11,28 +11,37 @@ return html``;
 
 return html`
 <style>
-#cameraname {
-	text-align: center;
-	top: 5px;
-	font-size: 40px;
-	width: 305px;
-	position: absolute;
+#cameranameleft {
+    left: 0px;
+    text-align: center;
+    top: 2px;
+    font-size: 24px;
+    width: 197px;
+    position: absolute;
+}
+#cameranameright {
+    right: 0px;
+    text-align: center;
+    top: 2px;
+    font-size: 24px;
+    width: 197px;
+    position: absolute;
 }
 #cameraleft {
-		background: url('./img/slippi-hud/hud/camerabox.png') 0px 0px no-repeat;
-		width: 305px;
-		height: 305px;
-		position: absolute;
-		left: 0px;
-		bottom: 0px;
+	background: url(./img/slippi-hud/hud/cameraboxleft.png) 0px 0px no-repeat;
+    width: 314px;
+    height: 283px;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
 }
 #cameraright {
-		background: url('./img/slippi-hud/hud/camerabox.png') 0px 0px no-repeat;
-		width: 305px;
-		height: 305px;
-		position: absolute;
-		right: 0px;
-		bottom: 0px;
+	background: url(./img/slippi-hud/hud/cameraboxright.png) 0px 0px no-repeat;
+    width: 314px;
+    height: 283px;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
 }
 
 #overlay {
@@ -46,22 +55,22 @@ return html`
 }
 #player1 {
 	position: absolute;
-	left: 510px;
-	top: 836px;
-	width: 300px;
-	height: 120px;
+    left: 386px;
+    top: 836px;
+    width: 424px;
+    height: 108px;
 }
 #player2 {
 	position: absolute;
-	right: 510px;
+	right: 386px;
 	top: 836px;
-	width: 300px;
-	height: 120px;
+	width: 424px;
+	height: 108px;
 }
 
 #p1buttons {
 	position: absolute;
-	left: 510px;
+	left: 448px;
 	top: 956px;
 	width: 300px;
 	height: 124px;
@@ -69,25 +78,26 @@ return html`
 
 #p2buttons {
 	position: absolute;
-	right: 510px;
+	right: 448px;
 	top: 956px;
 	width: 300px;
 	height: 124px;
 }
 #gametext {
 	position: absolute;
-	top: 10px;
-	width: 160px;
+    text-align: center;
+    top: 10px;
+    width: 233px;
 }
 #game {
-	position: absolute;
-	background: url('./img/slippi-hud/hud/game.png') 0px 0px no-repeat;
-	width: 160px;
-	height: 48px;
-	top: 908px;
-	left: 880px;
-	text-align: center;
-	font-size: 32px;
+    position: absolute;
+    background: url(./img/slippi-hud/hud/game.png) 0px 0px no-repeat;
+    width: 233px;
+    height: 47px;
+    top: 883px;
+    left: 843px;
+    text-align: center;
+    font-size: 32px;
 }
 #Abutton {
 	position: absolute;
@@ -222,12 +232,12 @@ return html`
 }
 
 #stocks {
-	position: absolute;
-	top: 36px;
-	height: 32px;
-	overflow: hidden;
+    position: absolute;
+    top: 6px;
+    left: 62px;
+    height: 32px;
+    overflow: hidden;
 }
-
 #stock {
 	position: absolute;
 	top: -80px;
@@ -235,27 +245,27 @@ return html`
 	height: 32px;
 }
 #dmg {
-    position: absolute;
-    bottom: 36px;
-    right: 24px;
-    font-size: 60px;
-   -webkit-text-stroke: medium black;
+position: absolute;
+    bottom: 48px;
+    right: 42px;
+    font-size: 91px;
+    -webkit-text-stroke: medium black;
 }
 #name {
     position: absolute;
-    left: 0px;
-    top: 78px;
-    width: 300px;
+    left: 52px;
+    top: 60px;
+    width: 330px;
     height: 48px;
     text-align: center;
     font-size: 36px;
 }
 #score {
-	background: url('./img/slippi-hud/hud/score.png') 0px 0px;
-	height: 32px;
-	position: absolute;
-	left: 25px;
-	top: 2px;
+	font-size: 32px;
+    width: 20px;
+    position: absolute;
+    left: 35px;
+    top: 61px;
 }
 
 .stock-1 {
@@ -298,34 +308,19 @@ left: 47px;
 }
 
 #panels {	
+    top: 20px;
     background: url(./img/slippi-hud/hud/timer.png) no-repeat;
-    height: 162px;
-    width: 305px;
+    height: 57px;
+    width: 327px;
+    position: absolute;
 }
 
 #timer {
     font-size: 45px;
-    top: 20px;
-    left: 45px;
+    top: 4px;
+    left: 99px;
     position: absolute;
     text-align: left;
-}
-
-#tournament {
-    position: absolute;
-    top: 93px;
-    left: 57px;
-    width: 192px;
-    text-align: center;
-    font-size: 18px;	
-}
-
-#round {
-    position: absolute;
-    top: 137px;
-    left: 64px;
-    width: 178px;
-    text-align: center;	
 }
 
 #logo {
@@ -336,15 +331,40 @@ left: 47px;
 	width: 305px;
 	height: 142px;
 }
+#cameraport {
+	position: absolute;
+	bottom: 34px;
+	width: 130px;
+	height: 31px;
+}
+.clport {
+		background: url(./img/slippi-hud/hud/clport${this.playerData[0].slippi.port}.png) no-repeat;
+		right: -11px;
+		text-align: center;
+}
+.crport {
+		background: url(./img/slippi-hud/hud/crport${this.playerData[1].slippi.port}.png) no-repeat;
+		left: -11px;
+		text-align: center;
+}
+#portfont {
+	font-size: 25px;
+	position: absolute;
+	text-align: center;
+	width: 130px;
+	top: 3px;
+}
 
 </style>
 	<div id="overlay">
 		<div id='logo'></div>
 			<div id='cameraleft'>
-			<div id='cameraname'>${this.playerData[0].player.name}</div>
+			<div id='cameranameleft'>${this.playerData[0].player.name}</div>
+			<div id='cameraport' class='clport'><div id='portfont'>Port ${this.playerData[0].slippi.port}</div></div>
 		</div>
 		<div id='cameraright'>
-			<div id='cameraname'>${this.playerData[1].player.name}</div>
+			<div id='cameranameright'>${this.playerData[1].player.name}</div>
+			<div id='cameraport' class='crport'><div id='portfont'>Port ${this.playerData[1].slippi.port}</div></div>
 		</div>
 			<div id="player1" class="port-${this.playerData[0].slippi.port}">
 					<div id="stocks" style="width: ${this.playerData[0].slippi.stockCountNow*40}px;">
@@ -353,7 +373,7 @@ left: 47px;
 						<div id="stock" class="stock-3" style="background: url('./img/slippi-hud/stocks/${this.playerData[0].slippi.character.id}/${this.playerData[0].slippi.character.costumeId}.png'); transform: scale(${1/6}); width: 192px; height: 192px;"></div>
 						<div id="stock" class="stock-4" style="background: url('./img/slippi-hud/stocks/${this.playerData[0].slippi.character.id}/${this.playerData[0].slippi.character.costumeId}.png'); transform: scale(${1/6}); width: 192px; height: 192px;"></div>
 					</div>
-					<div id="score" style= "width: ${this.playerData[0].score.score*40}px;"></div>
+					<div id="score">${this.playerData[0].score.score}</div>
 					<div id="dmg" class="damage">${this.playerData[0].slippi.damage}</div>
 						<div id="name" class="name">${this.playerData[0].player.name}</div>
 
@@ -366,7 +386,7 @@ left: 47px;
 						<div id="stock" class="stock-3" style="background: url('./img/slippi-hud/stocks/${this.playerData[1].slippi.character.id}/${this.playerData[1].slippi.character.costumeId}.png'); transform: scale(${1/6}); width: 192px; height: 192px;"></div>
 						<div id="stock" class="stock-4" style="background: url('./img/slippi-hud/stocks/${this.playerData[1].slippi.character.id}/${this.playerData[1].slippi.character.costumeId}.png'); transform: scale(${1/6}); width: 192px; height: 192px;"></div>
 					</div>
-					<div id="score" style= "width: ${this.playerData[1].score.score*40}px;"></div>
+					<div id="score">${this.playerData[1].score.score}</div>
 					<div id="dmg" class="damage">${this.playerData[1].slippi.damage}</div>
 					<div id="name" class="name">${this.playerData[1].player.name}</div>
 
