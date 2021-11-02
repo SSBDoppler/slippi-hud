@@ -3,7 +3,7 @@
   "description": "Slippi HUD",
   "version": "1.1.0",
   "contributors": [
-    "Marwin Misselhorn"
+    "Marwin Misselhorn",
     "Steven Knepper"
   ],
   "dependencies": {

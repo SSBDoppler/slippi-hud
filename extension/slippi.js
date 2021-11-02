@@ -105,6 +105,7 @@ function runConnection() {
 				stockCountStart: player.startStocks,
 				stockCountNow: player.startStocks,
 				tag: player.nametag,
+				display: player.displayName,
 				damage: 0,
 				controller: {
 					mainStickX: 0,

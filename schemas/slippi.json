@@ -142,6 +142,10 @@
 						"type": "string",
 						"default": ""
 					},
+					"display": {
+						"type": "string",
+						"default": ""
+					},
 					"damage": {
 						"type": "number",
 						"default": 0
