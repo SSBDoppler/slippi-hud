@@ -41,7 +41,7 @@
     "@vaadin/vaadin-template-renderer": "21.0.0-alpha9",
     "@webcomponents/webcomponentsjs": "^2.2.10",
     "@slippi/slippi-js": "^6.1.1",
-    "@vinceau/slp-realtime": "https://github.com/SSBDoppler/slp-realtime#656b7f576376272e37d09a402d5eece8a0f508a4",
+    "@vinceau/slp-realtime": "https://github.com/dragonbane0/slp-realtime/tarball/cf95435d7ce9a0854b766d9ed34b4238b1cfe0a4",
     "rxjs": "^6.6.7",
     "lit": "^2.0.0-rc.2"
   },
