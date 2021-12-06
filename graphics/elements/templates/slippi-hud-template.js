@@ -261,6 +261,7 @@ position: absolute;
     font-size: 36px;
 }
 #score {
+    -webkit-text-stroke: thin black;
 	font-size: 32px;
     width: 20px;
     position: absolute;

@@ -146,6 +146,10 @@
 						"type": "string",
 						"default": ""
 					},
+					"connect": {
+						"type": "string",
+						"default": ""
+					},
 					"damage": {
 						"type": "number",
 						"default": 0
