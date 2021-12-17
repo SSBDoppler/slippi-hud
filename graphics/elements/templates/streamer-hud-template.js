@@ -375,7 +375,10 @@ ${(this.playerData[1].player.name==this.playerData[0].slippi.connect)
 						<div id="stock" class="stock-3" style="background: url('./img/slippi-hud/stocks/${this.playerData[0].slippi.character.id}/${this.playerData[0].slippi.character.costumeId}.png'); transform: scale(${1/6}); width: 192px; height: 192px;"></div>
 						<div id="stock" class="stock-4" style="background: url('./img/slippi-hud/stocks/${this.playerData[0].slippi.character.id}/${this.playerData[0].slippi.character.costumeId}.png'); transform: scale(${1/6}); width: 192px; height: 192px;"></div>
 					</div>
-					<div id="dmg" class="damage">${this.playerData[0].slippi.damage}</div>
+${(this.playerData[0].slippi.damage>300)
+? html `<div id="dmg" class="damage" style="color: rgb(80,0,0);">${this.playerData[0].slippi.damage}</div>`
+: html `<div id="dmg" class="damage" style="color: rgb(${Math.floor(((this.playerData[0].slippi.damage/300)*-175)+255)},${Math.floor(((this.playerData[0].slippi.damage/300)*-255)+255)},${Math.floor(((this.playerData[0].slippi.damage/300)*-255)+255)});">${this.playerData[0].slippi.damage}</div>`	
+}
 						<div id="name" class="name">${this.playerData[0].slippi.display}</div>
 		
 			
@@ -387,7 +390,10 @@ ${(this.playerData[1].player.name==this.playerData[0].slippi.connect)
 						<div id="stock" class="stock-3" style="background: url('./img/slippi-hud/stocks/${this.playerData[1].slippi.character.id}/${this.playerData[1].slippi.character.costumeId}.png'); transform: scale(${1/6}); width: 192px; height: 192px;"></div>
 						<div id="stock" class="stock-4" style="background: url('./img/slippi-hud/stocks/${this.playerData[1].slippi.character.id}/${this.playerData[1].slippi.character.costumeId}.png'); transform: scale(${1/6}); width: 192px; height: 192px;"></div>
 					</div>
-					<div id="dmg" class="damage">${this.playerData[1].slippi.damage}</div>
+${(this.playerData[1].slippi.damage>300)
+? html `<div id="dmg" class="damage" style="color: rgb(80,0,0);">${this.playerData[1].slippi.damage}</div>`
+: html `<div id="dmg" class="damage" style="color: rgb(${Math.floor(((this.playerData[1].slippi.damage/300)*-175)+255)},${Math.floor(((this.playerData[1].slippi.damage/300)*-255)+255)},${Math.floor(((this.playerData[1].slippi.damage/300)*-255)+255)});">${this.playerData[1].slippi.damage}</div>`	
+}
 					<div id="name" class="name">${this.playerData[1].slippi.display}</div>
 
 			</div>
@@ -404,7 +410,10 @@ ${(this.playerData[1].player.name==this.playerData[0].slippi.connect)
 						<div id="stock" class="stock-3" style="background: url('./img/slippi-hud/stocks/${this.playerData[0].slippi.character.id}/${this.playerData[0].slippi.character.costumeId}.png'); transform: scale(${1/6}); width: 192px; height: 192px;"></div>
 						<div id="stock" class="stock-4" style="background: url('./img/slippi-hud/stocks/${this.playerData[0].slippi.character.id}/${this.playerData[0].slippi.character.costumeId}.png'); transform: scale(${1/6}); width: 192px; height: 192px;"></div>
 					</div>
-					<div id="dmg" class="damage">${this.playerData[0].slippi.damage}</div>
+${(this.playerData[0].slippi.damage>300)
+? html `<div id="dmg" class="damage" style="color: rgb(80,0,0);">${this.playerData[0].slippi.damage}</div>`
+: html `<div id="dmg" class="damage" style="color: rgb(${Math.floor(((this.playerData[0].slippi.damage/300)*-175)+255)},${Math.floor(((this.playerData[0].slippi.damage/300)*-255)+255)},${Math.floor(((this.playerData[0].slippi.damage/300)*-255)+255)});">${this.playerData[0].slippi.damage}</div>`	
+}
 						<div id="name" class="name">${this.playerData[0].slippi.display}</div>
 		
 			
@@ -416,7 +425,10 @@ ${(this.playerData[1].player.name==this.playerData[0].slippi.connect)
 						<div id="stock" class="stock-3" style="background: url('./img/slippi-hud/stocks/${this.playerData[1].slippi.character.id}/${this.playerData[1].slippi.character.costumeId}.png'); transform: scale(${1/6}); width: 192px; height: 192px;"></div>
 						<div id="stock" class="stock-4" style="background: url('./img/slippi-hud/stocks/${this.playerData[1].slippi.character.id}/${this.playerData[1].slippi.character.costumeId}.png'); transform: scale(${1/6}); width: 192px; height: 192px;"></div>
 					</div>
-					<div id="dmg" class="damage">${this.playerData[1].slippi.damage}</div>
+${(this.playerData[1].slippi.damage>300)
+? html `<div id="dmg" class="damage" style="color: rgb(80,0,0);">${this.playerData[1].slippi.damage}</div>`
+: html `<div id="dmg" class="damage" style="color: rgb(${Math.floor(((this.playerData[1].slippi.damage/300)*-175)+255)},${Math.floor(((this.playerData[1].slippi.damage/300)*-255)+255)},${Math.floor(((this.playerData[1].slippi.damage/300)*-255)+255)});">${this.playerData[1].slippi.damage}</div>`	
+}
 					<div id="name" class="name">${this.playerData[1].slippi.display}</div>
 
 			</div>
