@@ -13,11 +13,11 @@ None, lets go DragonBane0!!!!
 ### Why, just Why?
 I'm a madman, obviously
 ### Hey, my font doesn't look right.
-That's not a question, but you likely need to install the [Metropolis Light Font](https://www.1001fonts.com/metropolis-font.html)
+That's not a question, but you likely need to install the [Metropolis Light and Metropolis Black Fonts](https://www.1001fonts.com/metropolis-font.html)
 ### I don't like the way it looks
 And? All you have to do is make your own html/css, the source code is right here.
 ### What are all the variables I can call?
-See that folder labeled schemas? There be the answers you seek.
+The Debug template contains the answers you seek.
 ### Whats this coded in?
 Node, Javascript, and [Lit](https://lit.dev) as I understand.
 # Credits

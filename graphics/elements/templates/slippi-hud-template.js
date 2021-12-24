@@ -401,8 +401,6 @@ ${(this.playerData[1].slippi.damage>300)
 			</div>
 		<div id="panels" class="panel-container">
 			<div id="timer">${this.generalData.slippi.timer.formatted}</div>
-			<div id="tournament">${this.generalData.tournament.name}</div>
-			<div id="round">${this.generalData.tournament.round}</div>
 			<div id="game"><div id="gametext">GAME ${this.playerData[1].score.score+this.playerData[0].score.score+1}</div></div>
 		</div>
 ${this.generalData.tournament.inputDisplay

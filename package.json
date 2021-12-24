@@ -1,10 +1,11 @@
 {
   "name": "slippi-hud",
   "description": "Slippi HUD",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "contributors": [
     "Marwin Misselhorn",
-    "Steven Knepper"
+    "Steven Knepper",
+	"PartlyAwesome"
   ],
   "dependencies": {
     "@polymer/app-layout": "^3.0.0",
