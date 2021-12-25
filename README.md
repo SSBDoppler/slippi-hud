@@ -46,3 +46,7 @@ SlippiHUD@gmail.com
 ### David Kimball
 #### Melee HD Assets
 [website](http://davidvkimball.com)
+
+### Vince Au
+#### Slp-Parser
+[Slp-Parser](https://github.com/vinceau)
