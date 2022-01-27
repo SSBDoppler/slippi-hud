@@ -15,6 +15,10 @@
 			"name": {
 				"type": "string",
 				"default": ""
+			},
+			"sponsor": {
+				"type": "string",
+				"default": ""
 			}
 		}
 	},

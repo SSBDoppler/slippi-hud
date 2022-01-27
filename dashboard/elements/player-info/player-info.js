@@ -5,6 +5,7 @@ import { style, template } from './player-info-template.js';
 
 //Replicants
 const players = nodecg.Replicant('players');
+const tournament = nodecg.Replicant('tournament');
 
 export class PlayerInfo extends LitElement {
 
@@ -14,7 +15,9 @@ export class PlayerInfo extends LitElement {
 
 	static get properties() {
 		return {
-			players: { type: Array }
+			players: { type: Array },
+			scores: { type: Array },
+			autoScoreEnabled: { type: Boolean }
 		}
 	}
 
@@ -27,10 +30,13 @@ export class PlayerInfo extends LitElement {
 		super();
 
 		this.players = [];
+		this.scores = [];
+		this.autoScoreEnabled = false;
 
 		const replicants =
 			[
-				players
+				players,
+				tournament
 			];
 
 		let numDeclared = 0;
@@ -58,6 +64,26 @@ export class PlayerInfo extends LitElement {
 							}
 						}
 					});
+
+					tournament.on('change', (newVal, oldVal) => {
+
+						if (!newVal)
+							return;
+
+						if (!oldVal) {
+							this.scores = JSON.parse(JSON.stringify(newVal.scores));
+						}
+						else {
+							let oldString = JSON.stringify(oldVal.scores);
+							let newString = JSON.stringify(newVal.scores);
+
+							if (oldString != newString) {
+								this.scores = JSON.parse(newString);
+							}
+						}
+
+						this.autoScoreEnabled = newVal.autoScore;
+					});
 				}
 			});
 		});
@@ -65,8 +91,11 @@ export class PlayerInfo extends LitElement {
 	}
 
 	_playerIndexChange(event) {
-		let newIndex = Number.parseInt(event.target.value);
 
+		let portName = event.target.value;
+
+		let newIndex = portName === "Lower" ? 0 : 1; 
+ 
 		if (newIndex < 0 || newIndex >= players.value.length)
 			return;
 
@@ -75,6 +104,7 @@ export class PlayerInfo extends LitElement {
 		let playerIndex = Number.parseInt(event.target.id.split("_")[1]);
 
 		let oldSlippiIndex = players.value[playerIndex].slippiIndex;
+
 		players.value[playerIndex].slippiIndex = newIndex;
 
 		//Check if another player already uses that index, if so swap automatically
@@ -101,6 +131,17 @@ export class PlayerInfo extends LitElement {
 		players.value[playerIndex].name = newName;
 	}
 
+	_sponsorNameChange(event) {
+		let newSponsor = event.target.value;
+
+		//console.log("New sponsor:", newSponsor, "from:", event.target.id);
+
+		let playerIndex = Number.parseInt(event.target.id.split("_")[1]);
+
+		players.value[playerIndex].sponsor = newSponsor;
+	}
+
+	/*
 	_swapNamesButtonClicked() {
 
 		//ToDo: Hardcoded for now...
@@ -108,6 +149,42 @@ export class PlayerInfo extends LitElement {
 
 		players.value[0].name = players.value[1].name;
 		players.value[1].name = oldPlayer1Name;
+	}
+	*/
+
+	_scoreChange(event) {
+		let newScore = Number.parseInt(event.target.value);
+
+		if (newScore < 0 || newScore > 100)
+			return;
+
+		let scoreIndex = Number.parseInt(event.target.id.split("_")[1]);
+
+		//console.log("New score:", newScore, "for index:", scoreIndex);
+
+		tournament.value.scores[players.value[scoreIndex].slippiIndex].score = newScore;
+	}
+
+	/*
+	_swapScoresButtonClicked(event) {
+		let oldScore = tournament.value.scores[0];
+
+		tournament.value.scores[0] = tournament.value.scores[1];
+		tournament.value.scores[1] = oldScore;
+	}
+	*/
+
+	_resetScoresButtonClicked(event) {
+		nodecg.sendMessage("tournament_resetScores", 2);
+	}
+
+	_autoScoreRadioChange(event) {
+		if (event.target.value == "true") {
+			tournament.value.autoScore = true;
+		}
+		else {
+			tournament.value.autoScore = false;
+		}
 	}
 }
 

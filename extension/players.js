@@ -15,7 +15,8 @@ if (players.value.length < playerCount) {
 		let player = {
 			id: i,
 			slippiIndex: i,
-			name: ""
+			name: "",
+			sponsor: ""
 		};
 
 		players.value.push(player);

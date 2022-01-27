@@ -5,7 +5,7 @@
   "contributors": [
     "Marwin Misselhorn",
     "Steven Knepper",
-	"PartlyAwesome"
+    "PartlyAwesome"
   ],
   "dependencies": {
     "@polymer/app-layout": "^3.0.0",
@@ -32,14 +32,15 @@
     "@polymer/paper-toolbar": "^3.0.0",
     "@polymer/polymer": "^3.0.0",
     "@types/node": "^10.14.4",
-    "@vaadin/vaadin-checkbox": "^21.0.0-alpha9",
-    "@vaadin/vaadin-combo-box": "21.0.0-alpha9",
-    "@vaadin/vaadin-text-field": "^21.0.0-alpha9",
-    "@vaadin/vaadin-button": "^21.0.0-alpha9",
-    "@vaadin/vaadin-grid": "^21.0.0-alpha9",
-    "@vaadin/vaadin-ordered-layout": "^21.0.0-alpha9",
-    "@vaadin/vaadin-select": "^21.0.0-alpha9",
-    "@vaadin/vaadin-template-renderer": "21.0.0-alpha9",
+    "@vaadin/vaadin-checkbox": "^20.0.5",
+    "@vaadin/vaadin-combo-box": "^20.0.5",
+    "@vaadin/vaadin-radio-button": "^20.0.5",
+    "@vaadin/vaadin-text-field": "^20.0.5",
+    "@vaadin/vaadin-button": "^20.0.5",
+    "@vaadin/vaadin-grid": "^20.0.5",
+    "@vaadin/vaadin-ordered-layout": "^20.0.5",
+    "@vaadin/vaadin-select": "^20.0.5",
+    "@vaadin/vaadin-template-renderer": "^21.0.0",
     "@webcomponents/webcomponentsjs": "^2.2.10",
     "@slippi/slippi-js": "^6.1.1",
     "@vinceau/slp-realtime": "https://github.com/PartlyAwesome/slp-realtime#b486fb5429a5e6256079d374e11ed50bb0ca7363",
@@ -89,16 +90,8 @@
       {
         "name": "players",
         "title": "Player Info",
-        "width": 3,
+        "width": 5,
         "file": "player-panel.html",
-        "headerColor": "#2d4e8a",
-        "workspace": "Main Dash"
-      },
-      {
-        "name": "scores",
-        "title": "Score",
-        "width": 2,
-        "file": "score-panel.html",
         "headerColor": "#2d4e8a",
         "workspace": "Main Dash"
       },
