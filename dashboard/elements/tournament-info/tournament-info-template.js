@@ -33,6 +33,21 @@ return css`
   margin-right: auto;
 }
 
+#tournyBestOf {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#commentatorLayout {
+  height: 80px;
+}
+
+.commentatorName {
+  width: 180px;
+  margin-left: 10px;
+  margin-right: auto;
+}
+
 #inputDisplayCheckbox {
   margin-top: 20px;
   margin-left: auto;
@@ -48,6 +63,20 @@ return html`
 <vaadin-vertical-layout id="layout">
   <vaadin-text-field id="tournyName" theme="slippi-style" label="Name" value=${this.tournyName} clear-button-visible @change=${this._tournyNameChange}></vaadin-text-field>
   <vaadin-text-field id="tournyRound" theme="slippi-style" label="Round" value=${this.tournyRound} clear-button-visible @change=${this._tournyRoundChange}></vaadin-text-field>
+  <vaadin-select id="tournyBestOf" theme="slippi-style" label="Best of #" value=${this.tournyBestOf} @change=${this._tournyBestOfChange}>
+        <template>
+          <vaadin-list-box>
+            <vaadin-item>1</vaadin-item>
+            <vaadin-item>3</vaadin-item>
+			<vaadin-item>5</vaadin-item>
+          </vaadin-list-box>
+        </template>
+  </vaadin-select>
+  <vaadin-horizontal-layout id="commentatorLayout">
+    ${repeat(this.commentators, (item) => item.id, (item, index) => html`
+      <vaadin-text-field id=${'commentator_' + index} class="commentatorName" theme="slippi-style" label=${'Commentator ' + (index + 1)} value=${item.name} clear-button-visible @change=${this._commentatorNameChange}></vaadin-text-field>
+    `)}
+  </vaadin-horizontal-layout>
   <vaadin-checkbox id="inputDisplayCheckbox" theme="slippi-style" ?checked=${this.inputDisplayEnabled} @change=${this._inputDisplayCheckboxChange}>Enable Input Display</vaadin-checkbox>
 </vaadin-vertical-layout>
 `;

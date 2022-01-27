@@ -8,8 +8,13 @@ const slippi = nodecg.Replicant('slippi');
 
 //Statics
 const minScoreCount = 2;
+const minCommentatorCount = 2;
+const resetScoreTimeout = 10 * 1000;
 
 //Ensure enough score entries exist
+if (!tournament.value.scores)
+	tournament.value.scores = [];
+
 if (tournament.value.scores.length < minScoreCount) {
 
 	for (let i = tournament.value.scores.length; i < minScoreCount; i++) {
@@ -19,12 +24,35 @@ if (tournament.value.scores.length < minScoreCount) {
 	}
 }
 
+//Ensure enough commentator entries exist
+if (!tournament.value.commentators)
+	tournament.value.commentators = [];
+
+if (tournament.value.commentators.length < minCommentatorCount) {
+
+	for (let i = tournament.value.commentators.length; i < minCommentatorCount; i++) {
+
+		let commentator = createCommentatorEntry();
+		commentator.id = i;
+
+		tournament.value.commentators.push(commentator);
+	}
+}
+
 //Utils
 function createPlayerScoreEntry() {
 
 	return {
 		score: 0,
 		rawResults: []
+	};
+}
+
+function createCommentatorEntry() {
+
+	return {
+		id: -1,
+		name: ""
 	};
 }
 
@@ -194,4 +222,14 @@ nodecg.listenFor('tournament_autoGameEnd', (data) => {
 	}
 
 	console.log("New score is:", tournament.value.scores);
+	nodecg.sendMessage("tournament_playerWonGame", winnerPlayer.id);
+
+	//Reset scores automatically once someone wins
+	if (tournament.value.scores[winnerPlayer.id].score > (tournament.value.bestOf / 2)) {
+
+		setTimeout(() => {
+			nodecg.sendMessage("tournament_resetScores", 2);
+			nodecg.sendMessage("tournament_playerWonBestOf", winnerPlayer.id);
+		}, resetScoreTimeout);
+	}
 });

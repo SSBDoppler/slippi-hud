@@ -16,6 +16,8 @@ export class TournamentInfo extends LitElement {
 		return {
 			tournyName: { type: String },
 			tournyRound: { type: String },
+			tournyBestOf: { type: String },
+			commentators: { type: Array },
 			inputDisplayEnabled: { type: Boolean }
 		}
 	}
@@ -30,6 +32,8 @@ export class TournamentInfo extends LitElement {
 
 		this.tournyName = "";
 		this.tournyRound = "";
+		this.tournyBestOf = "";
+		this.commentators = [];
 		this.inputDisplayEnabled = false;
 
 		const replicants =
@@ -52,7 +56,20 @@ export class TournamentInfo extends LitElement {
 
 						this.tournyName = newVal.name;
 						this.tournyRound = newVal.round;
+						this.tournyBestOf = newVal.bestOf.toString();
 						this.inputDisplayEnabled = newVal.inputDisplay;
+
+						if (!oldVal) {
+							this.commentators = JSON.parse(JSON.stringify(newVal.commentators));
+						}
+						else {
+							let oldString = JSON.stringify(oldVal.commentators);
+							let newString = JSON.stringify(newVal.commentators);
+
+							if (oldString != newString) {
+								this.commentators = JSON.parse(newString);
+							}
+						}
 					});
 				}
 			});
@@ -68,6 +85,21 @@ export class TournamentInfo extends LitElement {
 	_tournyRoundChange(event) {
 		let newRound = event.target.value;
 		tournament.value.round = newRound;
+	}
+
+	_tournyBestOfChange(event) {
+		let newBestOf = Number.parseInt(event.target.value);
+		tournament.value.bestOf = newBestOf;
+	}
+
+	_commentatorNameChange(event) {
+		let newName = event.target.value;
+
+		//console.log("New comm name:", newName, "from:", event.target.id);
+
+		let commentatorIndex = Number.parseInt(event.target.id.split("_")[1]);
+
+		tournament.value.commentators[commentatorIndex].name = newName;
 	}
 
 	_inputDisplayCheckboxChange(event) {

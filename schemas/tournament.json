@@ -10,6 +10,27 @@
 			"type": "string",
 			"default": ""
 		},
+		"bestOf": {
+			"type": "number",
+			"default": 1
+		},
+		"commentators": {
+			"type": "array",
+			"default": [],
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "number",
+						"default": 0
+					},
+					"name": {
+						"type": "string",
+						"default": ""
+					}
+				}
+			}
+		},
 		"scores": {
 			"type": "array",
 			"default": [],
