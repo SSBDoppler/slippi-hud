@@ -338,6 +338,12 @@ left: 47px;
 	width: 130px;
 	height: 31px;
 }
+#sponsor {
+	font-size: 10px;
+}
+#sidename {
+	font-size: 22px;
+}
 .clport {
 		background: url(./img/slippi-hud/hud/clport${this.playerData[0].slippi.port}.png) no-repeat;
 		right: -11px;
@@ -360,11 +366,11 @@ left: 47px;
 	<div id="overlay">
 		<div id='logo'></div>
 			<div id='cameraleft'>
-			<div id='cameranameleft'>${this.playerData[0].player.name}</div>
+			<div id='cameranameleft'><span id='sponsor'>${this.playerData[0].player.sponsor}</span> | <span id='sidename'>${this.playerData[0].player.name}</span></div>
 			<div id='cameraport' class='clport'><div id='portfont'>Port ${this.playerData[0].slippi.port}</div></div>
 		</div>
 		<div id='cameraright'>
-			<div id='cameranameright'>${this.playerData[1].player.name}</div>
+			<div id='cameranameright'><span id='sponsor'>${this.playerData[1].player.sponsor}</span> | <span id='sidename'>${this.playerData[1].player.name}</span></div>
 			<div id='cameraport' class='crport'><div id='portfont'>Port ${this.playerData[1].slippi.port}</div></div>
 		</div>
 			<div id="player1" class="port-${this.playerData[0].slippi.port}">
@@ -374,7 +380,7 @@ left: 47px;
 						<div id="stock" class="stock-3" style="background: url('./img/slippi-hud/stocks/${this.playerData[0].slippi.character.id}/${this.playerData[0].slippi.character.costumeId}.png'); transform: scale(${1/6}); width: 192px; height: 192px;"></div>
 						<div id="stock" class="stock-4" style="background: url('./img/slippi-hud/stocks/${this.playerData[0].slippi.character.id}/${this.playerData[0].slippi.character.costumeId}.png'); transform: scale(${1/6}); width: 192px; height: 192px;"></div>
 					</div>
-					<div id="score">${this.playerData[0].score.score}</div>
+					<div id="score">${this.generalData.tournament.scores[this.playerData[0].slippi.id].score}</div>
 ${(this.playerData[0].slippi.damage>300)
 ? html `<div id="dmg" class="damage" style="color: rgb(80,0,0);">${this.playerData[0].slippi.damage}</div>`
 : html `<div id="dmg" class="damage" style="color: rgb(${Math.floor(((this.playerData[0].slippi.damage/300)*-175)+255)},${Math.floor(((this.playerData[0].slippi.damage/300)*-255)+255)},${Math.floor(((this.playerData[0].slippi.damage/300)*-255)+255)});">${this.playerData[0].slippi.damage}</div>`	
@@ -391,7 +397,7 @@ ${(this.playerData[0].slippi.damage>300)
 						<div id="stock" class="stock-3" style="background: url('./img/slippi-hud/stocks/${this.playerData[1].slippi.character.id}/${this.playerData[1].slippi.character.costumeId}.png'); transform: scale(${1/6}); width: 192px; height: 192px;"></div>
 						<div id="stock" class="stock-4" style="background: url('./img/slippi-hud/stocks/${this.playerData[1].slippi.character.id}/${this.playerData[1].slippi.character.costumeId}.png'); transform: scale(${1/6}); width: 192px; height: 192px;"></div>
 					</div>
-					<div id="score">${this.playerData[1].score.score}</div>
+					<div id="score">${this.generalData.tournament.scores[this.playerData[1].slippi.id].score}</div>
 ${(this.playerData[1].slippi.damage>300)
 ? html `<div id="dmg" class="damage" style="color: rgb(80,0,0);">${this.playerData[1].slippi.damage}</div>`
 : html `<div id="dmg" class="damage" style="color: rgb(${Math.floor(((this.playerData[1].slippi.damage/300)*-175)+255)},${Math.floor(((this.playerData[1].slippi.damage/300)*-255)+255)},${Math.floor(((this.playerData[1].slippi.damage/300)*-255)+255)});">${this.playerData[1].slippi.damage}</div>`	

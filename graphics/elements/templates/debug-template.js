@@ -13,6 +13,11 @@ return html`
 <div style="font-weight: bold;">GENERAL DATA</div>
 <div>this.generalData.tournament.name "${this.generalData.tournament.name}"</div>
 <div>this.generalData.tournament.round "${this.generalData.tournament.round}"</div>
+<div>this.generalData.tournament.bestOf "${this.generalData.tournament.bestOf}"</div>
+<div>this.generalData.tournament.commentators[0].id "${this.generalData.tournament.commentators[0].id}"</div>
+<div>this.generalData.tournament.commentators[0].name "${this.generalData.tournament.commentators[0].name}"</div>
+<div>this.generalData.tournament.commentators[1].id "${this.generalData.tournament.commentators[1].id}"</div>
+<div>this.generalData.tournament.commentators[1].name "${this.generalData.tournament.commentators[1].name}"</div>
 <div>this.generalData.tournament.autoScore "${this.generalData.tournament.autoScore}"</div>
 <div>this.generalData.tournament.inputDisplay "${this.generalData.tournament.inputDisplay}"</div>
 <div>this.generalData.slippi.connected "${this.connectionConnected}"</div>
@@ -33,7 +38,8 @@ return html`
 <div>this.generalData.slippi.stage.shortName "${this.generalData.slippi.stage.shortName}"</div>
 <div style="font-weight: bold;">PLAYER 1</div>
 <div>this.playerData[0].player.name "${this.playerData[0].player.name}"</div>
-<div>this.playerData[0].score.score "${this.playerData[0].score.score}"</div>
+<div>this.playerData[0].player.sponsor "${this.playerData[0].player.sponsor}"</div>
+<div>this.generalData.tournament.scores[this.playerData[0].slippi.id].score "${this.generalData.tournament.scores[this.playerData[0].slippi.id].score}"</div>
 <div>this.playerData[0].slippi.id "${this.playerData[0].slippi.id}"</div>
 <div>this.playerData[0].slippi.index "${this.playerData[0].slippi.index}"</div>
 <div>this.playerData[0].slippi.port "${this.playerData[0].slippi.port}"</div>
@@ -68,7 +74,8 @@ return html`
 <div>this.playerData[0].slippi.controller.pressedButtons.D_LEFT "${this.playerData[0].slippi.controller.pressedButtons.D_LEFT}"</div>
 <div style="font-weight: bold;">PLAYER 2</div>
 <div>this.playerData[1].player.name "${this.playerData[1].player.name}"</div>
-<div>this.playerData[1].score.score "${this.playerData[1].score.score}"</div>
+<div>this.playerData[1].player.sponsor "${this.playerData[1].player.sponsor}"</div>
+<div>this.generalData.tournament.scores[this.playerData[1].slippi.id].score "${this.generalData.tournament.scores[this.playerData[1].slippi.id].score}"</div>
 <div>this.playerData[1].slippi.id "${this.playerData[1].slippi.id}"</div>
 <div>this.playerData[1].slippi.index "${this.playerData[1].slippi.index}"</div>
 <div>this.playerData[1].slippi.port "${this.playerData[1].slippi.port}"</div>
