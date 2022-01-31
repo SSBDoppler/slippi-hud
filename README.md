@@ -48,5 +48,5 @@ SlippiHUD@gmail.com
 [website](http://davidvkimball.com)
 
 ### Vince Au
-#### Slp-Parser
+#### Slp-Realtime
 [Slp-Realtime](https://github.com/vinceau)

@@ -1,1 +1,22 @@
-{ "hudTemplatePath": "elements/templates" }
+{
+    "hudTemplatePath": "elements/templates",
+    "obs": {
+        "scenes": {
+            "Handwarmer": {
+                "delay": 0
+            },
+            "Tournament": {
+                "delay": 0
+            },
+            "Game End": {
+                "delay": 1
+            },
+            "Set End": {
+                "delay": 1
+            },
+            "Wait": {
+                "delay": 0
+            }
+        }
+    }
+}
