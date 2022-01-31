@@ -1,21 +1,59 @@
 {
-    "hudTemplatePath": "elements/templates",
-    "obs": {
-        "scenes": {
-            "Handwarmer": {
-                "delay": 0
-            },
-            "Tournament": {
-                "delay": 0
-            },
-            "Game End": {
-                "delay": 1
-            },
-            "Set End": {
-                "delay": 1
-            },
-            "Wait": {
-                "delay": 0
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "hudTemplatePath": {
+            "type": "string",
+            "default": "elements/templates"
+        },
+        "obs": {
+            "type": "object",
+            "properties": {
+                "scenes": {
+                    "type": "object",
+                    "properties": {
+                        "Handwarmer": {
+                            "type": "object",
+                            "properties": {
+                                "delay": {
+                                    "default": 0
+                                }
+                            }
+                        },
+                        "Tournament": {
+                            "type": "object",
+                            "properties": {
+                                "delay": {
+                                    "default": 0
+                                }
+                            }
+                        },
+                        "Game End": {
+                            "type": "object",
+                            "properties": {
+                                "delay": {
+                                    "default": 1
+                                }
+                            }
+                        },
+                        "Set End": {
+                            "type": "object",
+                            "properties": {
+                                "delay": {
+                                    "default": 1
+                                }
+                            }
+                        },
+                        "Wait": {
+                            "type": "object",
+                            "properties": {
+                                "delay": {
+                                    "default": 0
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
