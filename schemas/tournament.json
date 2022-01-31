@@ -58,6 +58,10 @@
 		"inputDisplay": {
 			"type": "boolean",
 			"default": false
+		},
+		"matchScored": {
+			"type": "boolean",
+			"default": false
 		}
 	}
 }

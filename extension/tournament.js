@@ -161,6 +161,7 @@ nodecg.listenFor('tournament_resetScores', (playerCount) => {
 
 	//Clear array, then create fresh entries
 	tournament.value.scores = [];
+	tournament.value.matchScored = false;
 
 	for (let i = 0; i < playerCount; i++) {
 
@@ -171,6 +172,8 @@ nodecg.listenFor('tournament_resetScores', (playerCount) => {
 
 //For Slippi API
 nodecg.listenFor('tournament_autoGameStart', (data) => {
+
+	tournament.value.matchScored = false;
 
 	if (!tournament.value.autoScore)
 		return;
@@ -232,4 +235,6 @@ nodecg.listenFor('tournament_autoGameEnd', (data) => {
 			nodecg.sendMessage("tournament_playerWonBestOf", winnerPlayer.id);
 		}, resetScoreTimeout);
 	}
+
+	tournament.value.matchScored = true;
 });

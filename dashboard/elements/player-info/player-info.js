@@ -4,6 +4,7 @@ import { customElement, property } from 'lit/decorators.js';
 import { style, template } from './player-info-template.js';
 
 //Replicants
+const slippi = nodecg.Replicant('slippi');
 const players = nodecg.Replicant('players');
 const tournament = nodecg.Replicant('tournament');
 
@@ -35,6 +36,7 @@ export class PlayerInfo extends LitElement {
 
 		const replicants =
 			[
+				slippi,
 				players,
 				tournament
 			];
@@ -161,8 +163,12 @@ export class PlayerInfo extends LitElement {
 		let scoreIndex = Number.parseInt(event.target.id.split("_")[1]);
 
 		//console.log("New score:", newScore, "for index:", scoreIndex);
-
+		let oldScore = tournament.value.scores[players.value[scoreIndex].slippiIndex].score;
 		tournament.value.scores[players.value[scoreIndex].slippiIndex].score = newScore;
+
+		//If a score was manually increased after a match is done, count this as "matchScored"
+		if (slippi.value.gameInfo.finished && newScore > oldScore)
+			tournament.value.matchScored = true;
 	}
 
 	/*

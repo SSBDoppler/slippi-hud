@@ -45,7 +45,8 @@
     "@slippi/slippi-js": "^6.1.1",
     "@vinceau/slp-realtime": "https://github.com/PartlyAwesome/slp-realtime#b486fb5429a5e6256079d374e11ed50bb0ca7363",
     "rxjs": "^6.6.7",
-    "lit": "^2.0.0-rc.2"
+    "lit": "^2.0.0-rc.2",
+    "obs-websocket-js": "^4.0.3"
   },
   "devDependencies": {},
   "optionalDependencies": {},
@@ -56,13 +57,6 @@
     "compatibleRange": "^1.8.1",
     "transformBareModuleSpecifiers": true,
     "dashboardPanels": [
-      {
-        "name": "test",
-        "title": "Test",
-        "file": "dashboard.html",
-        "headerColor": "#2d4e8a",
-        "fullbleed": true
-      },
       {
         "name": "connection",
         "title": "Slippi Connection",
@@ -100,6 +94,14 @@
         "title": "Templates",
         "width": 2,
         "file": "template-panel.html",
+        "headerColor": "#2d4e8a",
+        "workspace": "Main Dash"
+      },
+      {
+        "name": "obs",
+        "title": "OBS Connection",
+        "width": 2,
+        "file": "obs-connection-panel.html",
         "headerColor": "#2d4e8a",
         "workspace": "Main Dash"
       }

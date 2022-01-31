@@ -1,0 +1,45 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"type": "object",
+	"properties": {
+		"connection": {
+			"type": "object",
+			"properties": {
+				"connected": {
+					"type": "boolean",
+					"default": false
+				},
+				"address": {
+					"type": "string",
+					"default": "localhost"
+				},
+				"port": {
+					"type": "number",
+					"default": 4444
+				},
+				"password": {
+					"type": "string",
+					"default": ""
+				}
+			}
+		},
+		"scenes": {
+			"type": "object",
+			"properties": {
+				"activeScene": {
+					"type": "string",
+					"default": ""
+				},
+				"waitTime": {
+					"type": "number",
+					"default": 0
+				},
+				"autoSwitch": {
+					"type": "boolean",
+					"default": false
+				}
+			}
+		}
+	},
+	"required": [ "connection", "scenes" ]
+}
