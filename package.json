@@ -42,11 +42,12 @@
     "@vaadin/vaadin-select": "^20.0.5",
     "@vaadin/vaadin-template-renderer": "^21.0.0",
     "@webcomponents/webcomponentsjs": "^2.2.10",
-    "@slippi/slippi-js": "^6.1.1",
-    "@vinceau/slp-realtime": "https://github.com/PartlyAwesome/slp-realtime#b486fb5429a5e6256079d374e11ed50bb0ca7363",
-    "rxjs": "^6.6.7",
+    "@slippi/slippi-js": "^6.1.3",
+    "@vinceau/slp-realtime": "https://github.com/dragonbane0/slp-realtime/tarball/ade1ce10fd7fe58e91d4d951d361c5ec55b3f9a1",
     "lit": "^2.0.0-rc.2",
-    "obs-websocket-js": "^4.0.3"
+    "obs-websocket-js": "^4.0.3",
+    "rxjs": "^6.6.7",
+    "slp-stats-nodecg": "https://github.com/dragonbane0/slp-stats-nodecg/tarball/554c9acc2901143920c7fd5ace2ae7ba62ecf867"
   },
   "devDependencies": {},
   "optionalDependencies": {},
@@ -113,13 +114,13 @@
         "height": 1080,
         "singleInstance": false
       },
-	  {
+      {
         "file": "Handwarmer.html",
         "width": 1920,
         "height": 1080,
         "singleInstance": false
       },
-	  {
+      {
         "file": "Wait.html",
         "width": 1920,
         "height": 1080,

@@ -1,23 +1,48 @@
 'use strict';
 
+// Native
+const fs = require('fs');
+const path = require('path');
+
 const { SlpLiveStream, SlpRealTime, getStageName, getStageShortName, getCharacterName, getCharacterShortName, getCharacterColorName, bitmaskToButtons } = require("@vinceau/slp-realtime");
-const { ConnectionStatus, ConnectionEvent, Ports } = require("@slippi/slippi-js");
+const { ConnectionStatus, ConnectionEvent, Ports, SlpFileWriterEvent } = require("@slippi/slippi-js");
 
 //Ours
 const nodecg = require('./util/nodecg-api-context').get();
 const TimeObject = require("./util/time-object");
+const { computeSlpStats } = require("./stats");
 
+//Replicants
 const slippi = nodecg.Replicant('slippi');
 
 //Statics
 const slippi_matchTimer = "08:00";
 const slippi_frameRate = 60;
+const slippi_consoleNickname = "unknown";
 
 var globalStream = null;
 var realTimeSubs = [];
 
 //Create timer
 slippi.value.gameInfo.timer = new TimeObject(slippi.value.gameInfo.timer.rawFrames, slippi_frameRate);
+
+//Get slp recording path
+var slippi_recordingsPath;
+
+if (!nodecg.bundleConfig.slpDumpPath || nodecg.bundleConfig.slpDumpPath.inBundle) {
+	let targetPath = nodecg.bundleConfig.slpDumpPath ? nodecg.bundleConfig.slpDumpPath.path : "slpDumps";
+	slippi_recordingsPath = path.resolve(process.env.NODECG_ROOT, `bundles/${nodecg.bundleName}/${targetPath}/`);
+}
+else {
+	slippi_recordingsPath = path.resolve(nodecg.bundleConfig.slpDumpPath.path);
+}
+
+console.log("Use SLP recording path:", slippi_recordingsPath);
+
+//Ensure the slp recording folder exists
+if (!fs.existsSync(slippi_recordingsPath))
+	fs.mkdirSync(slippi_recordingsPath, { recursive: true });
+
 
 //Utils
 function cleanupConnection() {
@@ -238,7 +263,13 @@ async function connectToSlippi(type = "dolphin", address = "0.0.0.0", slpPort = 
 	//type: "dolphin" or "console"
 	console.log(`Attempt to connect to slippi on port: ${slpPort}`);
 
-	const stream = new SlpLiveStream(type);
+	let fileOptions = {
+		outputFiles: true,
+		folderPath: slippi_recordingsPath,
+		consoleNickname: slippi_consoleNickname
+	};
+
+	const stream = new SlpLiveStream(type, fileOptions);
 
 	stream.connection.on(ConnectionEvent.ERROR, (err) => {
 		//Silently ignore errors for now
@@ -268,6 +299,11 @@ async function connectToSlippi(type = "dolphin", address = "0.0.0.0", slpPort = 
 		});
 	});
 
+	stream.on(SlpFileWriterEvent.FILE_COMPLETE, filePath => {
+		console.log("Dumped a SLP recording to:", filePath);
+		nodecg.sendMessage("stats_finishGame", filePath);
+	});
+
 	globalStream = stream;
 	await stream.start(address, slpPort);
 }
@@ -287,31 +323,6 @@ function disconnectFromSlippi() {
 	globalStream = null;
 }
 
-//TEST
-async function test() {
-
-	const device = "dolphin";
-	const consolePort = 2000;
-
-	if (device == "dolphin") {
-
-		try {
-			await connectToSlippi("dolphin", "127.0.0.1", Ports.DEFAULT);
-		} catch (err) {
-			console.error("Failed to connect to Dolphin! Is Slippi Dolphin running?", err);
-		}
-	}
-	else { //console
-		try {
-			console.log(`Connecting on port: ${consolePort}`);
-			await connectToSlippi("relay", "0.0.0.0", consolePort);
-		} catch (err) {	
-			console.error(`Failed to connect to port ${consolePort}! Is the relay running?`, err);
-		}
-	}
-}
-
-//test();
 
 //Listeners
 nodecg.listenFor('slippi_connect', (params) => {
@@ -331,3 +342,36 @@ nodecg.listenFor('slippi_connect', (params) => {
 nodecg.listenFor('slippi_disconnect', () => {
 	disconnectFromSlippi();
 });
+
+
+//TEST
+async function test() {
+
+	const device = "dolphin";
+	const consolePort = 2000;
+
+	if (device == "dolphin") {
+
+		try {
+			await connectToSlippi("dolphin", "127.0.0.1", Ports.DEFAULT);
+		} catch (err) {
+			console.error("Failed to connect to Dolphin! Is Slippi Dolphin running?", err);
+		}
+	}
+	else { //console
+		try {
+			console.log(`Connecting on port: ${consolePort}`);
+			await connectToSlippi("relay", "0.0.0.0", consolePort);
+		} catch (err) {
+			console.error(`Failed to connect to port ${consolePort}! Is the relay running?`, err);
+		}
+	}
+}
+
+//test();
+
+//Auto try to connect on boot if connection status was last true (using last known data)
+if (slippi.value.connection.connected) {
+	disconnectFromSlippi();
+	nodecg.sendMessage("slippi_connect", { type: slippi.value.connection.type, address: slippi.value.connection.address, port: slippi.value.connection.port });
+}

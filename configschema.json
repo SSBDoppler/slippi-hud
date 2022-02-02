@@ -1,60 +1,86 @@
 {
-    "type": "object",
-    "additionalProperties": false,
-    "properties": {
-        "hudTemplatePath": {
-            "type": "string",
-            "default": "elements/templates"
-        },
-        "obs": {
-            "type": "object",
-            "properties": {
-                "scenes": {
-                    "type": "object",
-                    "properties": {
-                        "Handwarmer": {
-                            "type": "object",
-                            "properties": {
-                                "delay": {
-                                    "default": 0
-                                }
-                            }
-                        },
-                        "Tournament": {
-                            "type": "object",
-                            "properties": {
-                                "delay": {
-                                    "default": 0
-                                }
-                            }
-                        },
-                        "Game End": {
-                            "type": "object",
-                            "properties": {
-                                "delay": {
-                                    "default": 1
-                                }
-                            }
-                        },
-                        "Set End": {
-                            "type": "object",
-                            "properties": {
-                                "delay": {
-                                    "default": 1
-                                }
-                            }
-                        },
-                        "Wait": {
-                            "type": "object",
-                            "properties": {
-                                "delay": {
-                                    "default": 0
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
+	"type": "object",
+	"additionalProperties": true,
+	"properties": {
+		"hudTemplatePath": {
+			"type": "string",
+			"default": "elements/templates"
+		},
+		"slpDumpPath": {
+			"type": "object",
+			"properties": {
+				"inBundle": {
+					"type": "boolean",
+					"default": true
+				},
+				"path": {
+					"type": "string",
+					"default": "slpDumps"
+				}
+			}
+		},
+		"obs": {
+			"type": "object",
+			"properties": {
+				"scenes": {
+					"type": "object",
+					"properties": {
+						"Handwarmer": {
+							"type": "object",
+							"properties": {
+								"delay": {
+									"default": 0
+								}
+							}
+						},
+						"Tournament": {
+							"type": "object",
+							"properties": {
+								"delay": {
+									"default": 0
+								}
+							}
+						},
+						"Game End": {
+							"type": "object",
+							"properties": {
+								"delay": {
+									"default": 1
+								}
+							}
+						},
+						"Set End": {
+							"type": "object",
+							"properties": {
+								"delay": {
+									"default": 1
+								}
+							}
+						},
+						"Wait": {
+							"type": "object",
+							"properties": {
+								"delay": {
+									"default": 0
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"extraStats": {
+			"type": "array",
+			"default": [
+				"ipm",
+				"dpo",
+				"lc",
+				"fb",
+				"ek",
+				"ld",
+				"sd",
+				"hdp"
+			]
+		}
+	}
 }

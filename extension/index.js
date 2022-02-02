@@ -15,4 +15,5 @@ module.exports = function(nodecg) {
 	require('./slippi');
 	require('./templates');
 	require('./obs');
+	require('./stats');
 };
