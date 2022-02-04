@@ -230,9 +230,10 @@ nodecg.listenFor('tournament_autoGameEnd', (data) => {
 	//Reset scores automatically once someone wins
 	if (tournament.value.scores[winnerPlayer.id].score > (tournament.value.bestOf / 2)) {
 
+		nodecg.sendMessage("tournament_playerWonBestOf", winnerPlayer.id);
+
 		setTimeout(() => {
 			nodecg.sendMessage("tournament_resetScores", 2);
-			nodecg.sendMessage("tournament_playerWonBestOf", winnerPlayer.id);
 		}, resetScoreTimeout);
 	}
 

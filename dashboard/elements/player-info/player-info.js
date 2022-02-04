@@ -163,12 +163,20 @@ export class PlayerInfo extends LitElement {
 		let scoreIndex = Number.parseInt(event.target.id.split("_")[1]);
 
 		//console.log("New score:", newScore, "for index:", scoreIndex);
-		let oldScore = tournament.value.scores[players.value[scoreIndex].slippiIndex].score;
-		tournament.value.scores[players.value[scoreIndex].slippiIndex].score = newScore;
+		let winnerIndex = players.value[scoreIndex].slippiIndex;
+		let oldScore = tournament.value.scores[winnerIndex].score;
+		tournament.value.scores[winnerIndex].score = newScore;
 
-		//If a score was manually increased after a match is done, count this as "matchScored"
-		if (slippi.value.gameInfo.finished && newScore > oldScore)
+		//If a score was manually increased after a match is done, count this as "matchScored" and as a game win for this player
+		if (slippi.value.gameInfo.finished && newScore > oldScore) {
+
+			//Delay message to allow replicant changes to propagate first
+			setTimeout(() => {
+				nodecg.sendMessage("tournament_playerWonGame", winnerIndex);
+			}, 100);
+
 			tournament.value.matchScored = true;
+		}
 	}
 
 	/*
