@@ -248,14 +248,12 @@ position: absolute;
 		<div id="best" class="title">Best Of ${this.generalData.tournament.bestOf} - Game ${this.generalData.tournament.scores[this.playerData[1].slippi.id].score+this.generalData.tournament.scores[this.playerData[0].slippi.id].score} Stats</div>
 	</div>
 
-	<div id="LName" class="name">${this.playerData[0].player.name}</div>
-	<div id="LSponsor" class="sponsor">${this.playerData[0].player.sponsor}</div>
-	<div id="LTag" class="tag">${this.playerData[0].slippi.tag}</div>
+	<div id="LName" class="name">${this.playerData[0].slippi.display}</div>
+	<div id="LSponsor" class="sponsor">${this.playerData[0].slippi.connect}</div>
 
 
-	<div id="RName" class="name">${this.playerData[1].player.name}</div>
-	<div id="RSponsor" class="sponsor">${this.playerData[1].player.sponsor}</div>
-	<div id="RTag" class="tag">${this.playerData[1].slippi.tag}</div>
+	<div id="RName" class="name">${this.playerData[1].slippi.display}</div>
+	<div id="RSponsor" class="sponsor">${this.playerData[1].slippi.connect}</div>
 
 	<div id="score">${this.generalData.tournament.scores[this.playerData[0].slippi.id].score}-${this.generalData.tournament.scores[this.playerData[1].slippi.id].score}</div>
 
