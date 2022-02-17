@@ -21,22 +21,14 @@ return html`
 	position:absolute;
 	left: 0px;
 	top: 0px;
-	background: url('./img/extras/SetEnd.png') no-repeat 0px 0px;
+	background: url('./img/extras/SetEnd-${this.statData.latestSet.gt}.png') no-repeat 0px 0px;
 	width: 1920px;
 	height: 1080px;
 }
-#tournament {
+#Title {
 	position: absolute;
-	top:1px;
+	top: 41px;
 	
-}
-#round {
-	position: absolute;
-	top: 60px;
-}
-#best {
-	position: absolute;
-	top: 120px;
 }
 #LComm {
 	position: absolute;
@@ -47,24 +39,19 @@ return html`
 #score {
 	position: absolute;
     text-align: center;
-    font-size: 77px;
-    color: white;
-    top: 842px;
+    font-size: 44px;
+    top: 870px;
     left: 869px;
     width: 181px;
 }
 
 #LSponsor{
 	position: absolute;
-	left: 164px;
-}
-
-#Ltag {
-	position: absolute;
+	left: 144px;
 }
 #RSponsor{
 	position: absolute;
-	left: 1484px;
+	left: 1505px;
 }
 #LPort {
 	position: absolute;
@@ -72,19 +59,21 @@ return html`
 }
 #LChar {
 	position: absolute;
-	background: url('./img/characters/${this.playerData[0].slippi.character.id}/${this.playerData[0].slippi.character.costumeId}/vs-left.png') no-repeat -109px 0px;
-	top: 163px;
-	width: 342px;
-	height: 558px;
-	left: 109px;
+	background: url('./img/characters/${this.playerData[0].slippi.character.id}/${this.playerData[0].slippi.character.costumeId}/vs-left.png') no-repeat 0px 50px;
+	top: -70px;
+	width: 679px;
+	height: 992px;
+	left: -60px;
+	transform: Scale(.5)
 }
 #RChar {
 	position: absolute;
-	background: url('./img/characters/${this.playerData[1].slippi.character.id}/${this.playerData[1].slippi.character.costumeId}/vs-right.png') no-repeat 0px 0px;
-	top: 163px;
-	width: 342px;
-	height: 558px;
-	left: 1484px;
+	background: url('./img/characters/${this.playerData[1].slippi.character.id}/${this.playerData[1].slippi.character.costumeId}/vs-right.png') no-repeat 0px 50px;
+	top: -70px;
+	width: 679px;
+	height: 992px;
+	left: 1302px;
+	transform: Scale(.5)
 }
 #RPort {
 	position: absolute;
@@ -100,73 +89,206 @@ return html`
 }
 #Index-${this.playerData[0].slippi.id}-Stats{
 position: absolute;
-    top: 205px;
-    left: 451px;
-	width: 300px;
-    font-size: 33px;
+    top: 222px;
+    left: 531px;
+	width: 156px;
+    font-size: 21px;
     text-align: center;
-    -webkit-text-stroke: thin black;
 }
 #Index-${this.playerData[1].slippi.id}-Stats{
 	position: absolute;
-    top: 205px;
-    left: 1170px;
-	width: 300px;
-    font-size: 33px;
+    top: 222px;
+    left: 1246px;
+	width: 156px;
+    font-size: 21px;
     text-align: center;
-    -webkit-text-stroke: thin black;
 }
 #statLabel{
 	position: absolute;
-    top: 205px;
+    top: 222px;
     left: 749px;
     width: 422px;
     height: 800px;
     color: white;
-    font-size: 33px;
+    font-size: 21px;
 }
 #Stat1 {
-	padding-top:3px;
+	padding-top: 6px;
 }
 #Stat2 {
-	padding-top: 26px;
+	padding-top: 35px;
 	
 }
 #Stat3 {
-	padding-top: 58px;
+	padding-top: 68px;
 	
 }
 #Stat4 {
-	padding-top: 38px;
+	padding-top: 48px;
 	
 }
 #Stat5 {
-	padding-top: 38px;
+	padding-top: 49px;
 	
 }
 #Stat6 {
-	padding-top: 38px;
+	padding-top: 50px;
 	
 }
 #LName {
 	position: absolute;
-    left: 131px;
+    left: 109px;
 }
 #RName {
 	position: absolute;
-	left: 1452px;
+	left: 1470px;
 }
-
-.title {
+#History {
 	position: absolute;
+	top: 741px;
+	width: 1019px;
+	left: 451px;
+}
+#g1-1 {
+	width: 192px;
+    height: 108px;
+    position: absolute;
+    top: 0px;
+    left: 413px;
+}
+#g1-2 {
+	width: 192px;
+    height: 108px;
+    position: absolute;
+    top: 0px;
+    left: 281px;
+}
+#g1-3 {
+	width: 192px;
+    height: 108px;
+    position: absolute;
+    top: 0px;
+    left: 16px;
+}
+#g1-4 {
+	width: 192px;
+    height: 108px;
+    position: absolute;
+    top: 0px;
+    left: 16px;
+}
+#g1-5 {
+	width: 192px;
+    height: 108px;
+    position: absolute;
+    top: 0px;
+    left: 16px;
+}
+#g2-2 {
+	width: 192px;
+    height: 108px;
+    position: absolute;
+    top: 0px;
+    left: 545px;
+}
+#g2-3 {
+	width: 192px;
+    height: 108px;
+    position: absolute;
+    top: 0px;
+    left: 413px;
+}
+#g2-4 {
+	width: 192px;
+    height: 108px;
+    position: absolute;
+    top: 0px;
+    left: 281px;
+}
+#g2-5 {
+	width: 192px;
+    height: 108px;
+    position: absolute;
+    top: 0px;
+    left: 215px;
+}
+#g3-3 {
+	width: 192px;
+    height: 108px;
+    position: absolute;
+    top: 0px;
+    left: 810px;
+}
+#g3-4 {
+	width: 192px;
+    height: 108px;
+    position: absolute;
+    top: 0px;
+    left: 545px;
+}
+#g3-5 {
+	width: 192px;
+    height: 108px;
+    position: absolute;
+    top: 0px;
+    left: 413px;
+}
+#g4-4 {
+	width: 192px;
+    height: 108px;
+    position: absolute;
+    top: 0px;
+    left: 810px;
+}
+#g4-5 {
+	width: 192px;
+    height: 108px;
+    position: absolute;
+    top: 0px;
+    left: 612px;
+}
+#g5-5 {
+	width: 192px;
+    height: 108px;
+    position: absolute;
+    top: 0px;
+    left: 810px;
+}
+#char-${this.playerData[0].slippi.id} {
+	position: absolute;
+	top: 10px;
+	width: 72px;
+	height: 72px;
+	left: 0px;
+	transform: scale(.5);
+}
+#char-${this.playerData[1].slippi.id} {
+	position: absolute;
+	top: 10px;
+	width: 72px;
+	height: 72px;
+	right: 0px;
+	transform: scale(.5);
+}
+#time {
+	top: 3px;
+	position: absolute;
+	width: 192px;
+}
+.winner{
+	opacity: 1;
+}
+.loser {
+	opacity: .6;
+}
+.title {
     color: white;
-    font-size: 42px;
+    font-size: 25px;
     text-align: center;
     width: 1920px;
-    -webkit-text-stroke: medium black;
+	padding-top: 10px;
 }
 .name {
-	color: white;
 	font-size: 30px;
 	top: 678px;
 	width: 337px;
@@ -174,14 +296,11 @@ position: absolute;
 }
 .sponsor {
 	color: black;
-	font-size: 30px;
+	font-size: 25px;
 	top: 722px;
 	width: 272px;
     text-align: center;
-}
-.tag {
-	position: absolute;
-	
+	padding-top: 4px;
 }
 .data {
 	position: absolute;
@@ -194,29 +313,29 @@ position: absolute;
 }
 .port-1 {
 	background: url('./img/extras/port1.png') no-repeat 0px 0px;
-	top: 163px;
+	top: 174px;
 	width: 342px;
-	height: 558px;
+	height: 578px;
 }
 .port-2 {
 	background: url('./img/extras/port2.png') no-repeat 0px 0px;
-	top: 163px;
+	top: 174px;
 	width: 342px;
-	height: 558px;
+	height: 578px;
 
 }
 .port-3 {
 	background: url('./img/extras/port3.png') no-repeat 0px 0px;
-	top: 163px;
+	top: 174px;
 	width: 342px;
-	height: 558px;
+	height: 578px;
 
 }
 .port-4 {
 	background: url('./img/extras/port4.png') no-repeat 0px 0px;
-	top: 163px;
+	top: 174px;
 	width: 342px;
-	height: 558px;
+	height: 578px;
 
 }
 .label {
@@ -226,28 +345,81 @@ position: absolute;
 	text-align: center;
 	color: black;
 }
+.label3 {
+	color: white;
+    -webkit-text-stroke: medium black;
+	text-align: center;
+	font-size: 30px;
+}
+.stage-2 {
+	background: url('./img/Stages/2-small.png') 0px 0px;
+}
+.stage-3 {
+	background: url('./img/Stages/3-small.png') 0px 0px;
+}
+.stage-8 {
+	background: url('./img/Stages/8-small.png') 0px 0px;
+}
+.stage-28 {
+	background: url('./img/Stages/28-small.png') 0px 0px;
+}
+.stage-31 {
+	background: url('./img/Stages/31-small.png') 0px 0px;
+}
+.stage-32 {
+	background: url('./img/Stages/32-small.png') 0px 0px;
+}
+.frame {
+	background: url('./img/extras/frame.png') 0px 0px no-repeat;
+}
+#t1 {
+	width: 200px;
+	height: 200px;
+	text-align: center;
+}
 
 </style>
 <div id="container">
+	<div id="overlay"></div>
+	<div id="History">
+		<div id="g1-${this.statData.latestSet.gt}" class="stage-${this.statData.latestSet.g1.split(",")[0]} label3"><div id="char-0" class="${this.statData.latestSet.g1.split(",")[4]}" style="background: url('./img/characters/${this.statData.latestSet.g1.split(",")[2]}/0/stock.png');"></div><div id="char-1" class="${this.statData.latestSet.g1.split(",")[7]}" style="background: url('./img/characters/${this.statData.latestSet.g1.split(",")[5]}/0/stock.png');"></div><div id="time">${this.statData.latestSet.g1.split(",")[1]}</div></div>
+		<div id="g1-${this.statData.latestSet.gt}" class="frame"></div>
+		<!-- Splitting an array that does not exist causes page to not render, need to make sure array exists before splitting --> 
+		${this.statData.latestSet.gt>1
+		? html `<div id="g2-${this.statData.latestSet.gt}" class="stage-${this.statData.latestSet.g2.split(",")[0]} label3"><div id="char-0" class="${this.statData.latestSet.g2.split(",")[4]}" style="background: url('./img/characters/${this.statData.latestSet.g2.split(",")[2]}/0/stock.png');"></div><div id="char-1" class="${this.statData.latestSet.g2.split(",")[7]}" style="background: url('./img/characters/${this.statData.latestSet.g2.split(",")[5]}/0/stock.png');"></div><div id="time">${this.statData.latestSet.g2.split(",")[1]}</div></div>
+		<div id="g2-${this.statData.latestSet.gt}" class="frame"></div>`
+		: html ``}
+		${this.statData.latestSet.gt>2
+		? html `<div id="g3-${this.statData.latestSet.gt}" class="stage-${this.statData.latestSet.g3.split(",")[0]} label3"><div id="char-0" class="${this.statData.latestSet.g3.split(",")[4]}" style="background: url('./img/characters/${this.statData.latestSet.g3.split(",")[2]}/0/stock.png');"></div><div id="char-1" class="${this.statData.latestSet.g3.split(",")[7]}" style="background: url('./img/characters/${this.statData.latestSet.g3.split(",")[5]}/0/stock.png');"></div><div id="time">${this.statData.latestSet.g3.split(",")[1]}</div></div>
+		<div id="g3-${this.statData.latestSet.gt}" class="frame"></div>`
+		: html ``}	
+		${this.statData.latestSet.gt>3
+		? html `<div id="g4-${this.statData.latestSet.gt}" class="stage-${this.statData.latestSet.g4.split(",")[0]} label3"><div id="char-0" class="${this.statData.latestSet.g4.split(",")[4]}" style="background: url('./img/characters/${this.statData.latestSet.g4.split(",")[2]}/0/stock.png');"></div><div id="char-1" class="${this.statData.latestSet.g4.split(",")[7]}" style="background: url('./img/characters/${this.statData.latestSet.g4.split(",")[5]}/0/stock.png');"></div><div id="time">${this.statData.latestSet.g4.split(",")[1]}</div></div>
+		<div id="g4-${this.statData.latestSet.gt}" class="frame"></div>`
+		: html ``}
+		${this.statData.latestSet.gt>4
+		? html `<div id="g5-${this.statData.latestSet.gt}" class="stage-${this.statData.latestSet.g5.split(",")[0]} label3"><div id="char-0" class="${this.statData.latestSet.g5.split(",")[4]}" style="background: url('./img/characters/${this.statData.latestSet.g5.split(",")[2]}/0/stock.png');"></div><div id="char-1" class="${this.statData.latestSet.g5.split(",")[7]}" style="background: url('./img/characters/${this.statData.latestSet.g5.split(",")[5]}/0/stock.png');"></div><div id="time">${this.statData.latestSet.g5.split(",")[1]}</div></div>
+		<div id="g5-${this.statData.latestSet.gt}" class="frame"></div>`
+		: html ``}
+	</div>
 	<div>
-		<div id="LPort" class="port-${this.playerData[0].slippi.port}"></div>
-		<div id="RPort" class="port-${this.playerData[1].slippi.port}"></div>
 		<div id="LChar"></div>
 		<div id="RChar"></div>
-		<div id="overlay"></div>
+		<div id="LPort" class="port-${this.playerData[0].slippi.port}"></div>
+		<div id="RPort" class="port-${this.playerData[1].slippi.port}"></div>
+		<div id="Title">
 		<div id="tournament" class="title">${this.generalData.tournament.name}</div>
 		<div id="round" class="title">${this.generalData.tournament.round}</div>
 		<div id="best" class="title">Best Of ${this.generalData.tournament.bestOf} - Set Stats</div>
+		</div>
 	</div>
 
 	<div id="LName" class="name">${this.playerData[0].player.name}</div>
 	<div id="LSponsor" class="sponsor">${this.playerData[0].player.sponsor}</div>
-	<div id="LTag" class="tag">${this.playerData[0].slippi.tag}</div>
 
 
 	<div id="RName" class="name">${this.playerData[1].player.name}</div>
 	<div id="RSponsor" class="sponsor">${this.playerData[1].player.sponsor}</div>
-	<div id="RTag" class="tag">${this.playerData[1].slippi.tag}</div>
 
 	<div id="score">${this.generalData.tournament.scores[this.playerData[0].slippi.id].score}-${this.generalData.tournament.scores[this.playerData[1].slippi.id].score}</div>
 
@@ -269,19 +441,12 @@ position: absolute;
 		<div id="Stat6" class="stat">${this.statData.latestSet.lc2}</div>
 	</div>
 	<div id="statLabel">
-		<div id="Stat1" class="label">Neutral Openers</div>
-		<div id="Stat2" class="label">Kill Moves</div>
-		<div id="Stat3" class="label2">Early Kills</div>
-		<div id="Stat4" class="label2">Openings/Kill</div>
-		<div id="Stat5" class="label2">Neutral Wins</div>
-		<div id="Stat6" class="label2">L-Cancel %</div>
-	</div>
-	<div id="History">
-<span id="g1" class="stage-${this.statData.latestSet.g1.split(",")[0]}"></span>
-	<span id="g2" class="stage-${this.statData.latestSet.g1.split(",")[0]}"></span>
-	<span id="g3" class="stage-${this.statData.latestSet.g1.split(",")[0]}"></span>
-	<span id="g4" class="stage-${this.statData.latestSet.g1.split(",")[0]}"></span>
-	<span id="g5" class="stage-${this.statData.latestSet.g1.split(",")[0]}"></span>
+		<div id="Stat1" class="label2">Neutral Openers</div>
+		<div id="Stat2" class="label2">Kill Moves</div>
+		<div id="Stat3" class="label">Early Kills</div>
+		<div id="Stat4" class="label">Openings/Kill</div>
+		<div id="Stat5" class="label">Neutral Wins</div>
+		<div id="Stat6" class="label">L-Cancel %</div>
 	</div>
 </div>
 `;

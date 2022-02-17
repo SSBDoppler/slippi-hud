@@ -25,18 +25,10 @@ return html`
 	width: 1920px;
 	height: 1080px;
 }
-#tournament {
+#Title {
 	position: absolute;
-	top:1px;
+	top: 41px;
 	
-}
-#round {
-	position: absolute;
-	top: 60px;
-}
-#best {
-	position: absolute;
-	top: 120px;
 }
 #LComm {
 	position: absolute;
@@ -44,36 +36,22 @@ return html`
 #RComm {
 	position: absolute;
 }
-#stage {
-	position: absolute;
-	left: 0px;
-	top: 0px;
-	height: 1080px;
-	width: 1920px;
-	background: url('./img/Stages/${this.generalData.slippi.stage.id}.png') no-repeat 0px 0px;
-}
-
 #score {
 	position: absolute;
     text-align: center;
-    font-size: 77px;
-    color: white;
-    top: 842px;
+    font-size: 44px;
+    top: 870px;
     left: 869px;
     width: 181px;
 }
 
 #LSponsor{
 	position: absolute;
-	left: 164px;
-}
-
-#Ltag {
-	position: absolute;
+	left: 144px;
 }
 #RSponsor{
 	position: absolute;
-	left: 1484px;
+	left: 1505px;
 }
 #LPort {
 	position: absolute;
@@ -81,19 +59,21 @@ return html`
 }
 #LChar {
 	position: absolute;
-	background: url('./img/characters/${this.playerData[0].slippi.character.id}/${this.playerData[0].slippi.character.costumeId}/vs-left.png') no-repeat -109px 0px;
-	top: 163px;
-	width: 342px;
-	height: 558px;
-	left: 109px;
+	background: url('./img/characters/${this.playerData[0].slippi.character.id}/${this.playerData[0].slippi.character.costumeId}/vs-left.png') no-repeat 0px 50px;
+	top: -70px;
+	width: 679px;
+	height: 992px;
+	left: -60px;
+	transform: Scale(.5)
 }
 #RChar {
 	position: absolute;
-	background: url('./img/characters/${this.playerData[1].slippi.character.id}/${this.playerData[1].slippi.character.costumeId}/vs-right.png') no-repeat 0px 0px;
-	top: 163px;
-	width: 342px;
-	height: 558px;
-	left: 1484px;
+	background: url('./img/characters/${this.playerData[1].slippi.character.id}/${this.playerData[1].slippi.character.costumeId}/vs-right.png') no-repeat 0px 50px;
+	top: -70px;
+	width: 679px;
+	height: 992px;
+	left: 1302px;
+	transform: Scale(.5)
 }
 #RPort {
 	position: absolute;
@@ -109,71 +89,78 @@ return html`
 }
 #Index-${this.playerData[0].slippi.id}-Stats{
 position: absolute;
-    top: 205px;
-    left: 482px;
-    font-size: 33px;
+    top: 222px;
+    left: 531px;
+	width: 156px;
+    font-size: 21px;
     text-align: center;
-    -webkit-text-stroke: thin black;
 }
 #Index-${this.playerData[1].slippi.id}-Stats{
 	position: absolute;
-    top: 205px;
-    left: 1380px;
-    font-size: 33px;
+    top: 222px;
+    left: 1246px;
+	width: 156px;
+    font-size: 21px;
     text-align: center;
-    -webkit-text-stroke: thin black;
 }
 #statLabel{
 	position: absolute;
-    top: 205px;
+    top: 222px;
     left: 749px;
     width: 422px;
     height: 800px;
     color: white;
-    font-size: 33px;
+    font-size: 21px;
 }
 #Stat1 {
-	padding-top:3px;
+	padding-top: 6px;
 }
 #Stat2 {
-	padding-top: 26px;
+	padding-top: 35px;
 	
 }
 #Stat3 {
-	padding-top: 58px;
+	padding-top: 68px;
 	
 }
 #Stat4 {
-	padding-top: 38px;
+	padding-top: 48px;
 	
 }
 #Stat5 {
-	padding-top: 38px;
+	padding-top: 49px;
 	
 }
 #Stat6 {
-	padding-top: 38px;
+	padding-top: 50px;
 	
 }
 #LName {
 	position: absolute;
-    left: 131px;
+    left: 109px;
 }
 #RName {
 	position: absolute;
-	left: 1452px;
+	left: 1470px;
+}
+#stage {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 1080px;
+	width: 1920px;
+	background: url('./img/Stages/${this.generalData.slippi.stage.id}.png') 0px 0px no-repeat;
 }
 
 .title {
-	position: absolute;
     color: white;
-    font-size: 42px;
+    font-size: 25px;
     text-align: center;
     width: 1920px;
     -webkit-text-stroke: medium black;
+	padding-top: 10px;
 }
 .name {
-	color: white;
 	font-size: 30px;
 	top: 678px;
 	width: 337px;
@@ -181,8 +168,8 @@ position: absolute;
 }
 .sponsor {
 	color: black;
-	font-size: 30px;
-	top: 722px;
+	font-size: 25px;
+	top: 726px;
 	width: 272px;
     text-align: center;
 }
@@ -201,29 +188,29 @@ position: absolute;
 }
 .port-1 {
 	background: url('./img/extras/port1.png') no-repeat 0px 0px;
-	top: 163px;
+	top: 174px;
 	width: 342px;
-	height: 558px;
+	height: 578px;
 }
 .port-2 {
 	background: url('./img/extras/port2.png') no-repeat 0px 0px;
-	top: 163px;
+	top: 174px;
 	width: 342px;
-	height: 558px;
+	height: 578px;
 
 }
 .port-3 {
 	background: url('./img/extras/port3.png') no-repeat 0px 0px;
-	top: 163px;
+	top: 174px;
 	width: 342px;
-	height: 558px;
+	height: 578px;
 
 }
 .port-4 {
 	background: url('./img/extras/port4.png') no-repeat 0px 0px;
-	top: 163px;
+	top: 174px;
 	width: 342px;
-	height: 558px;
+	height: 578px;
 
 }
 .label {
@@ -233,29 +220,35 @@ position: absolute;
 	text-align: center;
 	color: black;
 }
+.label3 {
+	color: white;
+    -webkit-text-stroke: medium black;
+	text-align: center;
+	font-size: 30px;
+}
 
 </style>
 <div id="container">
 	<div>
 		<div id="stage"></div>
-		<div id="LPort" class="port-${this.playerData[0].slippi.port}"></div>
-		<div id="RPort" class="port-${this.playerData[1].slippi.port}"></div>
+		<div id="overlay"></div>
 		<div id="LChar"></div>
 		<div id="RChar"></div>
-		<div id="overlay"></div>
+		<div id="LPort" class="port-${this.playerData[0].slippi.port}"></div>
+		<div id="RPort" class="port-${this.playerData[1].slippi.port}"></div>
+		<div id="Title">
 		<div id="tournament" class="title">${this.generalData.tournament.name}</div>
 		<div id="round" class="title">${this.generalData.tournament.round}</div>
 		<div id="best" class="title">Best Of ${this.generalData.tournament.bestOf} - Game ${this.generalData.tournament.scores[this.playerData[1].slippi.id].score+this.generalData.tournament.scores[this.playerData[0].slippi.id].score} Stats</div>
+		</div>
 	</div>
 
 	<div id="LName" class="name">${this.playerData[0].player.name}</div>
 	<div id="LSponsor" class="sponsor">${this.playerData[0].player.sponsor}</div>
-	<div id="LTag" class="tag">${this.playerData[0].slippi.tag}</div>
 
 
 	<div id="RName" class="name">${this.playerData[1].player.name}</div>
 	<div id="RSponsor" class="sponsor">${this.playerData[1].player.sponsor}</div>
-	<div id="RTag" class="tag">${this.playerData[1].slippi.tag}</div>
 
 	<div id="score">${this.generalData.tournament.scores[this.playerData[0].slippi.id].score}-${this.generalData.tournament.scores[this.playerData[1].slippi.id].score}</div>
 
@@ -277,12 +270,12 @@ position: absolute;
 		<div id="Stat6" class="stat">${this.statData.latestGame.tdd2}</div>
 	</div>
 	<div id="statLabel">
-		<div id="Stat1" class="label">L-Cancel %</div>
-		<div id="Stat2" class="label">Inputs Per Minute</div>
-		<div id="Stat3" class="label2">Openings/Kill</div>
-		<div id="Stat4" class="label2">Damage/Opening</div>
-		<div id="Stat5" class="label2">Avg. Kill Percent</div>
-		<div id="Stat6" class="label2">Damage Done</div>
+		<div id="Stat1" class="label2">L-Cancel %</div>
+		<div id="Stat2" class="label2">Inputs Per Minute</div>
+		<div id="Stat3" class="label">Openings/Kill</div>
+		<div id="Stat4" class="label">Damage/Opening</div>
+		<div id="Stat5" class="label">Avg. Kill Percent</div>
+		<div id="Stat6" class="label">Damage Done</div>
 	</div>
 </div>
 `;
