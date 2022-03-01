@@ -359,6 +359,10 @@ left: 47px;
 </style>
 	<div id="overlay">
 		<div id='logo'></div>
+		
+		<div id='cameraleft'>
+			<div id='cameranameleft'>${this.playerData[0].player.name}</div>
+		</div>
 		${(this.generalData.slippi.finished)
 ?html ``
 :html`

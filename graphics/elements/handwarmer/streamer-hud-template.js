@@ -20,9 +20,6 @@ return html`
     width: 1920px;
     position: absolute;
 	font-family: "metropolis black";
-	color: white;
-	-webkit-text-stroke: medium black;
-	
 }
 #tournament {
 padding-top: 44px;
@@ -38,18 +35,18 @@ padding-top: 44px;
 
 #com0 {
     position: absolute;
-    left: 21px;
-    top: 529px;
-    width: 250px;
+    left: 76px;
+    top: 526px;
+    width: 209px;
     text-align: center;
     font-size: 20px;
 }
 
 #com1 {
     position: absolute;
-    left: 342px;
-    top: 529px;
-    width: 250px;
+    left: 351px;
+    top: 526px;
+    width: 209px;
     text-align: center;
     font-size: 20px;
 }
@@ -58,7 +55,7 @@ padding-top: 44px;
 #box {
     position: absolute;
     left: 655px;
-    top: 21px;
+    top: 15px;
     text-align: center;
     width: 1242px;
     font-size: 44px;

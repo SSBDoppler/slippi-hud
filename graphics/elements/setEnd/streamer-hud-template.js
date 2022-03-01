@@ -21,7 +21,7 @@ return html`
 	position:absolute;
 	left: 0px;
 	top: 0px;
-	background: url('./img/extras/SetEnd-${this.statData.latestSet.gt}.png') no-repeat 0px 0px;
+	background: url('./img/extras/SetEnd.png') no-repeat 0px 0px;
 	width: 1920px;
 	height: 1080px;
 }

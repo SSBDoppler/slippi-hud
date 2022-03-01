@@ -20,8 +20,6 @@ return html`
     width: 1920px;
     position: absolute;
 	font-family: "metropolis black";
-	color: white;
-	-webkit-text-stroke: medium black;
 	
 }
 #tournament {
@@ -38,27 +36,27 @@ padding-top: 44px;
 
 #com0 {
     position: absolute;
-    left: 502px;
-    top: 529px;
-    width: 377px;
+    left: 632px;
+    top: 560px;
+    width: 260px;
     text-align: center;
     font-size: 20px;
 }
 
 #com1 {
     position: absolute;
-    left: 1024px;
-    top: 529px;
-    width: 377px;
+    left: 1027px;
+    top: 560px;
+    width: 260px;
     text-align: center;
     font-size: 20px;
 }
 
 #player0 {
     position: absolute;
-    left: 21px;
-    top: 975px;
-    width: 331px;
+    left: 208px;
+    top: 1026px;
+    width: 260px;
     text-align: center;
 }
 
@@ -79,9 +77,9 @@ padding-top: 44px;
 
 #player1 {
     position: absolute;
-    left: 482px;
-    top: 975px;
-    width: 331px;
+    left: 604px;
+    top: 1026px;
+    width: 260px;
     text-align: center;
 }
 
@@ -98,16 +96,16 @@ position: absolute;
 	font-size: 22px;
 }
 #player {
-	font-size: 42px;
+	font-size: 32px;
 	}
 	
 #box {
 position: absolute;
-    left: 817px;
-    top: 582px;
+    left: 10px;
+    top: 10px;
     text-align: center;
-    width: 460px;
-    font-size: 44px;
+    width: 450px;
+    font-size: 42px;
 }
 
 </style>
@@ -121,10 +119,8 @@ position: absolute;
 <div id="com0">${this.generalData.tournament.commentators[0].name}</div>
 <div id="com1">${this.generalData.tournament.commentators[1].name}</div>
 
-<div id="player0"><span id="sponsor">${this.playerData[0].player.sponsor}</span><span id='player'> | ${this.playerData[0].player.name}</span></div>
-<div id="score0">${this.generalData.tournament.scores[this.playerData[0].slippi.id].score}</div>
-<div id="player1"><span id="sponsor">${this.playerData[1].player.sponsor}</span><span id='player'> | ${this.playerData[1].player.name}</span></div>
-<div id="score1">${this.generalData.tournament.scores[this.playerData[1].slippi.id].score}</div>
+<div id="player0"><span id='player'> ${this.playerData[0].player.name}</span></div>
+<div id="player1"><span id='player'> ${this.playerData[1].player.name}</span></div>
 </div>
 `;
 

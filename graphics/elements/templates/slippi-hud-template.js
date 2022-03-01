@@ -253,8 +253,8 @@ position: absolute;
 }
 #name {
     position: absolute;
-    left: 52px;
-    top: 60px;
+    left: 53px;
+    top: 53px;
     width: 330px;
     height: 48px;
     text-align: center;
@@ -338,11 +338,25 @@ left: 47px;
 	width: 130px;
 	height: 31px;
 }
-#sponsor {
-	font-size: 10px;
-}
+
 #sidename {
 	font-size: 22px;
+}
+.Lsponsor {
+	background: url(./img/sponsors/${this.playerData[0].player.sponsor}.png) no-repeat;
+	width: 64px;
+	height: 64px;
+	position: absolute;
+	top: 27px;
+	left: 4px;
+}
+.Rsponsor {
+	background: url(./img/sponsors/${this.playerData[1].player.sponsor}.png) no-repeat;
+	width: 64px;
+	height: 64px;
+	position: absolute;
+	top: 27px;
+	right: 4px;
 }
 .clport {
 		background: url(./img/slippi-hud/hud/clport${this.playerData[0].slippi.port}.png) no-repeat;
@@ -353,6 +367,10 @@ left: 47px;
 		background: url(./img/slippi-hud/hud/crport${this.playerData[1].slippi.port}.png) no-repeat;
 		left: -11px;
 		text-align: center;
+}
+.tag {
+	position: relative;
+	top: 6px
 }
 #portfont {
 	font-size: 25px;
@@ -366,11 +384,13 @@ left: 47px;
 	<div id="overlay">
 		<div id='logo'></div>
 			<div id='cameraleft'>
-			<div id='cameranameleft'><span id='sponsor'>${this.playerData[0].player.sponsor}</span> | <span id='sidename'>${this.playerData[0].player.name}</span></div>
+			<div id='cameranameleft'><span id='sidename'>${this.playerData[0].player.name}</span></div>
+			<div  class="Lsponsor"></div>
 			<div id='cameraport' class='clport'><div id='portfont'>Port ${this.playerData[0].slippi.port}</div></div>
 		</div>
 		<div id='cameraright'>
-			<div id='cameranameright'><span id='sponsor'>${this.playerData[1].player.sponsor}</span> | <span id='sidename'>${this.playerData[1].player.name}</span></div>
+			<div id='cameranameright'><span id='sidename'>${this.playerData[1].player.name}</span></div>
+			<div  class="Rsponsor"></div>
 			<div id='cameraport' class='crport'><div id='portfont'>Port ${this.playerData[1].slippi.port}</div></div>
 		</div>
 			<div id="player1" class="port-${this.playerData[0].slippi.port}">
@@ -386,7 +406,7 @@ ${(this.playerData[0].slippi.damage>300)
 : html `<div id="dmg" class="damage" style="color: rgb(${Math.floor(((this.playerData[0].slippi.damage/300)*-175)+255)},${Math.floor(((this.playerData[0].slippi.damage/300)*-255)+255)},${Math.floor(((this.playerData[0].slippi.damage/300)*-255)+255)});">${this.playerData[0].slippi.damage}</div>`	
 }
 					
-						<div id="name" class="name">${this.playerData[0].player.name}</div>
+						<div id="name" class="name"><span><div class="tag">${this.playerData[0].player.name}</div></span></div>
 
 			
 			</div>
@@ -402,7 +422,7 @@ ${(this.playerData[1].slippi.damage>300)
 ? html `<div id="dmg" class="damage" style="color: rgb(80,0,0);">${this.playerData[1].slippi.damage}</div>`
 : html `<div id="dmg" class="damage" style="color: rgb(${Math.floor(((this.playerData[1].slippi.damage/300)*-175)+255)},${Math.floor(((this.playerData[1].slippi.damage/300)*-255)+255)},${Math.floor(((this.playerData[1].slippi.damage/300)*-255)+255)});">${this.playerData[1].slippi.damage}</div>`	
 }
-					<div id="name" class="name">${this.playerData[1].player.name}</div>
+					<div id="name" class="name"><span><div class="tag">${this.playerData[1].player.name}</div></span></div>
 
 			</div>
 		<div id="panels" class="panel-container">
