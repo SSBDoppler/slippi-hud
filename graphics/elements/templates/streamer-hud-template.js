@@ -11,6 +11,18 @@ return html``;
 
 return html`
 <style>
+@keyframes onRefresh {
+    0% {
+        opacity: 0;
+    }
+    100% {
+		opacity: 1;
+    }
+}
+#animate{
+	
+	animation: 2s ease-out 0s 1 onRefresh;
+}
 #cameranameleft {
     left: 0px;
     text-align: center;
@@ -366,6 +378,7 @@ left: 47px;
 		${(this.generalData.slippi.finished)
 ?html ``
 :html`
+	<div id="animate">
 ${(this.playerData[1].player.name==this.playerData[0].slippi.connect)
 ?html`
 			<div id='cameraleft'>
@@ -484,6 +497,7 @@ ${this.generalData.tournament.inputDisplay
 `
 : html``
 }
+</div>
 `}
 	</div>
 

@@ -59,21 +59,20 @@ return html`
 }
 #LChar {
 	position: absolute;
-	background: url('./img/characters/${this.playerData[0].slippi.character.id}/${this.playerData[0].slippi.character.costumeId}/vs-left.png') no-repeat 0px 50px;
-	top: -70px;
-	width: 679px;
-	height: 992px;
-	left: -60px;
-	transform: Scale(.5)
+	background: url('./img/characters/${this.playerData[0].slippi.character.id}/${this.playerData[0].slippi.character.costumeId}/stats.png') no-repeat 0px 0px;
+	top: 179px;
+	width: 333px;
+	height: 547px;
+	left: 113px;
 }
 #RChar {
 	position: absolute;
-	background: url('./img/characters/${this.playerData[1].slippi.character.id}/${this.playerData[1].slippi.character.costumeId}/vs-right.png') no-repeat 0px 50px;
-	top: -70px;
-	width: 679px;
-	height: 992px;
-	left: 1302px;
-	transform: Scale(.5)
+	background: url('./img/characters/${this.playerData[1].slippi.character.id}/${this.playerData[1].slippi.character.costumeId}/stats.png') no-repeat 0px 0px;
+	top: 179px;
+	width: 333px;
+	height: 547px;
+	left: 1475px;
+	transform: ScaleX(-1);
 }
 #RPort {
 	position: absolute;
