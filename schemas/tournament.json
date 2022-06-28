@@ -27,6 +27,10 @@
 					"name": {
 						"type": "string",
 						"default": ""
+					},
+					"info": {
+						"type": "string",
+						"default": ""
 					}
 				}
 			}

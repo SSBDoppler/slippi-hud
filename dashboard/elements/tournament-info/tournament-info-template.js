@@ -23,6 +23,10 @@ return css`
   --vaadin-text-field-default-width: 20em;
 }
 
+#layout {
+  height: 400px;
+}
+
 #tournyName {
   margin-left: auto;
   margin-right: auto;
@@ -43,6 +47,12 @@ return css`
 }
 
 .commentatorName {
+  width: 180px;
+  margin-left: 10px;
+  margin-right: auto;
+}
+
+.commentatorInfo {
   width: 180px;
   margin-left: 10px;
   margin-right: auto;
@@ -72,11 +82,12 @@ return html`
           </vaadin-list-box>
         </template>
   </vaadin-select>
-  <vaadin-horizontal-layout id="commentatorLayout">
     ${repeat(this.commentators, (item) => item.id, (item, index) => html`
-      <vaadin-text-field id=${'commentator_' + index} class="commentatorName" theme="slippi-style" label=${'Commentator ' + (index + 1)} value=${item.name} clear-button-visible @change=${this._commentatorNameChange}></vaadin-text-field>
+	  <vaadin-horizontal-layout id="commentatorLayout">
+        <vaadin-text-field id=${'commentatorName_' + index} class="commentatorName" theme="slippi-style" label=${'Commentator Name (' + '#' + (index + 1) + ')'} value=${item.name} clear-button-visible @change=${this._commentatorNameChange}></vaadin-text-field>
+	    <vaadin-text-field id=${'commentatorInfo_' + index} class="commentatorInfo" theme="slippi-style" label=${'Info'} value=${item.info} clear-button-visible @change=${this._commentatorInfoChange}></vaadin-text-field>
+      </vaadin-horizontal-layout>
     `)}
-  </vaadin-horizontal-layout>
   <vaadin-checkbox id="inputDisplayCheckbox" theme="slippi-style" ?checked=${this.inputDisplayEnabled} @change=${this._inputDisplayCheckboxChange}>Enable Input Display</vaadin-checkbox>
 </vaadin-vertical-layout>
 `;

@@ -102,6 +102,16 @@ export class TournamentInfo extends LitElement {
 		tournament.value.commentators[commentatorIndex].name = newName;
 	}
 
+	_commentatorInfoChange(event) {
+		let newInfo = event.target.value;
+
+		//console.log("New comm info:", newInfo, "from:", event.target.id);
+
+		let commentatorIndex = Number.parseInt(event.target.id.split("_")[1]);
+
+		tournament.value.commentators[commentatorIndex].info = newInfo;
+	}
+
 	_inputDisplayCheckboxChange(event) {
 		tournament.value.inputDisplay = event.target.checked;
 	}
