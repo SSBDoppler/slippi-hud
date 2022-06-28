@@ -1,0 +1,48 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"type": "object",
+	"properties": {
+		"syncEnabled": {
+			"type": "boolean",
+			"default": false
+		},
+		"tournamentSlug": {
+			"type": "string",
+			"default": ""
+		},
+		"availableQueues": {
+			"type": "array",
+			"default": [],
+			"items": {
+				"type": "object",
+				"properties": {
+					"streamName": {
+						"type": "string",
+						"default": ""
+					},
+					"activeSet": {
+						"type": "object",
+						"properties": {
+							"id": {
+								"type": "number",
+								"default": -1
+							},
+							"round": {
+								"type": "number",
+								"default": -1
+							},
+							"startedAt": {
+								"type": "number",
+								"default": -1
+							}
+						}
+					}
+				}
+			}
+		},
+		"selectedQueue": {
+			"type": "number",
+			"default": -1
+		}
+	}
+}

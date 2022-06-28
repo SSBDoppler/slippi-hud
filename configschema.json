@@ -2,6 +2,20 @@
 	"type": "object",
 	"additionalProperties": true,
 	"properties": {
+		"api": {
+			"type": "object",
+			"propeties": {
+				"startgg": {
+					"type": "object",
+					"properties": {
+						"key": {
+							"type": "string",
+							"default": ""
+						}
+					}
+				}
+			}
+		},
 		"hudTemplatePath": {
 			"type": "string",
 			"default": "elements/templates"
