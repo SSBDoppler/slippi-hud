@@ -106,6 +106,14 @@
         "file": "obs-connection-panel.html",
         "headerColor": "#2d4e8a",
         "workspace": "Main Dash"
+      },
+      {
+        "name": "startgg",
+        "title": "Start.gg API",
+        "width": 2,
+        "file": "startgg-api-panel.html",
+        "headerColor": "#2d4e8a",
+        "workspace": "Main Dash"
       }
     ],
     "graphics": [

@@ -16,4 +16,5 @@ module.exports = function(nodecg) {
 	require('./templates');
 	require('./obs');
 	require('./stats');
+	require('./api-startgg');
 };
