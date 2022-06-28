@@ -12,6 +12,7 @@ import '@vaadin/vaadin-grid';
 import '@vaadin/vaadin-text-field';
 import '@vaadin/vaadin-text-field/vaadin-integer-field.js';
 import '@vaadin/vaadin-text-field/vaadin-number-field.js';
+import '@vaadin/vaadin-text-field/vaadin-password-field.js';
 import '@vaadin/vaadin-select';
 
 export const style = function () {
@@ -51,7 +52,7 @@ return html`
 <vaadin-vertical-layout>
   <vaadin-text-field id="address" theme="slippi-style" label="IP" value=${this.address} clear-button-visible @change=${this._addressChange}></vaadin-text-field>
   <vaadin-integer-field id="port" theme="slippi-style" label="Port" value=${this.port} @change=${this._portChange}></vaadin-integer-field>
-  <vaadin-text-field id="password" theme="slippi-style" label="Password" value=${this.password} clear-button-visible @change=${this._passwordChange}></vaadin-text-field>
+  <vaadin-password-field id="password" theme="slippi-style" label="Password" value=${this.password} clear-button-visible reveal-button-hidden @change=${this._passwordChange}></vaadin-password-field>
   <vaadin-integer-field id="waitTime" theme="slippi-style" label="Seconds to Wait" value=${this.waitTime} has-controls min="0" max="1800" @change=${this._waitTimeChange}></vaadin-integer-field>
   <vaadin-select id="activeScene" theme="slippi-style" label="Active Scene" value=${this.activeScene} @change=${this._activeSceneChange}>
     <template>
