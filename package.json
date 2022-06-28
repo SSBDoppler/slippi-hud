@@ -44,6 +44,7 @@
     "@webcomponents/webcomponentsjs": "^2.2.10",
     "@slippi/slippi-js": "^6.2.1",
     "@vinceau/slp-realtime": "https://github.com/dragonbane0/slp-realtime/tarball/ade1ce10fd7fe58e91d4d951d361c5ec55b3f9a1",
+    "got": "^11.8.5",
     "lit": "^2.0.0-rc.2",
     "obs-websocket-js": "^4.0.3",
     "rxjs": "^6.6.7",
@@ -85,7 +86,7 @@
       {
         "name": "players",
         "title": "Player Info",
-        "width": 5,
+        "width": 6,
         "file": "player-panel.html",
         "headerColor": "#2d4e8a",
         "workspace": "Main Dash"
