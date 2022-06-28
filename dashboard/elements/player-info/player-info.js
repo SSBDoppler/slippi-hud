@@ -133,6 +133,16 @@ export class PlayerInfo extends LitElement {
 		players.value[playerIndex].name = newName;
 	}
 
+	_pronounsChange(event) {
+		let newPronouns = event.target.value;
+
+		//console.log("New pronouns:", newPronouns, "from:", event.target.id);
+
+		let playerIndex = Number.parseInt(event.target.id.split("_")[1]);
+
+		players.value[playerIndex].pronouns = newPronouns;
+	}
+
 	_sponsorNameChange(event) {
 		let newSponsor = event.target.value;
 
@@ -190,6 +200,32 @@ export class PlayerInfo extends LitElement {
 
 	_resetScoresButtonClicked(event) {
 		nodecg.sendMessage("tournament_resetScores", 2);
+	}
+
+	_swapDataButtonClicked(event) {
+
+		//Swap in pairs of 2
+		if (players.value.length > 0) {
+
+			for (let i = 0; i < players.value.length; i++) {
+
+				let player1 = players.value[i];
+				i++;
+
+				if (i < players.value.length) {
+					let player2 = players.value[i];
+					let player1Copy = JSON.parse(JSON.stringify(player1));
+
+					player1.name = player2.name;
+					player1.pronouns = player2.pronouns;
+					player1.sponsor = player2.sponsor;
+
+					player2.name = player1Copy.name;
+					player2.pronouns = player1Copy.pronouns;
+					player2.sponsor = player1Copy.sponsor;
+				}
+			}
+		}
 	}
 
 	_autoScoreRadioChange(event) {

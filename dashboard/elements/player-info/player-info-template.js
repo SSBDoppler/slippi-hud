@@ -28,12 +28,23 @@ return css`
   height: 320px;
 }
 
+#lowerButtonsLayout {
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .playerIndex {
   width: 110px;
-  margin-left: 20px;
+  margin-left: 7px;
 }
 
 .playerName {
+  margin-left: 20px;
+}
+
+.playerPronouns {
+  width: 150px;
   margin-left: 20px;
 }
 
@@ -47,10 +58,12 @@ return css`
 }
 
 #resetScoresButton {
-  margin-top: 30px;
-  margin-left: auto;
-  margin-right: auto;
   background-color: red;
+}
+
+#swapDataButton {
+  margin-left: 10px;
+  margin-right: auto;
 }
 
 #autoScoreCheckbox {
@@ -78,12 +91,16 @@ return html`
         </template>
       </vaadin-select>
       <vaadin-text-field id=${'name_' + index} class="playerName" theme="slippi-style" label="Name" value=${item.name} clear-button-visible @change=${this._playerNameChange}></vaadin-text-field>
+      <vaadin-text-field id=${'pronouns_' + index} class="playerPronouns" theme="slippi-style" label="Pronouns" value=${item.pronouns} clear-button-visible @change=${this._pronounsChange}></vaadin-text-field>
       <vaadin-text-field id=${'sponsor_' + index} class="sponsorName" theme="slippi-style" label="Sponsor" value=${item.sponsor} clear-button-visible @change=${this._sponsorNameChange}></vaadin-text-field>
       <vaadin-integer-field id=${'score_' + index} class="playerScore" theme="slippi-style" label="Score" value=${this.scores[item.slippiIndex].score} has-controls min="0" max="100" @change=${this._scoreChange}></vaadin-integer-field>
     </vaadin-horizontal-layout>
   `)}
 
-  <vaadin-button id="resetScoresButton" theme="primary" @click=${this._resetScoresButtonClicked}>Reset Scores</vaadin-button>
+  <vaadin-horizontal-layout id="lowerButtonsLayout">
+    <vaadin-button id="resetScoresButton" theme="primary" @click=${this._resetScoresButtonClicked}>Reset Scores</vaadin-button>
+    <vaadin-button id="swapDataButton" theme="primary" @click=${this._swapDataButtonClicked}>Swap Data</vaadin-button>
+  </vaadin-horizontal-layout>
   <vaadin-radio-group id="autoScoreCheckbox" theme="slippi-style" label="Auto Scoring" value=${this.autoScoreEnabled} @change=${this._autoScoreRadioChange}>
     <vaadin-radio-button value="false" theme="slippi-style">Hand-Warmer</vaadin-radio-button>
     <vaadin-radio-button value="true" theme="slippi-style">Tournament</vaadin-radio-button>

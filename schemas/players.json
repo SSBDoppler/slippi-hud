@@ -16,6 +16,10 @@
 				"type": "string",
 				"default": ""
 			},
+			"pronouns": {
+				"type": "string",
+				"default": ""
+			},
 			"sponsor": {
 				"type": "string",
 				"default": ""
