@@ -259,10 +259,18 @@ async function doUpdate() {
 							if (players.value.length <= playerIndex)
 								break;
 
+							let oldName = players.value[playerIndex].name;
+					
 							if (participant.gamerTag)
 								players.value[playerIndex].name = participant.gamerTag;
 							else if (slot.entrant.name)
 								players.value[playerIndex].name = slot.entrant.name;
+
+							//Clear other fields on change of name
+							if (oldName != players.value[playerIndex].name) {
+								players.value[playerIndex].pronouns = "";
+								players.value[playerIndex].sponsor = "";
+							}
 
 							if (participant.user && participant.user.genderPronoun)
 								players.value[playerIndex].pronouns = participant.user.genderPronoun;
