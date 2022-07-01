@@ -259,9 +259,16 @@ async function doUpdate() {
 							if (players.value.length <= playerIndex)
 								break;
 
-							players.value[playerIndex].name = participant.gamerTag ? participant.gamerTag : slot.entrant.name ? slot.entrant.name : "";
-							players.value[playerIndex].pronouns = participant.user.genderPronoun ? participant.user.genderPronoun : "";
-							players.value[playerIndex].sponsor = participant.prefix ? participant.prefix : "";
+							if (participant.gamerTag)
+								players.value[playerIndex].name = participant.gamerTag;
+							else if (slot.entrant.name)
+								players.value[playerIndex].name = slot.entrant.name;
+
+							if (participant.user && participant.user.genderPronoun)
+								players.value[playerIndex].pronouns = participant.user.genderPronoun;
+
+							if (participant.prefix)
+								players.value[playerIndex].sponsor = participant.prefix;
 
 							playerIndex++;
 						}
