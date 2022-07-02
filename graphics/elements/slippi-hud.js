@@ -6,6 +6,7 @@ const slippi = nodecg.Replicant('slippi');
 const players = nodecg.Replicant('players');
 const tournament = nodecg.Replicant('tournament');
 const templates = nodecg.Replicant('templates');
+const stats = nodecg.Replicant('stats');
 
 //Global vars
 var style = null;
@@ -23,7 +24,7 @@ function supportsDynamicImport() {
 
 
 //Class
-export class TestHud extends LitElement {
+export class SlippiHud extends LitElement {
 
 	static get styles() {
 
@@ -36,9 +37,11 @@ export class TestHud extends LitElement {
 	static get properties() {
 		return {
 			ready: { type: Boolean },
+			graphic: { type: String },
 			generalData: { type: Object },
-			playerData: { type: Array }
-		}
+			playerData: { type: Array },
+			statData: { type: Object }
+		};
 	}
 
 	render() {
@@ -58,18 +61,30 @@ export class TestHud extends LitElement {
 			slippi: {}
 		};
 
+		this.statData = {
+			latestGame: {},
+			latestSet: {}
+		};
+
 		this.playerData = [];
 
 		this.readyCount = 0;
 		this.ready = false;
+
+		this.graphicAttributeSet = false;
+		this.templatesRepReady = false;
+		this.graphic = "";
 		
 		const replicants =
 			[
 				slippi,
 				players,
 				tournament,
-				templates
+				templates,
+				stats
 			];
+
+		this.neededReadyCount = replicants.length - 1;
 
 		let numDeclared = 0;
 		let numUpdated = 0;
@@ -120,7 +135,30 @@ export class TestHud extends LitElement {
 						this.generalData.tournament = JSON.parse(JSON.stringify(newVal));
 
 						for (let i = 0; i < players.value.length; i++) {
-							this.playerData[players.value[i].slippiIndex].score = JSON.parse(JSON.stringify(newVal.scores[i]));
+
+							let player = players.value[i];
+							let playerDataIndex = player.slippiIndex;
+
+							if (slippi.value.gameInfo.isTeams) { //Doubles
+
+								let playerTeamId = player.teamId;
+
+								if (typeof (playerTeamId) == "number" && playerTeamId > -1) {
+
+									//Find local teamId from activeTeams. This is the score teamId						
+									let localTeamId = slippi.value.gameInfo.activeTeams.findIndex(teamId => teamId === playerTeamId);
+
+									if (localTeamId > -1 && this.playerData.length > i && newVal.scores.length > localTeamId) {
+										this.playerData[i].score = JSON.parse(JSON.stringify(newVal.scores[localTeamId]));
+									}
+								}
+							} else { //Singles
+
+								//Only apply if we have data for this player and score entry
+								if (this.playerData.length > playerDataIndex && newVal.scores.length > i) {
+									this.playerData[playerDataIndex].score = JSON.parse(JSON.stringify(newVal.scores[i]));
+								}	
+							}					
 						}
 
 						this.readyCheck();
@@ -141,30 +179,41 @@ export class TestHud extends LitElement {
 							return;
 						}
 
-						var self = this;
+						this.templatesRepReady = true;
+						this.changeTemplate(newVal);					
+					});
 
-						console.log("Load template:", `./templates/${newVal.activeTemplate.name}`);
-						
-						//Import template module
-						(new Function(`return import("./templates/${newVal.activeTemplate.name}")`))().then(module => {
+					stats.on('change', (newVal, oldVal) => {
 
-							style = module.style;
-							template = module.template;
+						if (!newVal)
+							return;
 
-							console.log("Loaded template module:", newVal.activeTemplate.name);
+						this.statData.latestGame = JSON.parse(JSON.stringify(newVal.latestGame));
+						this.statData.latestSet = JSON.parse(JSON.stringify(newVal.latestSet));
 
-							self.readyCheck();
-							self.requestUpdate();
-
-						}).catch(ex => { //Load failure
-							console.log(ex);
-							alert("Template load error!");
-							alert(ex);
-						});										
+						this.readyCheck();
+						this.requestUpdate();
 					});
 				}
 			});
 		});
+	}
+
+	attributeChangedCallback(name, oldval, newval) {
+
+		super.attributeChangedCallback(name, oldval, newval);
+
+		//Wait until graphic attribute has been set by HTML
+		if (name === "graphic") {
+
+			if (!this.graphicAttributeSet) {
+				this.graphicAttributeSet = true;
+
+				//If template rep already was ready and had to wait for the attribute, load template now
+				if (this.templatesRepReady)
+					this.changeTemplate(templates.value);
+			}
+		}
 	}
 
 	readyCheck() {
@@ -172,10 +221,11 @@ export class TestHud extends LitElement {
 		if (this.ready)
 			return;
 
-		if (this.readyCount < 3)
+		if (this.readyCount < this.neededReadyCount)
 			this.readyCount++;
-		else
+		else {
 			this.ready = true;
+		}
 	}
 
 	updateSlippiData(newVal) {
@@ -186,7 +236,26 @@ export class TestHud extends LitElement {
 
 		for (let i = 0; i < players.value.length; i++) {
 			let player = players.value[i];
-			this.playerData[i].slippi = JSON.parse(JSON.stringify(newVal.playerInfo[player.slippiIndex]));
+			let playerInfoIndex = player.slippiIndex;
+
+			if (newVal.gameInfo.isTeams) { //Doubles
+
+				//Create sub array of playerInfo that matches the teamId of player
+				let teamMembers = newVal.playerInfo.filter(elem => elem.teamId === player.teamId && elem.teamId > -1);
+
+				if (teamMembers && teamMembers.length > 1 && teamMembers.length > playerInfoIndex) {
+					//Sort by port number first
+					teamMembers.sort((a, b) => (a.port - b.port));
+					
+					this.playerData[i].slippi = JSON.parse(JSON.stringify(teamMembers[playerInfoIndex]));			
+				}
+			} else { //Singles
+
+				//Only apply if we have data for this player
+				if (newVal.playerInfo.length > playerInfoIndex) {
+					this.playerData[i].slippi = JSON.parse(JSON.stringify(newVal.playerInfo[playerInfoIndex]));
+				}
+			}
 		}
 	}
 
@@ -206,6 +275,34 @@ export class TestHud extends LitElement {
 			}
 		}
 	}
+
+	changeTemplate(newVal) {
+
+		if (!this.graphicAttributeSet)
+			return;
+
+		var templatePath = `./${this.graphic}/${newVal.activeTemplate.name}`;
+		var self = this;
+
+		console.log("Load template:", templatePath);
+
+		//Import template module
+		(new Function(`return import("${templatePath}")`))().then(module => {
+
+			style = module.style;
+			template = module.template;
+
+			console.log("Loaded template module:", newVal.activeTemplate.name);
+
+			self.readyCheck();
+			self.requestUpdate();
+
+		}).catch(ex => { //Load failure
+			console.log(ex);
+			alert("Template load error!");
+			alert(ex);
+		});
+	}
 }
 
-customElements.define('test-hud', TestHud);
+customElements.define('slippi-hud', SlippiHud);

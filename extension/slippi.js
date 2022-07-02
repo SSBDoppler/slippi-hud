@@ -64,6 +64,22 @@ function getCharacterObject(characterId, characterColor) {
 	};
 }
 
+function findActiveTeams(players) {
+
+	let activeTeams = [];
+
+	for (let player of players) {
+
+		if (activeTeams.indexOf(player.teamId) == -1) {
+			activeTeams.push(player.teamId);
+		}
+	}
+
+	activeTeams.sort((a, b) => (a - b));
+
+	return activeTeams;
+}
+
 function buttonsToBoolObject(buttons) {
 
 	let buttonMap = {
@@ -103,6 +119,10 @@ function runConnection() {
 		slippi.value.gameInfo.started = true;
 		slippi.value.gameInfo.finished = false;
 
+		//Set team info
+		slippi.value.gameInfo.isTeams = startState.isTeams;
+		slippi.value.gameInfo.activeTeams = startState.isTeams ? findActiveTeams(startState.players) : [];
+
 		//Set stage
 		slippi.value.gameInfo.stage.id = startState.stageId;
 		slippi.value.gameInfo.stage.fullName = getStageName(startState.stageId);
@@ -126,6 +146,7 @@ function runConnection() {
 				id: playerId++,
 				index: player.playerIndex,
 				port: player.port,
+				teamId: startState.isTeams ? player.teamId : -1,
 				character: getCharacterObject(player.characterId, player.characterColor),
 				stockCountStart: player.startStocks,
 				stockCountNow: player.startStocks,
@@ -158,11 +179,11 @@ function runConnection() {
 				}
 			};
 
+            //Slippi automatically has the players sorted by port/index
 			slippi.value.playerInfo.push(slippiPlayer);
-			//Maybe ToDo: Maybe sort this by index (port) for safety
-
-			nodecg.sendMessage("tournament_autoGameStart", startState);
 		}
+
+		nodecg.sendMessage("tournament_autoGameStart", startState);
 	}));
 
 	realTimeSubs.push(realtime.game.end$.subscribe((endState) => {

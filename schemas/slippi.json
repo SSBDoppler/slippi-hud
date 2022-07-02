@@ -34,6 +34,17 @@
 					"type": "boolean",
 					"default": false
 				},
+				"isTeams": {
+					"type": "boolean",
+					"default": false
+				},
+				"activeTeams": {
+					"type": "array",
+					"default": [],
+					"items": {
+						"type": "number"
+					}
+				},
 				"elapsedFrames": {
 					"type": "number",
 					"default": 0
@@ -104,6 +115,10 @@
 					"port": {
 						"type": "number",
 						"default": 0
+					},
+					"teamId": {
+						"type": "number",
+						"default": -1
 					},
 					"character": {
 						"type": "object",

@@ -81,7 +81,7 @@ nodecg.listenFor('tournament_playerWonGame', () => {
 	checkSetFinished();
 });
 
-nodecg.listenFor('tournament_resetScores', (playerCount) => {
+nodecg.listenFor('tournament_resetScores', () => {
 	//Clean set list
 	stats.value.activeSetFileList = [];
 });

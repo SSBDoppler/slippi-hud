@@ -199,7 +199,7 @@ export class PlayerInfo extends LitElement {
 	*/
 
 	_resetScoresButtonClicked(event) {
-		nodecg.sendMessage("tournament_resetScores", 2);
+		nodecg.sendMessage("tournament_resetScores");
 	}
 
 	_swapDataButtonClicked(event) {

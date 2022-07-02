@@ -12,6 +12,10 @@
 				"type": "number",
 				"default": 0
 			},
+			"teamId": {
+				"type": "number",
+				"default": -1
+			},
 			"name": {
 				"type": "string",
 				"default": ""

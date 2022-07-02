@@ -14,6 +14,10 @@
 			"type": "number",
 			"default": 1
 		},
+		"isTeams": {
+			"type": "boolean",
+			"default": false
+		},
 		"commentators": {
 			"type": "array",
 			"default": [],

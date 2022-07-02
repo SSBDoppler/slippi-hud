@@ -56,21 +56,28 @@ function checkSceneSwitchConditions() {
 	}
 	else if (slippi.value.gameInfo.finished && tournament.value.matchScored && obs.value.scenes.activeScene && obs.value.scenes.activeScene != "Wait") {
 
-		//Start Wait Scene timer no matter what if needed
-		if (!waitSceneTimer) {
-
-			waitSceneTimer = setTimeout(() => {
-				checkAndSetNewScene("Wait");
-			}, obs.value.scenes.waitTime);
+		//Skip stats scenes in Doubles mode as there are no stats available, go straight to Wait Scene
+		if (slippi.value.gameInfo.isTeams) {
+			return "Wait";
 		}
+		else {
 
-		if (obs.value.scenes.activeScene != "Game End" && obs.value.scenes.activeScene != "Set End") {
+			//Start Wait Scene timer no matter what if needed in Singles mode
+			if (!waitSceneTimer) {
 
-			if (tournament.value.scores[0].score < (tournament.value.bestOf / 2) && tournament.value.scores[1].score < (tournament.value.bestOf / 2)) {
-				return "Game End";
+				waitSceneTimer = setTimeout(() => {
+					checkAndSetNewScene("Wait");
+				}, obs.value.scenes.waitTime);
 			}
-			else if (tournament.value.scores[0].score > (tournament.value.bestOf / 2) || tournament.value.scores[1].score > (tournament.value.bestOf / 2)) {
-				return "Set End";
+
+			if (obs.value.scenes.activeScene != "Game End" && obs.value.scenes.activeScene != "Set End") {
+
+				if (tournament.value.scores[0].score < (tournament.value.bestOf / 2) && tournament.value.scores[1].score < (tournament.value.bestOf / 2)) {
+					return "Game End";
+				}
+				else if (tournament.value.scores[0].score > (tournament.value.bestOf / 2) || tournament.value.scores[1].score > (tournament.value.bestOf / 2)) {
+					return "Set End";
+				}
 			}
 		}
 	}
