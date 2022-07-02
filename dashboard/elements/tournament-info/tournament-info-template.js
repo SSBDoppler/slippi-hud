@@ -24,7 +24,7 @@ return css`
 }
 
 #layout {
-  height: 400px;
+  height: 450px;
 }
 
 #tournyName {

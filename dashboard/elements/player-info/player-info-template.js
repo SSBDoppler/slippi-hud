@@ -25,7 +25,7 @@ return css`
 }
 
 #layout {
-  height: 320px;
+  height: 520px;
 }
 
 #lowerButtonsLayout {
