@@ -22,13 +22,17 @@ return css`
 
 }
 
+#layout {
+  height: 220px;
+}
+
 `;
 }
 
 export const template = function() {
 return html`
 
-<vaadin-vertical-layout>
+<vaadin-vertical-layout id="layout">
   <vaadin-checkbox id="syncEnabledCheckbox" theme="slippi-style" ?checked=${this.syncEnabled} @change=${this._syncEnabledCheckboxChange}>Enable</vaadin-checkbox>
   <vaadin-text-field id="tournamentSlug" theme="slippi-style" label="Tournament Slug" ?disabled=${!this.syncEnabled} value=${this.tournamentSlug} clear-button-visible @change=${this._tournamentSlugChange}></vaadin-text-field>
   <vaadin-select id="selectedQueue" theme="slippi-style" label="Selected Stream Queue" ?disabled=${!this.syncEnabled} value=${this.selectedQueueIndex} @change=${this._selectedQueueChange}>
