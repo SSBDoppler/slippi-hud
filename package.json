@@ -45,7 +45,7 @@
     "@slippi/slippi-js": "^6.2.1",
     "@vinceau/slp-realtime": "https://github.com/dragonbane0/slp-realtime/tarball/ade1ce10fd7fe58e91d4d951d361c5ec55b3f9a1",
     "got": "^11.8.5",
-    "lit": "^2.0.0-rc.2",
+    "lit": "^2.2.7",
     "obs-websocket-js": "^4.0.3",
     "rxjs": "^6.6.7",
     "slp-stats-nodecg": "https://github.com/dragonbane0/slp-stats-nodecg/tarball/554c9acc2901143920c7fd5ace2ae7ba62ecf867"
