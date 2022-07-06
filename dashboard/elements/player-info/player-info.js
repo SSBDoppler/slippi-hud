@@ -87,6 +87,20 @@ export class PlayerInfo extends LitElement {
 							this.teamCount = 2;
 							this.availableTeams = [0, 1, 2];
 						}
+
+						//Verify currently selected team ids are available
+						if (newVal.gameInfo.isTeams) {
+
+							if (players && players.value) {
+
+								for (let player of players.value) {
+
+									if (player.teamId >= 0 && this.availableTeams.indexOf(player.teamId) == -1) {
+										player.teamId = -1;
+									}
+								}
+							}
+						}
 					});
 
 					players.on('change', (newVal, oldVal) => {
@@ -210,6 +224,29 @@ export class PlayerInfo extends LitElement {
 		this.players = players;
 	}
 
+	_getTeamScore(id) {
+
+		let firstTeamMemberIndex = id * 2;
+
+		if (!players || !players.value || players.value.length <= firstTeamMemberIndex)
+			return 0;
+
+		let teamInternalId = players.value[firstTeamMemberIndex].teamId;
+
+		if (teamInternalId < 0)
+			return 0;
+
+		let teamId = slippi.value.gameInfo.activeTeams.findIndex(teamIdElem => teamIdElem === teamInternalId);
+
+		if (teamId < 0)
+			return 0;
+
+		if (!tournament || !tournament.value || tournament.value.scores.length <= teamId)
+			return 0;
+
+		return tournament.value.scores[teamId].score;
+	}
+
 	_gameModeChange(event) {
 
 		let modeName = event.target.value;
@@ -234,15 +271,58 @@ export class PlayerInfo extends LitElement {
 		players.value[playerIndex].slippiIndex = newIndex;
 
 		//Check if another player already uses that index, if so swap automatically
+		if (tournament.value.isTeams) { //Doubles: Only allow swap with same team members
+
+			let teamMemberOffset = playerIndex % 2;
+			let otherTeamMemberIndex = teamMemberOffset == 0 ? playerIndex + 1 : playerIndex - 1;
+
+			if (players.value[otherTeamMemberIndex].slippiIndex == newIndex) {
+				players.value[otherTeamMemberIndex].slippiIndex = oldSlippiIndex;
+			}
+		} else { //Singles: Swap first player that has the same port
+
+			for (let i = 0; i < players.value.length; i++) {
+
+				//Skip self
+				if (i == playerIndex)
+					continue;
+
+				if (players.value[i].slippiIndex == newIndex) {
+					players.value[i].slippiIndex = oldSlippiIndex;
+					break;
+				}
+			}
+		}
+	}
+
+	_teamIdChange(event) {
+
+		if (!event.target.value)
+			return;
+
+		let teamIndex = Number.parseInt(event.target.id.split("_")[1]);
+		let teamId = Number.parseInt(event.target.value);
+
+		if (typeof (teamId) != "number" || teamId < 0 || this.availableTeams.length <= teamIndex || this.availableTeams.indexOf(teamId) == -1 || players.value.length <= ((teamIndex * 2) + 1)) {
+			event.target.value = "";
+			return;
+		}
+
+		let oldTeamId = players.value[teamIndex * 2].teamId;
+
+		players.value[teamIndex * 2].teamId = teamId;
+		players.value[(teamIndex * 2) + 1].teamId = teamId;
+
+		//Check if another team already uses that id, if so swap automatically
 		for (let i = 0; i < players.value.length; i++) {
 
 			//Skip self
-			if (i == playerIndex)
+			if (i == teamIndex * 2 || i == (teamIndex * 2) + 1)
 				continue;
 
-			if (players.value[i].slippiIndex == newIndex) {
-				players.value[i].slippiIndex = oldSlippiIndex;
-				break;
+			//Swap all players that have the same id
+			if (players.value[i].teamId == teamId) {
+				players.value[i].teamId = oldTeamId;
 			}
 		}
 	}
@@ -277,31 +357,50 @@ export class PlayerInfo extends LitElement {
 		players.value[playerIndex].sponsor = newSponsor;
 	}
 
-	/*
-	_swapNamesButtonClicked() {
-
-		//ToDo: Hardcoded for now...
-		let oldPlayer1Name = players.value[0].name;
-
-		players.value[0].name = players.value[1].name;
-		players.value[1].name = oldPlayer1Name;
-	}
-	*/
-
 	_scoreChange(event) {
 		let newScore = Number.parseInt(event.target.value);
 
 		if (newScore < 0 || newScore > 100)
 			return;
 
+		let scoreType = event.target.id.split("_")[0];
 		let scoreIndex = Number.parseInt(event.target.id.split("_")[1]);
+		let winnerIndex;
 
-		//console.log("New score:", newScore, "for index:", scoreIndex);
-		let winnerIndex = players.value[scoreIndex].slippiIndex;
+		if (scoreType == "teamScore") { //Doubles
+
+			let firstTeamMemberIndex = scoreIndex * 2;
+
+			if (players.value.length <= firstTeamMemberIndex) {
+				event.target.value = 0;
+				return;
+			}
+
+			let teamInternalId = players.value[firstTeamMemberIndex].teamId;
+
+			if (teamInternalId < 0) {
+				event.target.value = 0;
+				return;
+			}		
+
+			let teamId = slippi.value.gameInfo.activeTeams.findIndex(teamIdElem => teamIdElem === teamInternalId);
+
+			if (teamId < 0) {
+				event.target.value = 0;
+				return;
+			}
+
+			winnerIndex = teamId;
+
+		} else { //Singles
+			//console.log("New score:", newScore, "for index:", scoreIndex);
+			winnerIndex = players.value[scoreIndex].slippiIndex;		
+		}
+
 		let oldScore = tournament.value.scores[winnerIndex].score;
 		tournament.value.scores[winnerIndex].score = newScore;
 
-		//If a score was manually increased after a match is done, count this as "matchScored" and as a game win for this player
+		//If a score was manually increased after a match is done, count this as "matchScored" and as a game win for this player/team
 		if (slippi.value.gameInfo.finished && newScore > oldScore) {
 
 			//Delay message to allow replicant changes to propagate first
@@ -328,16 +427,25 @@ export class PlayerInfo extends LitElement {
 
 	_swapDataButtonClicked(event) {
 
-		//Swap in pairs of 2
 		if (players.value.length > 0) {
 
 			for (let i = 0; i < players.value.length; i++) {
 
-				let player1 = players.value[i];
-				i++;
+				//If teams have been fully swapped, advanced to next team
+				if (tournament.value.isTeams && i > 0 && i % 2 == 0) {
+					i += 2;
+				}
 
-				if (i < players.value.length) {
-					let player2 = players.value[i];
+				if (i >= players.value.length)
+					break;
+
+				let player1 = players.value[i];
+
+				//Singles: Swap in pairs of 2, Doubles: Swap the teams with each other
+				let secondIndex = i + (tournament.value.isTeams ? 2 : 1)
+
+				if (secondIndex < players.value.length) {
+					let player2 = players.value[secondIndex];
 					let player1Copy = JSON.parse(JSON.stringify(player1));
 
 					player1.name = player2.name;
@@ -348,7 +456,9 @@ export class PlayerInfo extends LitElement {
 					player2.pronouns = player1Copy.pronouns;
 					player2.sponsor = player1Copy.sponsor;
 				}
-			}
+
+				i = i + (tournament.value.isTeams ? 0 : 1);
+			}		
 		}
 	}
 
