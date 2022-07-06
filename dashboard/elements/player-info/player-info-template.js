@@ -1,5 +1,7 @@
 import { html, css } from 'lit';
+import { map } from 'lit/directives/map.js';
 import { repeat } from 'lit/directives/repeat.js';
+import { range } from 'lit/directives/range.js';
 
 import '@polymer/iron-icons/hardware-icons.js';
 import '@polymer/iron-icons/iron-icons.js';
@@ -25,7 +27,12 @@ return css`
 }
 
 #layout {
-  height: 520px;
+  height: 880px;
+}
+
+#modeSelectCheckbox {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #lowerButtonsLayout {
@@ -35,6 +42,11 @@ return css`
 }
 
 .playerIndex {
+  width: 110px;
+  margin-left: 7px;
+}
+
+.teamId {
   width: 110px;
   margin-left: 7px;
 }
@@ -55,6 +67,14 @@ return css`
 
 .playerScore {
   margin-left: 20px;
+}
+
+.teamPaddingTop {
+  margin-bottom: 10px;
+}
+
+.teamPaddingBottom {
+  margin-bottom: 30px;
 }
 
 #resetScoresButton {
@@ -79,24 +99,27 @@ export const template = function() {
 return html`
 
 <vaadin-vertical-layout id="layout">
-  ${repeat(this.players, (item) => item.id, (item, index) => html`
 
-    <vaadin-horizontal-layout>
-	  <vaadin-select id=${'index_' + index} class="playerIndex" theme="slippi-style" label="Port" value=${item.slippiIndex == 0 ? "Lower" : "Higher"} @change=${this._playerIndexChange}>
-        <template>
-          <vaadin-list-box>
-            <vaadin-item>Lower</vaadin-item>
-            <vaadin-item>Higher</vaadin-item>
-          </vaadin-list-box>
-        </template>
-      </vaadin-select>
-      <vaadin-text-field id=${'name_' + index} class="playerName" theme="slippi-style" label="Name" value=${item.name} clear-button-visible @change=${this._playerNameChange}></vaadin-text-field>
-      <vaadin-text-field id=${'pronouns_' + index} class="playerPronouns" theme="slippi-style" label="Pronouns" value=${item.pronouns} clear-button-visible @change=${this._pronounsChange}></vaadin-text-field>
-      <vaadin-text-field id=${'sponsor_' + index} class="sponsorName" theme="slippi-style" label="Sponsor" value=${item.sponsor} clear-button-visible @change=${this._sponsorNameChange}></vaadin-text-field>
-      <vaadin-integer-field id=${'score_' + index} class="playerScore" theme="slippi-style" label="Score" value=${this.scores[item.slippiIndex].score} has-controls min="0" max="100" @change=${this._scoreChange}></vaadin-integer-field>
-    </vaadin-horizontal-layout>
-  `)}
+  ${this.gameMode == "singles" ? html`
+	${repeat(this.players, (item) => item.id, (item, index) => html`
+      <vaadin-horizontal-layout>
+	    <vaadin-select id=${'index_' + index} class="playerIndex" theme="slippi-style" label="Port" value=${item.slippiIndex == 0 ? "Lower" : "Higher"} @change=${this._playerIndexChange}>
+          <template>
+            <vaadin-list-box>
+              <vaadin-item>Lower</vaadin-item>
+              <vaadin-item>Higher</vaadin-item>
+            </vaadin-list-box>
+          </template>
+        </vaadin-select>
+        <vaadin-text-field id=${'name_' + index} class="playerName" theme="slippi-style" label="Name" value=${item.name} clear-button-visible @change=${this._playerNameChange}></vaadin-text-field>
+        <vaadin-text-field id=${'pronouns_' + index} class="playerPronouns" theme="slippi-style" label="Pronouns" value=${item.pronouns} clear-button-visible @change=${this._pronounsChange}></vaadin-text-field>
+        <vaadin-text-field id=${'sponsor_' + index} class="sponsorName" theme="slippi-style" label="Sponsor" value=${item.sponsor} clear-button-visible @change=${this._sponsorNameChange}></vaadin-text-field>
+        <vaadin-integer-field id=${'score_' + index} class="playerScore" theme="slippi-style" label="Score" value=${this.scores[item.slippiIndex].score} has-controls min="0" max="100" @change=${this._scoreChange}></vaadin-integer-field>
+      </vaadin-horizontal-layout>
+    `)}
 
+  ` : html`
+  `}
   <vaadin-horizontal-layout id="lowerButtonsLayout">
     <vaadin-button id="resetScoresButton" theme="primary" @click=${this._resetScoresButtonClicked}>Reset Scores</vaadin-button>
     <vaadin-button id="swapDataButton" theme="primary" @click=${this._swapDataButtonClicked}>Swap Data</vaadin-button>

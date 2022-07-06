@@ -16,6 +16,11 @@ export class PlayerInfo extends LitElement {
 
 	static get properties() {
 		return {
+			gameMode: { type: String },
+			gameModeEnabled: { type: Boolean },
+			teamCount: { type: Number },
+			availableTeams: { type: Array },
+			teamIdToName: { type: Array },
 			players: { type: Array },
 			scores: { type: Array },
 			autoScoreEnabled: { type: Boolean }
@@ -30,6 +35,11 @@ export class PlayerInfo extends LitElement {
 
 		super();
 
+		this.gameMode = "singles";
+		this.gameModeEnabled = true;
+		this.teamCount = 2;
+		this.availableTeams = [0, 1, 2];
+		this.teamIdToName = ["Red", "Blue", "Green"];
 		this.players = [];
 		this.scores = [];
 		this.autoScoreEnabled = false;
@@ -49,22 +59,59 @@ export class PlayerInfo extends LitElement {
 				// Start the loop once all replicants are declared
 				if (numDeclared >= replicants.length) {
 
+					slippi.on('change', (newVal, oldVal) => {
+
+						if (!newVal)
+							return;
+
+						let changed = false;
+
+						if (!oldVal) {
+							changed = true;
+						} else if (oldVal.gameInfo.started != newVal.gameInfo.started || oldVal.gameInfo.finished != newVal.gameInfo.finished
+							|| oldVal.gameInfo.isTeams != newVal.gameInfo.isTeams
+							|| JSON.stringify(oldVal.gameInfo.activeTeams) != JSON.stringify(newVal.gameInfo.activeTeams)) {
+							changed = true;
+						}
+
+						if (!changed)
+							return;
+
+						this.gameModeEnabled = newVal.gameInfo.started && !newVal.gameInfo.finished ? false : true;
+
+						//Note: In doubles, ensure to use actual team count and available teams. If not available, assume 2 for now and all teams are available
+						if (newVal.gameInfo.started && !newVal.gameInfo.finished && newVal.gameInfo.isTeams) {
+							this.teamCount = newVal.gameInfo.activeTeams.length;
+							this.availableTeams = JSON.parse(JSON.stringify(newVal.gameInfo.activeTeams));
+						} else {
+							this.teamCount = 2;
+							this.availableTeams = [0, 1, 2];
+						}
+					});
+
 					players.on('change', (newVal, oldVal) => {
 
 						if (!newVal)
 							return;
 
+						let players = [];
+
 						if (!oldVal) {
-							this.players = JSON.parse(JSON.stringify(newVal));
+							players = JSON.parse(JSON.stringify(newVal));
 						}
 						else {
 							let oldString = JSON.stringify(oldVal);
 							let newString = JSON.stringify(newVal);
 
 							if (oldString != newString) {
-								this.players = JSON.parse(newString);
+								players = JSON.parse(newString);
+							}
+							else {
+								return;
 							}
 						}
+
+						this.refreshPlayerArray(players, tournament.value.isTeams);
 					});
 
 					tournament.on('change', (newVal, oldVal) => {
@@ -72,24 +119,101 @@ export class PlayerInfo extends LitElement {
 						if (!newVal)
 							return;
 
+						let changed = false;
+
 						if (!oldVal) {
-							this.scores = JSON.parse(JSON.stringify(newVal.scores));
+							changed = true;
 						}
 						else {
 							let oldString = JSON.stringify(oldVal.scores);
 							let newString = JSON.stringify(newVal.scores);
 
 							if (oldString != newString) {
-								this.scores = JSON.parse(newString);
+								changed = true;
+							} else if (oldVal.isTeams != newVal.isTeams || oldVal.autoScoreEnabled != newVal.autoScoreEnabled) {
+								changed = true;
 							}
 						}
 
+						if (!changed)
+							return;
+
+						if (newVal.isTeams)
+							this.gameMode = "doubles";
+						else
+							this.gameMode = "singles";
+
+						//Refresh player array on isTeams change
+						if (!oldVal || oldVal.isTeams != newVal.isTeams) {
+
+							if (players && players.value && players.value.length > 0) {
+								let playerClone = JSON.parse(JSON.stringify(players.value));
+								this.refreshPlayerArray(playerClone, newVal.isTeams);
+							}
+						}
+
+						this.scores = JSON.parse(JSON.stringify(newVal.scores));
 						this.autoScoreEnabled = newVal.autoScore;
 					});
 				}
 			});
 		});
 
+	}
+
+	updated(changedProperties) {
+
+		let self = this;
+
+		this.renderRoot.querySelectorAll('.teamId').forEach(item => {
+
+			item.renderer = function (root) {
+
+				console.log("Render Player Info");
+
+				//Check if there is a list-box generated with the previous renderer call to update its content instead of recreation
+				if (root.firstChild) {
+					return;
+				}
+
+				//Create the <vaadin-list-box>
+				const listBox = window.document.createElement('vaadin-list-box');
+
+				if (self.availableTeams) {
+
+					self.availableTeams.forEach(function (teamId) {
+						const vaadinItem = window.document.createElement('vaadin-item');
+						let teamName = self.teamIdToName[teamId];
+						vaadinItem.textContent = teamName;
+						vaadinItem.setAttribute('value', teamId.toString());
+
+						listBox.appendChild(vaadinItem);
+					});
+				}
+
+				//Add the list box
+				root.appendChild(listBox);
+			};
+		});
+	}
+
+	refreshPlayerArray(players, isTeams) {
+
+		//Note: Slice array to actual player count. If not available, assume 2 in singles and 4 in doubles for now		
+		let playerCount = isTeams ? 4 : 2;
+
+		if (slippi.value.gameInfo.started && !slippi.value.gameInfo.finished && slippi.value.playerInfo.length > 0) {
+			playerCount = slippi.value.playerInfo.length;
+		}
+
+		players = players.slice(0, playerCount);
+		this.players = players;
+	}
+
+	_gameModeChange(event) {
+
+		let modeName = event.target.value;
+		tournament.value.isTeams = modeName === "doubles" ? true : false;
 	}
 
 	_playerIndexChange(event) {
