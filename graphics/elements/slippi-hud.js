@@ -243,7 +243,7 @@ export class SlippiHud extends LitElement {
 				//Create sub array of playerInfo that matches the teamId of player
 				let teamMembers = newVal.playerInfo.filter(elem => elem.teamId === player.teamId && elem.teamId > -1);
 
-				if (teamMembers && teamMembers.length > 1 && teamMembers.length > playerInfoIndex) {
+				if (teamMembers && teamMembers.length > 1 && teamMembers.length > playerInfoIndex && this.playerData.length > i) {
 					//Sort by port number first
 					teamMembers.sort((a, b) => (a.port - b.port));
 					
@@ -252,7 +252,7 @@ export class SlippiHud extends LitElement {
 			} else { //Singles
 
 				//Only apply if we have data for this player
-				if (newVal.playerInfo.length > playerInfoIndex) {
+				if (newVal.playerInfo.length > playerInfoIndex && this.playerData.length > i) {
 					this.playerData[i].slippi = JSON.parse(JSON.stringify(newVal.playerInfo[playerInfoIndex]));
 				}
 			}
