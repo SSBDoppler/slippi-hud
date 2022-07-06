@@ -136,8 +136,7 @@ function runConnection() {
 		TimeObject.setFrames(slippi.value.gameInfo.timer, timerStartFrames, slippi_frameRate);
 
 		//Set players
-		slippi.value.playerInfo = [];
-
+		let playerInfoArray = [];
 		let playerId = 0;
 
 		for (let player of startState.players) {
@@ -180,8 +179,10 @@ function runConnection() {
 			};
 
             //Slippi automatically has the players sorted by port/index
-			slippi.value.playerInfo.push(slippiPlayer);
+			playerInfoArray.push(slippiPlayer);
 		}
+
+		slippi.value.playerInfo = playerInfoArray;
 
 		nodecg.sendMessage("tournament_autoGameStart", startState);
 	}));
