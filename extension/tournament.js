@@ -405,11 +405,6 @@ nodecg.listenFor('tournament_autoGameEnd', (data) => {
 				continue;
 
 			let score = player.index == winnerIndex ? 1 : 0;
-
-			if (score == 1) {
-				console.log("Push 1 score to:", player.index, "winnerIndex:", winnerIndex);
-			}
-
 			tournament.value.scores[player.id].rawResults.push(score);
 		}
 	}
