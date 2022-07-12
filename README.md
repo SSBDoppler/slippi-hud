@@ -32,15 +32,19 @@ SlippiHUD@gmail.com
 
 ## Graphics
 ### Joel 'Potsy' Kaplan
-##### Final HUD Art, the cool Logo
+##### Classic HUD and pillar-box art
 [Twitter](https://twitter.com/potsyjk)
+
+### 8VibesStudio
+##### New Logo and New HUD
+[Facebook](https://www.facebook.com/8vibestudios)
 
 ## Special Thanks
 ### Jas Laferriere and the Slippi team
 #### Slippi
 [Project Slippi](https://github.com/project-slippi)
 
-### David Kimball
+### David V. Kimball
 #### Melee HD Assets
 [website](http://davidvkimball.com)
 
