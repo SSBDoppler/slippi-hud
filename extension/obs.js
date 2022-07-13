@@ -48,41 +48,70 @@ function checkAndSetNewScene(sceneName) {
 
 function checkSceneSwitchConditions() {
 
+	let targetScene = "";
+
 	if (!tournament.value.autoScore && !slippi.value.gameInfo.finished) {
-		return "Handwarmer";
+		targetScene = "Handwarmer";
 	}
 	else if (tournament.value.autoScore && !slippi.value.gameInfo.finished) {
-		return "Tournament";
+		targetScene = "Tournament";
 	}
 	else if (slippi.value.gameInfo.finished && tournament.value.matchScored && obs.value.scenes.activeScene && obs.value.scenes.activeScene != "Wait") {
 
 		//Skip stats scenes in Doubles mode as there are no stats available, go straight to Wait Scene
 		if (slippi.value.gameInfo.isTeams) {
-			return "Wait";
+			targetScene = "Wait";
 		}
 		else {
 
-			//Start Wait Scene timer no matter what if needed in Singles mode
+			//If enabled, start Wait Scene timer no matter what if needed in Singles mode
 			if (!waitSceneTimer) {
 
-				waitSceneTimer = setTimeout(() => {
-					checkAndSetNewScene("Wait");
-				}, obs.value.scenes.waitTime);
+				let switchEnabled = nodecg.bundleConfig.obs && nodecg.bundleConfig.obs.scenes && "Wait" in nodecg.bundleConfig.obs.scenes && "autoSwitch" in nodecg.bundleConfig.obs.scenes["Wait"] ? nodecg.bundleConfig.obs.scenes["Wait"].autoSwitch : true;
+
+				if (switchEnabled) {
+					waitSceneTimer = setTimeout(() => {
+						checkAndSetNewScene("Wait");
+					}, obs.value.scenes.waitTime);
+				}
 			}
 
 			if (obs.value.scenes.activeScene != "Game End" && obs.value.scenes.activeScene != "Set End") {
 
 				if (tournament.value.scores[0].score < (tournament.value.bestOf / 2) && tournament.value.scores[1].score < (tournament.value.bestOf / 2)) {
-					return "Game End";
+					targetScene = "Game End";
 				}
 				else if (tournament.value.scores[0].score > (tournament.value.bestOf / 2) || tournament.value.scores[1].score > (tournament.value.bestOf / 2)) {
-					return "Set End";
+					targetScene = "Set End";
 				}
 			}
 		}
 	}
 
-	return "";
+	//Account for adjustment logic from user config
+	if (targetScene) {
+		let switchEnabled = nodecg.bundleConfig.obs && nodecg.bundleConfig.obs.scenes && targetScene in nodecg.bundleConfig.obs.scenes && "autoSwitch" in nodecg.bundleConfig.obs.scenes[targetScene] ? nodecg.bundleConfig.obs.scenes[targetScene].autoSwitch : true;
+
+		if (!switchEnabled) {
+
+			let gameEnabled = "Game End" in nodecg.bundleConfig.obs.scenes && "autoSwitch" in nodecg.bundleConfig.obs.scenes["Game End"] ? nodecg.bundleConfig.obs.scenes["Game End"].autoSwitch : true;
+			let setEnabled = "Set End" in nodecg.bundleConfig.obs.scenes && "autoSwitch" in nodecg.bundleConfig.obs.scenes["Set End"] ? nodecg.bundleConfig.obs.scenes["Set End"].autoSwitch : true;
+
+			//Swap to another fitting end scene if possible
+			if (targetScene == "Game End" && setEnabled) {
+				targetScene = "Set End";
+			}
+			else if (targetScene == "Set End" && gameEnabled) {
+				targetScene = "Game End";
+			}
+			else {
+				//Block the switch if disabled entirely
+				targetScene = "";
+			}
+		}
+	}
+
+	return targetScene;
 }
 
 function autoDetermineCorrectScene(sceneNameOverride = "") {

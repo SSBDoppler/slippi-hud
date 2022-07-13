@@ -42,6 +42,10 @@
 						"Handwarmer": {
 							"type": "object",
 							"properties": {
+								"autoSwitch": {
+									"type": "boolean",
+									"default": true
+								},
 								"delay": {
 									"default": 0
 								}
@@ -50,6 +54,10 @@
 						"Tournament": {
 							"type": "object",
 							"properties": {
+								"autoSwitch": {
+									"type": "boolean",
+									"default": true
+								},
 								"delay": {
 									"default": 0
 								}
@@ -58,6 +66,10 @@
 						"Game End": {
 							"type": "object",
 							"properties": {
+								"autoSwitch": {
+									"type": "boolean",
+									"default": true
+								},
 								"delay": {
 									"default": 1
 								}
@@ -66,6 +78,10 @@
 						"Set End": {
 							"type": "object",
 							"properties": {
+								"autoSwitch": {
+									"type": "boolean",
+									"default": true
+								},
 								"delay": {
 									"default": 1
 								}
@@ -74,6 +90,10 @@
 						"Wait": {
 							"type": "object",
 							"properties": {
+								"autoSwitch": {
+									"type": "boolean",
+									"default": true
+								},
 								"delay": {
 									"default": 0
 								}
