@@ -14,7 +14,7 @@ function refreshTemplates() {
 	let templateList = [];
 
 	let templatePath = path.resolve(process.env.NODECG_ROOT, `bundles/${nodecg.bundleName}/graphics/`, `${nodecg.bundleConfig.hudTemplatePath}`);
-
+	console.log(`Gathering templates from ${templatePath}`);
 	//Build template list
 	let files = fs.readdirSync(templatePath);
 
@@ -35,7 +35,7 @@ function refreshTemplates() {
 	});
 	
 	templates.value.availableTemplates = templateList;
-
+	console.log("Available Templates: " + templateList);
 	//Default to first found template if none is selected
 	if (templates.value.activeTemplate.index < 0 || !templates.value.activeTemplate.name) {
 		templates.value.activeTemplate.index = 0;
