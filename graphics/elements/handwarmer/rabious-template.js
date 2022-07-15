@@ -10,6 +10,7 @@ if (!this.ready)
 return html``;
 
 return html`
+<h1>HANDWARMER</h1>
 <div style="font-weight: bold;">GENERAL DATA</div>
 <div>this.generalData.tournament.name "${this.generalData.tournament.name}"</div>
 <div>this.generalData.tournament.round "${this.generalData.tournament.round}"</div>

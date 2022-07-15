@@ -1,10 +1,14 @@
 import { html, css } from 'lit';
-import { repeat } from 'lit/directives/repeat.js';
+import {map} from 'lit/directives/map.js';
 
 import '@vaadin/vaadin-ordered-layout/vaadin-vertical-layout';
 import '@vaadin/vaadin-ordered-layout/vaadin-horizontal-layout';
 
-let input = html``;
+var maxHistoryLength = 10;
+var imageWidth = 65; // in pixels
+
+var inputHistory = [];
+var input = html``;
 var lastFrame = {
 	controlStick: "",
 	A: false,
@@ -17,8 +21,10 @@ var lastFrame = {
 };
 
 export const template = function () {
-	if (!this.ready) return html``;
-
+	if (this.generalData.slippi.finished || !this.ready) {
+		inputHistory = [];
+		return html``;
+	}
 
 	let newInput = html``;
 	let change = false;
@@ -39,7 +45,12 @@ export const template = function () {
 	}
 	// See if it's any different from last frame
 	if (controlStick) {
-		newInput = html`${newInput}<img src="img/buttons/Control_Stick-${controlStick}.svg" width=50px>`;
+		if (lastFrame.L > 0.3) { // Checking for rolls
+			newInput = html`${newInput}<img src="img/buttons/L.svg" width=${imageWidth}px>`;
+		} else if (lastFrame.R > 0.3) {
+			newInput = html`${newInput}<img src="img/buttons/R.svg" width=${imageWidth}px>`;
+		}
+		newInput = html`${newInput}<img src="img/buttons/Control_Stick-${controlStick}.svg" width=${imageWidth}px>`;
 		if (lastFrame.controlStick != controlStick) {
 			//console.log(`Control Stick: ${lastFrame.controlStick}->${controlStick}`);
 			change = true;
@@ -63,9 +74,14 @@ export const template = function () {
 	}
 	// See if it's any different from last frame
 	if (CStick && lastFrame.CStick != CStick) {
+		if (lastFrame.L > 0.3 && !controlStick) { // Checking for rolls
+			newInput = html`${newInput}<img src="img/buttons/L.svg" width=${imageWidth}px>`;
+		} else if (lastFrame.R > 0.3 && !controlStick) {
+			newInput = html`${newInput}<img src="img/buttons/R.svg" width=${imageWidth}px>`;
+		}
 		//console.log(`Control Stick: ${lastFrame.CStick}->${CStick}`);
 		change = true;
-		newInput = html`${newInput}<img src="img/buttons/C-Stick-${CStick}.svg" width=50px>`;
+		newInput = html`${newInput}<img src="img/buttons/C-Stick-${CStick}.svg" width=${imageWidth}px>`;
 	}	
 	lastFrame.CStick = CStick;
 
@@ -76,7 +92,7 @@ export const template = function () {
 	if (A && !lastFrame.A) {
 		//console.log("A");
 		change = true;
-		newInput = html`${newInput}<img src="img/buttons/A.svg" width=50px>`;
+		newInput = html`${newInput}<img src="img/buttons/A.svg" width=${imageWidth}px>`;
 	}
 	lastFrame.A = A;
 	
@@ -85,7 +101,7 @@ export const template = function () {
 	if (B && !lastFrame.B) {
 		//console.log("B");
 		change = true;
-		newInput = html`${newInput}<img src="img/buttons/B.svg" width=50px>`;
+		newInput = html`${newInput}<img src="img/buttons/B.svg" width=${imageWidth}px>`;
 	} 
 	lastFrame.B = B;
 
@@ -94,7 +110,7 @@ export const template = function () {
 	if (L > 0.3 && lastFrame.L <= 0.3) {
 		//console.log("L");
 		change = true;
-		newInput = html`${newInput}<img src="img/buttons/L.svg" width=50px>`;
+		newInput = html`${newInput}<img src="img/buttons/L.svg" width=${imageWidth}px>`;
 	}
 	lastFrame.L = L;
 	
@@ -103,7 +119,7 @@ export const template = function () {
 	if (R > 0.3 && lastFrame.R <= 0.3) {
 		//console.log("R");
 		change = true;
-		newInput = html`${newInput}<img src="img/buttons/R.svg" width=50px>`;
+		newInput = html`${newInput}<img src="img/buttons/R.svg" width=${imageWidth}px>`;
 	}
 	lastFrame.R = R;
 
@@ -112,7 +128,7 @@ export const template = function () {
 	if (X && !lastFrame.X) {
 		//console.log("X");
 		change = true;
-		newInput = html`${newInput}<img src="img/buttons/X.svg" width=50px>`;
+		newInput = html`${newInput}<img src="img/buttons/X.svg" width=${imageWidth}px>`;
 	}
 	lastFrame.X = X;
 	
@@ -121,7 +137,7 @@ export const template = function () {
 	if (Y && !lastFrame.Y) {
 		//console.log("Y");
 		change = true;
-		newInput = html`${newInput}<img src="img/buttons/Y.svg" width=50px>`;
+		newInput = html`${newInput}<img src="img/buttons/Y.svg" width=${imageWidth}px>`;
 	} 
 	lastFrame.Y = Y;
 
@@ -130,25 +146,32 @@ export const template = function () {
 	if (Z && !lastFrame.Z) {
 		//console.log("Z");
 		change = true;
-		newInput = html`${newInput}<img src="img/buttons/Z.svg" width=50px>`;
+		newInput = html`${newInput}<img src="img/buttons/Z.svg" width=${imageWidth}px>`;
 	} 
 	lastFrame.Z = Z;
 	
-
+	// Adds an id to div tag if the input changes
 	if (change) {
 		input = newInput;
-		input = html`<div style="display: flex">${input}<div>`;
-		return html`${this.generalData.slippi.elapsedFrames}<br>${input}!!!`
+		input = html`<div id="input" class="${this.generalData.slippi.elapsedFrames}" style="display: flex">${input}<div>`;
+		inputHistory.unshift(input);
+		// Delete if history is full
+		if (inputHistory.length > maxHistoryLength) {
+			inputHistory.pop();
+		}
 	}
-	return html`${this.generalData.slippi.elapsedFrames}<br>${input}`; // This for now since promises are weird
-}
+	return html`
+		${this.generalData.slippi.elapsedFrames}
+		<br>
+		<ul id="history" style="list-style-type: none; margin: 0; padding: 0;">
+			${map(inputHistory, (item) => html`<li>${item}</li>`)}
+		</ul>
+	`; // Can't seem to get css working
+}	
 
-export const style = function () {
+export const styles = function () {
 
 return css`
-
-:host {
-}
 
 `;
 }
