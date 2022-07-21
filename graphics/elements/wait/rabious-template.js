@@ -10,7 +10,6 @@ if (!this.ready)
 return html``;
 
 return html`
-<h1>WAIT</h1>
 <div style="font-weight: bold;">GENERAL DATA</div>
 <div>this.generalData.tournament.name "${this.generalData.tournament.name}"</div>
 <div>this.generalData.tournament.round "${this.generalData.tournament.round}"</div>
@@ -110,7 +109,106 @@ return html`
 <div>this.playerData[1].slippi.controller.pressedButtons.D_DOWN "${this.playerData[1].slippi.controller.pressedButtons.D_DOWN}"</div>
 <div>this.playerData[1].slippi.controller.pressedButtons.D_LEFT "${this.playerData[1].slippi.controller.pressedButtons.D_LEFT}"</div>
 
-
+<div style="font-weight: bold;">Game Stats</div>
+<div>this.statData.latestGame.gt "${this.statData.latestGame.gt}"</div>
+<div>this.statData.latestGame.g1 "${this.statData.latestGame.g1}"</div>
+<div style="font-weight: bold;">Low Port Data</div>
+<div>this.statData.latestGame.rightColor "${this.statData.latestGame.leftColor}"</div>
+<div>this.statData.latestGame.char1 "${this.statData.latestGame.char1}"</div>
+<div>this.statData.latestGame.color1 "${this.statData.latestGame.color1}"</div>
+<div>this.statData.latestGame.name1 "${this.statData.latestGame.name1}"</div>
+<div>this.statData.latestGame.sub1 "${this.statData.latestGame.sub1}"</div>
+<div style="font-weight: bold;">Low Port Stats</div>
+<div>this.statData.latestGame.mckm1 "${this.statData.latestGame.mckm1}"</div>
+<div>this.statData.latestGame.mcno1 "${this.statData.latestGame.mcno1}"</div>
+<div>this.statData.latestGame.opk1 "${this.statData.latestGame.opk1}"</div>
+<div>this.statData.latestGame.tdd1 "${this.statData.latestGame.tdd1}"</div>
+<div>this.statData.latestGame.akp1 "${this.statData.latestGame.akp1}"</div>
+<div>this.statData.latestGame.nw1 "${this.statData.latestGame.nw1}"</div>
+<div>this.statData.latestGame.ipm1 "${this.statData.latestGame.ipm1}"</div>
+<div>this.statData.latestGame.dpo1 "${this.statData.latestGame.dpo1}"</div>
+<div>this.statData.latestGame.lc1 "${this.statData.latestGame.lc1}"</div>
+<div>this.statData.latestGame.fb1 "${this.statData.latestGame.fb1}"</div>
+<div>this.statData.latestGame.ek1 "${this.statData.latestGame.ek1}"</div>
+<div>this.statData.latestGame.ld1 "${this.statData.latestGame.ld1}"</div>
+<div>this.statData.latestGame.sd1 "${this.statData.latestGame.sd1}"</div>
+<div>this.statData.latestGame.hdp1 "${this.statData.latestGame.hdp1}"</div>
+<div style="font-weight: bold;">High Port Data</div>
+<div>this.statData.latestGame.leftColor "${this.statData.latestGame.leftColor}"</div>
+<div>this.statData.latestGame.char2 "${this.statData.latestGame.char2}"</div>
+<div>this.statData.latestGame.color2 "${this.statData.latestGame.color2}"</div>
+<div>this.statData.latestGame.name2 "${this.statData.latestGame.name2}"</div>
+<div>this.statData.latestGame.sub2 "${this.statData.latestGame.sub2}"</div>
+<div style="font-weight: bold;">High Port Stats</div>
+<div>this.statData.latestGame.mckm2 "${this.statData.latestGame.mckm2}"</div>
+<div>this.statData.latestGame.mcno2 "${this.statData.latestGame.mcno2}"</div>
+<div>this.statData.latestGame.opk2 "${this.statData.latestGame.opk2}"</div>
+<div>this.statData.latestGame.tdd2 "${this.statData.latestGame.tdd2}"</div>
+<div>this.statData.latestGame.akp2 "${this.statData.latestGame.akp2}"</div>
+<div>this.statData.latestGame.nw2 "${this.statData.latestGame.nw2}"</div>
+<div>this.statData.latestGame.ipm2 "${this.statData.latestGame.ipm2}"</div>
+<div>this.statData.latestGame.dpo2 "${this.statData.latestGame.dpo2}"</div>
+<div>this.statData.latestGame.lc2 "${this.statData.latestGame.lc2}"</div>
+<div>this.statData.latestGame.fb2 "${this.statData.latestGame.fb2}"</div>
+<div>this.statData.latestGame.ek2 "${this.statData.latestGame.ek2}"</div>
+<div>this.statData.latestGame.ld2 "${this.statData.latestGame.ld2}"</div>
+<div>this.statData.latestGame.sd2 "${this.statData.latestGame.sd2}"</div>
+<div>this.statData.latestGame.hdp2 "${this.statData.latestGame.hdp2}"</div>
+<div style="font-weight: bold;">Set Stats</div>
+<div>this.statData.latestSet.gt "${this.statData.latestSet.gt}"</div>
+<div>this.statData.latestSet.g1 "${this.statData.latestSet.g1}</div>
+<!--  .split is undefined
+<div>this.statData.latestSet.g1.split(",")[0] "\${this.statData.latestSet.g1.split(",")[0]}"</div>
+<div>this.statData.latestSet.g1.split(",")[1] "\${this.statData.latestSet.g1.split(",")[1]}"</div>
+<div>this.statData.latestSet.g1.split(",")[2] "\${this.statData.latestSet.g1.split(",")[2]}"</div>
+<div>this.statData.latestSet.g1.split(",")[3] "\${this.statData.latestSet.g1.split(",")[3]}"</div>
+<div>this.statData.latestSet.g1.split(",")[4] "\${this.statData.latestSet.g1.split(",")[4]}"</div>
+<div>this.statData.latestSet.g1.split(",")[5] "\${this.statData.latestSet.g1.split(",")[5]}"</div>
+<div>this.statData.latestSet.g1.split(",")[6] "\${this.statData.latestSet.g1.split(",")[6]}"</div>
+<div>this.statData.latestSet.g1.split(",")[7] "\${this.statData.latestSet.g1.split(",")[7]}"</div>
+-->
+<div style="font-weight: bold;">Low Port Data</div>
+<div>this.statData.latestSet.rightColor "${this.statData.latestSet.leftColor}"</div>
+<div>this.statData.latestSet.char1 "${this.statData.latestSet.char1}"</div>
+<div>this.statData.latestSet.color1 "${this.statData.latestSet.color1}"</div>
+<div>this.statData.latestSet.name1 "${this.statData.latestSet.name1}"</div>
+<div>this.statData.latestSet.sub1 "${this.statData.latestSet.sub1}"</div>
+<div style="font-weight: bold;">Low Port Stats</div>
+<div>this.statData.latestSet.mckm1 "${this.statData.latestSet.mckm1}"</div>
+<div>this.statData.latestSet.mcno1 "${this.statData.latestSet.mcno1}"</div>
+<div>this.statData.latestSet.opk1 "${this.statData.latestSet.opk1}"</div>
+<div>this.statData.latestSet.tdd1 "${this.statData.latestSet.tdd1}"</div>
+<div>this.statData.latestSet.akp1 "${this.statData.latestSet.akp1}"</div>
+<div>this.statData.latestSet.nw1 "${this.statData.latestSet.nw1}"</div>
+<div>this.statData.latestSet.ipm1 "${this.statData.latestSet.ipm1}"</div>
+<div>this.statData.latestSet.dpo1 "${this.statData.latestSet.dpo1}"</div>
+<div>this.statData.latestSet.lc1 "${this.statData.latestSet.lc1}"</div>
+<div>this.statData.latestSet.fb1 "${this.statData.latestSet.fb1}"</div>
+<div>this.statData.latestSet.ek1 "${this.statData.latestSet.ek1}"</div>
+<div>this.statData.latestSet.ld1 "${this.statData.latestSet.ld1}"</div>
+<div>this.statData.latestSet.sd1 "${this.statData.latestSet.sd1}"</div>
+<div>this.statData.latestSet.hdp1 "${this.statData.latestSet.hdp1}"</div>
+<div style="font-weight: bold;">High Port Data</div>
+<div>this.statData.latestSet.leftColor "${this.statData.latestSet.leftColor}"</div>
+<div>this.statData.latestSet.char2 "${this.statData.latestSet.char2}"</div>
+<div>this.statData.latestSet.color2 "${this.statData.latestSet.color2}"</div>
+<div>this.statData.latestSet.name2 "${this.statData.latestSet.name2}"</div>
+<div>this.statData.latestSet.sub2 "${this.statData.latestSet.sub2}"</div>
+<div style="font-weight: bold;">High Port Stats</div>
+<div>this.statData.latestSet.mckm2 "${this.statData.latestSet.mckm2}"</div>
+<div>this.statData.latestSet.mcno2 "${this.statData.latestSet.mcno2}"</div>
+<div>this.statData.latestSet.opk2 "${this.statData.latestSet.opk2}"</div>
+<div>this.statData.latestSet.tdd2 "${this.statData.latestSet.tdd2}"</div>
+<div>this.statData.latestSet.akp2 "${this.statData.latestSet.akp2}"</div>
+<div>this.statData.latestSet.nw2 "${this.statData.latestSet.nw2}"</div>
+<div>this.statData.latestSet.ipm2 "${this.statData.latestSet.ipm2}"</div>
+<div>this.statData.latestSet.dpo2 "${this.statData.latestSet.dpo2}"</div>
+<div>this.statData.latestSet.lc2 "${this.statData.latestSet.lc2}"</div>
+<div>this.statData.latestSet.fb2 "${this.statData.latestSet.fb2}"</div>
+<div>this.statData.latestSet.ek2 "${this.statData.latestSet.ek2}"</div>
+<div>this.statData.latestSet.ld2 "${this.statData.latestSet.ld2}"</div>
+<div>this.statData.latestSet.sd2 "${this.statData.latestSet.sd2}"</div>
+<div>this.statData.latestSet.hdp2 "${this.statData.latestSet.hdp2}"</div>
 `;
 
 }

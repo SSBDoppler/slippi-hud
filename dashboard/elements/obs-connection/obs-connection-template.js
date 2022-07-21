@@ -57,11 +57,12 @@ return html`
   <vaadin-select id="activeScene" theme="slippi-style" label="Active Scene" value=${this.activeScene} @change=${this._activeSceneChange}>
     <template>
       <vaadin-list-box>
-        <vaadin-item>Handwarmer</vaadin-item>
-        <vaadin-item>Tournament</vaadin-item>
-        <vaadin-item>Game End</vaadin-item>
-        <vaadin-item>Set End</vaadin-item>
-        <vaadin-item>Wait</vaadin-item>
+        <vaadin-item>Melee Stream</vaadin-item>
+        <vaadin-item>TO: Handwarmer</vaadin-item>
+        <vaadin-item>TO: Tournament</vaadin-item>
+        <vaadin-item>TO: Game End</vaadin-item>
+        <vaadin-item>TO: Set End</vaadin-item>
+        <vaadin-item>TO: Wait</vaadin-item>
       </vaadin-list-box>
     </template>
   </vaadin-select>

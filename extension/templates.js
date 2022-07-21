@@ -33,9 +33,6 @@ function refreshTemplates() {
 			templateList.push(template);
 		}
 	});
-	
-	templates.value.availableTemplates = templateList;
-	console.log("Available Templates: " + templateList);
 	//Default to first found template if none is selected
 	if (templates.value.activeTemplate.index < 0 || !templates.value.activeTemplate.name) {
 		templates.value.activeTemplate.index = 0;

@@ -1,64 +1,165 @@
 import { html, css } from 'lit';
 import {map} from 'lit/directives/map.js';
 
-import '@vaadin/vaadin-ordered-layout/vaadin-vertical-layout';
-import '@vaadin/vaadin-ordered-layout/vaadin-horizontal-layout';
 
-var maxHistoryLength = 10;
+var maxHistoryLength = 9;
 var imageWidth = 65; // in pixels
 
+var stickChange = 0;
+var startStick = "";
+var startAngle = 0;
 var inputHistory = [];
-var input = html``;
+var scaleX = -1;
+var buttons = {
+	pressed: false,
+	old: [],
+	new: []
+}
 var lastFrame = {
 	controlStick: "",
+	controlAngle: 0,
 	A: false,
 	B: false,
 	CStick: "",
 	L: 0,
 	R: 0,
 	X: false,
-	Y: false
+	Y: false,
+	Z: false
 };
+var matchStarted = false;
+
+function commonLetter(a, b){
+    if(b.length < a.length)
+        return commonLetter(b, a)
+    for(var i = 0, len = a.length; i < len; i++) 
+        if(b.indexOf(a[i]) != -1)
+            return true;
+  
+    return false
+}
+
+
 
 export const template = function () {
-	if (this.generalData.slippi.finished || !this.ready) {
+	if (this.generalData.slippi.finished) {
+		matchStarted = false;
+	}
+	if (!this.ready || !matchStarted && !this.generalData.slippi.finished) {
 		inputHistory = [];
+		matchStarted = true;
 		return html``;
 	}
+	
 
+	/*******************************************
+				VARIABLES/HELPER FUNCTIONS
+	********************************************/
 	let newInput = html``;
-	let change = false;
+	let hasChanged = false;
+	var emptyInput = true;
 
-	// Find direction of control stick
+	function change() {
+		hasChanged = true;
+		stickChange = 0;
+		startStick = "";
+		startAngle = 0;
+	}
+
+	function appendInput(string) {
+		if (emptyInput) emptyInput = false;
+		newInput = html`${newInput}${string}`;
+		return true;
+	}
+
+	function prependInput(string) {
+		if (emptyInput) emptyInput = false;
+		newInput = html`${string}${newInput}`;
+		return true;
+	}
+
+
+	/*******************************************
+					CONTROL STICK
+	********************************************/
 	let controlStick = "";
+	let controlAngle = 0;
 	if (this.playerData[0].slippi.controller.mainStickY < -0.2750) {
 		controlStick = "D";
+		controlAngle += 0.5;
 	}
 	else if (this.playerData[0].slippi.controller.mainStickY > 0.2750) {
 		controlStick = "U";
+		controlAngle++;
 	}
 	if (this.playerData[0].slippi.controller.mainStickX < -0.2750) {
 		controlStick += "L";
+		controlAngle = controlAngle + .75;
 	}
 	else if (this.playerData[0].slippi.controller.mainStickX > 0.2750) {
 		controlStick += "R";
+		controlAngle = controlAngle % 1 + .25;
 	}
-	// See if it's any different from last frame
 	if (controlStick) {
-		if (lastFrame.L > 0.3) { // Checking for rolls
-			newInput = html`${newInput}<img src="img/buttons/L.svg" width=${imageWidth}px>`;
-		} else if (lastFrame.R > 0.3) {
-			newInput = html`${newInput}<img src="img/buttons/R.svg" width=${imageWidth}px>`;
-		}
-		newInput = html`${newInput}<img src="img/buttons/Control_Stick-${controlStick}.svg" width=${imageWidth}px>`;
-		if (lastFrame.controlStick != controlStick) {
-			//console.log(`Control Stick: ${lastFrame.controlStick}->${controlStick}`);
-			change = true;
-		}
+		controlAngle /= controlStick.length;
 	}
-	lastFrame.controlStick = controlStick;
 
-	// Find direction of C stick
+	// See if it's any different from last frame
+
+	if (controlStick) {
+		if (!startStick) {
+			startStick = controlStick;
+			startAngle = controlAngle;
+		}
+		if (lastFrame.controlStick != controlStick) { // If control stick rolled along edges
+			if (commonLetter(lastFrame.controlStick, controlStick)) {
+				let angleDif = controlAngle - lastFrame.controlAngle;
+				if (angleDif < -0.5) { // U<->UR edge cases
+					startAngle--;
+				} else if (angleDif > 0.5) {
+					startAngle++;
+				}
+				scaleX = (controlAngle - startAngle > 0) ? -1 : 1;
+				stickChange = Math.min(Math.abs(controlAngle - startAngle) * 8, 7);
+			}
+			lastFrame.controlAngle = controlAngle;
+		}
+		if (stickChange > 0) {
+			appendInput(html`
+			<img src="img/buttons/Control_Stick-${startStick}.svg">
+			<div class="relative">
+				<img class="relative" src="img/buttons/Control_Stick-${controlStick}.svg">
+				<img class="absolute" src="img/buttons/${stickChange}.png" style="transform: rotate(${controlAngle}turn) scaleX(${scaleX});">
+			</div>`);
+		} else {
+			appendInput(html`<img src="img/buttons/Control_Stick-${controlStick}.svg">`)
+		}
+		
+	} else if (lastFrame.controlStick) { // Control Stick goes to neutral
+		if (stickChange > 0) {
+			appendInput(html`
+			<img src="img/buttons/Control_Stick-${startStick}.svg">
+			<div class="relative">
+				<img class="relative" src="img/buttons/Control_Stick-${lastFrame.controlStick}.svg">
+				<img class="absolute" src="img/buttons/${stickChange}.png" style="transform: rotate(${lastFrame.controlAngle}turn) scaleX(${scaleX});">
+			</div>`);
+			change();
+		} else if (!buttons.pressed) {
+			appendInput(html`<img src="img/buttons/Control_Stick-${lastFrame.controlStick}.svg">`)
+			change();
+		} else {
+			buttons.pressed = false;
+		}
+	} else { // Control Stick stays in neutral | edge case
+		startStick = "";
+		startAngle = 0;
+		stickChange = 0;
+	}
+	
+
+	/*******************************************
+					C STICK
+	********************************************/
 	let CStick = "";
 	if (this.playerData[0].slippi.controller.cStickY < -0.2750) {
 		CStick = "D";
@@ -74,104 +175,104 @@ export const template = function () {
 	}
 	// See if it's any different from last frame
 	if (CStick && lastFrame.CStick != CStick) {
-		if (lastFrame.L > 0.3 && !controlStick) { // Checking for rolls
-			newInput = html`${newInput}<img src="img/buttons/L.svg" width=${imageWidth}px>`;
-		} else if (lastFrame.R > 0.3 && !controlStick) {
-			newInput = html`${newInput}<img src="img/buttons/R.svg" width=${imageWidth}px>`;
+		buttons.pressed = true;
+		appendInput(html`<img src="img/buttons/C-Stick-${CStick}.svg">`);
+		if (lastFrame.CStick != CStick) {
+			change();
 		}
-		//console.log(`Control Stick: ${lastFrame.CStick}->${CStick}`);
-		change = true;
-		newInput = html`${newInput}<img src="img/buttons/C-Stick-${CStick}.svg" width=${imageWidth}px>`;
 	}	
-	lastFrame.CStick = CStick;
-
-	// Check for button presses
-
-	// A
-	let A = this.playerData[0].slippi.controller.pressedButtons.A
-	if (A && !lastFrame.A) {
-		//console.log("A");
-		change = true;
-		newInput = html`${newInput}<img src="img/buttons/A.svg" width=${imageWidth}px>`;
-	}
-	lastFrame.A = A;
 	
-	// B
-	let B = this.playerData[0].slippi.controller.pressedButtons.B
-	if (B && !lastFrame.B) {
-		//console.log("B");
-		change = true;
-		newInput = html`${newInput}<img src="img/buttons/B.svg" width=${imageWidth}px>`;
-	} 
-	lastFrame.B = B;
 
-	// L trigger
-	let L = this.playerData[0].slippi.controller.leftTrigger
-	if (L > 0.3 && lastFrame.L <= 0.3) {
-		//console.log("L");
-		change = true;
-		newInput = html`${newInput}<img src="img/buttons/L.svg" width=${imageWidth}px>`;
-	}
-	lastFrame.L = L;
-	
-	// R trigger
-	let R = this.playerData[0].slippi.controller.rightTrigger
-	if (R > 0.3 && lastFrame.R <= 0.3) {
-		//console.log("R");
-		change = true;
-		newInput = html`${newInput}<img src="img/buttons/R.svg" width=${imageWidth}px>`;
-	}
-	lastFrame.R = R;
+	/*******************************************
+					BUTTON PRESSES
+	********************************************/
+	buttons.old = [];
+	buttons.new = [];
 
-	// X
-	let X = this.playerData[0].slippi.controller.pressedButtons.X
-	if (X && !lastFrame.X) {
-		//console.log("X");
-		change = true;
-		newInput = html`${newInput}<img src="img/buttons/X.svg" width=${imageWidth}px>`;
-	}
-	lastFrame.X = X;
-	
-	// Y
-	let Y = this.playerData[0].slippi.controller.pressedButtons.Y
-	if (Y && !lastFrame.Y) {
-		//console.log("Y");
-		change = true;
-		newInput = html`${newInput}<img src="img/buttons/Y.svg" width=${imageWidth}px>`;
-	} 
-	lastFrame.Y = Y;
-
-	// Z
-	let Z = this.playerData[0].slippi.controller.pressedButtons.Z
-	if (Z && !lastFrame.Z) {
-		//console.log("Z");
-		change = true;
-		newInput = html`${newInput}<img src="img/buttons/Z.svg" width=${imageWidth}px>`;
-	} 
-	lastFrame.Z = Z;
-	
-	// Adds an id to div tag if the input changes
-	if (change) {
-		input = newInput;
-		input = html`<div id="input" class="${this.generalData.slippi.elapsedFrames}" style="display: flex">${input}<div>`;
-		inputHistory.unshift(input);
-		// Delete if history is full
-		if (inputHistory.length > maxHistoryLength) {
-			inputHistory.pop();
+	function buttonPressed(input, buttonName) {
+		if (input) {
+			buttons.pressed = true;
+			if (!lastFrame[buttonName]) {
+				buttons.new.push(buttonName);
+				change();
+			} else { 
+				buttons.old.push(buttonName);
+			}
 		}
 	}
+	function triggerPressed(input, triggerName) {
+		if (input > 0.3) {
+			// 	buttons.pressed = true;
+			if (lastFrame[triggerName] <= 0.3) {
+				buttons.new.push(triggerName);
+				change();
+			} else {
+				buttons.old.push(triggerName);
+			}
+		}
+	}
+	buttonPressed(this.playerData[0].slippi.controller.pressedButtons.A, "A")	// A
+	buttonPressed(this.playerData[0].slippi.controller.pressedButtons.B, "B")	// B
+	triggerPressed(this.playerData[0].slippi.controller.leftTrigger + this.playerData[0].slippi.controller.pressedButtons.L, "L")	// L trigger
+	triggerPressed(this.playerData[0].slippi.controller.rightTrigger + this.playerData[0].slippi.controller.pressedButtons.R, "R")	// R trigger
+	buttonPressed(this.playerData[0].slippi.controller.pressedButtons.X, "X")	// X
+	buttonPressed(this.playerData[0].slippi.controller.pressedButtons.Y, "Y")	// Y
+	buttonPressed(this.playerData[0].slippi.controller.pressedButtons.Z, "Z")	// Z
+
+	// Adding buttons to input
+	buttons.old.map(button => prependInput(html`<img src="img/buttons/${button}.svg">`))
+	buttons.new.map(button => appendInput(html`<img src="img/buttons/${button}.svg">`))
+
+	lastFrame.CStick = CStick;
+	lastFrame.A = this.playerData[0].slippi.controller.pressedButtons.A;
+	lastFrame.B = this.playerData[0].slippi.controller.pressedButtons.B;
+	lastFrame.L = this.playerData[0].slippi.controller.leftTrigger + this.playerData[0].slippi.controller.pressedButtons.L;
+	lastFrame.R = this.playerData[0].slippi.controller.rightTrigger + this.playerData[0].slippi.controller.pressedButtons.R;
+	lastFrame.X = this.playerData[0].slippi.controller.pressedButtons.X;
+	lastFrame.Y = this.playerData[0].slippi.controller.pressedButtons.Y;
+	lastFrame.Z = this.playerData[0].slippi.controller.pressedButtons.Z;
+	lastFrame.controlStick = controlStick;
+	
+	/*******************************************
+					INPUT HISTORY
+	********************************************/
+	// If no buttons are pressed this frame
+	if (emptyInput) {
+		appendInput(html`<img src="img/buttons/Control_Stick-.svg">`);
+	}
+	// Adds to history if new input detected
+	newInput = html`<div class="input" id="${this.generalData.slippi.elapsedFrames}">${newInput}<div>`;
+	if (hasChanged) {
+			inputHistory.unshift(newInput);
+			// Delete if history is full
+			if (inputHistory.length > maxHistoryLength) {
+				inputHistory.pop();
+			}
+	}
+
+
 	return html`
-		${this.generalData.slippi.elapsedFrames}
+		<style>
+			img {
+				width: ${imageWidth}px;
+			}
+
+			.input {
+				display: flex;
+			}
+			.relative {
+				position: relative;
+			}
+			.absolute {
+				position: absolute;
+				top: 0px;
+				left: 0px;
+			}
+		</style>
 		<br>
 		<ul id="history" style="list-style-type: none; margin: 0; padding: 0;">
-			${map(inputHistory, (item) => html`<li>${item}</li>`)}
+			<li>${newInput}</li>
+			${map(inputHistory, (input) => html`<li>${input}</li>`)}
 		</ul>
-	`; // Can't seem to get css working
+	`;
 }	
-
-export const styles = function () {
-
-return css`
-
-`;
-}

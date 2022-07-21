@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Game End: End Card</title>
+	<style>
+	</style>
+	
+	<custom-style>
+	</custom-style>
+</head>
+<body>
+	<slippi-hud graphic="gameEnd"></slippi-hud>
+	<style>
+		.centered {
+			position: absolute;
+			left: 50%;
+			transform: translate(-50%, 0);
+		}
+		.stock {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width:max-content;
+		}
+		.invis {
+			opacity: 33%;
+		}
+		#stage {
+			content: url(../../img/Stages/daniel-bernal-3.png);
+			width: 400px;
+			padding: 0rem 2rem;
+		}
+		#p1 img {
+			content: url(../../../graphics/img/characters/20/1/stock.png);
+			padding: 0rem .3rem;
+		}
+		#p2 img {
+			content: url(../../../graphics/img/characters/2/0/stock.png);
+			padding: 0rem .3rem;
+		}
+	</style>
+        <div style="display: flex" class="centered">
+				<div id="p1" class="stock">
+					<img class="invis"><img class="invis"><img><img>
+				</div>
+                <img id="stage">
+				<div id="p2" class="stock">
+					<img><img><img><img>
+				</div>
+        </div>
+</body>
+</html>

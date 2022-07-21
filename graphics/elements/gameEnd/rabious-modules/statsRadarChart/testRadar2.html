@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Game End: Radar Chart</title>
+    <script type="text/javascript" src="radar.js"></script> 
+	<style>
+	</style>
+	
+	<custom-style>
+	</custom-style>
+</head>
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+	</style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<canvas id="myChart" width="400" height="400"></canvas>
+    <script>
+        console.log("Script running!");
+        Chart.defaults.color = '#c1c3db'
+        const data = {
+            labels: [
+                'PWR',
+                'SKL',
+                'DEF',
+                'SPD',
+                'LCK',
+                'CTL'
+            ],
+            datasets: [{
+                label: '',
+                data: [stats[0][0], stats[0][1], stats[0][2], stats[0][3], stats[0][4], stats[0][5]],
+                fill: true,
+                backgroundColor: 'rgba(221, 70, 69, 0.3)',
+                borderColor: 'rgb(221, 70, 69)',
+                pointRadius: 0,
+
+            }, {
+                label: '',
+                data: [stats[1][0], stats[1][1], stats[1][2], stats[1][3], stats[1][4], stats[1][5]],
+                fill: true,
+                backgroundColor: 'rgba(70, 69, 221, 0.3)',
+                borderColor: 'rgb(70, 69, 221)',
+                pointRadius: 0
+
+            }]
+        };
+        
+        const config = {
+            type: 'radar',
+            data: data,
+            options: {
+                elements: {
+                    line: {
+                        borderWidth: 8
+                    }
+                },
+                scales: {
+                    r: {
+                        angleLines: {
+                            display: true
+                        },
+                        pointLabels: {
+                            font: {
+                                size: 40,
+                                color: '#ff6384',
+                                family: "'Press Start 2P'"
+                            }
+                        },
+                        ticks: {
+                            display: false
+                        },
+                        grid: {
+                            drawTicks: false,
+                            lineWidth: 3,
+                            drawOnChartArea: false,
+                            borderColor: '#FFF',
+                            tickLength: 50
+                        },
+                        suggestedMin: 100,
+                        suggestedMax: 100
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        display: false,
+                    },
+                    legend: {
+                        display: false,
+                    }
+                }
+            },
+        };
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, config);
+    </script>
+	
+
+
+</body>
+</html>

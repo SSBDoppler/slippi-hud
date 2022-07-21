@@ -31,28 +31,25 @@
     "@polymer/paper-toast": "^3.0.0",
     "@polymer/paper-toolbar": "^3.0.0",
     "@polymer/polymer": "^3.0.0",
+    "@slippi/slippi-js": "^6.2.1",
     "@types/node": "^10.14.4",
+    "@vaadin/vaadin-button": "^20.0.5",
     "@vaadin/vaadin-checkbox": "^20.0.5",
     "@vaadin/vaadin-combo-box": "^20.0.5",
-    "@vaadin/vaadin-radio-button": "^20.0.5",
-    "@vaadin/vaadin-text-field": "^20.0.5",
-    "@vaadin/vaadin-button": "^20.0.5",
     "@vaadin/vaadin-grid": "^20.0.5",
     "@vaadin/vaadin-ordered-layout": "^20.0.5",
+    "@vaadin/vaadin-radio-button": "^20.0.5",
     "@vaadin/vaadin-select": "^20.0.5",
     "@vaadin/vaadin-template-renderer": "^21.0.0",
-    "@webcomponents/webcomponentsjs": "^2.2.10",
-    "@slippi/slippi-js": "^6.2.1",
+    "@vaadin/vaadin-text-field": "^20.0.5",
     "@vinceau/slp-realtime": "https://github.com/dragonbane0/slp-realtime/tarball/ade1ce10fd7fe58e91d4d951d361c5ec55b3f9a1",
+    "@webcomponents/webcomponentsjs": "^2.2.10",
     "got": "^11.8.5",
     "lit": "^2.2.7",
     "obs-websocket-js": "^4.0.3",
     "rxjs": "^6.6.7",
     "slp-stats-nodecg": "https://github.com/dragonbane0/slp-stats-nodecg/tarball/554c9acc2901143920c7fd5ace2ae7ba62ecf867"
   },
-  "devDependencies": {},
-  "optionalDependencies": {},
-  "bundleDependencies": [],
   "homepage": "",
   "license": "",
   "nodecg": {
@@ -149,8 +146,26 @@
       },
       {
         "file": "buttonDisplay.html",
-        "width": 1920,
+        "width": 300,
         "height": 1080,
+        "singleInstance": false
+      },
+      {
+        "file": "buttonDisplay2.html",
+        "width": 300,
+        "height": 1080,
+        "singleInstance": false
+      },
+      {
+        "file": "statsRadarChart.html",
+        "width": 1920,
+        "height": 600,
+        "singleInstance": false
+      },
+      {
+        "file": "endStockCount.html",
+        "width": 1920,
+        "height": 300,
         "singleInstance": false
       }
     ]
