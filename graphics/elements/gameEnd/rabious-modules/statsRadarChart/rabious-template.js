@@ -1,3 +1,5 @@
+// Made by Rabious
+
 import { html, css } from 'lit';
 
 var DURATION = 0;

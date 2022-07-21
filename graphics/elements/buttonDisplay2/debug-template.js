@@ -1,5 +1,6 @@
+// Made by Rabious
+
 import { html, css } from 'lit';
-import { repeat } from 'lit/directives/repeat.js';
 
 import '@vaadin/vaadin-ordered-layout/vaadin-vertical-layout';
 import '@vaadin/vaadin-ordered-layout/vaadin-horizontal-layout';
