@@ -254,6 +254,100 @@
 								}
 							}
 						}
+					},
+					"misc": {
+						"type": "object",
+						"properties": {
+							"isFollower:": {
+								"type": "boolean",
+								"default": null
+							},
+							"actionStateId": {
+								"type": "number",
+								"default": null
+							},
+							"positionX": {
+								"type": "number",
+								"default": null
+							},
+							"positionY": {
+								"type": "number",
+								"default": null
+							},
+							"facingDirection": {
+								"type": "number",
+								"default": null
+							},
+							"shieldSize": {
+								"type": "number",
+								"default": null
+							},
+							"lastAttackLanded": {
+								"type": "number",
+								"default": null
+							},
+							"currentComboCount": {
+								"type": "number",
+								"default": null
+							},
+							"lastHitBy": {
+								"type": "number",
+								"default": null
+							},
+							"actionStateCounter": {
+								"type": "number",
+								"default": null
+							},
+							"miscActionState": {
+								"type": "number",
+								"default": null
+							},
+							"isAirborne:": {
+								"type": "boolean",
+								"default": null
+							},
+							"lastGroundId": {
+								"type": "number",
+								"default": null
+							},
+							"jumpsRemaining": {
+								"type": "number",
+								"default": null
+							},
+							"lCancelStatus": {
+								"type": "number",
+								"default": null
+							},
+							"hurtboxCollisionState": {
+								"type": "number",
+								"default": null
+							},
+							"selfInducedSpeeds": {
+								"type": "object",
+								"properties": {
+									"airX": {
+										"type": "number",
+										"default": null
+									},
+									"y": {
+										"type": "number",
+										"default": null
+									},
+									"attackX": {
+										"type": "number",
+										"default": null
+									},
+									"attackY": {
+										"type": "number",
+										"default": null
+									},
+									"groundX": {
+										"type": "number",
+										"default": null
+									}
+								}
+							}
+						}
 					}
 				}
 			}

@@ -271,6 +271,33 @@ function runConnection() {
 
 				//console.log("Button inputs changed, now:", player.controller);
 			}
+
+			//Update misc data every time
+			player.misc = {
+				isFollower: framePlayer.post.isFollower,
+				actionStateId: framePlayer.post.actionStateId,
+				positionX: framePlayer.post.positionX,
+				positionY: framePlayer.post.positionY,
+				facingDirection: framePlayer.post.facingDirection,
+				shieldSize: framePlayer.post.shieldSize,
+				lastAttackLanded: framePlayer.post.lastAttackLanded,
+				currentComboCount: framePlayer.post.currentComboCount,
+				lastHitBy: framePlayer.post.lastHitBy,
+				actionStateCounter: framePlayer.post.actionStateCounter,
+				miscActionState: framePlayer.post.miscActionState,
+				isAirborne: framePlayer.post.isAirborne,
+				lastGroundId: framePlayer.post.lastGroundId,
+				jumpsRemaining: framePlayer.post.jumpsRemaining,
+				lCancelStatus: framePlayer.post.lCancelStatus,
+				hurtboxCollisionState: framePlayer.post.hurtboxCollisionState,
+				selfInducedSpeeds: {
+					airX: framePlayer.post.selfInducedSpeeds.airX,
+					y: framePlayer.post.selfInducedSpeeds.y,
+					attackX: framePlayer.post.selfInducedSpeeds.attackX,
+					attackY: framePlayer.post.selfInducedSpeeds.attackY,
+					groundX: framePlayer.post.selfInducedSpeeds.groundX
+				}
+			};
 		}
 	}));
 }
