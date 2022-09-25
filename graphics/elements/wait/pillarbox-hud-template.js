@@ -15,7 +15,7 @@ return html`
 #overlay {
     top: 0px;
 	left: 0px;
-    background: url(./img/extras/wait.png) no-repeat;
+    background: url(./img/extras/old-hud/wait.png) no-repeat;
     height: 1080px;
     width: 1920px;
     position: absolute;

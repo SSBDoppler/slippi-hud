@@ -94,7 +94,7 @@ return html`
     width: 239px;
     text-align: center;
 }
-#P1Score {
+#Score-true {
 	position: absolute;
 	top: 949px;
     left: 259px;
@@ -102,7 +102,7 @@ return html`
     width: 44px;
     text-align: center;
 }
-#P2Score {
+#Score-false {
 	position: absolute;
 	top: 949px;
     left: 1617px;
@@ -165,16 +165,16 @@ return html`
 	
 	<div id="P1Name"> ${this.playerData[0].player.name}</div>
 	<div id="P1Sponsor"></div>
-	<div id="P1Score">${this.generalData.tournament.scores[this.playerData[0].slippi.id].score}</div>
+	<div id="Score-${this.playerData[1].slippi.id > this.playerData[0].slippi.id}">${this.generalData.tournament.scores[0].score}</div>
 	<div id="P1Tag" class="port-${this.playerData[0].slippi.port} ${this.playerData[0].slippi.tag != ''}">${this.playerData[0].slippi.tag}</div>
-	<div id="P1Tag" class="port-${this.playerData[0].slippi.port} ${this.playerData[0].slippi.tag == ''}">PLAYER ${this.playerData[0].slippi.port}</div>
+	<div id="P1Tag" class="port-${this.playerData[0].slippi.port} ${this.playerData[0].slippi.tag == ''}">${this.playerData[0].player.pronouns}</div>
 	<div id="P1Character"></div>
 	
 	<div id="P2Name"> ${this.playerData[1].player.name}</div>
 	<div id="P2Sponsor"></div>
-	<div id="P2Score">${this.generalData.tournament.scores[this.playerData[1].slippi.id].score}</div>
+	<div id="Score-${this.playerData[1].slippi.id < this.playerData[0].slippi.id}">${this.generalData.tournament.scores[1].score}</div>
 	<div id="P2Tag" class="port-${this.playerData[1].slippi.port} ${this.playerData[1].slippi.tag != ''}">${this.playerData[1].slippi.tag}</div>
-	<div id="P2Tag" class="port-${this.playerData[1].slippi.port} ${this.playerData[1].slippi.tag == ''}">PLAYER ${this.playerData[1].slippi.port}</div>
+	<div id="P2Tag" class="port-${this.playerData[1].slippi.port} ${this.playerData[1].slippi.tag == ''}">${this.playerData[1].player.pronouns}</div>
 	<div id="P2Character"></div>
 </div>
 `;

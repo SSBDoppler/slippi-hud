@@ -21,7 +21,7 @@ return html`
 	position:absolute;
 	left: 0px;
 	top: 0px;
-	background: url('./img/extras/SetEnd.png') no-repeat 0px 0px;
+	background: url('./img/extras/old-hud/SetEnd.png') no-repeat 0px 0px;
 	width: 1920px;
 	height: 1080px;
 }
@@ -311,27 +311,27 @@ position: absolute;
 	
 }
 .port-1 {
-	background: url('./img/extras/port1.png') no-repeat 0px 0px;
+	background: url('./img/extras/old-hud/port1.png') no-repeat 0px 0px;
 	top: 174px;
 	width: 342px;
 	height: 578px;
 }
 .port-2 {
-	background: url('./img/extras/port2.png') no-repeat 0px 0px;
+	background: url('./img/extras/old-hud/port2.png') no-repeat 0px 0px;
 	top: 174px;
 	width: 342px;
 	height: 578px;
 
 }
 .port-3 {
-	background: url('./img/extras/port3.png') no-repeat 0px 0px;
+	background: url('./img/extras/old-hud/port3.png') no-repeat 0px 0px;
 	top: 174px;
 	width: 342px;
 	height: 578px;
 
 }
 .port-4 {
-	background: url('./img/extras/port4.png') no-repeat 0px 0px;
+	background: url('./img/extras/old-hud/port4.png') no-repeat 0px 0px;
 	top: 174px;
 	width: 342px;
 	height: 578px;
@@ -369,7 +369,7 @@ position: absolute;
 	background: url('./img/Stages/32-small.png') 0px 0px;
 }
 .frame {
-	background: url('./img/extras/frame.png') 0px 0px no-repeat;
+	background: url('./img/extras/old-hud/frame.png') 0px 0px no-repeat;
 }
 #t1 {
 	width: 200px;
