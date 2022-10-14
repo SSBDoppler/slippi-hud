@@ -44,10 +44,10 @@ SlippiHUD@gmail.com
 #### Slippi
 [Project Slippi](https://github.com/project-slippi)
 
-### David V. Kimball
-#### Melee HD Assets
-[website](http://davidvkimball.com)
-
 ### Vince Au
 #### Slp-Realtime & Slippi-Stats
 [Slp-Realtime](https://github.com/vinceau)
+
+### David V. Kimball
+#### Melee HD Assets
+[website](http://davidvkimball.com)
