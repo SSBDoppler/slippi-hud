@@ -232,23 +232,6 @@ return html`
 	}
 }
 
-@keyframes onP1damage-100-${this.playerData[0].slippi.damage} {
-	0%{
-		transform: translate(0%,0%);
-	}
-	10% {
-		transform: translate(-20px,-20px);
-	}
-	
-	50% {
-		transform: translate(20px,0px);
-	}
-	
-	90% {
-		transform: translate(0px,20px);
-	}
-	
-}
 
 @keyframes onP2damage-${this.playerData[1].slippi.damage} {
 	0%{
@@ -286,23 +269,6 @@ return html`
 	
 }
 
-@keyframes onP2damage-100-${this.playerData[1].slippi.damage} {
-	0%{
-		transform: translate(0%,0%);
-	}
-	10% {
-		transform: translate(20px,0px);
-	}
-	
-	50% {
-		transform: translate(-20px,20px);
-	}
-	
-	90% {
-		transform: translate(0px,-20px);
-	}
-}
-
 @keyframes onP3damage-${this.playerData[2].slippi.damage} {
 	0%{
 		transform: translate(0%,0%);
@@ -337,23 +303,6 @@ return html`
 	}
 }
 
-@keyframes onP3damage-100-${this.playerData[2].slippi.damage} {
-	0%{
-		transform: translate(0%,0%);
-	}
-	10% {
-		transform: translate(-20px,-20px);
-	}
-	
-	50% {
-		transform: translate(20px,0px);
-	}
-	
-	90% {
-		transform: translate(0px,20px);
-	}
-	
-}
 @keyframes onP4damage-${this.playerData[3].slippi.damage} {
 	0%{
 		transform: translate(0%,0%);
@@ -388,34 +337,12 @@ return html`
 	}
 }
 
-@keyframes onP4damage-100-${this.playerData[3].slippi.damage} {
-	0%{
-		transform: translate(0%,0%);
-	}
-	10% {
-		transform: translate(-20px,-20px);
-	}
-	
-	50% {
-		transform: translate(20px,0px);
-	}
-	
-	90% {
-		transform: translate(0px,20px);
-	}
-	
-}
-
 #p1dmg {
 	animation: 160ms linear 0s 1 onP1damage-${this.playerData[0].slippi.damage};
 }
 
 #p1dmg-10 {
 	animation: 160ms linear 0s 1 onP1damage-10-${this.playerData[0].slippi.damage};
-}
-
-#p1dmg-100 {
-	animation: 160ms linear 0s 1 onP1damage-100-${this.playerData[0].slippi.damage};
 }
 
 #p2dmg {
@@ -426,10 +353,6 @@ return html`
 	animation: 160ms linear 0s 1 onP2damage-10-${this.playerData[1].slippi.damage};
 }
 
-#p2dmg-100 {
-	animation: 160ms linear 0s 1 onP2damage-100-${this.playerData[1].slippi.damage};
-}
-
 #p3dmg {
 	animation: 160ms linear 0s 1 onP3damage-${this.playerData[2].slippi.damage};
 }
@@ -438,20 +361,12 @@ return html`
 	animation: 160ms linear 0s 1 onP3damage-10-${this.playerData[2].slippi.damage};
 }
 
-#p3dmg-100 {
-	animation: 160ms linear 0s 1 onP3damage-100-${this.playerData[2].slippi.damage};
-}
-
 #p4dmg {
 	animation: 160ms linear 0s 1 onP4damage-${this.playerData[3].slippi.damage};
 }
 
 #p4dmg-10 {
 	animation: 160ms linear 0s 1 onP4damage-10-${this.playerData[3].slippi.damage};
-}
-
-#p4dmg-100 {
-	animation: 160ms linear 0s 1 onP4damage-100-${this.playerData[3].slippi.damage};
 }
 
 #teamsmodule {
@@ -1718,7 +1633,7 @@ ${this.generalData.slippi.isTeams
 					<div id="stock" class="stock-3 ${this.playerData[0].slippi.stockCountNow>2}" style="background: url('./img/slippi-hud/stocks2/${this.playerData[0].slippi.character.id}/${this.playerData[0].slippi.character.costumeId}.png'); transform: scale(${1/6}); width: 200px; height: 200px; animation: 0.2s linear 0s 1 onP1death-${this.playerData[0].slippi.stockCountNow==2};"></div>
 					<div id="stock" class="stock-4 ${this.playerData[0].slippi.stockCountNow>3}" style="background: url('./img/slippi-hud/stocks2/${this.playerData[0].slippi.character.id}/${this.playerData[0].slippi.character.costumeId}.png'); transform: scale(${1/6}); width: 200px; height: 200px; animation: 0.2s linear 0s 1 onP1death-${this.playerData[0].slippi.stockCountNow==3};"></div>
 				</div>
-				<div id="dmg" class="p1damage-${(this.playerData[0].slippi.damage>300)}"><span id="p1dmg-100" class="${this.playerData[0].slippi.damage>=100 && this.playerData[0].slippi.stockCountNow>0}">${Math.floor(this.playerData[0].slippi.damage/100)}</span><span id="p1dmg-10"  class="${this.playerData[0].slippi.damage>=10 && this.playerData[0].slippi.stockCountNow>0}">${Math.floor(this.playerData[0].slippi.damage/10)-(Math.floor(this.playerData[0].slippi.damage/100)*10)}</span><span id="p1dmg" class="${this.playerData[0].slippi.stockCountNow>0}">${this.playerData[0].slippi.damage-(Math.floor(this.playerData[0].slippi.damage/10)*10)}</span><span id="percent" class="${this.playerData[0].slippi.stockCountNow>0}" style="font-size : 66%">%</span></div>
+				<div id="dmg" class="p1damage-${(this.playerData[0].slippi.damage>300)}"><span id="p1dmg" class="${this.playerData[0].slippi.damage>=100 && this.playerData[0].slippi.stockCountNow>0}">${Math.floor(this.playerData[0].slippi.damage/100)}</span><span id="p1dmg-10"  class="${this.playerData[0].slippi.damage>=10 && this.playerData[0].slippi.stockCountNow>0}">${Math.floor(this.playerData[0].slippi.damage/10)-(Math.floor(this.playerData[0].slippi.damage/100)*10)}</span><span id="p1dmg" class="${this.playerData[0].slippi.stockCountNow>0}">${this.playerData[0].slippi.damage-(Math.floor(this.playerData[0].slippi.damage/10)*10)}</span><span id="percent" class="${this.playerData[0].slippi.stockCountNow>0}" style="font-size : 66%">%</span></div>
 		</div>	
 
 		<div id="player2" class="port-${this.playerData[1].slippi.port}">
@@ -1729,7 +1644,7 @@ ${this.generalData.slippi.isTeams
 					<div id="stock" class="stock-3 ${this.playerData[1].slippi.stockCountNow>2}" style="background: url('./img/slippi-hud/stocks2/${this.playerData[1].slippi.character.id}/${this.playerData[1].slippi.character.costumeId}.png'); transform: scale(${1/6}); width: 192px; height: 192px; animation: 0.2s linear 0s 1 onP2death-${this.playerData[1].slippi.stockCountNow==2};"></div>
 					<div id="stock" class="stock-4 ${this.playerData[1].slippi.stockCountNow>3}" style="background: url('./img/slippi-hud/stocks2/${this.playerData[1].slippi.character.id}/${this.playerData[1].slippi.character.costumeId}.png'); transform: scale(${1/6}); width: 192px; height: 192px; animation: 0.2s linear 0s 1 onP2death-${this.playerData[1].slippi.stockCountNow==3};"></div>
 				</div>
-				<div id="dmg" class="p2damage-${(this.playerData[1].slippi.damage>300)}"><span id="p1dmg-100" class="${this.playerData[1].slippi.damage>=100 && this.playerData[1].slippi.stockCountNow>0}">${Math.floor(this.playerData[1].slippi.damage/100)}</span><span id="p2dmg-10"  class="${this.playerData[1].slippi.damage>=10 && this.playerData[1].slippi.stockCountNow>0}">${Math.floor(this.playerData[1].slippi.damage/10)-(Math.floor(this.playerData[1].slippi.damage/100)*10)}</span><span id="p2dmg" class="${this.playerData[1].slippi.stockCountNow>0}">${this.playerData[1].slippi.damage-(Math.floor(this.playerData[1].slippi.damage/10)*10)}</span><span id="percent" class="${this.playerData[1].slippi.stockCountNow>0}" style="font-size : 66%">%</span></div>	
+				<div id="dmg" class="p2damage-${(this.playerData[1].slippi.damage>300)}"><span id="p2dmg" class="${this.playerData[1].slippi.damage>=100 && this.playerData[1].slippi.stockCountNow>0}">${Math.floor(this.playerData[1].slippi.damage/100)}</span><span id="p2dmg-10"  class="${this.playerData[1].slippi.damage>=10 && this.playerData[1].slippi.stockCountNow>0}">${Math.floor(this.playerData[1].slippi.damage/10)-(Math.floor(this.playerData[1].slippi.damage/100)*10)}</span><span id="p2dmg" class="${this.playerData[1].slippi.stockCountNow>0}">${this.playerData[1].slippi.damage-(Math.floor(this.playerData[1].slippi.damage/10)*10)}</span><span id="percent" class="${this.playerData[1].slippi.stockCountNow>0}" style="font-size : 66%">%</span></div>	
 		</div>	
 
 		<div id="score-${this.playerData[2].slippi.teamId > this.playerData[0].slippi.teamId}">${this.generalData.tournament.scores[0].score}</div>
@@ -1747,7 +1662,7 @@ ${this.generalData.slippi.isTeams
 					<div id="stock" class="stock-3 ${this.playerData[2].slippi.stockCountNow>2}" style="background: url('./img/slippi-hud/stocks2/${this.playerData[2].slippi.character.id}/${this.playerData[2].slippi.character.costumeId}.png'); transform: scale(${1/6}); width: 192px; height: 192px; animation: 0.2s linear 0s 1 onP2death-${this.playerData[2].slippi.stockCountNow==2};"></div>
 					<div id="stock" class="stock-4 ${this.playerData[2].slippi.stockCountNow>3}" style="background: url('./img/slippi-hud/stocks2/${this.playerData[2].slippi.character.id}/${this.playerData[2].slippi.character.costumeId}.png'); transform: scale(${1/6}); width: 192px; height: 192px; animation: 0.2s linear 0s 1 onP2death-${this.playerData[2].slippi.stockCountNow==3};"></div>
 				</div>
-				<div id="dmg" class="p3damage-${(this.playerData[2].slippi.damage>300)}"><span id="p3dmg-100" class="${this.playerData[2].slippi.damage>=100 && this.playerData[2].slippi.stockCountNow>0}">${Math.floor(this.playerData[2].slippi.damage/100)}</span><span id="p3dmg-10" class= "${this.playerData[2].slippi.damage>=10 && this.playerData[2].slippi.stockCountNow>0}">${Math.floor(this.playerData[2].slippi.damage/10)-(Math.floor(this.playerData[2].slippi.damage/100)*10)}</span><span id="p3dmg" class="${this.playerData[2].slippi.stockCountNow>0}">${this.playerData[2].slippi.damage-(Math.floor(this.playerData[2].slippi.damage/10)*10)}</span><span id="percent" class="${this.playerData[2].slippi.stockCountNow>0}" style="font-size : 66%">%</span></div>
+				<div id="dmg" class="p3damage-${(this.playerData[2].slippi.damage>300)}"><span id="p3dmg" class="${this.playerData[2].slippi.damage>=100 && this.playerData[2].slippi.stockCountNow>0}">${Math.floor(this.playerData[2].slippi.damage/100)}</span><span id="p3dmg-10" class= "${this.playerData[2].slippi.damage>=10 && this.playerData[2].slippi.stockCountNow>0}">${Math.floor(this.playerData[2].slippi.damage/10)-(Math.floor(this.playerData[2].slippi.damage/100)*10)}</span><span id="p3dmg" class="${this.playerData[2].slippi.stockCountNow>0}">${this.playerData[2].slippi.damage-(Math.floor(this.playerData[2].slippi.damage/10)*10)}</span><span id="percent" class="${this.playerData[2].slippi.stockCountNow>0}" style="font-size : 66%">%</span></div>
 		</div>
 					
 		<div id="player4" class="port-${this.playerData[3].slippi.port}">
@@ -1758,7 +1673,7 @@ ${this.generalData.slippi.isTeams
 					<div id="stock" class="stock-3 ${this.playerData[3].slippi.stockCountNow>2}" style="background: url('./img/slippi-hud/stocks2/${this.playerData[3].slippi.character.id}/${this.playerData[3].slippi.character.costumeId}.png'); transform: scale(${1/6}); width: 192px; height: 192px; animation: 0.2s linear 0s 1 onP2death-${this.playerData[3].slippi.stockCountNow==2};"></div>
 					<div id="stock" class="stock-4 ${this.playerData[3].slippi.stockCountNow>3}" style="background: url('./img/slippi-hud/stocks2/${this.playerData[3].slippi.character.id}/${this.playerData[3].slippi.character.costumeId}.png'); transform: scale(${1/6}); width: 192px; height: 192px; animation: 0.2s linear 0s 1 onP2death-${this.playerData[3].slippi.stockCountNow==3};"></div>
 				</div>
-				<div id="dmg" class="p4damage-${(this.playerData[3].slippi.damage>300)} "><span id="p2dmg-100" class="${this.playerData[3].slippi.damage>=100 && this.playerData[3].slippi.stockCountNow>0}">${Math.floor(this.playerData[3].slippi.damage/100)}</span><span id="p2dmg-10" class= "${this.playerData[3].slippi.damage>=10 && this.playerData[3].slippi.stockCountNow>0}">${Math.floor(this.playerData[3].slippi.damage/10)-(Math.floor(this.playerData[3].slippi.damage/100)*10)}</span><span id="p4dmg" class="${this.playerData[3].slippi.stockCountNow>0}">${this.playerData[3].slippi.damage-(Math.floor(this.playerData[3].slippi.damage/10)*10)}</span><span id="percent" class="${this.playerData[3].slippi.stockCountNow>0}" style="font-size : 66%">%</span></div>				
+				<div id="dmg" class="p4damage-${(this.playerData[3].slippi.damage>300)} "><span id="p4dmg" class="${this.playerData[3].slippi.damage>=100 && this.playerData[3].slippi.stockCountNow>0}">${Math.floor(this.playerData[3].slippi.damage/100)}</span><span id="p4dmg-10" class= "${this.playerData[3].slippi.damage>=10 && this.playerData[3].slippi.stockCountNow>0}">${Math.floor(this.playerData[3].slippi.damage/10)-(Math.floor(this.playerData[3].slippi.damage/100)*10)}</span><span id="p4dmg" class="${this.playerData[3].slippi.stockCountNow>0}">${this.playerData[3].slippi.damage-(Math.floor(this.playerData[3].slippi.damage/10)*10)}</span><span id="percent" class="${this.playerData[3].slippi.stockCountNow>0}" style="font-size : 66%">%</span></div>				
 		</div>
 			
 		<div id="score-${this.playerData[2].slippi.teamId < this.playerData[0].slippi.teamId}">${this.generalData.tournament.scores[1].score}</div>
@@ -1889,7 +1804,7 @@ ${this.generalData.slippi.isTeams
 						<div id="stock" class="stock-4 ${this.playerData[0].slippi.stockCountNow>3}" style="background: url('./img/slippi-hud/stocks2/${this.playerData[0].slippi.character.id}/${this.playerData[0].slippi.character.costumeId}.png'); transform: scale(${1/6}); width: 200px; height: 200px; animation: 0.2s linear 0s 1 onP1death-${this.playerData[0].slippi.stockCountNow==3};"></div>
 					</div>
 					<div id="sgl-score1">${this.generalData.tournament.scores[this.playerData[0].slippi.id].score}</div>
-					<div id="sgl-dmg" class="p1damage-${(this.playerData[0].slippi.damage>300)} ${this.playerData[0].slippi.stockCountNow>0}"><span id="p1dmg-100" class="${this.playerData[0].slippi.damage>=100}">${Math.floor(this.playerData[0].slippi.damage/100)}</span><span id="p1dmg-10"  class="${this.playerData[0].slippi.damage>=10}">${Math.floor(this.playerData[0].slippi.damage/10)-(Math.floor(this.playerData[0].slippi.damage/100)*10)}</span><span id="p1dmg">${this.playerData[0].slippi.damage-(Math.floor(this.playerData[0].slippi.damage/10)*10)}</span><span id="percent" style="font-size : 66%">%</span></div>
+					<div id="sgl-dmg" class="p1damage-${(this.playerData[0].slippi.damage>300)} ${this.playerData[0].slippi.stockCountNow>0}"><span id="p1dmg" class="${this.playerData[0].slippi.damage>=100}">${Math.floor(this.playerData[0].slippi.damage/100)}</span><span id="p1dmg-10"  class="${this.playerData[0].slippi.damage>=10}">${Math.floor(this.playerData[0].slippi.damage/10)-(Math.floor(this.playerData[0].slippi.damage/100)*10)}</span><span id="p1dmg">${this.playerData[0].slippi.damage-(Math.floor(this.playerData[0].slippi.damage/10)*10)}</span><span id="percent" style="font-size : 66%">%</span></div>
 					<div id="sgl-name1" class="name1"><span><div class="sgl-tag">${this.playerData[0].player.name}</div></span></div>
 			</div>
 									
@@ -1902,7 +1817,7 @@ ${this.generalData.slippi.isTeams
 						<div id="stock" class="stock-4 ${this.playerData[1].slippi.stockCountNow>3}" style="background: url('./img/slippi-hud/stocks2/${this.playerData[1].slippi.character.id}/${this.playerData[1].slippi.character.costumeId}.png'); transform: scale(${1/6}); width: 192px; height: 192px; animation: 0.2s linear 0s 1 onP2death-${this.playerData[1].slippi.stockCountNow==3};"></div>
 					</div>
 					<div id="sgl-score2">${this.generalData.tournament.scores[this.playerData[1].slippi.id].score}</div>
-					<div id="sgl-dmg" class="p2damage-${(this.playerData[1].slippi.damage>300)} ${this.playerData[1].slippi.stockCountNow>0}"><span id="p2dmg-100" class="${this.playerData[1].slippi.damage>=100}">${Math.floor(this.playerData[1].slippi.damage/100)}</span><span id="p2dmg-10" class= "${this.playerData[1].slippi.damage>=10}">${Math.floor(this.playerData[1].slippi.damage/10)-(Math.floor(this.playerData[1].slippi.damage/100)*10)}</span><span id="p2dmg">${this.playerData[1].slippi.damage-(Math.floor(this.playerData[1].slippi.damage/10)*10)}</span><span id="percent" style="font-size : 66%">%</span></div>
+					<div id="sgl-dmg" class="p2damage-${(this.playerData[1].slippi.damage>300)} ${this.playerData[1].slippi.stockCountNow>0}"><span id="p2dmg" class="${this.playerData[1].slippi.damage>=100}">${Math.floor(this.playerData[1].slippi.damage/100)}</span><span id="p2dmg-10" class= "${this.playerData[1].slippi.damage>=10}">${Math.floor(this.playerData[1].slippi.damage/10)-(Math.floor(this.playerData[1].slippi.damage/100)*10)}</span><span id="p2dmg">${this.playerData[1].slippi.damage-(Math.floor(this.playerData[1].slippi.damage/10)*10)}</span><span id="percent" style="font-size : 66%">%</span></div>
 					<div id="sgl-name2" class="name2"><span><div class="sgl-tag">${this.playerData[1].player.name}</div></span></div>
 			</div>
 					
