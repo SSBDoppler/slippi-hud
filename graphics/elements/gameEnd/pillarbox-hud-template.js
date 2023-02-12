@@ -21,7 +21,7 @@ return html`
 	position:absolute;
 	left: 0px;
 	top: 0px;
-	background: url('./img/extras/GameEnd.png') no-repeat 0px 0px;
+	background: url('./img/extras/old-hud/GameEnd.png') no-repeat 0px 0px;
 	width: 1920px;
 	height: 1080px;
 }
@@ -186,27 +186,27 @@ position: absolute;
 	
 }
 .port-1 {
-	background: url('./img/extras/port1.png') no-repeat 0px 0px;
+	background: url('./img/extras/old-hud/port1.png') no-repeat 0px 0px;
 	top: 174px;
 	width: 342px;
 	height: 578px;
 }
 .port-2 {
-	background: url('./img/extras/port2.png') no-repeat 0px 0px;
+	background: url('./img/extras/old-hud/port2.png') no-repeat 0px 0px;
 	top: 174px;
 	width: 342px;
 	height: 578px;
 
 }
 .port-3 {
-	background: url('./img/extras/port3.png') no-repeat 0px 0px;
+	background: url('./img/extras/old-hud/port3.png') no-repeat 0px 0px;
 	top: 174px;
 	width: 342px;
 	height: 578px;
 
 }
 .port-4 {
-	background: url('./img/extras/port4.png') no-repeat 0px 0px;
+	background: url('./img/extras/old-hud/port4.png') no-repeat 0px 0px;
 	top: 174px;
 	width: 342px;
 	height: 578px;
