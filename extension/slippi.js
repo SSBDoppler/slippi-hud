@@ -14,6 +14,8 @@ const { computeSlpStats } = require("./stats");
 
 //Replicants
 const slippi = nodecg.Replicant('slippi');
+const tournament = nodecg.Replicant('tournament');
+const players = nodecg.Replicant('players');
 
 //Statics
 const slippi_matchTimer = "08:00";
@@ -349,8 +351,55 @@ async function connectToSlippi(type = "dolphin", address = "0.0.0.0", slpPort = 
 	});
 
 	stream.on(SlpFileWriterEvent.FILE_COMPLETE, filePath => {
-		console.log("Dumped a SLP recording to:", filePath);
-		nodecg.sendMessage("stats_finishGame", filePath);
+
+		let pathExtras = [];
+
+		if (tournament.value.name && tournament.value.name.length > 0) {
+			pathExtras.push(tournament.value.name);
+
+			if (tournament.value.round && tournament.value.round.length > 0) {
+				pathExtras.push(tournament.value.round);
+
+				if (!tournament.value.isTeams) { //Singles, grab player 1 and player 2
+
+					if (players.value && players.value.length > 1) {
+						pathExtras.push(`${players.value[0].name} vs ${players.value[1].name}`);
+					}
+				}
+				else { //Doubles, grab all 4 names
+
+					if (players.value && players.value.length > 3) {
+						pathExtras.push(`${players.value[0].name},${players.value[1].name} vs ${players.value[2].name},${players.value[3].name}`);
+					}
+				}
+			}
+		}
+
+		//Sanitize the extra paths before creating the directory
+		for (let n = 0; n < pathExtras.length; n++) {
+			pathExtras[n] = pathExtras[n].replace(/([^a-z0-9\s_\-\',\#]+)/gi, '');
+		}
+
+		let finalPathCombined = path.join(slippi_recordingsPath, ...pathExtras);
+
+		//Ensure the final slp recording folder exists
+		if (!fs.existsSync(finalPathCombined))
+			fs.mkdirSync(finalPathCombined, { recursive: true });
+
+		//Note: Delay here is necessary as LRAS game endings delay the slp file flushing
+		setTimeout(() => {
+
+			console.log("Dumped a SLP recording to:", filePath);
+
+			//Move the file
+			let fileName = path.basename(filePath);
+			finalPathCombined = path.join(finalPathCombined, fileName);
+
+			console.log("New final SLP path:", finalPathCombined);
+			fs.renameSync(filePath, finalPathCombined);
+
+			nodecg.sendMessage("stats_finishGame", finalPathCombined);
+		}, 100);
 	});
 
 	globalStream = stream;

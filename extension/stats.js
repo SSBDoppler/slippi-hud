@@ -54,27 +54,24 @@ function checkSetFinished() {
 
 //Listeners
 nodecg.listenFor('stats_finishGame', (filePath) => {
+	
+	let latestGameParams = computeSlpStats([filePath], extraStats);
 
-	//Note: Delay here is necessary as LRAS game endings delay the slp file flushing
-	setTimeout(() => {
-		let latestGameParams = computeSlpStats([filePath], extraStats);
+	if (!latestGameParams) {
+		console.error("Incomplete slp recording, skip generating game stats");
+		return;
+	}
 
-		if (!latestGameParams) {
-			console.error("Incomplete slp recording, skip generating game stats");
-			return;
-		}
+	stats.value.latestGame = latestGameParams;
 
-		stats.value.latestGame = latestGameParams;
+	if (!stats.value.activeSetFileList) {
+		stats.value.activeSetFileList = [filePath];
+	}
+	else {
+		stats.value.activeSetFileList.push(filePath);
+	}
 
-		if (!stats.value.activeSetFileList) {
-			stats.value.activeSetFileList = [filePath];
-		}
-		else {
-			stats.value.activeSetFileList.push(filePath);
-		}
-
-		checkSetFinished();
-	}, 100);
+	checkSetFinished();
 });
 
 nodecg.listenFor('tournament_playerWonGame', () => {
