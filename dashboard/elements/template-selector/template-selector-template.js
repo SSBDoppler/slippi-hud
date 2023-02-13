@@ -21,13 +21,12 @@ return css`
 }
 
 #layout {
-  height: 200px;
+  height: 300px;
 }
 
 #template {
   width: 240px;
 }
-
 `;
 }
 

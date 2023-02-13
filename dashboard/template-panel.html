@@ -41,15 +41,15 @@
 		</template>
 	</dom-module>
 
-	<dom-module id="vaadin-styles-checkbox" theme-for="vaadin-checkbox">
+	<dom-module id="vaadin-styles-list" theme-for="vaadin-list-box">
 		<template>
 			<style>
-				:host([theme~="slippi-style"]) [part="checkbox"] {
-					border: 2px solid #fff;
+
+				:host [part='items'] ::slotted(vaadin-item) {
+					font-size: var(--lumo-font-size-s);
+					min-height: var(--lumo-size-s);
 				}
-				:host([theme~="slippi-style"][checked]) [part="checkbox"] {
-					border: 2px solid transparent;
-				}
+
 			</style>
 		</template>
 	</dom-module>
