@@ -93,10 +93,47 @@ export class PlayerInfo extends LitElement {
 
 							if (players && players.value) {
 
-								for (let player of players.value) {
+								for (let n = 0; n < players.value.length; n++) {
 
-									if (player.teamId >= 0 && this.availableTeams.indexOf(player.teamId) == -1) {
-										player.teamId = -1;
+									let player = players.value[n];
+
+									//Ensure all players always have a proper team set as best as possible in doubles mode
+									if ((player.teamId >= 0 && this.availableTeams.indexOf(player.teamId) == -1) || (player.teamId == -1 && this.availableTeams.length > 0)) {
+
+										//Pick first available teamId that isn't used yet as a fallback
+										let availableTeam = this.availableTeams.find(teamId => {
+
+											let isTeamIdUsed = players.value.find(otherPlayer => {
+												if (otherPlayer.teamId == teamId)
+													return true;
+
+												return false;
+											});
+
+											if (isTeamIdUsed)
+												return false;
+
+											return true;
+										});
+
+										//Use the first available team as a final fallback
+										if (availableTeam == undefined && this.availableTeams.length > 0) {
+											availableTeam = this.availableTeams[0];
+										}
+
+										if (availableTeam == undefined) {
+											player.teamId = -1;
+										}
+										else {
+											player.teamId = availableTeam;
+											console.log("Team auto picked:", player);
+
+											//Auto force every other member
+											let nextTeamMemberOffset = (n % 2) == 0 ? 1 : -1;
+											players.value[n + nextTeamMemberOffset].teamId = availableTeam;
+
+											console.log("Team auto picked 2nd:", players.value[n + nextTeamMemberOffset]);
+										}
 									}
 								}
 							}
