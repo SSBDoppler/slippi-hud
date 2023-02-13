@@ -7,6 +7,7 @@ const tournament = nodecg.Replicant('tournament');
 const slippi = nodecg.Replicant('slippi');
 
 //Statics
+const automateAutoScoreToggle = "automateAutoScoreToggle" in nodecg.bundleConfig ? nodecg.bundleConfig.automateAutoScoreToggle : false;
 const minScoreCount = 2;
 const minCommentatorCount = 2;
 const resetScoreTimeout = 10 * 1000;
@@ -349,14 +350,20 @@ nodecg.listenFor('tournament_autoGameStart', (data) => {
 
 nodecg.listenFor('tournament_autoGameEnd', (data) => {
 
-	if (!tournament.value.autoScore)
-		return;
+	if (!tournament.value.autoScore) {
+
+		//When a match ends and auto scoring is automatically managed, we will enable it here and always process this match, otherwise exit
+		if (!automateAutoScoreToggle)
+			return;
+		
+		tournament.value.autoScore = true;
+	}
 
 	let winnerIndex = determineWinner(data);
 
 	//console.log("Winner id:", winnerIndex);
 
-	//Exit early if we have a tie
+	//Exit early if we have a tie (Note: Rules usually will ensure this match is replayed until there is a winner, so this match should be "forgotten")
 	if (winnerIndex == -1)
 		return;
 
@@ -420,6 +427,10 @@ nodecg.listenFor('tournament_autoGameEnd', (data) => {
 		setTimeout(() => {
 			nodecg.sendMessage("tournament_resetScores");
 		}, resetScoreTimeout);
+
+		//When a set ends and auto scoring is automatically managed, we will disable it here
+		if (automateAutoScoreToggle)
+			tournament.value.autoScore = false;
 	}
 
 	tournament.value.matchScored = true;
