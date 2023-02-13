@@ -18,6 +18,7 @@ const updateInterval = 30 * 1000;
 
 //Dynamics
 var apiTimeout;
+var lastPulledSetId = null;
 
 //Templates
 const tournamentQueryTemplateGQL = {
@@ -162,7 +163,7 @@ async function doUpdate() {
 			}
 
 			//Update generic tournament rep data here
-			tournament.value.name = tournyData.data.tournament.name;
+			//tournament.value.name = tournyData.data.tournament.name; //Comment: Don't pull for now as it doesn't seem useful
 
 			//If stream queue is set, but no longer available, clear it
 			let activeQueueStreamName = null;
@@ -247,38 +248,44 @@ async function doUpdate() {
 					//Apply data to current match replicant
 					tournament.value.round = activeQueue.activeSet.round.toString();
 
-					let playerIndex = 0;
+					//Only update the rest of the data (player info especially) when the set id changed
+					if (lastPulledSetId == null || activeQueue.activeSet.id != lastPulledSetId) {
 
-					for (let slot of matchData.data.set.slots) {
+						lastPulledSetId = activeQueue.activeSet.id;
 
-						if (players.value.length <= playerIndex)
-							break;
+						let playerIndex = 0;
 
-						for (let participant of slot.entrant.participants) {
+						for (let slot of matchData.data.set.slots) {
 
 							if (players.value.length <= playerIndex)
 								break;
 
-							let oldName = players.value[playerIndex].name;
-					
-							if (participant.gamerTag)
-								players.value[playerIndex].name = participant.gamerTag;
-							else if (slot.entrant.name)
-								players.value[playerIndex].name = slot.entrant.name;
+							for (let participant of slot.entrant.participants) {
 
-							//Clear other fields on change of name
-							if (oldName != players.value[playerIndex].name) {
-								players.value[playerIndex].pronouns = "";
-								players.value[playerIndex].sponsor = "";
+								if (players.value.length <= playerIndex)
+									break;
+
+								let oldName = players.value[playerIndex].name;
+
+								if (participant.gamerTag)
+									players.value[playerIndex].name = participant.gamerTag;
+								else if (slot.entrant.name)
+									players.value[playerIndex].name = slot.entrant.name;
+
+								//Clear other fields on change of name
+								if (oldName != players.value[playerIndex].name) {
+									players.value[playerIndex].pronouns = "";
+									players.value[playerIndex].sponsor = "";
+								}
+
+								if (participant.user && participant.user.genderPronoun)
+									players.value[playerIndex].pronouns = participant.user.genderPronoun;
+
+								if (participant.prefix)
+									players.value[playerIndex].sponsor = participant.prefix;
+
+								playerIndex++;
 							}
-
-							if (participant.user && participant.user.genderPronoun)
-								players.value[playerIndex].pronouns = participant.user.genderPronoun;
-
-							if (participant.prefix)
-								players.value[playerIndex].sponsor = participant.prefix;
-
-							playerIndex++;
 						}
 					}
 				}
@@ -311,11 +318,13 @@ startgg.on('change', (newVal, oldVal) => {
 	//If tournament slug changes, clear selected queue and force update
 	if (oldVal && oldVal.tournamentSlug != newVal.tournamentSlug) {
 		startgg.value.selectedQueue = -1;
+		lastPulledSetId = null;
 		forceUpdate = true;
 	}
 
 	//If selected stream queue changes, force update
 	if (oldVal && oldVal.selectedQueue != newVal.selectedQueue) {
+		lastPulledSetId = null;
 		forceUpdate = true;
 	}
 
