@@ -6,7 +6,7 @@
     "Marwin Misselhorn",
     "Steven Knepper",
     "PartlyAwesome",
-	"yvng.h"
+    "yvng.h"
   ],
   "dependencies": {
     "@polymer/app-layout": "^3.0.0",
@@ -49,7 +49,7 @@
     "lit": "^2.2.7",
     "obs-websocket-js": "^4.0.3",
     "rxjs": "^6.6.7",
-    "slp-stats-nodecg": "https://github.com/dragonbane0/slp-stats-nodecg/tarball/554c9acc2901143920c7fd5ace2ae7ba62ecf867"
+    "slp-stats-nodecg": "https://github.com/dragonbane0/slp-stats-nodecg/tarball/192a49b67c749b0b7e7786e70cad360704f9003b"
   },
   "devDependencies": {},
   "optionalDependencies": {},
