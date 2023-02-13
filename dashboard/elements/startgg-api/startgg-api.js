@@ -129,6 +129,10 @@ export class StartggApi extends LitElement {
 		let targetQueueIndex = Number.parseInt(event.target.value);
 		startgg.value.selectedQueue = targetQueueIndex;
 	}
+
+	_forceUpdateButtonClicked() {
+		nodecg.sendMessage("api_startgg_refresh");
+	}
 }
 
 customElements.define('startgg-api', StartggApi);
