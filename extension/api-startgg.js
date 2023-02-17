@@ -38,7 +38,9 @@ query TournamentQuery($slug: String) {
                     round
                     startedAt
                     completedAt
-                    winnerId                 
+                    winnerId
+					wPlacement
+					lPlacement
       		    }
     	    }
 		}
@@ -93,6 +95,21 @@ query SetQuery($setId: ID!) {
 		}
 }`,
 	variables: { setId: 0 }
+};
+
+//Round calculation helper table
+const roundToTextTable = {
+	winners: {
+		2: "Grand Finals",
+		3: "Winners Finals",
+		5: "Winners Semis"
+	},
+	losers: {
+		3: "Losers Finals",
+		4: "Losers Semis",
+		5: "Losers Top 6",
+		7: "Losers Top 8"
+	}
 };
 
 //Exit if no key set
@@ -210,6 +227,7 @@ async function doUpdate() {
 							activeSet = {
 								id: set.id,
 								round: set.round,
+								lPlacement: set.lPlacement,
 								startedAt: set.startedAt
 							};
 
@@ -246,7 +264,24 @@ async function doUpdate() {
 					let matchData = await pullMatchData(activeQueue.activeSet.id);
 
 					//Apply data to current match replicant
-					tournament.value.round = activeQueue.activeSet.round.toString();
+					//Round calculation
+					//console.log("Lowest place the loser of the active round:", activeQueue.activeSet.round, "can get:", activeQueue.activeSet.lPlacement);
+
+					if (activeQueue.activeSet.round >= 0 && activeQueue.activeSet.lPlacement > 8) {
+						tournament.value.round = `Winners Round ${activeQueue.activeSet.round}`;
+					}
+					else if (activeQueue.activeSet.round < 0 && activeQueue.activeSet.lPlacement > 8) {
+						tournament.value.round = `Losers Round ${Math.abs(activeQueue.activeSet.round + 2)}`;
+					}
+					else {
+
+						let round = activeQueue.activeSet.round >= 0 ? roundToTextTable.winners[activeQueue.activeSet.lPlacement] : roundToTextTable.losers[activeQueue.activeSet.lPlacement];
+
+						if (round)
+							tournament.value.round = round;
+						else
+							tournament.value.round = activeQueue.activeSet.round.toString();
+					}
 
 					//Only update the rest of the data (player info especially) when the set id changed
 					if (lastPulledSetId == null || activeQueue.activeSet.id != lastPulledSetId) {
@@ -254,6 +289,20 @@ async function doUpdate() {
 						lastPulledSetId = activeQueue.activeSet.id;
 
 						let playerIndex = 0;
+
+						//Check if at least one entrant has more than 1 participant, if so this is a team game
+						let isTeams = false;
+
+						for (let slot of matchData.data.set.slots) {
+
+							if (slot.entrant.participants.length > 1) {
+								isTeams = true;
+								break;
+							}
+						}
+
+						if (isTeams != tournament.value.isTeams)
+							tournament.value.isTeams = isTeams;
 
 						for (let slot of matchData.data.set.slots) {
 

@@ -31,6 +31,10 @@
 								"type": "number",
 								"default": -1
 							},
+							"lPlacement": {
+								"type": "number",
+								"default": -1
+							},
 							"startedAt": {
 								"type": "number",
 								"default": -1
