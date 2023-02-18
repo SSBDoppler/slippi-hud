@@ -51,6 +51,10 @@
 				:host([theme~="slippi-style"][checked]) [part="checkbox"] {
 					border: 2px solid transparent;
 				}
+
+				:host([theme~="slippi-style"][disabled]) [part="checkbox"] {
+					border: 0px;
+				}
 			</style>
 		</template>
 	</dom-module>
@@ -58,7 +62,7 @@
 	<custom-style>
 	</custom-style>
 </head>
-<body>
+<body style="min-height: 400px;">
 	<startgg-api></startgg-api>
 </body>
 </html>

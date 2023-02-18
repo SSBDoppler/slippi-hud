@@ -111,7 +111,7 @@
       {
         "name": "startgg",
         "title": "Start.gg API",
-        "width": 2,
+        "width": 4,
         "file": "startgg-api-panel.html",
         "headerColor": "#2d4e8a",
         "workspace": "Main Dash"

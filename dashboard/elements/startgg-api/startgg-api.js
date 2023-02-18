@@ -19,9 +19,12 @@ export class StartggApi extends LitElement {
 
 	static get properties() {
 		return {
-			syncEnabled: { type: Boolean },
+			tourneySyncEnabled: { type: Boolean },
 			tournamentSlug: { type: String },
-			selectedQueueIndex: { type: String }
+			selectedQueueIndex: { type: String },
+			boAutomationEnabled: { type: Boolean },
+			boIntegerThreshold: { type: Number },
+			topSelectedEventIndex: { type: String }
 		}
 	}
 
@@ -33,10 +36,16 @@ export class StartggApi extends LitElement {
 
 		super();
 
-		this.syncEnabled = false;
+		this.tourneySyncEnabled = false;
 		this.tournamentSlug = "";
 		this.selectedQueueIndex = "";
 
+		//Bo Automation
+		this.boAutomationEnabled = false;
+		this.boIntegerThreshold = 0;
+
+		//Top 8 Generation
+		this.topSelectedEventIndex = "";
 
 		const replicants =
 			[
@@ -56,13 +65,23 @@ export class StartggApi extends LitElement {
 						if (!newVal)
 							return;
 
-						this.syncEnabled = newVal.syncEnabled;
+						this.tourneySyncEnabled = newVal.tournamentSyncEnabled;
 						this.tournamentSlug = newVal.tournamentSlug;
 
 						if (newVal.selectedQueue < 0)
 							this.selectedQueueIndex = "";
 						else
 							this.selectedQueueIndex = newVal.selectedQueue.toString();
+
+						//Bo Automation
+						this.boAutomationEnabled = newVal.boAutomationEnabled;
+						this.boIntegerThreshold = newVal.boIntegerThreshold;
+
+						//Top 8 Generation
+						if (newVal.selectedEvent < 0)
+							this.topSelectedEventIndex = "";
+						else
+							this.topSelectedEventIndex = newVal.selectedEvent.toString();
 
 						this.requestUpdate();
 						ready = true;
@@ -104,8 +123,8 @@ export class StartggApi extends LitElement {
 		};
 	}
 
-	_syncEnabledCheckboxChange(event) {
-		startgg.value.syncEnabled = event.target.checked;
+	_tourneySyncEnabledCheckboxChange(event) {
+		startgg.value.tournamentSyncEnabled = event.target.checked;
 	}
 
 	_tournamentSlugChange(event) {
@@ -132,6 +151,36 @@ export class StartggApi extends LitElement {
 
 	_forceUpdateButtonClicked() {
 		nodecg.sendMessage("api_startgg_refresh");
+	}
+
+	//Bo Automation
+	_boAutomationEnabledCheckboxChange(event) {
+
+		//Clear threshold on new activations to avoid instant changes of best of setting
+		if (!startgg.value.boAutomationEnabled && event.target.checked) {
+			startgg.value.boIntegerThreshold = -1;
+		}
+
+		startgg.value.boAutomationEnabled = event.target.checked;
+	}
+
+	_boThresholdValueChange(event) {
+		let newValue = Number.parseInt(event.target.value);
+
+		if (newValue < -1 || newValue > 255)
+			return;
+
+		startgg.value.boIntegerThreshold = newValue;
+	}
+
+	//Top 8 Generation
+	_topSelectedEventChanged(event) {
+		let targetEventIndex = Number.parseInt(event.target.value);
+		startgg.value.selectedEvent = targetEventIndex;
+	}
+
+	_topGenerateButtonClicked() {
+		alert("Not yet supported!");
 	}
 }
 

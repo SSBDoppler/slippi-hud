@@ -2,7 +2,7 @@
 	"$schema": "http://json-schema.org/draft-04/schema#",
 	"type": "object",
 	"properties": {
-		"syncEnabled": {
+		"tournamentSyncEnabled": {
 			"type": "boolean",
 			"default": false
 		},
@@ -45,6 +45,18 @@
 			}
 		},
 		"selectedQueue": {
+			"type": "number",
+			"default": -1
+		},
+		"selectedEvent": {
+			"type": "number",
+			"default": -1
+		},
+		"boAutomationEnabled": {
+			"type": "boolean",
+			"default": false
+		},
+		"boIntegerThreshold": {
 			"type": "number",
 			"default": -1
 		}

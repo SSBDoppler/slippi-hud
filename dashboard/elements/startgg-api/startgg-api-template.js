@@ -19,28 +19,86 @@ export const style = function () {
 return css`
 
 :host {
-
 }
 
-#layout {
-  height: 240px;
+#layoutTop {
+  height: 100px;
+}
+
+#layoutMiddleLeft {
+  position: absolute;
+  width: 200px;
+  height: 270px;
+  top: 100px;
+}
+
+#layoutMiddleRight {
+  position: absolute;
+  width: 200px;
+  height: 270px;
+  right: 10px;
+  top: 100px;
+}
+
+#layoutButtom {
+  position: absolute;
+  height: 100px;
+  top: 370px;
+}
+
+#tournamentSlug {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#tournySyncEnabledCheckbox {
+  margin-top: 9px;
+}
+
+#boAutomationCheckbox {
+  margin-top: 30px;
+}
+
+#thresholdValue {
+  width: 192px;
 }
 
 #updateButton {
-  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
 }
 
+#generateTopButton {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3px;
+}
 `;
 }
 
 export const template = function() {
 return html`
 
-<vaadin-vertical-layout id="layout">
-  <vaadin-checkbox id="syncEnabledCheckbox" theme="slippi-style" ?checked=${this.syncEnabled} @change=${this._syncEnabledCheckboxChange}>Enable</vaadin-checkbox>
-  <vaadin-text-field id="tournamentSlug" theme="slippi-style" label="Tournament Slug" ?disabled=${!this.syncEnabled} value=${this.tournamentSlug} clear-button-visible @change=${this._tournamentSlugChange}></vaadin-text-field>
-  <vaadin-select id="selectedQueue" theme="slippi-style" label="Selected Stream Queue" ?disabled=${!this.syncEnabled} value=${this.selectedQueueIndex} @change=${this._selectedQueueChange}></vaadin-select>
-  <vaadin-button id="updateButton" theme="primary" @click=${this._forceUpdateButtonClicked}>Force Update</vaadin-button>
+  <vaadin-vertical-layout id="layoutTop">
+    <vaadin-text-field id="tournamentSlug" theme="slippi-style" label="Tournament Slug" value=${this.tournamentSlug} clear-button-visible @change=${this._tournamentSlugChange}></vaadin-text-field>
+  </vaadin-vertical-layout>
+
+  <vaadin-vertical-layout id="layoutMiddleLeft">
+	<vaadin-checkbox id="tournySyncEnabledCheckbox" theme="slippi-style" ?checked=${this.tourneySyncEnabled} @change=${this._tourneySyncEnabledCheckboxChange}>Sync Tournament</vaadin-checkbox>
+	<vaadin-select id="selectedQueue" theme="slippi-style" label="Selected Stream Queue" ?disabled=${!this.tourneySyncEnabled} value=${this.selectedQueueIndex} @change=${this._selectedQueueChange}></vaadin-select>
+	<vaadin-checkbox id="boAutomationCheckbox" theme="slippi-style" ?checked=${this.boAutomationEnabled} ?disabled=${!this.tourneySyncEnabled} @change=${this._boAutomationEnabledCheckboxChange}>Automate Best of #</vaadin-checkbox>
+    <vaadin-integer-field id="thresholdValue" theme="slippi-style" label="Integer Threshold" ?disabled=${!this.boAutomationEnabled || !this.tourneySyncEnabled} value=${this.boIntegerThreshold} has-controls min="-1" max="255" @change=${this._boThresholdValueChange}></vaadin-integer-field>
+    <vaadin-button id="updateButton" theme="primary" ?disabled=${!this.tourneySyncEnabled} @click=${this._forceUpdateButtonClicked}>Force Update</vaadin-button>
 </vaadin-vertical-layout>
+
+  <vaadin-vertical-layout id="layoutMiddleRight">
+	<vaadin-select id="eventSelector" theme="slippi-style" label="Event" value=${this.topSelectedEventIndex} @change=${this._topSelectedEventChanged}></vaadin-select>
+	<vaadin-button id="generateTopButton" theme="primary" @click=${this._topGenerateButtonClicked}>Generate Top 8</vaadin-button>
+  </vaadin-vertical-layout>
+
+  <vaadin-vertical-layout id="layoutButtom">
+  </vaadin-vertical-layout>
+
 `;
 }

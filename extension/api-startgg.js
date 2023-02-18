@@ -119,7 +119,7 @@ if (!apiKey)
 //Functions
 function refreshTimeout() {
 
-	if (!startgg.value.syncEnabled)
+	if (!startgg.value.tournamentSyncEnabled)
 		return;
 
 	apiTimeout = setTimeout(() => {
@@ -264,6 +264,12 @@ async function doUpdate() {
 					let matchData = await pullMatchData(activeQueue.activeSet.id);
 
 					//Apply data to current match replicant
+					//Best of automation if desired
+					if (startgg.value.boAutomationEnabled && startgg.value.boIntegerThreshold > -1) {
+						let targetBestOf = activeQueue.activeSet.lPlacement > startgg.value.boIntegerThreshold ? 3 : 5;
+						tournament.value.bestOf = targetBestOf;
+					}
+
 					//Round calculation
 					//console.log("Lowest place the loser of the active round:", activeQueue.activeSet.round, "can get:", activeQueue.activeSet.lPlacement);
 
@@ -357,7 +363,7 @@ startgg.on('change', (newVal, oldVal) => {
 	if (!newVal)
 		return;
 
-	if (!newVal.syncEnabled) {
+	if (!newVal.tournamentSyncEnabled) {
 		cancelTimeout();
 		return;
 	}
@@ -377,7 +383,7 @@ startgg.on('change', (newVal, oldVal) => {
 		forceUpdate = true;
 	}
 
-	if (forceUpdate || !oldVal || !oldVal.syncEnabled) {
+	if (forceUpdate || !oldVal || !oldVal.tournamentSyncEnabled) {
 		doUpdate();
 	}
 });
