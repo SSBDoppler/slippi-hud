@@ -24,7 +24,8 @@ export class StartggApi extends LitElement {
 			selectedQueueIndex: { type: String },
 			boAutomationEnabled: { type: Boolean },
 			boIntegerThreshold: { type: Number },
-			topSelectedEventIndex: { type: String }
+			topSelectedEventIndex: { type: String },
+			topStandingsGenerating: { type: Boolean }
 		}
 	}
 
@@ -46,6 +47,7 @@ export class StartggApi extends LitElement {
 
 		//Top 8 Generation
 		this.topSelectedEventIndex = "";
+		this.topStandingsGenerating = false;
 
 		const replicants =
 			[
@@ -78,7 +80,7 @@ export class StartggApi extends LitElement {
 						this.boIntegerThreshold = newVal.boIntegerThreshold;
 
 						//Top 8 Generation
-						if (newVal.selectedEvent < 0)
+						if (!("selectedEvent" in newVal) || newVal.selectedEvent < 0)
 							this.topSelectedEventIndex = "";
 						else
 							this.topSelectedEventIndex = newVal.selectedEvent.toString();
@@ -94,6 +96,7 @@ export class StartggApi extends LitElement {
 
 	updated(changedProperties) {
 
+		//Stream Queues
 		this.renderRoot.querySelector('#selectedQueue').renderer = function (root) {
 
 			//Check if there is a list-box generated with the previous renderer call to update its content instead of recreation
@@ -111,6 +114,35 @@ export class StartggApi extends LitElement {
 				startgg.value.availableQueues.forEach(function (queue) {
 					const vaadinItem = window.document.createElement('vaadin-item');
 					vaadinItem.textContent = queue.streamName;
+					vaadinItem.setAttribute('value', index.toString());
+
+					listBox.appendChild(vaadinItem);
+					index++;
+				});
+			}
+
+			//Add the list box
+			root.appendChild(listBox);
+		};
+
+		//Events
+		this.renderRoot.querySelector('#eventSelector').renderer = function (root) {
+
+			//Check if there is a list-box generated with the previous renderer call to update its content instead of recreation
+			if (root.firstChild) {
+				return;
+			}
+
+			//Create the <vaadin-list-box>
+			const listBox = window.document.createElement('vaadin-list-box');
+
+			if (ready && startgg && startgg.value && startgg.value.availableEvents) {
+
+				let index = 0;
+
+				startgg.value.availableEvents.forEach(function (event) {
+					const vaadinItem = window.document.createElement('vaadin-item');
+					vaadinItem.textContent = event.name;
 					vaadinItem.setAttribute('value', index.toString());
 
 					listBox.appendChild(vaadinItem);
@@ -180,7 +212,21 @@ export class StartggApi extends LitElement {
 	}
 
 	_topGenerateButtonClicked() {
-		alert("Not yet supported!");
+
+		this.topStandingsGenerating = true;
+
+		nodecg.sendMessage('api_startgg_generateTopStandings', 0, (error, result) => {
+
+			this.topStandingsGenerating = false;
+
+			if (error) {
+				console.error(error);
+				alert(error.message);
+				return;
+			}
+
+			alert("Standings generated!");
+		});
 	}
 }
 

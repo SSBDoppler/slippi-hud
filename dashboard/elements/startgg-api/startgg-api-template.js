@@ -94,7 +94,7 @@ return html`
 
   <vaadin-vertical-layout id="layoutMiddleRight">
 	<vaadin-select id="eventSelector" theme="slippi-style" label="Event" value=${this.topSelectedEventIndex} @change=${this._topSelectedEventChanged}></vaadin-select>
-	<vaadin-button id="generateTopButton" theme="primary" @click=${this._topGenerateButtonClicked}>Generate Top 8</vaadin-button>
+	<vaadin-button id="generateTopButton" theme="primary" ?disabled=${this.topStandingsGenerating} @click=${this._topGenerateButtonClicked}>${this.topStandingsGenerating ? "Generating..." : "Generate Top 8"}</vaadin-button>
   </vaadin-vertical-layout>
 
   <vaadin-vertical-layout id="layoutButtom">

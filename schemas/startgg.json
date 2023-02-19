@@ -44,6 +44,27 @@
 				}
 			}
 		},
+		"availableEvents": {
+			"type": "array",
+			"default": [],
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "number",
+						"default": -1
+					},
+					"name": {
+						"type": "string",
+						"default": ""
+					},
+					"type": {
+						"type": "number",
+						"default": -1
+					}
+				}
+			}
+		},
 		"selectedQueue": {
 			"type": "number",
 			"default": -1
