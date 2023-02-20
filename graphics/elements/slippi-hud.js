@@ -7,6 +7,7 @@ const players = nodecg.Replicant('players');
 const tournament = nodecg.Replicant('tournament');
 const templates = nodecg.Replicant('templates');
 const stats = nodecg.Replicant('stats');
+const standings = nodecg.Replicant('standings');
 
 //Global vars
 var style = null;
@@ -40,7 +41,8 @@ export class SlippiHud extends LitElement {
 			graphic: { type: String },
 			generalData: { type: Object },
 			playerData: { type: Array },
-			statData: { type: Object }
+			statData: { type: Object },
+			standingData: { type: Array }
 		};
 	}
 
@@ -67,6 +69,7 @@ export class SlippiHud extends LitElement {
 		};
 
 		this.playerData = [];
+		this.standingData = [];
 
 		this.readyCount = 0;
 		this.ready = false;
@@ -81,7 +84,8 @@ export class SlippiHud extends LitElement {
 				players,
 				tournament,
 				templates,
-				stats
+				stats,
+				standings
 			];
 
 		this.neededReadyCount = replicants.length - 1;
@@ -160,6 +164,23 @@ export class SlippiHud extends LitElement {
 								}	
 							}					
 						}
+
+						this.readyCheck();
+						this.requestUpdate();
+					});
+
+					standings.on('change', (newVal, oldVal) => {
+
+						if (!newVal)
+							return;
+
+						let newStandings = [];
+
+						for (let standing of newVal) {
+							newStandings.push(JSON.parse(JSON.stringify(standing)));
+						}
+
+						this.standingData = newStandings;
 
 						this.readyCheck();
 						this.requestUpdate();
