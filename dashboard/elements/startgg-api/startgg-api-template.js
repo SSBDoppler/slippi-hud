@@ -88,7 +88,7 @@ return html`
 	<vaadin-checkbox id="tournySyncEnabledCheckbox" theme="slippi-style" ?checked=${this.tourneySyncEnabled} @change=${this._tourneySyncEnabledCheckboxChange}>Sync Tournament</vaadin-checkbox>
 	<vaadin-select id="selectedQueue" theme="slippi-style" label="Selected Stream Queue" ?disabled=${!this.tourneySyncEnabled} value=${this.selectedQueueIndex} @change=${this._selectedQueueChange}></vaadin-select>
 	<vaadin-checkbox id="boAutomationCheckbox" theme="slippi-style" ?checked=${this.boAutomationEnabled} ?disabled=${!this.tourneySyncEnabled} @change=${this._boAutomationEnabledCheckboxChange}>Automate Best of #</vaadin-checkbox>
-    <vaadin-integer-field id="thresholdValue" theme="slippi-style" label="Integer Threshold" ?disabled=${!this.boAutomationEnabled || !this.tourneySyncEnabled} value=${this.boIntegerThreshold} has-controls min="-1" max="255" @change=${this._boThresholdValueChange}></vaadin-integer-field>
+    <vaadin-integer-field id="thresholdValue" theme="slippi-style" label="Placement Threshold" ?disabled=${!this.boAutomationEnabled || !this.tourneySyncEnabled} value=${this.boIntegerThreshold} has-controls min="-1" max="255" @change=${this._boThresholdValueChange}></vaadin-integer-field>
     <vaadin-button id="updateButton" theme="primary" ?disabled=${!this.tourneySyncEnabled} @click=${this._forceUpdateButtonClicked}>Force Update</vaadin-button>
 </vaadin-vertical-layout>
 
