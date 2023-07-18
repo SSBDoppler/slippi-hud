@@ -24,6 +24,7 @@ const slippi_consoleNickname = "unknown";
 
 var globalStream = null;
 var realTimeSubs = [];
+var externalConsumers = [];
 
 //Create timer
 slippi.value.gameInfo.timer = new TimeObject(slippi.value.gameInfo.timer.rawFrames, slippi_frameRate);
@@ -301,6 +302,20 @@ function runConnection() {
 				}
 			};
 		}
+
+		//Update external consumers
+		for (let callback of externalConsumers) {
+
+			if (callback) {
+
+				if (typeof (callback) == "object") { //Function with specific context (e.g. class)
+					callback.function.call(callback.context, frame);
+				}
+				else { //Static function
+					callback(frame);
+				}
+			}
+		}		
 	}));
 }
 
@@ -440,6 +455,11 @@ nodecg.listenFor('slippi_connect', (params) => {
 nodecg.listenFor('slippi_disconnect', () => {
 	disconnectFromSlippi();
 });
+
+//External hook for high performance frame data consumption
+global.slippi_registerExternalConsumer = function (callback) {
+	externalConsumers.push(callback);
+}
 
 
 //TEST
