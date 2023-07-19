@@ -2,12 +2,12 @@ import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
 //Replicants
-const slippi = nodecg.Replicant('slippi');
-const players = nodecg.Replicant('players');
-const tournament = nodecg.Replicant('tournament');
-const templates = nodecg.Replicant('templates');
-const stats = nodecg.Replicant('stats');
-const standings = nodecg.Replicant('standings');
+const slippi = nodecg.Replicant('slippi', 'slippi-hud');
+const players = nodecg.Replicant('players', 'slippi-hud');
+const tournament = nodecg.Replicant('tournament', 'slippi-hud');
+const templates = nodecg.Replicant('templates', 'slippi-hud');
+const stats = nodecg.Replicant('stats', 'slippi-hud');
+const standings = nodecg.Replicant('standings', 'slippi-hud');
 
 //Global vars
 var style = null;
@@ -38,6 +38,7 @@ export class SlippiHud extends LitElement {
 	static get properties() {
 		return {
 			ready: { type: Boolean },
+			bundle: { type: String },
 			graphic: { type: String },
 			generalData: { type: Object },
 			playerData: { type: Array },
@@ -76,6 +77,7 @@ export class SlippiHud extends LitElement {
 
 		this.graphicAttributeSet = false;
 		this.templatesRepReady = false;
+		this.bundle = nodecg.bundleName; //Use the current active bundle as the default
 		this.graphic = "";
 		
 		const replicants =
@@ -302,7 +304,7 @@ export class SlippiHud extends LitElement {
 		if (!this.graphicAttributeSet)
 			return;
 
-		var templatePath = `./${this.graphic}/${newVal.activeTemplate.name}`;
+		var templatePath = `/bundles/${this.bundle}/graphics/elements/${this.graphic}/${newVal.activeTemplate.name}`;
 		var self = this;
 
 		console.log("Load template:", templatePath);
