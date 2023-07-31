@@ -287,7 +287,7 @@ function runConnection() {
 				currentComboCount: framePlayer.post.currentComboCount,
 				lastHitBy: framePlayer.post.lastHitBy,
 				actionStateCounter: framePlayer.post.actionStateCounter,
-				miscActionState: framePlayer.post.miscActionState,
+				miscActionState: framePlayer.post.miscActionState == NaN || isNaN(framePlayer.post.miscActionState) || !isFinite(framePlayer.post.miscActionState) ? -1 : framePlayer.post.miscActionState,
 				isAirborne: framePlayer.post.isAirborne,
 				lastGroundId: framePlayer.post.lastGroundId,
 				jumpsRemaining: framePlayer.post.jumpsRemaining,
@@ -339,7 +339,7 @@ async function connectToSlippi(type = "dolphin", address = "0.0.0.0", slpPort = 
 
 	stream.connection.on(ConnectionEvent.ERROR, (err) => {
 		//Silently ignore errors for now
-		//console.error(err);
+		//console.error("Slippi error:", err);
 	});
 
 	stream.connection.once(ConnectionEvent.CONNECT, () => {
