@@ -59,6 +59,7 @@ export class SlippiHud extends LitElement {
 
 		super();
 
+		//Main data
 		this.generalData = {
 			tournament: {},
 			slippi: {}
@@ -72,6 +73,11 @@ export class SlippiHud extends LitElement {
 		this.playerData = [];
 		this.standingData = [];
 
+		//External access
+		window.slippi_generalData = this.generalData;
+		window.slippi_playerData = this.playerData;
+
+		//Extra data
 		this.readyCount = 0;
 		this.ready = false;
 
@@ -280,6 +286,10 @@ export class SlippiHud extends LitElement {
 				}
 			}
 		}
+
+		//Update external data
+		window.slippi_generalData = this.generalData;
+		window.slippi_playerData = this.playerData;
 	}
 
 	checkPlayerCount(count) {
