@@ -1,7 +1,7 @@
 'use strict';
 
 //Imports
-const OBSWebSocket = require('obs-websocket-js');
+const OBSWebSocket = require('obs-websocket-js').default;
 
 //Ours
 const nodecg = require('./util/nodecg-api-context').get();
@@ -22,8 +22,7 @@ var sceneSwitchTimer = null;
 
 //Utils
 function checkAndSetNewScene(sceneName) {
-
-	if (sceneName && obs.value.scenes.activeScene && sceneName != obs.value.scenes.activeScene) {
+	if (sceneName /*&& obs.value.scenes.activeScene*/ && sceneName != obs.value.scenes.activeScene) {
 
 		//Cancel any existing pending scene switches
 		if (sceneSwitchTimer) {
@@ -43,7 +42,9 @@ function checkAndSetNewScene(sceneName) {
 		else {
 			obs.value.scenes.activeScene = sceneName;
 		}
+		
 	}
+
 }
 
 function checkSceneSwitchConditions() {
@@ -115,7 +116,6 @@ function checkSceneSwitchConditions() {
 }
 
 function autoDetermineCorrectScene(sceneNameOverride = "") {
-
 	if (isConnecting || !obs.value.connection.connected)
 		return;
 
@@ -123,11 +123,13 @@ function autoDetermineCorrectScene(sceneNameOverride = "") {
 		return;
 
 	let newScene = sceneNameOverride === "" ? checkSceneSwitchConditions() : sceneNameOverride;
-	checkAndSetNewScene(newScene);
+	if (newScene?.length > 0) {
+		checkAndSetNewScene(newScene);
+	}
 }
 
 //Replicant Listeners
-obs.on('change', (newVal, oldVal) => {
+obs.on('change', async (newVal, oldVal) => {
 
 	if (!newVal)
 		return;
@@ -140,21 +142,12 @@ obs.on('change', (newVal, oldVal) => {
 
 	//User forced scene takes priority (ToDo: this is executed silently too often)
 	if (!oldVal || newVal.scenes.activeScene != oldVal.scenes.activeScene) {
+		try {
+			await obsWebSocket.call("SetCurrentProgramScene", { sceneName: newVal.scenes.activeScene });
+		} catch (err) {
+			console.error("OBS failure to force scene:", err);
+		}
 
-		obsWebSocket.send('SetCurrentScene', { 'scene-name': newVal.scenes.activeScene }).catch(ex => {
-			console.log("OBS failure to force scene:", ex);
-
-			//Fix scene
-			obsWebSocket.send('GetCurrentScene').then(data => {
-
-				if (data.status === 'ok') {
-					console.log(`OBS reset active scene: ${data.name}`);
-					obs.value.scenes.activeScene = data.name;
-				}
-			}).catch(ex => {
-				console.log("OBS failure to query backup scene:", ex);
-			});
-		});
 	} else {
 		//Auto checks second priority
 		autoDetermineCorrectScene();
@@ -162,7 +155,6 @@ obs.on('change', (newVal, oldVal) => {
 });
 
 slippi.on('change', (newVal, oldVal) => {
-
 	if (!newVal)
 		return;
 
@@ -194,7 +186,6 @@ obsWebSocket.on('SwitchScenes', (data) => {
 obsWebSocket.on('ConnectionOpened', (data) => {
 	obs.value.connection.connected = true;
 	isConnecting = false;
-	console.log("OBS connection opened");
 });
 
 obsWebSocket.on('ConnectionClosed', (data) => {
@@ -211,29 +202,22 @@ obsWebSocket.on('AuthenticationFailure', (data) => {
 });
 
 //NodeCG Listeners
-nodecg.listenFor('obs_connect', () => {
-
+nodecg.listenFor('obs_connect', async () => {
 	if (isConnecting || obs.value.connection.connected)
 		return;
 
-	isConnecting = true;
+	const address = `ws://${obs.value.connection.address}:${obs.value.connection.port}`;
+	const password = obs.value.connection.password ?? undefined;
 
-	obsWebSocket.connect({ address: `${obs.value.connection.address}:${obs.value.connection.port}`, password: obs.value.connection.password }).then(() => {
-
-		//Get active scene once upon successful connection
-		obsWebSocket.send('GetCurrentScene').then(data => {
-
-			if (data.status === 'ok') {
-				console.log(`OBS first active scene: ${data.name}`);
-				obs.value.scenes.activeScene = data.name;
-			}
-		}).catch(ex => {
-			console.log("OBS failure to query scene:", ex);
-		});
-	}).catch(ex => {
-		console.log("OBS failure to connect:", ex);
+	try {
+		isConnecting = true;
+		const { obsWebSocketVersion } = await obsWebSocket.connect(address, password);
+		console.log(`OBS connection opened. Version: ${obsWebSocketVersion}`);
+	} catch (error) {
+		console.error('Failed to connect', error.code, error.message);
 		isConnecting = false;
-	});
+		return ;
+	}
 });
 
 nodecg.listenFor('obs_disconnect', () => {

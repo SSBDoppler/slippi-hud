@@ -47,7 +47,7 @@
     "@vinceau/slp-realtime": "https://github.com/dragonbane0/slp-realtime/tarball/ade1ce10fd7fe58e91d4d951d361c5ec55b3f9a1",
     "got": "^11.8.5",
     "lit": "^2.2.7",
-    "obs-websocket-js": "^4.0.3",
+    "obs-websocket-js": "^5.0.3",
     "rxjs": "^6.6.7",
     "slp-stats-nodecg": "https://github.com/dragonbane0/slp-stats-nodecg/tarball/192a49b67c749b0b7e7786e70cad360704f9003b"
   },
