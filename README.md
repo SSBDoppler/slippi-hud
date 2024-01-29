@@ -47,7 +47,3 @@ SlippiHUD@gmail.com
 ### Vince Au
 #### Slp-Realtime & Slippi-Stats
 [Slp-Realtime](https://github.com/vinceau)
-
-### David V. Kimball
-#### Melee HD Assets
-[website](http://davidvkimball.com)
