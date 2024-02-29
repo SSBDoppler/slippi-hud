@@ -1,7 +1,11 @@
 'use strict';
 
 //Imports
-const OBSWebSocket = require('obs-websocket-js').default;
+const OBSWebSocket = require('obs-websocket-js');
+
+//Support legacy way of getting module default export
+if (OBSWebSocket.default)
+	OBSWebSocket = OBSWebSocket.default;
 
 //Ours
 const nodecg = require('./util/nodecg-api-context').get();
