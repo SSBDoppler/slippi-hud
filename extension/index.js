@@ -1,5 +1,7 @@
 'use strict';
 
+const fs = require("fs");
+
 // Ours
 const nodecgApiContext = require('./util/nodecg-api-context');
 
@@ -18,3 +20,25 @@ module.exports = function(nodecg) {
 	require('./stats');
 	require('./api-startgg');
 };
+
+process.removeAllListeners('uncaughtException');
+
+process.on('uncaughtException', err => {
+
+	let errorText = new Date().toISOString() + " - " + err.stack;
+	fs.appendFileSync("NodeCGCrashLogs.txt", errorText);
+
+	if (!global.sentryEnabled) {
+		if (global.exitOnUncaught || !("exitOnUncaught" in global)) {
+			console.error('UNCAUGHT EXCEPTION! NodeCG will now exit.');
+		} else {
+			console.error('UNCAUGHT EXCEPTION!');
+		}
+
+		console.error(err);
+
+		if (global.exitOnUncaught || !("exitOnUncaught" in global)) {
+			process.exit(1);
+		}
+	}
+});
