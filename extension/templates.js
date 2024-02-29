@@ -6,14 +6,18 @@ const path = require('path');
 
 // Ours
 const nodecg = require('./util/nodecg-api-context').get();
+const findRoot = require('./util/find-root');
 
 const templates = nodecg.Replicant('templates');
+
+// Settings
+const nodecgRoot = findRoot.findNodecgRoot();
 
 function refreshTemplates() {
 
 	let templateList = [];
 
-	let templatePath = path.resolve(process.env.NODECG_ROOT, `bundles/${nodecg.bundleName}/graphics/`, `${nodecg.bundleConfig.hudTemplatePath}`);
+	let templatePath = path.resolve(nodecgRoot, `bundles/${nodecg.bundleName}/graphics/`, `${nodecg.bundleConfig.hudTemplatePath}`);
 
 	//Build template list
 	let files = fs.readdirSync(templatePath);

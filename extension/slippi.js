@@ -10,6 +10,7 @@ const { ConnectionStatus, ConnectionEvent, Ports, SlpFileWriterEvent } = require
 //Ours
 const nodecg = require('./util/nodecg-api-context').get();
 const TimeObject = require("./util/time-object");
+const findRoot = require('./util/find-root');
 const { computeSlpStats } = require("./stats");
 
 //Replicants
@@ -18,9 +19,13 @@ const tournament = nodecg.Replicant('tournament');
 const players = nodecg.Replicant('players');
 
 //Statics
+const nodecgRoot = findRoot.findNodecgRoot();
 const slippi_matchTimer = "08:00";
 const slippi_frameRate = 60;
 const slippi_consoleNickname = "unknown";
+
+//Helpers
+const waitFor = (ms) => new Promise(r => setTimeout(r, ms));
 
 var globalStream = null;
 var realTimeSubs = [];
@@ -34,7 +39,7 @@ var slippi_recordingsPath;
 
 if (!nodecg.bundleConfig.slpDumpPath || nodecg.bundleConfig.slpDumpPath.inBundle) {
 	let targetPath = nodecg.bundleConfig.slpDumpPath ? nodecg.bundleConfig.slpDumpPath.path : "slpDumps";
-	slippi_recordingsPath = path.resolve(process.env.NODECG_ROOT, `bundles/${nodecg.bundleName}/${targetPath}/`);
+	slippi_recordingsPath = path.resolve(nodecgRoot, `bundles/${nodecg.bundleName}/${targetPath}/`);
 }
 else {
 	slippi_recordingsPath = path.resolve(nodecg.bundleConfig.slpDumpPath.path);
@@ -402,7 +407,7 @@ async function connectToSlippi(type = "dolphin", address = "0.0.0.0", slpPort = 
 			fs.mkdirSync(finalPathCombined, { recursive: true });
 
 		//Note: Delay here is necessary as LRAS game endings delay the slp file flushing
-		setTimeout(() => {
+		setTimeout(async() => {
 
 			console.log("Dumped a SLP recording to:", filePath);
 
@@ -411,9 +416,25 @@ async function connectToSlippi(type = "dolphin", address = "0.0.0.0", slpPort = 
 			finalPathCombined = path.join(finalPathCombined, fileName);
 
 			console.log("New final SLP path:", finalPathCombined);
-			fs.renameSync(filePath, finalPathCombined);
 
-			nodecg.sendMessage("stats_finishGame", finalPathCombined);
+			let gotSLPFile = false;
+
+			for (let i = 0; i < 100; i++) {
+
+				if (fs.existsSync(filePath)) {
+					fs.renameSync(filePath, finalPathCombined);
+					gotSLPFile = true;
+					break;
+				}
+				else {
+					await waitFor(100);
+				}
+			}
+
+			if (gotSLPFile)
+				nodecg.sendMessage("stats_finishGame", finalPathCombined);
+			else
+				console.error("No SLP file was generated:", finalPathCombined);
 		}, 100);
 	});
 

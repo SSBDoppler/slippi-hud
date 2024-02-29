@@ -57,7 +57,7 @@
   "homepage": "",
   "license": "",
   "nodecg": {
-    "compatibleRange": "^1.8.1",
+    "compatibleRange": ">1.8.1",
     "transformBareModuleSpecifiers": true,
     "dashboardPanels": [
       {
