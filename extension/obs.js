@@ -1,7 +1,7 @@
 'use strict';
 
 //Imports
-const OBSWebSocket = require('obs-websocket-js');
+var OBSWebSocket = require('obs-websocket-js');
 
 //Support legacy way of getting module default export
 if (OBSWebSocket.default)
