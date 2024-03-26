@@ -7,7 +7,8 @@ import '@vaadin/vaadin-template-renderer';
 import '@vaadin/vaadin-ordered-layout/vaadin-vertical-layout';
 import '@vaadin/vaadin-ordered-layout/vaadin-horizontal-layout';
 import '@vaadin/vaadin-button';
-import '@vaadin/vaadin-combo-box'
+import '@vaadin/vaadin-combo-box';
+import '@vaadin/vaadin-dialog';
 import '@vaadin/vaadin-grid';
 import '@vaadin/vaadin-text-field';
 import '@vaadin/vaadin-text-field/vaadin-integer-field.js';
@@ -22,14 +23,17 @@ return css`
 }
 
 #layoutTop {
+  position: absolute;
   height: 100px;
+  left: 180px;
+  top: 1px;
 }
 
 #layoutMiddleLeft {
   position: absolute;
   width: 200px;
   height: 270px;
-  top: 100px;
+  top: 80px;
 }
 
 #layoutMiddleRight {
@@ -37,7 +41,7 @@ return css`
   width: 200px;
   height: 270px;
   right: 10px;
-  top: 100px;
+  top: 80px;
 }
 
 #layoutButtom {
@@ -56,7 +60,7 @@ return css`
 }
 
 #boAutomationCheckbox {
-  margin-top: 30px;
+  margin-top: 40px;
 }
 
 #thresholdValue {
@@ -66,13 +70,18 @@ return css`
 #updateButton {
   margin-left: auto;
   margin-right: auto;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 #generateTopButton {
   margin-left: auto;
   margin-right: auto;
-  margin-top: 3px;
+  margin-top: 8px;
+}
+
+#standingsList {
+  margin-top: 8px;
+  min-height: 200px !important;
 }
 `;
 }
@@ -95,6 +104,12 @@ return html`
   <vaadin-vertical-layout id="layoutMiddleRight">
 	<vaadin-select id="eventSelector" theme="slippi-style" label="Event" value=${this.topSelectedEventIndex} @change=${this._topSelectedEventChanged}></vaadin-select>
 	<vaadin-button id="generateTopButton" theme="primary" ?disabled=${this.topStandingsGenerating} @click=${this._topGenerateButtonClicked}>${this.topStandingsGenerating ? "Generating..." : "Generate Top 8"}</vaadin-button>
+
+    <vaadin-grid id="standingsList" .items=${this.availableStandingEntries} .activeItem=${this.selectedStandingEntries && this.selectedStandingEntries.length > 0 ? this.selectedStandingEntries[0] : null} .selectedItems=${this.selectedStandingEntries} @active-item-changed=${this._standingsSelectionChanged} theme="no-border">
+      <vaadin-grid-column path="placement" header="#" width="3em" flex-grow="0"></vaadin-grid-column>
+      <vaadin-grid-column path="name" auto-width flex-grow="1"></vaadin-grid-column>
+    </vaadin-grid>
+    <vaadin-dialog id="standingEditor" aria-label="Edit Standing" .opened=${this.standingEditDialogOpened} @opened-changed=${this._standingsEditOpenStatusChanged}></vaadin-dialog>
   </vaadin-vertical-layout>
 
   <vaadin-vertical-layout id="layoutButtom">

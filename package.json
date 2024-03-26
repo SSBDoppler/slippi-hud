@@ -35,6 +35,7 @@
     "@types/node": "^10.14.4",
     "@vaadin/vaadin-checkbox": "^20.0.5",
     "@vaadin/vaadin-combo-box": "^20.0.5",
+    "@vaadin/vaadin-dialog": "^20.0.5",
     "@vaadin/vaadin-radio-button": "^20.0.5",
     "@vaadin/vaadin-text-field": "^20.0.5",
     "@vaadin/vaadin-button": "^20.0.5",

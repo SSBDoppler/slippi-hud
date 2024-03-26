@@ -5,6 +5,7 @@ import { style, template } from './startgg-api-template.js';
 
 //Replicants
 const startgg = nodecg.Replicant('startgg');
+const standings = nodecg.Replicant('standings');
 
 //Global vars
 var ready = false;
@@ -25,7 +26,10 @@ export class StartggApi extends LitElement {
 			boAutomationEnabled: { type: Boolean },
 			boIntegerThreshold: { type: Number },
 			topSelectedEventIndex: { type: String },
-			topStandingsGenerating: { type: Boolean }
+			topStandingsGenerating: { type: Boolean },
+			availableStandingEntries: { type: Array },
+			selectedStandingEntries: { type: Array },
+			standingEditDialogOpened: { type: Boolean }
 		}
 	}
 
@@ -49,9 +53,18 @@ export class StartggApi extends LitElement {
 		this.topSelectedEventIndex = "";
 		this.topStandingsGenerating = false;
 
+		//Standing Edit Dialog
+		this.availableStandingEntries = [];
+		this.selectedStandingEntries = [];
+
+		this.standingEditDialogOpened = false;
+		this.standingEditDialogEntry = {};
+
+		//Replicants
 		const replicants =
 			[
-				startgg
+				startgg,
+				standings
 			];
 
 		let numDeclared = 0;
@@ -88,6 +101,79 @@ export class StartggApi extends LitElement {
 						this.requestUpdate();
 						ready = true;
 					});
+
+					standings.on('change', newVal => {
+
+						if (!newVal)
+							return;
+
+						//Test: Example data
+						/*
+						if (newVal.length == 0) {
+
+							console.log("Init rep data");
+
+							standings.value = [
+								{
+									placement: 1,
+									name: "Doppler",
+									isTeam: false,
+									character: "Mario",
+									twitter: "SSBDoppler"
+								},
+								{
+									placement: 2,
+									name: "Hbox",
+									isTeam: false,
+									character: "Peach",
+									twitter: "LiquidHbox"
+								},
+								{
+									placement: 10,
+									name: "dragonbane0",
+									isTeam: false,
+									character: "Luigi",
+									twitter: "dragonbane0"
+								},
+								{
+									placement: 99,
+									name: "Mew2King",
+									isTeam: false,
+									character: "Bowser",
+									twitter: "MVG_Mew2King"
+								}
+							];
+
+							return;
+						}
+						*/
+
+						this.availableStandingEntries = JSON.parse(JSON.stringify(newVal));
+
+						//Tag all entries with an index for consistent lookup later
+						for (let i = 0; i < this.availableStandingEntries.length; i++)
+							this.availableStandingEntries[i]._index = i;
+
+						//Sort by placement ascending
+						this.availableStandingEntries.sort((a, b) => {
+
+							if (a.placement < b.placement) {
+								return -1;
+							}
+							else if (a.placement > b.placement) {
+								return 1;
+							}
+
+							return 0;
+						});
+						
+						//Clean other values and force close dialog if it was opened, then re-render
+						this.selectedStandingEntries = [];
+						this.standingEditDialogOpened = false;
+						this.standingEditDialogEntry = {};
+
+						this.requestUpdate();
+					});
 				}
 			});
 		});
@@ -95,6 +181,8 @@ export class StartggApi extends LitElement {
 	}
 
 	updated(changedProperties) {
+
+		let self = this;
 
 		//Stream Queues
 		this.renderRoot.querySelector('#selectedQueue').renderer = function (root) {
@@ -152,6 +240,41 @@ export class StartggApi extends LitElement {
 
 			//Add the list box
 			root.appendChild(listBox);
+		};
+
+		//Standing Edit Dialog
+		this.renderRoot.querySelector('#standingEditor').renderer = function (root, dialog) {
+
+			//HTML
+			root.innerHTML = `
+			<vaadin-vertical-layout theme="spacing" style="width: 300px; max-width: 100%; align-items: stretch; margin-top: 0;">
+
+				<h2 style="margin: 0; font-size: 1.4em; font-weight: bold;">
+					Edit Standing
+				</h2>
+
+				<vaadin-vertical-layout style="align-items: stretch; margin-top: 0;">
+					<vaadin-text-field id="name" label="Name" value="${self.standingEditDialogEntry.name}"></vaadin-text-field>
+					<vaadin-text-field id="character" label="Character" value="${self.standingEditDialogEntry.character}"></vaadin-text-field>
+					<vaadin-text-field id="twitter" label="Twitter" value="${self.standingEditDialogEntry.twitter}"></vaadin-text-field>
+					<vaadin-integer-field id="placement" label="Placement" value="${self.standingEditDialogEntry.placement}" has-controls min="-1", max="1000"></vaadin-integer-field>
+				</vaadin-vertical-layout>
+
+				<vaadin-horizontal-layout style="align-items: stretch; margin-top: 0.11em;">
+					<vaadin-button id="closeButton" style="align-self: center; margin-left: auto; margin-right: auto;">
+						Cancel
+					</vaadin-button>
+					<vaadin-button theme="primary" id="saveButton" style="align-self: center; margin-left: auto; margin-right: auto;">
+						Save
+					</vaadin-button>
+				</vaadin-horizontal-layout>
+    
+			</vaadin-vertical-layout>
+			`;
+
+			//Events
+			root.querySelector('#closeButton').addEventListener("click", self._standingsEditClose.bind(self));
+			root.querySelector('#saveButton').addEventListener("click", self._standingsEditSave.bind(self)); 
 		};
 	}
 
@@ -227,6 +350,105 @@ export class StartggApi extends LitElement {
 
 			alert("Standings generated!");
 		});
+	}
+
+	_standingsSelectionChanged(e) {
+		const item = e.detail.value;
+		this.selectedStandingEntries = item ? [item] : [];
+
+		if (!item)
+			return;
+
+		this.standingEditDialogEntry = item;
+		this.standingEditDialogOpened = true;
+	}
+
+	//Standing Edit Dialog
+	_standingsEditClose() {
+		this.standingEditDialogOpened = false;
+	}
+
+	_standingsEditSave(event) {
+		console.log("Save dialog");
+	
+		//Save data
+		let dialogRoot = event.currentTarget.parentElement.parentElement;
+		let updateIndex = this.standingEditDialogEntry._index;
+
+		let newPlacementString = dialogRoot.querySelector('#placement').value;
+		let newPlacement = Number.parseInt(newPlacementString);
+
+		if (Number(newPlacementString) == newPlacement) {
+
+			//Check placement integer (skip if identical to old value)
+			if (newPlacement != this.standingEditDialogEntry.placement) {
+
+				if (newPlacement < -1)
+					newPlacement = -1;
+
+				if (newPlacement > 1000)
+					newPlacement = 1000;
+
+				//If placement is still different after checks, update it
+				if (newPlacement != this.standingEditDialogEntry.placement) {
+
+					//Check if new placement is in another entry and if so give it the old placement (swap)
+					let firstSamePlacement = null;
+
+					for (let i = 0; i < standings.value.length; i++) {
+
+						if (standings.value[i].placement == newPlacement) {
+
+							//Multiple identical placements exist, do nothing in that case
+							if (firstSamePlacement != null) {
+								firstSamePlacement = null;
+								break;
+							}
+
+							firstSamePlacement = i;
+						}
+					}
+
+					//Swap placements if only one other placement with this new placement exists (can't be -1)
+					if (firstSamePlacement != null && newPlacement != -1) {
+						standings.value[firstSamePlacement].placement = standings.value[updateIndex].placement;
+					}
+
+					standings.value[updateIndex].placement = newPlacement;
+				}
+			}
+		}
+		else {
+			alert("Invalid placement number entered!");
+		}
+
+		let newName = dialogRoot.querySelector('#name').value;
+
+		if (newName != standings.value[updateIndex].name)
+			standings.value[updateIndex].name = newName;
+
+		let newChar = dialogRoot.querySelector('#character').value;
+
+		if (newChar != standings.value[updateIndex].character)
+			standings.value[updateIndex].character = newChar;
+
+		let newTwitter = dialogRoot.querySelector('#twitter').value;
+
+		if (newTwitter != standings.value[updateIndex].twitter)
+			standings.value[updateIndex].twitter = newTwitter;
+
+
+		this.standingEditDialogOpened = false;
+	}
+
+	_standingsEditOpenStatusChanged(event) {
+		this.standingEditDialogOpened = event.detail.value;
+
+		//Clear edit entry and selection again upon dialog close
+		if (!this.standingEditDialogOpened) {
+			this.standingEditDialogEntry = {};
+			this.selectedStandingEntries = [];
+		}
 	}
 }
 
