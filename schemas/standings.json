@@ -3,28 +3,32 @@
 	"type": "array",
 	"items": {
 		"type": "object",
-		"properties": {
-			"placement": {
-				"type": "number",
-				"default": -1
-			},
-			"name": {
-				"type": "string",
-				"default": ""
-			},
-			"isTeam": {
-				"type": "boolean",
-				"default": false
-			},
-			"character": {
-				"type": "string",
-				"default": ""
-			},
-			"twitter": {
-				"type": "string",
-				"default": ""
-			}
-		}
+    "properties": {
+      "placement": {
+        "type": "number",
+        "default": -1
+      },
+      "name": {
+        "type": "string",
+        "default": ""
+      },
+      "isTeam": {
+        "type": "boolean",
+        "default": false
+      },
+      "character": {
+        "type": "string",
+        "default": ""
+      },
+      "costume": {
+        "type": "number",
+        "default": 0
+      },
+      "twitter": {
+        "type": "string",
+        "default": ""
+      }
+    }
 	},
 	"default": []
 }

@@ -603,6 +603,7 @@ async function generateTopStandings(ack = null) { //Generate Top 8 graphics data
 				name: "",
 				isTeam: false,
 				character: "",
+				costume: 0,
 				twitter: ""
 			};
 
