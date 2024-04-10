@@ -200,6 +200,10 @@
 								"type": "number",
 								"default": 0
 							},
+							"Trigger": {
+								"type": "number",
+								"default": 0
+							},
 							"pressedButtons": {
 								"type": "object",
 								"properties": {

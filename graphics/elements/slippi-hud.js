@@ -290,10 +290,6 @@ export class SlippiHud extends LitElement {
 		//Update external data
 		window.slippi_generalData = this.generalData;
 		window.slippi_playerData = this.playerData;
-
-		//Dispatch live event
-		let event = new CustomEvent('slippi_data_update', { detail: null, bubbles: true, composed: true });
-		window.parent.dispatchEvent(event);
 	}
 
 	checkPlayerCount(count) {

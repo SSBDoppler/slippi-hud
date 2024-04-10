@@ -78,6 +78,7 @@ ${this.playerData[0].slippi.teamId<this.playerData[2].slippi.teamId
 <div>this.playerData[0].slippi.controller.rawButtons "${this.playerData[0].slippi.controller.rawButtons}"</div>
 <div>this.playerData[0].slippi.controller.leftTrigger "${this.playerData[0].slippi.controller.leftTrigger}"</div>
 <div>this.playerData[0].slippi.controller.rightTrigger "${this.playerData[0].slippi.controller.rightTrigger}"</div>
+<div>this.playerData[0].slippi.controller.Trigger "${this.playerData[0].slippi.controller.Trigger}"</div>
 <div>this.playerData[0].slippi.controller.pressedButtons.A "${this.playerData[0].slippi.controller.pressedButtons.A}"</div>
 <div>this.playerData[0].slippi.controller.pressedButtons.B "${this.playerData[0].slippi.controller.pressedButtons.B}"</div>
 <div>this.playerData[0].slippi.controller.pressedButtons.X "${this.playerData[0].slippi.controller.pressedButtons.X}"</div>
@@ -90,6 +91,7 @@ ${this.playerData[0].slippi.teamId<this.playerData[2].slippi.teamId
 <div>this.playerData[0].slippi.controller.pressedButtons.D_DOWN "${this.playerData[0].slippi.controller.pressedButtons.D_DOWN}"</div>
 <div>this.playerData[0].slippi.controller.pressedButtons.D_LEFT "${this.playerData[0].slippi.controller.pressedButtons.D_LEFT}"</div><div>this.playerData[0].slippi.misc.actionStateId "${this.playerData[0].slippi.misc.actionStateId}"</div>
 <div>this.playerData[0].slippi.misc.isFollower "${this.playerData[0].slippi.misc.isFollower}"</div>
+<div>this.playerData[0].slippi.misc.actionStateId "${this.playerData[0].slippi.misc.actionStateId}"</div>
 <div>this.playerData[0].slippi.misc.positionX "${this.playerData[0].slippi.misc.positionX}"</div>
 <div>this.playerData[0].slippi.misc.positionY "${this.playerData[0].slippi.misc.positionY}"</div>
 <div>this.playerData[0].slippi.misc.facingDirection "${this.playerData[0].slippi.misc.facingDirection}" -1 is left, +1 is right</div>
@@ -137,6 +139,7 @@ ${this.playerData[0].slippi.teamId<this.playerData[2].slippi.teamId
 <div>this.playerData[1].slippi.controller.rawButtons "${this.playerData[1].slippi.controller.rawButtons}"</div>
 <div>this.playerData[1].slippi.controller.leftTrigger "${this.playerData[1].slippi.controller.leftTrigger}"</div>
 <div>this.playerData[1].slippi.controller.rightTrigger "${this.playerData[1].slippi.controller.rightTrigger}"</div>
+<div>this.playerData[1].slippi.controller.Trigger "${this.playerData[1].slippi.controller.Trigger}"</div>
 <div>this.playerData[1].slippi.controller.pressedButtons.A "${this.playerData[1].slippi.controller.pressedButtons.A}"</div>
 <div>this.playerData[1].slippi.controller.pressedButtons.B "${this.playerData[1].slippi.controller.pressedButtons.B}"</div>
 <div>this.playerData[1].slippi.controller.pressedButtons.X "${this.playerData[1].slippi.controller.pressedButtons.X}"</div>
@@ -150,6 +153,7 @@ ${this.playerData[0].slippi.teamId<this.playerData[2].slippi.teamId
 <div>this.playerData[1].slippi.controller.pressedButtons.D_LEFT "${this.playerData[1].slippi.controller.pressedButtons.D_LEFT}"</div>
 <div>this.playerData[1].slippi.misc.actionStateId "${this.playerData[1].slippi.misc.actionStateId}"</div>
 <div>this.playerData[1].slippi.misc.isFollower "${this.playerData[1].slippi.misc.isFollower}"</div>
+<div>this.playerData[1].slippi.misc.actionStateId "${this.playerData[1].slippi.misc.actionStateId}"</div>
 <div>this.playerData[1].slippi.misc.positionX "${this.playerData[1].slippi.misc.positionX}"</div>
 <div>this.playerData[1].slippi.misc.positionY "${this.playerData[1].slippi.misc.positionY}"</div>
 <div>this.playerData[1].slippi.misc.facingDirection "${this.playerData[1].slippi.misc.facingDirection}" -1 is left, +1 is right</div>
@@ -206,6 +210,7 @@ ${this.playerData[2].slippi.teamId < this.playerData[0].slippi.teamId
 <div>this.playerData[2].slippi.controller.rawButtons "${this.playerData[2].slippi.controller.rawButtons}"</div>
 <div>this.playerData[2].slippi.controller.leftTrigger "${this.playerData[2].slippi.controller.leftTrigger}"</div>
 <div>this.playerData[2].slippi.controller.rightTrigger "${this.playerData[2].slippi.controller.rightTrigger}"</div>
+<div>this.playerData[2].slippi.controller.Trigger "${this.playerData[2].slippi.controller.Trigger}"</div>
 <div>this.playerData[2].slippi.controller.pressedButtons.A "${this.playerData[2].slippi.controller.pressedButtons.A}"</div>
 <div>this.playerData[2].slippi.controller.pressedButtons.B "${this.playerData[2].slippi.controller.pressedButtons.B}"</div>
 <div>this.playerData[2].slippi.controller.pressedButtons.X "${this.playerData[2].slippi.controller.pressedButtons.X}"</div>
@@ -219,6 +224,7 @@ ${this.playerData[2].slippi.teamId < this.playerData[0].slippi.teamId
 <div>this.playerData[2].slippi.controller.pressedButtons.D_LEFT "${this.playerData[2].slippi.controller.pressedButtons.D_LEFT}"</div>
 <div>this.playerData[2].slippi.misc.actionStateId "${this.playerData[2].slippi.misc.actionStateId}"</div>
 <div>this.playerData[2].slippi.misc.isFollower "${this.playerData[2].slippi.misc.isFollower}"</div>
+<div>this.playerData[2].slippi.misc.actionStateId "${this.playerData[2].slippi.misc.actionStateId}"</div>
 <div>this.playerData[2].slippi.misc.positionX "${this.playerData[2].slippi.misc.positionX}"</div>
 <div>this.playerData[2].slippi.misc.positionY "${this.playerData[2].slippi.misc.positionY}"</div>
 <div>this.playerData[2].slippi.misc.facingDirection "${this.playerData[2].slippi.misc.facingDirection}" -1 is left, +1 is right</div>
@@ -266,6 +272,7 @@ ${this.playerData[2].slippi.teamId < this.playerData[0].slippi.teamId
 <div>this.playerData[3].slippi.controller.rawButtons "${this.playerData[3].slippi.controller.rawButtons}"</div>
 <div>this.playerData[3].slippi.controller.leftTrigger "${this.playerData[3].slippi.controller.leftTrigger}"</div>
 <div>this.playerData[3].slippi.controller.rightTrigger "${this.playerData[3].slippi.controller.rightTrigger}"</div>
+<div>this.playerData[3].slippi.controller.Trigger "${this.playerData[3].slippi.controller.Trigger}"</div>
 <div>this.playerData[3].slippi.controller.pressedButtons.A "${this.playerData[3].slippi.controller.pressedButtons.A}"</div>
 <div>this.playerData[3].slippi.controller.pressedButtons.B "${this.playerData[3].slippi.controller.pressedButtons.B}"</div>
 <div>this.playerData[3].slippi.controller.pressedButtons.X "${this.playerData[3].slippi.controller.pressedButtons.X}"</div>
@@ -279,6 +286,7 @@ ${this.playerData[2].slippi.teamId < this.playerData[0].slippi.teamId
 <div>this.playerData[3].slippi.controller.pressedButtons.D_LEFT "${this.playerData[3].slippi.controller.pressedButtons.D_LEFT}"</div>
 <div>this.playerData[3].slippi.misc.actionStateId "${this.playerData[3].slippi.misc.actionStateId}"</div>
 <div>this.playerData[3].slippi.misc.isFollower "${this.playerData[3].slippi.misc.isFollower}"</div>
+<div>this.playerData[3].slippi.misc.actionStateId "${this.playerData[3].slippi.misc.actionStateId}"</div>
 <div>this.playerData[3].slippi.misc.positionX "${this.playerData[3].slippi.misc.positionX}"</div>
 <div>this.playerData[3].slippi.misc.positionY "${this.playerData[3].slippi.misc.positionY}"</div>
 <div>this.playerData[3].slippi.misc.facingDirection "${this.playerData[3].slippi.misc.facingDirection}" -1 is left, +1 is right</div>
@@ -330,6 +338,7 @@ ${this.playerData[2].slippi.teamId < this.playerData[0].slippi.teamId
 <div>this.playerData[0].slippi.controller.rawButtons "${this.playerData[0].slippi.controller.rawButtons}"</div>
 <div>this.playerData[0].slippi.controller.leftTrigger "${this.playerData[0].slippi.controller.leftTrigger}"</div>
 <div>this.playerData[0].slippi.controller.rightTrigger "${this.playerData[0].slippi.controller.rightTrigger}"</div>
+<div>this.playerData[0].slippi.controller.Trigger "${this.playerData[0].slippi.controller.Trigger}"</div>
 <div>this.playerData[0].slippi.controller.pressedButtons.A "${this.playerData[0].slippi.controller.pressedButtons.A}"</div>
 <div>this.playerData[0].slippi.controller.pressedButtons.B "${this.playerData[0].slippi.controller.pressedButtons.B}"</div>
 <div>this.playerData[0].slippi.controller.pressedButtons.X "${this.playerData[0].slippi.controller.pressedButtons.X}"</div>
@@ -343,6 +352,7 @@ ${this.playerData[2].slippi.teamId < this.playerData[0].slippi.teamId
 <div>this.playerData[0].slippi.controller.pressedButtons.D_LEFT "${this.playerData[0].slippi.controller.pressedButtons.D_LEFT}"</div>
 <div>this.playerData[0].slippi.misc.actionStateId "${this.playerData[0].slippi.misc.actionStateId}"</div>
 <div>this.playerData[0].slippi.misc.isFollower "${this.playerData[0].slippi.misc.isFollower}"</div>
+<div>this.playerData[0].slippi.misc.actionStateId "${this.playerData[0].slippi.misc.actionStateId}"</div>
 <div>this.playerData[0].slippi.misc.positionX "${this.playerData[0].slippi.misc.positionX}"</div>
 <div>this.playerData[0].slippi.misc.positionY "${this.playerData[0].slippi.misc.positionY}"</div>
 <div>this.playerData[0].slippi.misc.facingDirection "${this.playerData[0].slippi.misc.facingDirection}" -1 is left, +1 is right</div>
@@ -388,6 +398,7 @@ ${this.playerData[2].slippi.teamId < this.playerData[0].slippi.teamId
 <div>this.playerData[1].slippi.controller.rawButtons "${this.playerData[1].slippi.controller.rawButtons}"</div>
 <div>this.playerData[1].slippi.controller.leftTrigger "${this.playerData[1].slippi.controller.leftTrigger}"</div>
 <div>this.playerData[1].slippi.controller.rightTrigger "${this.playerData[1].slippi.controller.rightTrigger}"</div>
+<div>this.playerData[1].slippi.controller.Trigger "${this.playerData[1].slippi.controller.Trigger}"</div>
 <div>this.playerData[1].slippi.controller.pressedButtons.A "${this.playerData[1].slippi.controller.pressedButtons.A}"</div>
 <div>this.playerData[1].slippi.controller.pressedButtons.B "${this.playerData[1].slippi.controller.pressedButtons.B}"</div>
 <div>this.playerData[1].slippi.controller.pressedButtons.X "${this.playerData[1].slippi.controller.pressedButtons.X}"</div>
@@ -401,6 +412,7 @@ ${this.playerData[2].slippi.teamId < this.playerData[0].slippi.teamId
 <div>this.playerData[1].slippi.controller.pressedButtons.D_LEFT "${this.playerData[1].slippi.controller.pressedButtons.D_LEFT}"</div>
 <div>this.playerData[1].slippi.misc.actionStateId "${this.playerData[1].slippi.misc.actionStateId}"</div>
 <div>this.playerData[1].slippi.misc.isFollower "${this.playerData[1].slippi.misc.isFollower}"</div>
+<div>this.playerData[1].slippi.misc.actionStateId "${this.playerData[1].slippi.misc.actionStateId}"</div>
 <div>this.playerData[1].slippi.misc.positionX "${this.playerData[1].slippi.misc.positionX}"</div>
 <div>this.playerData[1].slippi.misc.positionY "${this.playerData[1].slippi.misc.positionY}"</div>
 <div>this.playerData[1].slippi.misc.facingDirection "${this.playerData[1].slippi.misc.facingDirection}" -1 is left, +1 is right</div>

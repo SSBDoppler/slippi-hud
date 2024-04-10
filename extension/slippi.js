@@ -268,13 +268,14 @@ function runConnection() {
 
 			player.controller.leftTrigger = framePlayer.pre.physicalLTrigger;
 			player.controller.rightTrigger = framePlayer.pre.physicalRTrigger;
+			player.controller.Trigger = framePlayer.pre.trigger;
 
 			//Only update button inputs if the bitmask changed
-			if (framePlayer.pre.physicalButtons != player.controller.rawButtons) {
+			if (framePlayer.pre.buttons != player.controller.rawButtons) {
 
-				player.controller.rawButtons = framePlayer.pre.physicalButtons;
+				player.controller.rawButtons = framePlayer.pre.buttons;
 
-				let pressedButtons = bitmaskToButtons(framePlayer.pre.physicalButtons);
+				let pressedButtons = bitmaskToButtons(framePlayer.pre.buttons);
 				player.controller.pressedButtons = buttonsToBoolObject(pressedButtons);
 
 				//console.log("Button inputs changed, now:", player.controller);

@@ -9,8 +9,6 @@ Welcome to Slippi-HUD, a nodecg package that can be used to power all kinds of s
 [Use the Wiki](https://github.com/SSBDoppler/slippi-hud/wiki)
 ### Why, just Why?
 I'm a madman, obviously
-### Hey, my font doesn't look right.
-That's not a question, but you likely need to install the [Metropolis Light and Metropolis Black Fonts](https://www.1001fonts.com/metropolis-font.html)
 ### I don't like the way it looks
 And? All you have to do is make your own html/css, the source code is right here.
 ### What are all the variables I can call?
@@ -22,6 +20,7 @@ Node, Javascript, and [Lit](https://lit.dev) as I understand.
 ### Steven 'Doppler12' Knepper
 #### Wrote the HUD css/html (that's my hackery), Designed the graphical elements, runs the git
 SlippiHUD@gmail.com
+[Mastodon](https://discuss.smash.today/@SmashToday)
 
 ## Lead Programmer
 ### Marwin 'dragonbane0' Misselhorn
@@ -32,12 +31,16 @@ SlippiHUD@gmail.com
 
 ## Graphics
 ### Joel 'Potsy' Kaplan
-##### Classic HUD and pillar-box art
+##### Pillar-box Overlay
 [Twitter](https://twitter.com/potsyjk)
 
 ### 8VibesStudio
-##### New Logo and New HUD
+##### Logo and HUD
 [Facebook](https://www.facebook.com/8vibestudios)
+
+### Vancity Primal
+##### pillarbox-hud overlay
+[Twitter](https://twitter.com/Vancity_Primal)
 
 ## Special Thanks
 ### Jas Laferriere and the Slippi team
