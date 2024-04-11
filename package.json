@@ -6,8 +6,8 @@
     "Marwin Misselhorn",
     "Steven Knepper",
     "PartlyAwesome",
-    "yvng.h"
-	"Vancity Primal"
+    "yvng.h",
+    "Vancity Primal"
   ],
   "dependencies": {
     "@polymer/app-layout": "^3.0.0",
