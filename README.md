@@ -30,9 +30,9 @@ SlippiHUD@gmail.com
 [github](https://github.com/dragonbane0)
 
 ## Graphics
-### Joel 'Potsy' Kaplan
+### Joy 'Potsy' Kaplan
 ##### Pillar-box Overlay
-[Twitter](https://twitter.com/potsyjk)
+[Bluesky](https://bsky.app/profile/potsyjk.bsky.social)
 
 ### 8VibesStudio
 ##### Logo and HUD
