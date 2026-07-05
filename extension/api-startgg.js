@@ -30,20 +30,20 @@ query TournamentQuery($slug: String) {
 			id
 			name
 			streamQueue {
-      			stream {
-        			streamName
-      			}
-      			sets {
-        			id
-                    state
-                    round
-                    startedAt
-                    completedAt
-                    winnerId
+	  			stream {
+					streamName
+	  			}
+	  			sets {
+					id
+					state
+					round
+					startedAt
+					completedAt
+					winnerId
 					wPlacement
 					lPlacement
-      		    }
-    	    }
+	  			}
+			}
 			events {
 				id
 				name
@@ -62,43 +62,43 @@ query SetQuery($setId: ID!) {
 		set(id: $setId){
 			slots {
 				entrant {
-              		id
-        			name
-                    initialSeedNum
-                    team {
+			  		id
+					name
+					initialSeedNum
+					team {
 						id
-                        name
-                        discriminator                                
-                    }
-              		participants {
-          				id
-                        gamerTag
-                        prefix 
-                        user {
+						name
+						discriminator								
+					}
+			  		participants {
+		  				id
+						gamerTag
+						prefix 
+						user {
 							id
-                            name 
-                            slug
-                            discriminator
-                            genderPronoun
-                            authorizations {                         
+							name 
+							slug
+							discriminator
+							genderPronoun
+							authorizations {						 
 								id
-                                externalId
-                                externalUsername
-                                type
-                                url
-                            }
-                        }
-        			}
-      			}
-      			standing {
-        			placement
-        			stats {
-          				score {
-            				value
-          				}
-        			}
-      			}
-    		}
+								externalId
+								externalUsername
+								type
+								url
+							}
+						}
+					}
+	  			}
+	  			standing {
+					placement
+					stats {
+		  				score {
+							value
+		  				}
+					}
+	  			}
+			}
 		}
 }`,
 	variables: { setId: 0 }
@@ -115,26 +115,26 @@ query StandingsQuery($eventId: ID!, $page: Int!, $perPage: Int!) {
 				sortBy: "placement"
 			}){
 				nodes {
-              		id
+			  		id
 					isFinal
 					placement
-                    stats {
-          				score {
-            				value
-          				}
-        			}
+					stats {
+		  				score {
+							value
+		  				}
+					}
 					totalPoints
-              		entrant {
-              			id
-        				name
+			  		entrant {
+			  			id
+						name
 						initialSeedNum
 						team {
 							id
 							name
-							discriminator                                
+							discriminator								
 						}
-              			participants {
-          					id
+			  			participants {
+		  					id
 							gamerTag
 							prefix
 							connectedAccounts
@@ -144,7 +144,7 @@ query StandingsQuery($eventId: ID!, $page: Int!, $perPage: Int!) {
 								slug
 								discriminator
 								genderPronoun
-								authorizations {                         
+								authorizations {						 
 									id
 									externalId
 									externalUsername
@@ -152,10 +152,10 @@ query StandingsQuery($eventId: ID!, $page: Int!, $perPage: Int!) {
 									url
 								}
 							}
-        				}
-      				}
-      			}
-    		}
+						}
+	  				}
+	  			}
+			}
 		}
 }`,
 	variables: { eventId: 0, page: 1, perPage: 8 }

@@ -113,7 +113,7 @@ function determineWinner(data) {
 					if (!playerInfo)
 						continue;
 
-                    //Get player teamId and lookup its index in sorted activeTeams. This is the target teamId
+					//Get player teamId and lookup its index in sorted activeTeams. This is the target teamId
 					let playerTeamId = playerInfo.teamId;
 					let teamId = slippi.value.gameInfo.activeTeams.findIndex(teamIdElem => teamIdElem === playerTeamId);
 

@@ -13,30 +13,30 @@ return html`
 <style>
 
 @keyframes onOv {
-    0% {
+	0% {
 	filter: hue-rotate(0deg) brightness(105%);
-    }
-    100% {
+	}
+	100% {
 	filter: hue-rotate(359deg) brightness(105%);
-    }
+	}
 }
 
 @keyframes onEnd-false {
-    0% {
-        opacity: 0;
-    }
-    100% {
+	0% {
+		opacity: 0;
+	}
+	100% {
 		opacity: 1;
-    }
+	}
 }
 
 @keyframes onEnd-true {
-    0% {
-        opacity: 1;
-    }
-    100% {
+	0% {
+		opacity: 1;
+	}
+	100% {
 		opacity: 0;
-    }
+	}
 }
 
 @keyframes onP1death-true {
@@ -370,9 +370,9 @@ return html`
 
 #teamsmodule {
 	background: url(./img/hud/new/teams_module.png) 0px 0px no-repeat;
-    width: 1920px;
-    height: 1080px;
-    position: absolute;
+	width: 1920px;
+	height: 1080px;
+	position: absolute;
 	left: 0px;
 	top: 0px;
 }
@@ -388,26 +388,26 @@ return html`
 
 #teamleft {
 	position: absolute;
-    left: 400px;
-    top: -165px;
-    width: 415px;
-    height: 37px;
+	left: 400px;
+	top: -165px;
+	width: 415px;
+	height: 37px;
 }
 
 #teamright {
 	position: absolute;
-    right: 500px;
-    top: -165px;
-    width: 415px;
-    height: 37px;
+	right: 500px;
+	top: -165px;
+	width: 415px;
+	height: 37px;
 }
 
 #player1 {
 	position: absolute;
-    left: 290px;
-    top: 810px;
-    width: 215px;
-    height: 200px;
+	left: 290px;
+	top: 810px;
+	width: 215px;
+	height: 200px;
 }
 
 #player2 {
@@ -504,18 +504,18 @@ return html`
 
 #gametext {
 	position: absolute;
-    text-align: center;
-    top: -1px;
+	text-align: center;
+	top: -1px;
 	left: 230px;
-    width: 233px;
+	width: 233px;
 }
 
 #game {
-    position: absolute;
-    top: -845px;
-    left: 0px;
-    text-align: center;
-    font-size: 20px;
+	position: absolute;
+	top: -845px;
+	left: 0px;
+	text-align: center;
+	font-size: 20px;
 	text-transform: uppercase;
 	font-family: "Eurostile";
 	color: rgb(255, 255, 255);
@@ -679,10 +679,10 @@ return html`
 }
 
 #stocks {
-    position: absolute;
-    top: 90px;
-    left: 0px;
-    height: 50px;
+	position: absolute;
+	top: 90px;
+	left: 0px;
+	height: 50px;
 }
 
 #stock {
@@ -702,8 +702,8 @@ return html`
   text-shadow: 4px 4px 0px #000, 1px 0 #000, -1px 0 #000, 0 1px #000, 0 -1px #000;
   -webkit-transform: scale(1, 1.2);
 	position: absolute;
-    top: 124px;
-    left: 0px;
+	top: 124px;
+	left: 0px;
   z-index: 16;
   opacity: 1
 } 
@@ -717,15 +717,15 @@ return html`
 	font-family: 'Eurostile', sans-serif;
 	font-weight: 500;
 	color: rgb(255, 255, 255);
-    position: absolute;
+	position: absolute;
 	line-height: 1.2;
 	text-align: center;
 	position: absolute;
 	text-shadow: 2px 2px 0px black;
-    left: -64px;
-    top: 185px;
-    width: 415px;
-    height: 37px;
+	left: -64px;
+	top: 185px;
+	width: 415px;
+	height: 37px;
 }
 
 .name2 {
@@ -733,15 +733,15 @@ return html`
 	font-family: 'Eurostile', sans-serif;
 	font-weight: 500;
 	color: rgb(255, 255, 255);
-    position: absolute;
+	position: absolute;
 	line-height: 1.2;
 	text-align: center;
 	position: absolute;
 	text-shadow: 2px 2px 0px black;
-    left: 167px;
-    top: 185px;
-    width: 415px;
-    height: 37px;
+	left: 167px;
+	top: 185px;
+	width: 415px;
+	height: 37px;
 }
 
 #score-true{
@@ -752,8 +752,8 @@ return html`
 	text-align: center;
 	text-shadow: 4px 4px 0px #000, 1px 0 #000, -1px 0 #000, 0 1px #000, 0 -1px #000;
 	position: absolute;
-    left: 772px;
-    top: 21px;
+	left: 772px;
+	top: 21px;
 }
 
 #score-false {
@@ -764,8 +764,8 @@ return html`
 	text-align: center;
 	text-shadow: 4px 4px 0px #000, 1px 0 #000, -1px 0 #000, 0 1px #000, 0 -1px #000;
 	position: absolute;
-    right: 772px;
-    top: 21px;
+	right: 772px;
+	top: 21px;
 }
 
 #score1 {
@@ -776,8 +776,8 @@ return html`
 	text-align: center;
 	text-shadow: 4px 4px 0px #000, 1px 0 #000, -1px 0 #000, 0 1px #000, 0 -1px #000;
 	position: absolute;
-    left: 772px;
-    top: 7px;
+	left: 772px;
+	top: 7px;
 }
 
 #score2 {
@@ -788,8 +788,8 @@ return html`
 	text-align: center;
 	text-shadow: 4px 4px 0px #000, 1px 0 #000, -1px 0 #000, 0 1px #000, 0 -1px #000;
 	position: absolute;
-    right: 772px;
-    top: 7px;
+	right: 772px;
+	top: 7px;
 }
 
 .stock-1 {
@@ -829,11 +829,11 @@ left: 47px;
 }
 
 #panels {	
-    top: 895px;
+	top: 895px;
 	left: 615px;
-    height: 100%;
-    width: 100%;
-    position: absolute;
+	height: 100%;
+	width: 100%;
+	position: absolute;
 }
 
 #timer{
@@ -872,11 +872,11 @@ left: 47px;
 
 #round {
 	position: absolute;
-    top: -877px;
-    left: 170px;
-    font-size: 23px;
-    width: 350px;
-    text-align: center;
+	top: -877px;
+	left: 170px;
+	font-size: 23px;
+	width: 350px;
+	text-align: center;
 	text-transform: uppercase;
 	font-family: "Eurostile";
 	color: rgb(255, 255, 255);
@@ -884,11 +884,11 @@ left: 47px;
 
 #best {
 	position: absolute;
-    top: -845px;
-    left: 0px;
-    font-size: 20px;
-    width: 350px;
-    text-align: center;
+	top: -845px;
+	left: 0px;
+	font-size: 20px;
+	width: 350px;
+	text-align: center;
 	text-transform: uppercase;
 	font-family: "Eurostile";
 	color: rgb(255, 255, 255);
@@ -917,11 +917,11 @@ left: 47px;
 .P1pronouns {
 	left: 32px;
 	top: 0px;
-    width: 58px;
-    Height: 50px;
-    position: absolute;
+	width: 58px;
+	Height: 50px;
+	position: absolute;
 	font-size: 18px;
-    font-family: "Eurostile";
+	font-family: "Eurostile";
 	text-align: center;
 	line-height: 1;
 	transform: ScaleX(.9);
@@ -930,11 +930,11 @@ left: 47px;
 .P2pronouns {
 	top: 0px;
 	right: 32px;
-    width: 58px;
-    Height: 50px;
-    position: absolute;
+	width: 58px;
+	Height: 50px;
+	position: absolute;
 	font-size: 18px;
-    font-family: "Eurostile";
+	font-family: "Eurostile";
 	text-align: center;
 	line-height: 1;
 	transform: ScaleX(.9);
@@ -943,11 +943,11 @@ left: 47px;
 .P3pronouns {
 	top: 0px;
 	left: 32px;
-    width: 58px;
-    Height: 50px;
-    position: absolute;
+	width: 58px;
+	Height: 50px;
+	position: absolute;
 	font-size: 18px;
-    font-family: "Eurostile";
+	font-family: "Eurostile";
 	text-align: center;
 	line-height: 1;
 	transform: ScaleX(.9);
@@ -956,11 +956,11 @@ left: 47px;
 .P4pronouns {
 	top: 0px;
 	right: 32px;
-    width: 58px;
-    Height: 50px;
-    position: absolute;
+	width: 58px;
+	Height: 50px;
+	position: absolute;
 	font-size: 18px;
-    font-family: "Eurostile";
+	font-family: "Eurostile";
 	text-align: center;
 	line-height: 1;
 	transform: ScaleX(.9);
@@ -1077,20 +1077,20 @@ left: 47px;
 
 #sgl-playermoduleright {
 	background: url(./img/hud/new/rplayer_module.png) 0px 0px no-repeat;
-    width: 685px;
-    height: 220px;
-    position: absolute;
-    left: 1230px;
-    bottom: 3px;
+	width: 685px;
+	height: 220px;
+	position: absolute;
+	left: 1230px;
+	bottom: 3px;
 }
 
 #sgl-playermoduleleft {
 	background: url(./img/hud/new/lplayer_module.png) 0px 0px no-repeat;
-    width: 685px;
-    height: 220px;
-    position: absolute;
-    right: 1230px;
-    bottom: 3px;
+	width: 685px;
+	height: 220px;
+	position: absolute;
+	right: 1230px;
+	bottom: 3px;
 }
 
 #sgl-overlay {
@@ -1104,10 +1104,10 @@ left: 47px;
 
 #sgl-player1 {
 	position: absolute;
-    left: 300px;
-    top: 838px;
-    width: 424px;
-    height: 108px;
+	left: 300px;
+	top: 838px;
+	width: 424px;
+	height: 108px;
 }
 
 #sgl-player2 {
@@ -1154,17 +1154,17 @@ left: 47px;
 
 #sgl-gametext {
 	position: absolute;
-    text-align: center;
-    top: 10px;
-    width: 233px;
+	text-align: center;
+	top: 10px;
+	width: 233px;
 }
 
 #sgl-game {
-    position: absolute;
-    top: 151px;
-    left: 227px;
-    text-align: center;
-    font-size: 20px;
+	position: absolute;
+	top: 151px;
+	left: 227px;
+	text-align: center;
+	font-size: 20px;
 	text-transform: uppercase;
 	font-family: "Eurostile";
 	color: rgb(255, 255, 255);
@@ -1301,10 +1301,10 @@ left: 47px;
 }
 
 #sgl-stocks {
-    position: absolute;
-    top: 48px;
-    left: 125px;
-    height: 50px;
+	position: absolute;
+	top: 48px;
+	left: 125px;
+	height: 50px;
 	paddingRight: 1000px;
 }
 
@@ -1325,8 +1325,8 @@ left: 47px;
   text-shadow: 4px 4px 0px black;
   -webkit-transform: scale(1, 1.2);
 	position: absolute;
-    bottom: -75px;
-    right: 100px;
+	bottom: -75px;
+	right: 100px;
   z-index: 16;
 } 
 
@@ -1339,15 +1339,15 @@ left: 47px;
 	font-family: 'Eurostile', sans-serif;
 	font-weight: 500;
 	color: rgb(255, 255, 255);
-    position: absolute;
+	position: absolute;
 	line-height: 1.2;
 	text-align: center;
 	position: absolute;
 	text-shadow: 2px 2px 0px black;
-    left: 14px;
-    top: 185px;
-    width: 290px;
-    height: 32px;
+	left: 14px;
+	top: 185px;
+	width: 290px;
+	height: 32px;
 	transform: rotate(-0.7deg);
 }
 
@@ -1356,15 +1356,15 @@ left: 47px;
 	font-family: 'Eurostile', sans-serif;
 	font-weight: 500;
 	color: rgb(255, 255, 255);
-    position: absolute;
+	position: absolute;
 	line-height: 1.2;
 	text-align: center;
 	position: absolute;
 	text-shadow: 2px 2px 0px black;
-    left: 125px;
-    top: 185px;
-    width: 290px;
-    height: 32px;
+	left: 125px;
+	top: 185px;
+	width: 290px;
+	height: 32px;
 	transform: rotate(0.7deg);
 }
 
@@ -1377,8 +1377,8 @@ left: 47px;
 	text-shadow: 4px 4px 0px #sgl-000, 1px 0 #sgl-000, -1px 0 #sgl-000, 0 1px #sgl-000, 0 -1px #sgl-000;
 	position: absolute;
 	z-index: 30;
-    left: 461px;
-    top: 160px;
+	left: 461px;
+	top: 160px;
 	transform: rotate(-1deg);
 }
 
@@ -1391,8 +1391,8 @@ left: 47px;
 	text-shadow: 4px 4px 0px #sgl-000, 1px 0 #sgl-000, -1px 0 #sgl-000, 0 1px #sgl-000, 0 -1px #sgl-000;
 	position: absolute;
 	z-index: 30;
-    right: 464px;
-    top: 160px;
+	right: 464px;
+	top: 160px;
 	transform: rotate(-1deg);
 }
 #mics {
@@ -1401,7 +1401,7 @@ left: 47px;
 	left: 5px;
 }
 #mic {
-    background: url(./img/extras/mic.png) no-repeat;
+	background: url(./img/extras/mic.png) no-repeat;
 	height:48px;
 	width: 48px;
 	transform: scale(.75);
@@ -1449,38 +1449,38 @@ filter: brightness(50%) hue-rotate(234deg) saturate(158.2%) brightness(158.2%);
 filter: brightness(100%) sepia(.5) hue-rotate(88.8deg) saturate(174.2%) brightness(225.2%);
 }
 
-#sgl-P1Pronouns {    
+#sgl-P1Pronouns {	
 	left: 264px;
-    top: 165px;
-    width: 58px;
-    Height: 50px;
-    position: absolute;
+	top: 165px;
+	width: 58px;
+	Height: 50px;
+	position: absolute;
 	font-size: 20px;
-    font-family: "Eurostile";
+	font-family: "Eurostile";
 	text-align: center;
 	line-height: 1;
 	transform: ScaleX(.9);
 }
-#sgl-P2Pronouns {    
+#sgl-P2Pronouns {	
 	left: 353px;
-    top: 165px;
-    width: 58px;
-    Height: 50px;
-    position: absolute;
+	top: 165px;
+	width: 58px;
+	Height: 50px;
+	position: absolute;
 	font-size: 20px;
-    font-family: "Eurostile";
+	font-family: "Eurostile";
 	text-align: center;
 	line-height: 1;
 	transform: ScaleX(.9);
 }
 
 #sgl-panels {	
-    top: 890px;
+	top: 890px;
 	left: 615px;
-    background: url(./img/hud/new/timer_module.png) no-repeat;
-    height: 100%;
-    width: 100%;
-    position: absolute;
+	background: url(./img/hud/new/timer_module.png) no-repeat;
+	height: 100%;
+	width: 100%;
+	position: absolute;
 }
 
 #sgl-timer{
@@ -1521,11 +1521,11 @@ filter: brightness(100%) sepia(.5) hue-rotate(88.8deg) saturate(174.2%) brightne
 
 #sgl-round {
 	position: absolute;
-    top: -869px;
-    left: -652px;
-    font-size: 20px;
-    width: 350px;
-    text-align: center;
+	top: -869px;
+	left: -652px;
+	font-size: 20px;
+	width: 350px;
+	text-align: center;
 	text-transform: uppercase;
 	transform: rotate(-1deg);
 	font-family: "Eurostile";
@@ -1534,11 +1534,11 @@ filter: brightness(100%) sepia(.5) hue-rotate(88.8deg) saturate(174.2%) brightne
 
 #sgl-best {
 	position: absolute;
-    top: -836px;
-    left: -658px;
-    font-size: 20px;
-    width: 350px;
-    text-align: center;
+	top: -836px;
+	left: -658px;
+	font-size: 20px;
+	width: 350px;
+	text-align: center;
 	text-transform: uppercase;
 	transform: rotate(-1deg);
 	font-family: "Eurostile";
@@ -1551,7 +1551,7 @@ filter: brightness(100%) sepia(.5) hue-rotate(88.8deg) saturate(174.2%) brightne
 	left: -620px;
 	background: url(./img/hud/new/round_module.png) no-repeat;
 	height: 100%;
-    width: 100%;
+	width: 100%;
 }
 
 #sgl-logo {
@@ -1602,7 +1602,7 @@ filter: brightness(100%) sepia(.5) hue-rotate(88.8deg) saturate(174.2%) brightne
 	top: 0px;
 	width: 1920px;
 	height: 1080px;
-    background: url(./img/hud/new/accents.png) no-repeat;
+	background: url(./img/hud/new/accents.png) no-repeat;
 }
 
 
@@ -1791,7 +1791,7 @@ ${this.generalData.slippi.isTeams
 			<div id='sgl-cameraport'></div>
 		</div>
 		<div id='sgl-playermoduleright'>
-		    <div id="sgl-P2Series" class="port-${this.playerData[1].slippi.port}"></div>
+			<div id="sgl-P2Series" class="port-${this.playerData[1].slippi.port}"></div>
 			<div id="sgl-P2Pronouns">${this.playerData[1].player.pronouns}</div>
 			<div  class="sgl-Rsponsor"></div>
 			<div id='sgl-cameraport'></div>
@@ -1831,7 +1831,7 @@ ${this.generalData.slippi.isTeams
 			<div id="sgl-rnd_module" class="ov_blue"></div>
 			
 			<div id="sgl-round">${this.generalData.tournament.round}</div>
-		    
+			
 			<div id="sgl-best" class="ov_blue">Best Of ${this.generalData.tournament.bestOf}</div>
 			
 			<div id="sgl-timer" span id="timer1">${this.generalData.slippi.timer.formatted}</span></div><div id="sgl-timerms" span id="sgl-timerms">${this.generalData.slippi.timer.milliseconds}</span></div>

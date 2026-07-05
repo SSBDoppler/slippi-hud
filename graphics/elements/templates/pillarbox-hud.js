@@ -12,34 +12,34 @@ return html``;
 return html`
 <style>
 
-        *{
-        	margin: 0;
-        }
+		*{
+			margin: 0;
+		}
 @keyframes onOv {
-    0% {
+	0% {
 	filter: hue-rotate(0deg) brightness(105%);
-    }
-    100% {
+	}
+	100% {
 	filter: hue-rotate(359deg) brightness(105%);
-    }
+	}
 }
 
 @keyframes onEnd-false {
-    0% {
-        opacity: 0;
-    }
-    100% {
+	0% {
+		opacity: 0;
+	}
+	100% {
 		opacity: 1;
-    }
+	}
 }
 
 @keyframes onEnd-true {
-    0% {
-        opacity: 1;
-    }
-    100% {
+	0% {
+		opacity: 1;
+	}
+	100% {
 		opacity: 0;
-    }
+	}
 }
 
 @keyframes onP1death-true {
@@ -372,9 +372,9 @@ return html`
 }
 
 #teamsmodule {
-    width: 1920px;
-    height: 1080px;
-    position: absolute;
+	width: 1920px;
+	height: 1080px;
+	position: absolute;
 	left: 0px;
 	top: 0px;
 }
@@ -390,26 +390,26 @@ return html`
 
 #teamleft {
 	position: absolute;
-    left: 400px;
-    top: -165px;
-    width: 415px;
-    height: 37px;
+	left: 400px;
+	top: -165px;
+	width: 415px;
+	height: 37px;
 }
 
 #teamright {
 	position: absolute;
-    right: 500px;
-    top: -165px;
-    width: 415px;
-    height: 37px;
+	right: 500px;
+	top: -165px;
+	width: 415px;
+	height: 37px;
 }
 
 #player1 {
 	position: absolute;
-    left: 370px;
-    top: 760px;
-    width: 215px;
-    height: 200px;
+	left: 370px;
+	top: 760px;
+	width: 215px;
+	height: 200px;
 }
 
 #player2 {
@@ -506,18 +506,18 @@ return html`
 
 #gametext {
 	position: absolute;
-    text-align: center;
-    top: -1px;
+	text-align: center;
+	top: -1px;
 	left: 230px;
-    width: 233px;
+	width: 233px;
 }
 
 #game {
-    position: absolute;
-    top: -845px;
-    left: 0px;
-    text-align: center;
-    font-size: 20px;
+	position: absolute;
+	top: -845px;
+	left: 0px;
+	text-align: center;
+	font-size: 20px;
 	text-transform: uppercase;
 	font-family: "Roboto";
 	color: rgb(255, 255, 255);
@@ -681,10 +681,10 @@ return html`
 }
 
 #stocks {
-    position: absolute;
-    top: 90px;
-    left: 0px;
-    height: 50px;
+	position: absolute;
+	top: 90px;
+	left: 0px;
+	height: 50px;
 }
 
 #stock {
@@ -704,8 +704,8 @@ return html`
   text-shadow: 4px 4px 0px #000, 1px 0 #000, -1px 0 #000, 0 1px #000, 0 -1px #000;
   -webkit-transform: scale(1, 1.2);
 	position: absolute;
-    top: 115px;
-    left: 0px;
+	top: 115px;
+	left: 0px;
   z-index: 16;
   opacity: 1
 } 
@@ -719,15 +719,15 @@ return html`
 	font-family: 'Jost', sans-serif;
 	font-weight: 500;
 	color: rgb(255, 255, 255);
-    position: absolute;
+	position: absolute;
 	line-height: 1.2;
 	text-align: center;
 	position: absolute;
 	text-shadow: 2px 2px 0px black;
-    left: -64px;
-    top: 185px;
-    width: 415px;
-    height: 37px;
+	left: -64px;
+	top: 185px;
+	width: 415px;
+	height: 37px;
 }
 
 .name2 {
@@ -735,15 +735,15 @@ return html`
 	font-family: 'Jost', sans-serif;
 	font-weight: 500;
 	color: rgb(255, 255, 255);
-    position: absolute;
+	position: absolute;
 	line-height: 1.2;
 	text-align: center;
 	position: absolute;
 	text-shadow: 2px 2px 0px black;
-    left: 167px;
-    top: 185px;
-    width: 415px;
-    height: 37px;
+	left: 167px;
+	top: 185px;
+	width: 415px;
+	height: 37px;
 }
 
 #score1 {
@@ -754,8 +754,8 @@ return html`
 	text-align: center;
 	text-shadow: 4px 4px 0px #000, 1px 0 #000, -1px 0 #000, 0 1px #000, 0 -1px #000;
 	position: absolute;
-    left: 772px;
-    top: 7px;
+	left: 772px;
+	top: 7px;
 }
 
 #score2 {
@@ -766,8 +766,8 @@ return html`
 	text-align: center;
 	text-shadow: 4px 4px 0px #000, 1px 0 #000, -1px 0 #000, 0 1px #000, 0 -1px #000;
 	position: absolute;
-    right: 772px;
-    top: 7px;
+	right: 772px;
+	top: 7px;
 }
 
 .stock-1 {
@@ -812,11 +812,11 @@ filter: brightness(100%) sepia(.5) hue-rotate(88.8deg) saturate(174.2%) brightne
 }
 
 #panels {	
-    top: 24px;
+	top: 24px;
 	left: 615px;
-    height: 100%;
-    width: 100%;
-    position: absolute;
+	height: 100%;
+	width: 100%;
+	position: absolute;
 }
 
 #timer{
@@ -924,19 +924,19 @@ filter: brightness(100%) sepia(.5) hue-rotate(88.8deg) saturate(174.2%) brightne
 }
 
 #sgl-playermoduleright {
-    width: 685px;
-    height: 220px;
-    position: absolute;
-    left: 1065px;
-    bottom: 3px;
+	width: 685px;
+	height: 220px;
+	position: absolute;
+	left: 1065px;
+	bottom: 3px;
 }
 
 #sgl-playermoduleleft {
-    width: 685px;
-    height: 220px;
-    position: absolute;
-    right: 1075px;
-    bottom: 3px;
+	width: 685px;
+	height: 220px;
+	position: absolute;
+	right: 1075px;
+	bottom: 3px;
 }
 
 #sgl-overlay {
@@ -950,10 +950,10 @@ filter: brightness(100%) sepia(.5) hue-rotate(88.8deg) saturate(174.2%) brightne
 
 #sgl-player1 {
 	position: absolute;
-    left: 435px;
-    top: 838px;
-    width: 424px;
-    height: 108px;
+	left: 435px;
+	top: 838px;
+	width: 424px;
+	height: 108px;
 }
 
 #sgl-player2 {
@@ -1000,17 +1000,17 @@ filter: brightness(100%) sepia(.5) hue-rotate(88.8deg) saturate(174.2%) brightne
 
 #sgl-gametext {
 	position: absolute;
-    text-align: center;
-    top: 10px;
-    width: 233px;
+	text-align: center;
+	top: 10px;
+	width: 233px;
 }
 
 #sgl-game {
-    position: absolute;
-    top: 148px;
-    left: 227px;
-    text-align: center;
-    font-size: 20px;
+	position: absolute;
+	top: 148px;
+	left: 227px;
+	text-align: center;
+	font-size: 20px;
 	text-transform: uppercase;
 	font-family: "Roboto";
 	color: rgb(255, 255, 255);
@@ -1147,10 +1147,10 @@ filter: brightness(100%) sepia(.5) hue-rotate(88.8deg) saturate(174.2%) brightne
 }
 
 #sgl-stocks {
-    position: absolute;
-    top: 48px;
-    left: 125px;
-    height: 50px;
+	position: absolute;
+	top: 48px;
+	left: 125px;
+	height: 50px;
 	paddingRight: 1000px;
 }
 
@@ -1171,8 +1171,8 @@ filter: brightness(100%) sepia(.5) hue-rotate(88.8deg) saturate(174.2%) brightne
   text-shadow: 4px 4px 0px black;
   -webkit-transform: scale(1, 1.2);
 	position: absolute;
-    bottom: -75px;
-    right: 100px;
+	bottom: -75px;
+	right: 100px;
   z-index: 16;
 } 
 
@@ -1185,15 +1185,15 @@ filter: brightness(100%) sepia(.5) hue-rotate(88.8deg) saturate(174.2%) brightne
 	font-family: 'Jost', sans-serif;
 	font-weight: 500;
 	color: rgb(255, 255, 255);
-    position: absolute;
+	position: absolute;
 	line-height: 1.2;
 	text-align: center;
 	position: absolute;
 	text-shadow: 2px 2px 0px black;
-    left: 14px;
-    top: 185px;
-    width: 290px;
-    height: 32px;
+	left: 14px;
+	top: 185px;
+	width: 290px;
+	height: 32px;
 	transform: rotate(-0.7deg);
 }
 
@@ -1202,15 +1202,15 @@ filter: brightness(100%) sepia(.5) hue-rotate(88.8deg) saturate(174.2%) brightne
 	font-family: 'Jost', sans-serif;
 	font-weight: 500;
 	color: rgb(255, 255, 255);
-    position: absolute;
+	position: absolute;
 	line-height: 1.2;
 	text-align: center;
 	position: absolute;
 	text-shadow: 2px 2px 0px black;
-    left: 125px;
-    top: 185px;
-    width: 290px;
-    height: 32px;
+	left: 125px;
+	top: 185px;
+	width: 290px;
+	height: 32px;
 	transform: rotate(0.7deg);
 }
 
@@ -1223,8 +1223,8 @@ filter: brightness(100%) sepia(.5) hue-rotate(88.8deg) saturate(174.2%) brightne
 	text-shadow: 4px 4px 0px #sgl-000, 1px 0 #sgl-000, -1px 0 #sgl-000, 0 1px #sgl-000, 0 -1px #sgl-000;
 	position: absolute;
 	z-index: 30;
-    left: 461px;
-    top: 148px;
+	left: 461px;
+	top: 148px;
 	transform: rotate(-1deg);
 }
 
@@ -1237,8 +1237,8 @@ filter: brightness(100%) sepia(.5) hue-rotate(88.8deg) saturate(174.2%) brightne
 	text-shadow: 4px 4px 0px #sgl-000, 1px 0 #sgl-000, -1px 0 #sgl-000, 0 1px #sgl-000, 0 -1px #sgl-000;
 	position: absolute;
 	z-index: 30;
-    right: 464px;
-    top: 148px;
+	right: 464px;
+	top: 148px;
 	transform: rotate(1deg);
 }
 #mics {
@@ -1247,7 +1247,7 @@ filter: brightness(100%) sepia(.5) hue-rotate(88.8deg) saturate(174.2%) brightne
 	left: 1610px;
 }
 #mic {
-    background: url(./img/extras/mic.png) no-repeat;
+	background: url(./img/extras/mic.png) no-repeat;
 	height:48px;
 	width: 48px;
 	transform: scale(.75);
@@ -1285,26 +1285,26 @@ filter: brightness(100%) sepia(.5) hue-rotate(88.8deg) saturate(174.2%) brightne
 	width: 300px;
 	height: 120px;
 }
-#sgl-P1Pronouns {    
+#sgl-P1Pronouns {	
 	left: 264px;
-    top: 165px;
-    width: 58px;
-    Height: 50px;
-    position: absolute;
+	top: 165px;
+	width: 58px;
+	Height: 50px;
+	position: absolute;
 	font-size: 20px;
-    font-family: "Metropolis";
+	font-family: "Metropolis";
 	text-align: center;
 	line-height: 1;
 	transform: ScaleX(.9);
 }
-#sgl-P2Pronouns {    
+#sgl-P2Pronouns {	
 	left: 353px;
-    top: 165px;
-    width: 58px;
-    Height: 50px;
-    position: absolute;
+	top: 165px;
+	width: 58px;
+	Height: 50px;
+	position: absolute;
 	font-size: 20px;
-    font-family: "Metropolis";
+	font-family: "Metropolis";
 	text-align: center;
 	line-height: 1;
 	transform: ScaleX(.9);
@@ -1358,11 +1358,11 @@ filter: brightness(100%) sepia(.5) hue-rotate(88.8deg) saturate(174.2%) brightne
 
 #sgl-round {
 	position: absolute;
-    top: -869px;
-    left: -652px;
-    font-size: 20px;
-    width: 350px;
-    text-align: center;
+	top: -869px;
+	left: -652px;
+	font-size: 20px;
+	width: 350px;
+	text-align: center;
 	text-transform: uppercase;
 	transform: rotate(-1deg);
 	font-family: "Roboto";
@@ -1371,11 +1371,11 @@ filter: brightness(100%) sepia(.5) hue-rotate(88.8deg) saturate(174.2%) brightne
 
 #sgl-best {
 	position: absolute;
-    top: -836px;
-    left: -658px;
-    font-size: 20px;
-    width: 350px;
-    text-align: center;
+	top: -836px;
+	left: -658px;
+	font-size: 20px;
+	width: 350px;
+	text-align: center;
 	text-transform: uppercase;
 	transform: rotate(-1deg);
 	font-family: "Roboto";
@@ -1409,20 +1409,20 @@ filter: brightness(100%) sepia(.5) hue-rotate(88.8deg) saturate(174.2%) brightne
 	height: 31px;
 }
 
-        #overlay-frame {
-        	width: 1920px;
-        	height: 1080px;
-        	position: absolute;
+		#overlay-frame {
+			width: 1920px;
+			height: 1080px;
+			position: absolute;
 
-        	opacity: 100%;
+			opacity: 100%;
 
-        	color: white;
-        	text-align: center;
-        	font-family: "Eurostile", sans-serif;
+			color: white;
+			text-align: center;
+			font-family: "Eurostile", sans-serif;
 			font-weight: 600;
 
 			background-image: url("./img/backgrounds/new-hud/tournament.png")
-        }
+		}
 
 		#left-player-stack {
 			position: absolute;
@@ -1870,7 +1870,7 @@ ${this.generalData.slippi.isTeams
 			<div id="sgl-P1Series" class="port-${this.playerData[0].slippi.port}"></div>
 		</div>
 		<div id='sgl-playermoduleright'>
-		    <div id="sgl-P2Series" class="port-${this.playerData[1].slippi.port}"></div>
+			<div id="sgl-P2Series" class="port-${this.playerData[1].slippi.port}"></div>
 		</div>
 			</div>
 			<div id="sgl-player1">

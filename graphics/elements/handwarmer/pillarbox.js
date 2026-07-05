@@ -23,12 +23,12 @@ return html`
 }
 
 #overlay {
-    top: 0px;
+	top: 0px;
 	left: 0px;
-    background: url('./img/backgrounds/new-hud/handwarmer-ssb2022.png') no-repeat;
-    height: 1080px;
-    width: 1920px;
-    position: absolute;
+	background: url('./img/backgrounds/new-hud/handwarmer-ssb2022.png') no-repeat;
+	height: 1080px;
+	width: 1920px;
+	position: absolute;
 }
 
 #round {
@@ -44,11 +44,11 @@ return html`
 }
 
 #com0 {
-    position: absolute;
-    left: 970px;
-    top: 470px;
-    width: 500px;
-    text-align: left;
+	position: absolute;
+	left: 970px;
+	top: 470px;
+	width: 500px;
+	text-align: left;
 	font-size: 25px;
 	text-transform: uppercase;
 	font-family: "Eurostile";
@@ -57,11 +57,11 @@ return html`
 }
 
 #info0 {
-    position: absolute;
-    left: 970px;
-    top: 495px;
-    width: 500px;
-    text-align: left;
+	position: absolute;
+	left: 970px;
+	top: 495px;
+	width: 500px;
+	text-align: left;
 	font-size: 20px;
 	text-transform: uppercase;
 	font-family: "Eurostile";
@@ -70,11 +70,11 @@ return html`
 }
 
 #com1 {
-    position: absolute;
-    left: 1270px;
-    top: 470px;
-    width: 500px;
-    text-align: right;
+	position: absolute;
+	left: 1270px;
+	top: 470px;
+	width: 500px;
+	text-align: right;
 	font-size: 25px;
 	text-transform: uppercase;
 	font-family: "Eurostile";
@@ -82,11 +82,11 @@ return html`
 	filter: drop-shadow(2px 2px 1px black);
 }
 #info1 {
-    position: absolute;
-    left: 1270px;
-    top: 495px;
-    width: 500px;
-    text-align: right;
+	position: absolute;
+	left: 1270px;
+	top: 495px;
+	width: 500px;
+	text-align: right;
 	font-size: 20px;
 	text-transform: uppercase;
 	font-family: "Eurostile";
@@ -95,11 +95,11 @@ return html`
 }
 #P1Name {
 	position: absolute;
-    top: 960px;
-    left: 970px;
-    font-size: 25px;
-    width: 500px;
-    text-align: left;
+	top: 960px;
+	left: 970px;
+	font-size: 25px;
+	width: 500px;
+	text-align: left;
 	text-transform: uppercase;
 	font-family: "Eurostile";
 	color: rgb(255, 255, 255);
@@ -107,11 +107,11 @@ return html`
 }
 #P1Pronouns {
 	position: absolute;
-    top: 985px;
-    left: 970px;
-    font-size: 20px;
-    width: 500px;
-    text-align: left;
+	top: 985px;
+	left: 970px;
+	font-size: 20px;
+	width: 500px;
+	text-align: left;
 	text-transform: uppercase;
 	font-family: "Eurostile";
 	color: rgb(255, 255, 255);
@@ -121,10 +121,10 @@ return html`
 #P2Name {
 	position: absolute;
 	top: 960px;
-    left: 1270px;
-    font-size: 25px;
-    width: 500px;
-    text-align: right;
+	left: 1270px;
+	font-size: 25px;
+	width: 500px;
+	text-align: right;
 	text-transform: uppercase;
 	font-family: "Eurostile";
 	color: rgb(255, 255, 255);
@@ -134,10 +134,10 @@ return html`
 #P2Pronouns {
 	position: absolute;
 	top: 985px;
-    left: 1270px;
-    font-size: 20px;
-    width: 500px;
-    text-align: right;
+	left: 1270px;
+	font-size: 20px;
+	width: 500px;
+	text-align: right;
 	text-transform: uppercase;
 	font-family: "Eurostile";
 	color: rgb(255, 255, 255);
@@ -146,10 +146,10 @@ return html`
 
 	
 #box {
-    position: absolute;
-    top: 300px;
-    text-align: center;
-    width: 1242px;
+	position: absolute;
+	top: 300px;
+	text-align: center;
+	width: 1242px;
 	font-size: 48px;
 	text-shadow: 6px 6px 3px rgb(0, 0, 0);
 }

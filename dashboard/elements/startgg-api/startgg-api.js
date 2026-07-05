@@ -119,7 +119,7 @@ export class StartggApi extends LitElement {
 									name: "Doppler",
 									isTeam: false,
 									character: "10,20,30,40,50,60",
-                                    costume: 0,
+									costume: 0,
 									twitter: "SSBDoppler"
 								},
 								{
@@ -127,7 +127,7 @@ export class StartggApi extends LitElement {
 									name: "Hbox",
 									isTeam: false,
 									character: "20,15",
-                                    costume: 1,
+									costume: 1,
 									twitter: "LiquidHbox"
 								},
 								{
@@ -135,7 +135,7 @@ export class StartggApi extends LitElement {
 									name: "dragonbane0",
 									isTeam: false,
 									character: "2,0,3",
-                                    costume: 5,
+									costume: 5,
 									twitter: "dragonbane0"
 								},
 								{
@@ -143,7 +143,7 @@ export class StartggApi extends LitElement {
 									name: "Mew2King",
 									isTeam: false,
 									character: "1,0",
-                                    costume: 3,
+									costume: 3,
 									twitter: "MVG_Mew2King"
 								}
 							];
@@ -259,12 +259,12 @@ export class StartggApi extends LitElement {
 
 				<vaadin-vertical-layout style="align-items: stretch; margin-top: 0;">
 					<vaadin-text-field id="name" label="Name" value="${self.standingEditDialogEntry.name}"></vaadin-text-field>
-	                <vaadin-horizontal-layout style="align-items: stretch;">
-					    <vaadin-text-field id="character" label="Character" value="${self.standingEditDialogEntry.character}"></vaadin-text-field>
-	                    <vaadin-integer-field id="costume" style="margin-left: 5px; max-width: 103px;" label="Costume" value="${self.standingEditDialogEntry.costume}" has-controls min="0", max="5"></vaadin-integer-field>
-				    </vaadin-horizontal-layout>
+					<vaadin-horizontal-layout style="align-items: stretch;">
+						<vaadin-text-field id="character" label="Character" value="${self.standingEditDialogEntry.character}"></vaadin-text-field>
+						<vaadin-integer-field id="costume" style="margin-left: 5px; max-width: 103px;" label="Costume" value="${self.standingEditDialogEntry.costume}" has-controls min="0", max="5"></vaadin-integer-field>
+					</vaadin-horizontal-layout>
 					<vaadin-text-field id="twitter" label="Twitter" value="${self.standingEditDialogEntry.twitter}"></vaadin-text-field>
-                    <vaadin-integer-field id="placement" label="Placement" value="${self.standingEditDialogEntry.placement}" has-controls min="-1", max="1000"></vaadin-integer-field>
+					<vaadin-integer-field id="placement" label="Placement" value="${self.standingEditDialogEntry.placement}" has-controls min="-1", max="1000"></vaadin-integer-field>
 				</vaadin-vertical-layout>
 
 				<vaadin-horizontal-layout style="align-items: stretch; margin-top: 0.11em;">
@@ -275,7 +275,7 @@ export class StartggApi extends LitElement {
 						Save
 					</vaadin-button>
 				</vaadin-horizontal-layout>
-    
+	
 			</vaadin-vertical-layout>
 			`;
 
@@ -437,13 +437,13 @@ export class StartggApi extends LitElement {
 		let newChar = dialogRoot.querySelector('#character').value;
 
 		if (newChar != standings.value[updateIndex].character)
-            standings.value[updateIndex].character = newChar;
+			standings.value[updateIndex].character = newChar;
 
-        let newCostumeString = dialogRoot.querySelector('#costume').value;
-        let newCostume = Number.parseInt(newCostumeString);
+		let newCostumeString = dialogRoot.querySelector('#costume').value;
+		let newCostume = Number.parseInt(newCostumeString);
 
-        if (Number(newCostumeString) == newCostume && newCostume != standings.value[updateIndex].costume)
-            standings.value[updateIndex].costume = newCostume;
+		if (Number(newCostumeString) == newCostume && newCostume != standings.value[updateIndex].costume)
+			standings.value[updateIndex].costume = newCostume;
 
 		let newTwitter = dialogRoot.querySelector('#twitter').value;
 

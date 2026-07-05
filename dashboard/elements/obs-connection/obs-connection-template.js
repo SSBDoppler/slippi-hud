@@ -55,22 +55,22 @@ return html`
   <vaadin-password-field id="password" theme="slippi-style" label="Password" value=${this.password} clear-button-visible reveal-button-hidden @change=${this._passwordChange}></vaadin-password-field>
   <vaadin-integer-field id="waitTime" theme="slippi-style" label="Seconds to Wait" value=${this.waitTime} has-controls min="0" max="1800" @change=${this._waitTimeChange}></vaadin-integer-field>
   <vaadin-select id="activeScene" theme="slippi-style" label="Active Scene" value=${this.activeScene} @change=${this._activeSceneChange}>
-    <template>
-      <vaadin-list-box>
-        <vaadin-item>Handwarmer</vaadin-item>
-        <vaadin-item>Tournament</vaadin-item>
-        <vaadin-item>Game End</vaadin-item>
-        <vaadin-item>Set End</vaadin-item>
-        <vaadin-item>Wait</vaadin-item>
-      </vaadin-list-box>
-    </template>
+	<template>
+	  <vaadin-list-box>
+		<vaadin-item>Handwarmer</vaadin-item>
+		<vaadin-item>Tournament</vaadin-item>
+		<vaadin-item>Game End</vaadin-item>
+		<vaadin-item>Set End</vaadin-item>
+		<vaadin-item>Wait</vaadin-item>
+	  </vaadin-list-box>
+	</template>
   </vaadin-select>
   <vaadin-checkbox id="autoSwitchCheckbox" theme="slippi-style" ?checked=${this.autoSwitchEnabled} @change=${this._autoSwitchCheckboxChange}>Auto Switch Scenes</vaadin-checkbox>
   ${this.connected ? html`
-     <vaadin-button id="disconnectButton" theme="primary" @click=${this._disconnectButtonClicked}>Disconnect</vaadin-button>
-     ` : html`
-     <vaadin-button id="connectButton" theme="primary" @click=${this._connectButtonClicked}>Connect</vaadin-button>
-     `}
+	 <vaadin-button id="disconnectButton" theme="primary" @click=${this._disconnectButtonClicked}>Disconnect</vaadin-button>
+	 ` : html`
+	 <vaadin-button id="connectButton" theme="primary" @click=${this._connectButtonClicked}>Connect</vaadin-button>
+	 `}
 </vaadin-vertical-layout>
 
 `;

@@ -186,7 +186,7 @@ function runConnection() {
 				}
 			};
 
-            //Slippi automatically has the players sorted by port/index
+			//Slippi automatically has the players sorted by port/index
 			playerInfoArray.push(slippiPlayer);
 		}
 

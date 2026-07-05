@@ -90,26 +90,26 @@ export const template = function() {
 return html`
 
   <vaadin-vertical-layout id="layoutTop">
-    <vaadin-text-field id="tournamentSlug" theme="slippi-style" label="Tournament Slug" value=${this.tournamentSlug} clear-button-visible @change=${this._tournamentSlugChange}></vaadin-text-field>
+	<vaadin-text-field id="tournamentSlug" theme="slippi-style" label="Tournament Slug" value=${this.tournamentSlug} clear-button-visible @change=${this._tournamentSlugChange}></vaadin-text-field>
   </vaadin-vertical-layout>
 
   <vaadin-vertical-layout id="layoutMiddleLeft">
 	<vaadin-checkbox id="tournySyncEnabledCheckbox" theme="slippi-style" ?checked=${this.tourneySyncEnabled} @change=${this._tourneySyncEnabledCheckboxChange}>Sync Tournament</vaadin-checkbox>
 	<vaadin-select id="selectedQueue" theme="slippi-style" label="Selected Stream Queue" ?disabled=${!this.tourneySyncEnabled} value=${this.selectedQueueIndex} @change=${this._selectedQueueChange}></vaadin-select>
 	<vaadin-checkbox id="boAutomationCheckbox" theme="slippi-style" ?checked=${this.boAutomationEnabled} ?disabled=${!this.tourneySyncEnabled} @change=${this._boAutomationEnabledCheckboxChange}>Automate Best of #</vaadin-checkbox>
-    <vaadin-integer-field id="thresholdValue" theme="slippi-style" label="Placement Threshold" ?disabled=${!this.boAutomationEnabled || !this.tourneySyncEnabled} value=${this.boIntegerThreshold} has-controls min="-1" max="255" @change=${this._boThresholdValueChange}></vaadin-integer-field>
-    <vaadin-button id="updateButton" theme="primary" ?disabled=${!this.tourneySyncEnabled} @click=${this._forceUpdateButtonClicked}>Force Update</vaadin-button>
+	<vaadin-integer-field id="thresholdValue" theme="slippi-style" label="Placement Threshold" ?disabled=${!this.boAutomationEnabled || !this.tourneySyncEnabled} value=${this.boIntegerThreshold} has-controls min="-1" max="255" @change=${this._boThresholdValueChange}></vaadin-integer-field>
+	<vaadin-button id="updateButton" theme="primary" ?disabled=${!this.tourneySyncEnabled} @click=${this._forceUpdateButtonClicked}>Force Update</vaadin-button>
 </vaadin-vertical-layout>
 
   <vaadin-vertical-layout id="layoutMiddleRight">
 	<vaadin-select id="eventSelector" theme="slippi-style" label="Event" value=${this.topSelectedEventIndex} @change=${this._topSelectedEventChanged}></vaadin-select>
 	<vaadin-button id="generateTopButton" theme="primary" ?disabled=${this.topStandingsGenerating} @click=${this._topGenerateButtonClicked}>${this.topStandingsGenerating ? "Generating..." : "Generate Top 8"}</vaadin-button>
 
-    <vaadin-grid id="standingsList" .items=${this.availableStandingEntries} .activeItem=${this.selectedStandingEntries && this.selectedStandingEntries.length > 0 ? this.selectedStandingEntries[0] : null} .selectedItems=${this.selectedStandingEntries} @active-item-changed=${this._standingsSelectionChanged} theme="no-border">
-      <vaadin-grid-column path="placement" header="#" width="3em" flex-grow="0"></vaadin-grid-column>
-      <vaadin-grid-column path="name" auto-width flex-grow="1"></vaadin-grid-column>
-    </vaadin-grid>
-    <vaadin-dialog id="standingEditor" aria-label="Edit Standing" .opened=${this.standingEditDialogOpened} @opened-changed=${this._standingsEditOpenStatusChanged}></vaadin-dialog>
+	<vaadin-grid id="standingsList" .items=${this.availableStandingEntries} .activeItem=${this.selectedStandingEntries && this.selectedStandingEntries.length > 0 ? this.selectedStandingEntries[0] : null} .selectedItems=${this.selectedStandingEntries} @active-item-changed=${this._standingsSelectionChanged} theme="no-border">
+	  <vaadin-grid-column path="placement" header="#" width="3em" flex-grow="0"></vaadin-grid-column>
+	  <vaadin-grid-column path="name" auto-width flex-grow="1"></vaadin-grid-column>
+	</vaadin-grid>
+	<vaadin-dialog id="standingEditor" aria-label="Edit Standing" .opened=${this.standingEditDialogOpened} @opened-changed=${this._standingsEditOpenStatusChanged}></vaadin-dialog>
   </vaadin-vertical-layout>
 
   <vaadin-vertical-layout id="layoutButtom">

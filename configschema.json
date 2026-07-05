@@ -8,11 +8,11 @@
 		},
 		"api": {
 			"type": "object",
-            "default": {},
+			"default": {},
 			"properties": {
 				"startgg": {
 					"type": "object",
-                    "default": {},
+					"default": {},
 					"properties": {
 						"key": {
 							"type": "string",
@@ -28,7 +28,7 @@
 		},
 		"slpDumpPath": {
 			"type": "object",
-            "default": {},
+			"default": {},
 			"properties": {
 				"inBundle": {
 					"type": "boolean",
@@ -42,15 +42,15 @@
 		},
 		"obs": {
 			"type": "object",
-            "default": {},
+			"default": {},
 			"properties": {
 				"scenes": {
 					"type": "object",
-                    "default": {},
+					"default": {},
 					"properties": {
 						"Handwarmer": {
 							"type": "object",
-                            "default": {},
+							"default": {},
 							"properties": {
 								"autoSwitch": {
 									"type": "boolean",
@@ -63,7 +63,7 @@
 						},
 						"Tournament": {
 							"type": "object",
-                            "default": {},
+							"default": {},
 							"properties": {
 								"autoSwitch": {
 									"type": "boolean",
@@ -76,7 +76,7 @@
 						},
 						"Game End": {
 							"type": "object",
-                            "default": {},
+							"default": {},
 							"properties": {
 								"autoSwitch": {
 									"type": "boolean",
@@ -89,7 +89,7 @@
 						},
 						"Set End": {
 							"type": "object",
-                            "default": {},
+							"default": {},
 							"properties": {
 								"autoSwitch": {
 									"type": "boolean",
@@ -102,7 +102,7 @@
 						},
 						"Wait": {
 							"type": "object",
-                            "default": {},
+							"default": {},
 							"properties": {
 								"autoSwitch": {
 									"type": "boolean",

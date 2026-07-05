@@ -69,11 +69,11 @@ return html`
 }
 #score {
 	position: absolute;
-    text-align: center;
-    font-size: 60px;
-    top: 875px;
-    left: 870px;
-    width: 181px;
+	text-align: center;
+	font-size: 60px;
+	top: 875px;
+	left: 870px;
+	width: 181px;
 	color: white;
 	filter: drop-shadow(4px 4px 1px black);
 }
@@ -133,32 +133,32 @@ return html`
 }
 #Index-${this.playerData[0].slippi.id}-Stats{
 position: absolute;
-    top: 222px;
-    left: 531px;
+	top: 222px;
+	left: 531px;
 	width: 156px;
-    font-size: 23px;
-    text-align: center;
+	font-size: 23px;
+	text-align: center;
 	color: white;
 	filter: drop-shadow(4px 4px 1px black);
 }
 #Index-${this.playerData[1].slippi.id}-Stats{
 	position: absolute;
-    top: 222px;
-    left: 1246px;
+	top: 222px;
+	left: 1246px;
 	width: 156px;
-    font-size: 23px;
-    text-align: center;
+	font-size: 23px;
+	text-align: center;
 	color: white;
 	filter: drop-shadow(4px 4px 1px black);
 }
 #statLabel{
 	position: absolute;
-    top: 222px;
-    left: 749px;
-    width: 422px;
-    height: 800px;
-    color: white;
-    font-size: 23px;
+	top: 222px;
+	left: 749px;
+	width: 422px;
+	height: 800px;
+	color: white;
+	font-size: 23px;
 }
 #Stat1 {
 	top: 9px;
@@ -189,7 +189,7 @@ position: absolute;
 }
 #LName {
 	position: absolute;
-    left: 137px;
+	left: 137px;
 }
 #RName {
 	position: absolute;
@@ -203,108 +203,108 @@ position: absolute;
 }
 #g1-1 {
 	width: 192px;
-    height: 108px;
-    position: absolute;
-    top: 0px;
-    left: 413px;
+	height: 108px;
+	position: absolute;
+	top: 0px;
+	left: 413px;
 }
 #g1-2 {
 	width: 192px;
-    height: 108px;
-    position: absolute;
-    top: 0px;
-    left: 281px;
+	height: 108px;
+	position: absolute;
+	top: 0px;
+	left: 281px;
 }
 #g1-3 {
 	width: 192px;
-    height: 108px;
-    position: absolute;
-    top: 0px;
-    left: 16px;
+	height: 108px;
+	position: absolute;
+	top: 0px;
+	left: 16px;
 }
 #g1-4 {
 	width: 192px;
-    height: 108px;
-    position: absolute;
-    top: 0px;
-    left: 16px;
+	height: 108px;
+	position: absolute;
+	top: 0px;
+	left: 16px;
 }
 #g1-5 {
 	width: 192px;
-    height: 108px;
-    position: absolute;
-    top: 0px;
-    left: 16px;
+	height: 108px;
+	position: absolute;
+	top: 0px;
+	left: 16px;
 }
 #g2-2 {
 	width: 192px;
-    height: 108px;
-    position: absolute;
-    top: 0px;
-    left: 545px;
+	height: 108px;
+	position: absolute;
+	top: 0px;
+	left: 545px;
 }
 #g2-3 {
 	width: 192px;
-    height: 108px;
-    position: absolute;
-    top: 0px;
-    left: 413px;
+	height: 108px;
+	position: absolute;
+	top: 0px;
+	left: 413px;
 }
 #g2-4 {
 	width: 192px;
-    height: 108px;
-    position: absolute;
-    top: 0px;
-    left: 281px;
+	height: 108px;
+	position: absolute;
+	top: 0px;
+	left: 281px;
 }
 #g2-5 {
 	width: 192px;
-    height: 108px;
-    position: absolute;
-    top: 0px;
-    left: 215px;
+	height: 108px;
+	position: absolute;
+	top: 0px;
+	left: 215px;
 }
 #g3-3 {
 	width: 192px;
-    height: 108px;
-    position: absolute;
-    top: 0px;
-    left: 810px;
+	height: 108px;
+	position: absolute;
+	top: 0px;
+	left: 810px;
 }
 #g3-4 {
 	width: 192px;
-    height: 108px;
-    position: absolute;
-    top: 0px;
-    left: 545px;
+	height: 108px;
+	position: absolute;
+	top: 0px;
+	left: 545px;
 }
 #g3-5 {
 	width: 192px;
-    height: 108px;
-    position: absolute;
-    top: 0px;
-    left: 413px;
+	height: 108px;
+	position: absolute;
+	top: 0px;
+	left: 413px;
 }
 #g4-4 {
 	width: 192px;
-    height: 108px;
-    position: absolute;
-    top: 0px;
-    left: 810px;
+	height: 108px;
+	position: absolute;
+	top: 0px;
+	left: 810px;
 }
 #g4-5 {
 	width: 192px;
-    height: 108px;
-    position: absolute;
-    top: 0px;
-    left: 612px;
+	height: 108px;
+	position: absolute;
+	top: 0px;
+	left: 612px;
 }
 #g5-5 {
 	width: 192px;
-    height: 108px;
-    position: absolute;
-    top: 0px;
-    left: 810px;
+	height: 108px;
+	position: absolute;
+	top: 0px;
+	left: 810px;
 }
 #char-${this.playerData[0].slippi.id} {
 	position: absolute;
@@ -336,30 +336,30 @@ position: absolute;
 	opacity: .6;
 }
 .title {
-    color: #ffffff;
-    font-size: 50px;
-    text-align: center;
-    width: 1920px;
+	color: #ffffff;
+	font-size: 50px;
+	text-align: center;
+	width: 1920px;
 }
 .name {
 	font-size: 28px;
 	top: 700px;
 	width: 300px;
-    text-align: center;
+	text-align: center;
 }
 .sponsor {
 	color: #454545;
 	font-size: 20px;
 	top: 675px;
 	width: 300px;
-    text-align: center;
+	text-align: center;
 }
 .tag {
 	position: absolute;
 	color: #454545;
 	font-size: 22px;
 	width: 230px;
-    text-align: center;
+	text-align: center;
 	
 }
 .data {

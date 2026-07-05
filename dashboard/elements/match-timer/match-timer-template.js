@@ -14,7 +14,7 @@ return css`
 	@apply --layout-vertical;
 	@apply --layout-flex-none;
 	white-space: nowrap;
-    font-size: 16px;
+	font-size: 16px;
 }
 
 p {

@@ -70,11 +70,11 @@ return html`
 }
 #score {
 	position: absolute;
-    text-align: center;
-    font-size: 60px;
-    top: 875px;
-    left: 870px;
-    width: 181px;
+	text-align: center;
+	font-size: 60px;
+	top: 875px;
+	left: 870px;
+	width: 181px;
 	color: white;
 	filter: drop-shadow(4px 4px 1px black);
 }
@@ -135,33 +135,33 @@ return html`
 }
 #Index-${this.playerData[0].slippi.id}-Stats{
 position: absolute;
-    top: 245px;
-    left: 531px;
+	top: 245px;
+	left: 531px;
 	width: 156px;
-    height: 900px;
-    font-size: 25px;
-    text-align: center;
+	height: 900px;
+	font-size: 25px;
+	text-align: center;
 	color: white;
 	filter: drop-shadow(4px 4px 1px black);
 }
 #Index-${this.playerData[1].slippi.id}-Stats{
 	position: absolute;
-    top: 245px;
-    left: 1246px;
+	top: 245px;
+	left: 1246px;
 	width: 156px;
 	height: 900px;
-    font-size: 25px;
-    text-align: center;
+	font-size: 25px;
+	text-align: center;
 	color: white;
 	filter: drop-shadow(4px 4px 1px black);
 }
 #statLabel{
 	position: absolute;
-    top: 245px;
-    left: 749px;
-    width: 422px;
-    height: 900px;
-    font-size: 21px;
+	top: 245px;
+	left: 749px;
+	width: 422px;
+	height: 900px;
+	font-size: 21px;
 }
 #Stat1 {
 	top: 11px;
@@ -192,7 +192,7 @@ position: absolute;
 }
 #LName {
 	position: absolute;
-    left: 137px;
+	left: 137px;
 }
 #RName {
 	position: absolute;
@@ -204,28 +204,28 @@ position: absolute;
 	top: 0px;
 	height: 1080px;
 	width: 1920px;
-    clip: rect(174px,1466px,867px,451px);
+	clip: rect(174px,1466px,867px,451px);
 	background: url('./img/stages/${this.generalData.slippi.stage.id}.png') 0px 0px no-repeat;
 }
 
 .title {
-    color: #FFF;
-    font-size: 50px;
-    text-align: center;
-    width: 1920px;
+	color: #FFF;
+	font-size: 50px;
+	text-align: center;
+	width: 1920px;
 }
 .name {
 	font-size: 28px;
 	top: 700px;
 	width: 300px;
-    text-align: center;
+	text-align: center;
 }
 .sponsor {
 	color: #454545;
 	font-size: 20px;
 	top: 675px;
 	width: 300px;
-    text-align: center;
+	text-align: center;
 }
 
 .tag {
@@ -233,7 +233,7 @@ position: absolute;
 	color: #454545;
 	font-size: 22px;
 	width: 222px;
-    text-align: center;
+	text-align: center;
 	
 }
 

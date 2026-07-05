@@ -74,20 +74,20 @@ return html`
   <vaadin-text-field id="tournyName" theme="slippi-style" label="Name" value=${this.tournyName} clear-button-visible @change=${this._tournyNameChange}></vaadin-text-field>
   <vaadin-text-field id="tournyRound" theme="slippi-style" label="Round" value=${this.tournyRound} clear-button-visible @change=${this._tournyRoundChange}></vaadin-text-field>
   <vaadin-select id="tournyBestOf" theme="slippi-style" label="Best of #" value=${this.tournyBestOf} @change=${this._tournyBestOfChange}>
-        <template>
-          <vaadin-list-box>
-            <vaadin-item>1</vaadin-item>
-            <vaadin-item>3</vaadin-item>
+		<template>
+		  <vaadin-list-box>
+			<vaadin-item>1</vaadin-item>
+			<vaadin-item>3</vaadin-item>
 			<vaadin-item>5</vaadin-item>
-          </vaadin-list-box>
-        </template>
+		  </vaadin-list-box>
+		</template>
   </vaadin-select>
-    ${repeat(this.commentators, (item) => item.id, (item, index) => html`
+	${repeat(this.commentators, (item) => item.id, (item, index) => html`
 	  <vaadin-horizontal-layout id="commentatorLayout">
-        <vaadin-text-field id=${'commentatorName_' + index} class="commentatorName" theme="slippi-style" label=${'Commentator Name (' + '#' + (index + 1) + ')'} value=${item.name} clear-button-visible @change=${this._commentatorNameChange}></vaadin-text-field>
-	    <vaadin-text-field id=${'commentatorInfo_' + index} class="commentatorInfo" theme="slippi-style" label=${'Info'} value=${item.info} clear-button-visible @change=${this._commentatorInfoChange}></vaadin-text-field>
-      </vaadin-horizontal-layout>
-    `)}
+		<vaadin-text-field id=${'commentatorName_' + index} class="commentatorName" theme="slippi-style" label=${'Commentator Name (' + '#' + (index + 1) + ')'} value=${item.name} clear-button-visible @change=${this._commentatorNameChange}></vaadin-text-field>
+		<vaadin-text-field id=${'commentatorInfo_' + index} class="commentatorInfo" theme="slippi-style" label=${'Info'} value=${item.info} clear-button-visible @change=${this._commentatorInfoChange}></vaadin-text-field>
+	  </vaadin-horizontal-layout>
+	`)}
   <vaadin-checkbox id="inputDisplayCheckbox" theme="slippi-style" ?checked=${this.inputDisplayEnabled} @change=${this._inputDisplayCheckboxChange}>Enable Input Display</vaadin-checkbox>
 </vaadin-vertical-layout>
 `;

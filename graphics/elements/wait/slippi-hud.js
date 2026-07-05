@@ -23,12 +23,12 @@ return html`
 }
 
 #overlay {
-    top: 0px;
+	top: 0px;
 	left: 0px;
-    background: url('./img/backgrounds/new-hud/wait-ssb2022.png') no-repeat 0px 0px;
-    height: 1080px;
-    width: 1920px;
-    position: absolute;	
+	background: url('./img/backgrounds/new-hud/wait-ssb2022.png') no-repeat 0px 0px;
+	height: 1080px;
+	width: 1920px;
+	position: absolute;	
 }
 
 #round {
@@ -44,11 +44,11 @@ return html`
 }
 
 #com0 {
-    position: absolute;
-    left: 999px;
-    top: 515px;
-    width: 500px;
-    text-align: left;
+	position: absolute;
+	left: 999px;
+	top: 515px;
+	width: 500px;
+	text-align: left;
 	font-size: 25px;
 	text-transform: uppercase;
 	font-family: "Eurostile";
@@ -57,11 +57,11 @@ return html`
 }
 
 #info0 {
-    position: absolute;
-    left: 999px;
-    top: 540px;
-    width: 500px;
-    text-align: left;
+	position: absolute;
+	left: 999px;
+	top: 540px;
+	width: 500px;
+	text-align: left;
 	font-size: 20px;
 	text-transform: uppercase;
 	font-family: "Eurostile";
@@ -70,11 +70,11 @@ return html`
 }
 
 #com1 {
-    position: absolute;
-    left: 1345px;
-    top: 515px;
-    width: 500px;
-    text-align: right;
+	position: absolute;
+	left: 1345px;
+	top: 515px;
+	width: 500px;
+	text-align: right;
 	font-size: 25px;
 	text-transform: uppercase;
 	font-family: "Eurostile";
@@ -82,11 +82,11 @@ return html`
 	filter: drop-shadow(2px 2px 1px black);
 }
 #info1 {
-    position: absolute;
-    left: 1345px;
-    top: 540px;
-    width: 500px;
-    text-align: right;
+	position: absolute;
+	left: 1345px;
+	top: 540px;
+	width: 500px;
+	text-align: right;
 	font-size: 20px;
 	text-transform: uppercase;
 	font-family: "Eurostile";
@@ -96,11 +96,11 @@ return html`
 
 #P1Name {
 	position: absolute;
-    top: 515px;
-    left: 71px;
-    font-size: 25px;
-    width: 500px;
-    text-align: left;
+	top: 515px;
+	left: 71px;
+	font-size: 25px;
+	width: 500px;
+	text-align: left;
 	text-transform: uppercase;
 	font-family: "Eurostile";
 	color: rgb(255, 255, 255);
@@ -109,11 +109,11 @@ return html`
 
 #P1Pronouns {
 	position: absolute;
-    top: 540px;
-    left: 71px;
-    font-size: 20px;
-    width: 500px;
-    text-align: left;
+	top: 540px;
+	left: 71px;
+	font-size: 20px;
+	width: 500px;
+	text-align: left;
 	text-transform: uppercase;
 	font-family: "Eurostile";
 	color: rgb(255, 255, 255);
@@ -121,7 +121,7 @@ return html`
 }
 
 #sponsor0 {
-    position: absolute;
+	position: absolute;
 	left: 10px;
 	top: 20px;	
 }
@@ -134,20 +134,20 @@ return html`
 	text-align: center;
 	text-shadow: 4px 4px 0px rgb(6, 0, 0);
 	-webkit-transform: scale(1.1, 0.8);
-    position: absolute;
-    left: 72px;
-    top: 440px;
-    text-align: center;
-    width: 60px;
+	position: absolute;
+	left: 72px;
+	top: 440px;
+	text-align: center;
+	width: 60px;
 }
 
 #P2Name {
 	position: absolute;
 	top: 515px;
-    left: 427px;
-    font-size: 25px;
-    width: 500px;
-    text-align: right;
+	left: 427px;
+	font-size: 25px;
+	width: 500px;
+	text-align: right;
 	text-transform: uppercase;
 	font-family: "Eurostile";
 	color: rgb(255, 255, 255);
@@ -157,10 +157,10 @@ return html`
 #P2Pronouns {
 	position: absolute;
 	top: 540px;
-    left: 427px;
-    font-size: 20px;
-    width: 500px;
-    text-align: right;
+	left: 427px;
+	font-size: 20px;
+	width: 500px;
+	text-align: right;
 	text-transform: uppercase;
 	font-family: "Eurostile";
 	color: rgb(255, 255, 255);
@@ -174,11 +174,11 @@ return html`
 	text-align: center;
 	text-shadow: 4px 4px 0px rgb(6, 0, 0);
 	-webkit-transform: scale(1.1, 0.8);
-    position: absolute;
-    left: 865px;
-    top: 440px;
-    text-align: center;
-    width: 60px;
+	position: absolute;
+	left: 865px;
+	top: 440px;
+	text-align: center;
+	width: 60px;
 }
 #sponsor{
 	font-size: 22px;
@@ -189,11 +189,11 @@ return html`
 	
 #box {
 	position: absolute;
-    left: 280px;
-    top: 900px;
-    text-align: center;
-    width: 450px;
-    font-size: 42px;
+	left: 280px;
+	top: 900px;
+	text-align: center;
+	width: 450px;
+	font-size: 42px;
 	text-shadow: 6px 6px 3px rgb(0, 0, 0);
 }
 #logo {
@@ -240,10 +240,10 @@ return html`
 }
 
 .title {
-    color: #000;
-    font-size: 60px;
-    text-align: center;
-    width: 1920px;
+	color: #000;
+	font-size: 60px;
+	text-align: center;
+	width: 1920px;
 }
 
 </style>
