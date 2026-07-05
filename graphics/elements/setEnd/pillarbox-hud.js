@@ -125,11 +125,11 @@ return html`
 }
 #Index-${this.playerData[0].slippi.id}-Data{
 	Postion: absolute;
-	
+
 }
 #Index-${this.playerData[1].slippi.id}-Data{
 	Postion: absolute;
-	
+
 }
 #Index-${this.playerData[0].slippi.id}-Stats{
 position: absolute;
@@ -171,17 +171,17 @@ position: absolute;
 #Stat3 {
 	top: 163px;
 	position: absolute;
-	
+
 }
 #Stat4 {
 	top: 239px;
   	position: absolute;
-	
+
 }
 #Stat5 {
 	top: 316px;
   	position: absolute;
-	
+
 }
 #Stat6 {
 	top: 396px;
@@ -360,11 +360,11 @@ position: absolute;
 	font-size: 22px;
 	width: 230px;
 	text-align: center;
-	
+
 }
 .data {
 	position: absolute;
-	
+
 }
 .stat {
 	color: white;
@@ -406,7 +406,7 @@ position: absolute;
 .label2 {
 	text-align: center;
 	width: 430px;
-	
+
 }
 .label3 {
 	text-align: center;
@@ -450,7 +450,7 @@ position: absolute;
 .ov_blue {
 	filter: hue-rotate(325deg) brightness(105%);
 }
-	
+
 .ov_red {
 	filter: hue-rotate(95deg) brightness(105%);
 }
@@ -458,7 +458,7 @@ position: absolute;
 .ov_green {
 	filter: hue-rotate(200deg) brightness(105%);
 }
-	
+
 .ov_violet {
 	filter: hue-rotate(0deg);
 }
@@ -484,7 +484,7 @@ position: absolute;
 	<div id="History">
 		<div id="g1-${this.statData.latestSet.gt}" class="stage-${this.statData.latestSet.g1.split(",")[0]} label3"><div id="char-0" class="${this.statData.latestSet.g1.split(",")[4]}" style="background: url('./img/characters/${this.statData.latestSet.g1.split(",")[2]}/${this.statData.latestSet.g1.split(",")[3]}/stock.png');"></div><div id="char-1" class="${this.statData.latestSet.g1.split(",")[7]}" style="background: url('./img/characters/${this.statData.latestSet.g1.split(",")[5]}/${this.statData.latestSet.g1.split(",")[6]}/stock.png');"></div><div id="time">${this.statData.latestSet.g1.split(",")[1]}</div></div>
 		<div id="g1-${this.statData.latestSet.gt}" class="frame"></div>
-		<!-- Splitting an array that does not exist causes page to not render, need to make sure array exists before splitting --> 
+		<!-- Splitting an array that does not exist causes page to not render, need to make sure array exists before splitting -->
 		${this.statData.latestSet.gt>1
 		? html `<div id="g2-${this.statData.latestSet.gt}" class="stage-${this.statData.latestSet.g2.split(",")[0]} label3"><div id="char-0" class="${this.statData.latestSet.g2.split(",")[4]}" style="background: url('./img/characters/${this.statData.latestSet.g2.split(",")[2]}/${this.statData.latestSet.g1.split(",")[3]}/stock.png');"></div><div id="char-1" class="${this.statData.latestSet.g2.split(",")[7]}" style="background: url('./img/characters/${this.statData.latestSet.g2.split(",")[5]}/${this.statData.latestSet.g1.split(",")[6]}/stock.png');"></div><div id="time">${this.statData.latestSet.g2.split(",")[1]}</div></div>
 		<div id="g2-${this.statData.latestSet.gt}" class="frame"></div>`
@@ -492,7 +492,7 @@ position: absolute;
 		${this.statData.latestSet.gt>2
 		? html `<div id="g3-${this.statData.latestSet.gt}" class="stage-${this.statData.latestSet.g3.split(",")[0]} label3"><div id="char-0" class="${this.statData.latestSet.g3.split(",")[4]}" style="background: url('./img/characters/${this.statData.latestSet.g3.split(",")[2]}/${this.statData.latestSet.g1.split(",")[3]}/stock.png');"></div><div id="char-1" class="${this.statData.latestSet.g3.split(",")[7]}" style="background: url('./img/characters/${this.statData.latestSet.g3.split(",")[5]}/${this.statData.latestSet.g1.split(",")[6]}/stock.png');"></div><div id="time">${this.statData.latestSet.g3.split(",")[1]}</div></div>
 		<div id="g3-${this.statData.latestSet.gt}" class="frame"></div>`
-		: html ``}	
+		: html ``}
 		${this.statData.latestSet.gt>3
 		? html `<div id="g4-${this.statData.latestSet.gt}" class="stage-${this.statData.latestSet.g4.split(",")[0]} label3"><div id="char-0" class="${this.statData.latestSet.g4.split(",")[4]}" style="background: url('./img/characters/${this.statData.latestSet.g4.split(",")[2]}/${this.statData.latestSet.g1.split(",")[3]}/stock.png');"></div><div id="char-1" class="${this.statData.latestSet.g4.split(",")[7]}" style="background: url('./img/characters/${this.statData.latestSet.g4.split(",")[5]}/${this.statData.latestSet.g1.split(",")[6]}/stock.png');"></div><div id="time">${this.statData.latestSet.g4.split(",")[1]}</div></div>
 		<div id="g4-${this.statData.latestSet.gt}" class="frame"></div>`
@@ -503,13 +503,13 @@ position: absolute;
 		: html ``}
 	</div>
 	<div>
-	
+
 		<div id="LChar"></div>
 		<div id="RChar"></div>
 		<div id="LPort" class="port-${this.playerData[0].slippi.port}"></div>
 		<div id="RPort" class="port-${this.playerData[1].slippi.port}"></div>
 		<div id="LTag" class="tag">${this.playerData[0].player.pronouns}</div>
-		<div id="RTag" class="tag">${this.playerData[1].player.pronouns}</div>		
+		<div id="RTag" class="tag">${this.playerData[1].player.pronouns}</div>
 	</div>
 
 	<div id="LName" class="name">${this.playerData[0].player.name}</div>

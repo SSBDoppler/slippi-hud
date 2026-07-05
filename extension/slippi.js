@@ -236,7 +236,7 @@ function runConnection() {
 			slippi.value.gameInfo.elapsedFrames = frame.frame;
 
 			TimeObject.decrement(slippi.value.gameInfo.timer, elapsedFrames);
-		} 
+		}
 
 		//Per player checks
 		for (let framePlayer of frame.players) {
@@ -321,7 +321,7 @@ function runConnection() {
 					callback(frame);
 				}
 			}
-		}		
+		}
 	}));
 }
 

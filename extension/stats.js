@@ -54,7 +54,7 @@ function checkSetFinished() {
 
 //Listeners
 nodecg.listenFor('stats_finishGame', (filePath) => {
-	
+
 	let latestGameParams = computeSlpStats([filePath], extraStats);
 
 	if (!latestGameParams) {

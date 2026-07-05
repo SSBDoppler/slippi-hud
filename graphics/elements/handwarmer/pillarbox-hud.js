@@ -144,7 +144,7 @@ return html`
 	filter: drop-shadow(2px 2px 1px black);
 }
 
-	
+
 #box {
 	position: absolute;
 	top: 300px;
@@ -176,7 +176,7 @@ return html`
 .ov_blue {
 	filter: hue-rotate(325deg) brightness(105%);
 }
-	
+
 .ov_red {
 	filter: hue-rotate(95deg) brightness(105%);
 }
@@ -184,7 +184,7 @@ return html`
 .ov_green {
 	filter: hue-rotate(200deg) brightness(105%);
 }
-	
+
 .ov_violet {
 	filter: hue-rotate(0deg);
 }

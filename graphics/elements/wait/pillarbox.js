@@ -28,7 +28,7 @@ return html`
 	background: url('./img/backgrounds/new-hud/wait-ssb2022.png') no-repeat 0px 0px;
 	height: 1080px;
 	width: 1920px;
-	position: absolute;	
+	position: absolute;
 }
 
 #round {
@@ -123,7 +123,7 @@ return html`
 #sponsor0 {
 	position: absolute;
 	left: 10px;
-	top: 20px;	
+	top: 20px;
 }
 
 #score-true {
@@ -186,7 +186,7 @@ return html`
 #player {
 	font-size: 32px;
 	}
-	
+
 #box {
 	position: absolute;
 	left: 280px;
@@ -218,7 +218,7 @@ return html`
 .ov_blue {
 	filter: hue-rotate(325deg) brightness(105%);
 }
-	
+
 .ov_red {
 	filter: hue-rotate(95deg) brightness(105%);
 }
@@ -226,7 +226,7 @@ return html`
 .ov_green {
 	filter: hue-rotate(200deg) brightness(105%);
 }
-	
+
 .ov_violet {
 	filter: hue-rotate(0deg);
 }

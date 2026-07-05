@@ -136,7 +136,7 @@ function determineWinner(data) {
 
 				data.finalFrame.players.forEach((player) => {
 
-					if (!player || !("post" in player)) {	
+					if (!player || !("post" in player)) {
 						compareSets.push(null);
 					}
 
@@ -149,7 +149,7 @@ function determineWinner(data) {
 					compareSets.push(set);
 				});
 			}
-				
+
 			winnerPlayer = compareSets.reduce((a, b) => {
 
 				if (!a)
@@ -222,7 +222,7 @@ function determineWinner(data) {
 
 				data.finalFrame.players.forEach((player) => {
 
-					if (!player || !("post" in player)) {					
+					if (!player || !("post" in player)) {
 						compareSets.push(null);
 					}
 
@@ -355,7 +355,7 @@ nodecg.listenFor('tournament_autoGameEnd', (data) => {
 		//When a match ends and auto scoring is automatically managed, we will enable it here and always process this match, otherwise exit
 		if (!automateAutoScoreToggle)
 			return;
-		
+
 		tournament.value.autoScore = true;
 	}
 

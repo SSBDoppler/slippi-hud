@@ -161,14 +161,14 @@ return html`
 	<div id="P1P"></div>
 	<div id="P2P"></div>
 	<div id="FG"></div>
-	
+
 	<div id="P1Name"> ${this.playerData[0].player.name}</div>
 	<div id="P1Sponsor"></div>
 	<div id="Score-${this.playerData[1].slippi.id > this.playerData[0].slippi.id}">${this.generalData.tournament.scores[0].score}</div>
 	<div id="P1Tag" class="port-${this.playerData[0].slippi.port} ${this.playerData[0].slippi.tag != ''}">${this.playerData[0].slippi.tag}</div>
 	<div id="P1Tag" class="port-${this.playerData[0].slippi.port} ${this.playerData[0].slippi.tag == ''}">${this.playerData[0].player.pronouns}</div>
 	<div id="P1Character"></div>
-	
+
 	<div id="P2Name"> ${this.playerData[1].player.name}</div>
 	<div id="P2Sponsor"></div>
 	<div id="Score-${this.playerData[1].slippi.id < this.playerData[0].slippi.id}">${this.generalData.tournament.scores[1].score}</div>

@@ -59,7 +59,7 @@ export class TemplateSelector extends LitElement {
 							this.selectedTemplateIndex = activeTemplateIndex.toString();
 							console.log("now active:", templates.value.availableTemplates[activeTemplateIndex].fileName);
 						}
-						
+
 						this.requestUpdate();
 						ready = true;
 					});

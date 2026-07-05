@@ -85,7 +85,7 @@ export class SlippiHud extends LitElement {
 		this.templatesRepReady = false;
 		this.bundle = nodecg.bundleName; //Use the current active bundle as the default
 		this.graphic = "";
-		
+
 		const replicants =
 			[
 				slippi,
@@ -157,7 +157,7 @@ export class SlippiHud extends LitElement {
 
 								if (typeof (playerTeamId) == "number" && playerTeamId > -1) {
 
-									//Find local teamId from activeTeams. This is the score teamId						
+									//Find local teamId from activeTeams. This is the score teamId
 									let localTeamId = slippi.value.gameInfo.activeTeams.findIndex(teamId => teamId === playerTeamId);
 
 									if (localTeamId > -1 && this.playerData.length > i && newVal.scores.length > localTeamId) {
@@ -169,8 +169,8 @@ export class SlippiHud extends LitElement {
 								//Only apply if we have data for this player and score entry
 								if (this.playerData.length > playerDataIndex && newVal.scores.length > i) {
 									this.playerData[playerDataIndex].score = JSON.parse(JSON.stringify(newVal.scores[i]));
-								}	
-							}					
+								}
+							}
 						}
 
 						this.readyCheck();
@@ -209,7 +209,7 @@ export class SlippiHud extends LitElement {
 						}
 
 						this.templatesRepReady = true;
-						this.changeTemplate(newVal);					
+						this.changeTemplate(newVal);
 					});
 
 					stats.on('change', (newVal, oldVal) => {
@@ -275,8 +275,8 @@ export class SlippiHud extends LitElement {
 				if (teamMembers && teamMembers.length > 1 && teamMembers.length > playerInfoIndex && this.playerData.length > i) {
 					//Sort by port number first
 					teamMembers.sort((a, b) => (a.port - b.port));
-					
-					this.playerData[i].slippi = JSON.parse(JSON.stringify(teamMembers[playerInfoIndex]));			
+
+					this.playerData[i].slippi = JSON.parse(JSON.stringify(teamMembers[playerInfoIndex]));
 				}
 			} else { //Singles
 

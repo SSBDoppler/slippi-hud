@@ -68,19 +68,19 @@ query SetQuery($setId: ID!) {
 					team {
 						id
 						name
-						discriminator								
+						discriminator
 					}
 			  		participants {
 		  				id
 						gamerTag
-						prefix 
+						prefix
 						user {
 							id
-							name 
+							name
 							slug
 							discriminator
 							genderPronoun
-							authorizations {						 
+							authorizations {
 								id
 								externalId
 								externalUsername
@@ -131,7 +131,7 @@ query StandingsQuery($eventId: ID!, $page: Int!, $perPage: Int!) {
 						team {
 							id
 							name
-							discriminator								
+							discriminator
 						}
 			  			participants {
 		  					id
@@ -140,11 +140,11 @@ query StandingsQuery($eventId: ID!, $page: Int!, $perPage: Int!) {
 							connectedAccounts
 							user {
 								id
-								name 
+								name
 								slug
 								discriminator
 								genderPronoun
-								authorizations {						 
+								authorizations {
 									id
 									externalId
 									externalUsername
@@ -201,7 +201,7 @@ query SetQueryForEntrant($entrantId: ID!, $page: Int!, $perPage: Int!) {
 						}
 					}
 				}
-			}		
+			}
 		}
 }`,
 	variables: { entrantId: 0, page: 1, perPage: 3 }

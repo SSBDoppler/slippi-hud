@@ -46,7 +46,7 @@ function checkAndSetNewScene(sceneName) {
 		else {
 			obs.value.scenes.activeScene = sceneName;
 		}
-		
+
 	}
 
 }

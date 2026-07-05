@@ -170,7 +170,7 @@ export class StartggApi extends LitElement {
 
 							return 0;
 						});
-						
+
 						//Clean other values and force close dialog if it was opened, then re-render
 						this.selectedStandingEntries = [];
 						this.standingEditDialogOpened = false;
@@ -275,13 +275,13 @@ export class StartggApi extends LitElement {
 						Save
 					</vaadin-button>
 				</vaadin-horizontal-layout>
-	
+
 			</vaadin-vertical-layout>
 			`;
 
 			//Events
 			root.querySelector('#closeButton').addEventListener("click", self._standingsEditClose.bind(self));
-			root.querySelector('#saveButton').addEventListener("click", self._standingsEditSave.bind(self)); 
+			root.querySelector('#saveButton').addEventListener("click", self._standingsEditSave.bind(self));
 		};
 	}
 
@@ -377,7 +377,7 @@ export class StartggApi extends LitElement {
 
 	_standingsEditSave(event) {
 		console.log("Save dialog");
-	
+
 		//Save data
 		let dialogRoot = event.currentTarget.parentElement.parentElement;
 		let updateIndex = this.standingEditDialogEntry._index;

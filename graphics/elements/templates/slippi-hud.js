@@ -48,12 +48,12 @@ return html`
 		opacity: 1;
 		transform: scale(${1/6}) translate(50px,-200px);
 	}
-	
+
 	50% {
 		opacity: 1;
 		transform: scale(${1/6}) translate(100px,-400px);
 	}
-	
+
 	60% {
 		opacity: 1;
 		transform: scale(${1/6}) translate(150px,-200px);
@@ -73,12 +73,12 @@ return html`
 		opacity: 1;
 		transform: scale(${1/6}) translate(50px,-200px);
 	}
-	
+
 	50% {
 		opacity: 1;
 		transform: scale(${1/6}) translate(100px,-400px);
 	}
-	
+
 	60% {
 		opacity: 1;
 		transform: scale(${1/6}) translate(150px,-200px);
@@ -98,12 +98,12 @@ return html`
 		opacity: 1;
 		transform: scale(${1/6}) translate(50px,-200px);
 	}
-	
+
 	50% {
 		opacity: 1;
 		transform: scale(${1/6}) translate(100px,-400px);
 	}
-	
+
 	60% {
 		opacity: 1;
 		transform: scale(${1/6}) translate(150px,-200px);
@@ -123,12 +123,12 @@ return html`
 		opacity: 1;
 		transform: scale(${1/6}) translate(50px,-200px);
 	}
-	
+
 	50% {
 		opacity: 1;
 		transform: scale(${1/6}) translate(100px,-400px);
 	}
-	
+
 	60% {
 		opacity: 1;
 		transform: scale(${1/6}) translate(150px,-200px);
@@ -204,11 +204,11 @@ return html`
 	10% {
 		transform: translate(0px,20px);
 	}
-	
+
 	50% {
 		transform: translate(-20px,0px);
 	}
-	
+
 	90% {
 		transform: translate(0px,-20px);
 	}
@@ -221,11 +221,11 @@ return html`
 	10% {
 		transform: translate(20px,0px);
 	}
-	
+
 	50% {
 		transform: translate(-20px,20px);
 	}
-	
+
 	90% {
 		transform: translate(0px,-20px);
 	}
@@ -239,15 +239,15 @@ return html`
 	10% {
 		transform: translate(20px,20px);
 	}
-	
+
 	50% {
 		transform: translate(-20px,0px);
 	}
-	
+
 	90% {
 		transform: translate(0px,-20px);
 	}
-	
+
 }
 
 @keyframes onP2damage-10-${this.playerData[1].slippi.damage} {
@@ -257,15 +257,15 @@ return html`
 	10% {
 		transform: translate(0px,20px);
 	}
-	
+
 	50% {
 		transform: translate(-20px,0px);
 	}
-	
+
 	90% {
 		transform: translate(20px,-20px);
 	}
-	
+
 }
 
 @keyframes onP3damage-${this.playerData[2].slippi.damage} {
@@ -275,11 +275,11 @@ return html`
 	10% {
 		transform: translate(0px,20px);
 	}
-	
+
 	50% {
 		transform: translate(-20px,0px);
 	}
-	
+
 	90% {
 		transform: translate(0px,-20px);
 	}
@@ -292,11 +292,11 @@ return html`
 	10% {
 		transform: translate(20px,0px);
 	}
-	
+
 	50% {
 		transform: translate(-20px,20px);
 	}
-	
+
 	90% {
 		transform: translate(0px,-20px);
 	}
@@ -309,11 +309,11 @@ return html`
 	10% {
 		transform: translate(0px,20px);
 	}
-	
+
 	50% {
 		transform: translate(-20px,0px);
 	}
-	
+
 	90% {
 		transform: translate(0px,-20px);
 	}
@@ -326,11 +326,11 @@ return html`
 	10% {
 		transform: translate(20px,0px);
 	}
-	
+
 	50% {
 		transform: translate(-20px,20px);
 	}
-	
+
 	90% {
 		transform: translate(0px,-20px);
 	}
@@ -706,7 +706,7 @@ return html`
 	left: 0px;
   z-index: 16;
   opacity: 1
-} 
+}
 
 #dmg span{
 	display: inline-block;
@@ -828,7 +828,7 @@ left: 47px;
 	height: 120px;
 }
 
-#panels {	
+#panels {
 	top: 895px;
 	left: 615px;
 	height: 100%;
@@ -847,7 +847,7 @@ left: 47px;
   color: rgb(255, 255, 255, 255);
   text-align: left;
   text-shadow: 4px 4px 0px rgb(6, 0, 0);
-  -webkit-transform: scale(0.9, 1.0);  
+  -webkit-transform: scale(0.9, 1.0);
   position: absolute;
   left: 210px;
   top: -810px;
@@ -864,7 +864,7 @@ left: 47px;
   color: rgb(255, 255, 255, 255);
   text-align: left;
   text-shadow: 4px 4px 0px rgb(6, 0, 0);
-  -webkit-transform: scale(0.9, 1.0);  
+  -webkit-transform: scale(0.9, 1.0);
   position: absolute;
   left: 400px;
   top: -805px;
@@ -1050,7 +1050,7 @@ left: 47px;
 .ov_blue {
 	filter: hue-rotate(325deg) brightness(105%);
 }
-	
+
 .ov_red {
 	filter: hue-rotate(95deg) brightness(105%);
 }
@@ -1058,7 +1058,7 @@ left: 47px;
 .ov_green {
 	filter: hue-rotate(200deg) brightness(105%);
 }
-	
+
 .ov_violet {
 	filter: hue-rotate(0deg);
 }
@@ -1328,7 +1328,7 @@ left: 47px;
 	bottom: -75px;
 	right: 100px;
   z-index: 16;
-} 
+}
 
 #sgl-dmg span{
 	display: inline-block;
@@ -1405,7 +1405,7 @@ left: 47px;
 	height:48px;
 	width: 48px;
 	transform: scale(.75);
-	
+
 }
 
 #coms {
@@ -1449,7 +1449,7 @@ filter: brightness(50%) hue-rotate(234deg) saturate(158.2%) brightness(158.2%);
 filter: brightness(100%) sepia(.5) hue-rotate(88.8deg) saturate(174.2%) brightness(225.2%);
 }
 
-#sgl-P1Pronouns {	
+#sgl-P1Pronouns {
 	left: 264px;
 	top: 165px;
 	width: 58px;
@@ -1461,7 +1461,7 @@ filter: brightness(100%) sepia(.5) hue-rotate(88.8deg) saturate(174.2%) brightne
 	line-height: 1;
 	transform: ScaleX(.9);
 }
-#sgl-P2Pronouns {	
+#sgl-P2Pronouns {
 	left: 353px;
 	top: 165px;
 	width: 58px;
@@ -1474,7 +1474,7 @@ filter: brightness(100%) sepia(.5) hue-rotate(88.8deg) saturate(174.2%) brightne
 	transform: ScaleX(.9);
 }
 
-#sgl-panels {	
+#sgl-panels {
 	top: 890px;
 	left: 615px;
 	background: url(./img/hud/new/timer_module.png) no-repeat;
@@ -1495,7 +1495,7 @@ filter: brightness(100%) sepia(.5) hue-rotate(88.8deg) saturate(174.2%) brightne
   text-align: left;
   -webkit-text-stroke: 0px black;
   text-shadow: 4px 4px 0px rgb(6, 0, 0);
-  -webkit-transform: scale(0.9, 1.0);  
+  -webkit-transform: scale(0.9, 1.0);
   position: absolute;
   left: 210px;
   top: 85px;
@@ -1513,7 +1513,7 @@ filter: brightness(100%) sepia(.5) hue-rotate(88.8deg) saturate(174.2%) brightne
   text-align: left;
   -webkit-text-stroke: 0px black;
   text-shadow: 4px 4px 0px rgb(6, 0, 0);
-  -webkit-transform: scale(0.9, 1.0);  
+  -webkit-transform: scale(0.9, 1.0);
   position: absolute;
   left: 395px;
   top: 90px;
@@ -1610,7 +1610,7 @@ filter: brightness(100%) sepia(.5) hue-rotate(88.8deg) saturate(174.2%) brightne
 ${this.generalData.slippi.isTeams
 ? html`
 	<div id="overlay">
-	
+
 		<div id="teamsmodule" class="ov_blue"></div>
 		<div id='logo' class='ov_blue'></div>
 		<div id='ssblogo' ></div>
@@ -1622,10 +1622,10 @@ ${this.generalData.slippi.isTeams
 		<div id="mic"></div>
 		<div id="mic"></div>
 		</div>
-		<div id='teamleft'>			
+		<div id='teamleft'>
 			<div id="name1" class="name1"><span><div class="P1sponsor"></div><div class="P1pronouns">${this.playerData[0].player.pronouns}</div><div class="tag">${this.playerData[0].player.name} & ${this.playerData[1].player.name}</div><div class="P2pronouns">${this.playerData[1].player.pronouns}</div><div  class="P2sponsor"></div></span></div>
 		</div>
-		
+
 		<div id="player1" class="port">
 				<div id="P1Series" class="team-${this.playerData[0].slippi.teamId}"></div>
 				<div id="stocks">
@@ -1635,7 +1635,7 @@ ${this.generalData.slippi.isTeams
 					<div id="stock" class="stock-4 ${this.playerData[0].slippi.stockCountNow>3}" style="background: url('./img/characters/${this.playerData[0].slippi.character.id}/${this.playerData[0].slippi.character.costumeId}/ani_stock.png'); transform: scale(${1/6}); width: 200px; height: 200px; animation: 0.2s linear 0s 1 onP1death-${this.playerData[0].slippi.stockCountNow==3};"></div>
 				</div>
 				<div id="dmg" class="p1damage-${(this.playerData[0].slippi.damage>300)}"><span id="p1dmg" class="${this.playerData[0].slippi.damage>=100 && this.playerData[0].slippi.stockCountNow>0}">${Math.floor(this.playerData[0].slippi.damage/100)}</span><span id="p1dmg-10"  class="${this.playerData[0].slippi.damage>=10 && this.playerData[0].slippi.stockCountNow>0}">${Math.floor(this.playerData[0].slippi.damage/10)-(Math.floor(this.playerData[0].slippi.damage/100)*10)}</span><span id="p1dmg" class="${this.playerData[0].slippi.stockCountNow>0}">${this.playerData[0].slippi.damage-(Math.floor(this.playerData[0].slippi.damage/10)*10)}</span><span id="percent" class="${this.playerData[0].slippi.stockCountNow>0}" style="font-size : 66%">%</span></div>
-		</div>	
+		</div>
 
 		<div id="player2" class="port">
 				<div id="P2Series" class="team-${this.playerData[1].slippi.teamId}"></div>
@@ -1645,8 +1645,8 @@ ${this.generalData.slippi.isTeams
 					<div id="stock" class="stock-3 ${this.playerData[1].slippi.stockCountNow>2}" style="background: url('./img/characters/${this.playerData[1].slippi.character.id}/${this.playerData[1].slippi.character.costumeId}/ani_stock.png'); transform: scale(${1/6}); width: 192px; height: 192px; animation: 0.2s linear 0s 1 onP2death-${this.playerData[1].slippi.stockCountNow==2};"></div>
 					<div id="stock" class="stock-4 ${this.playerData[1].slippi.stockCountNow>3}" style="background: url('./img/characters/${this.playerData[1].slippi.character.id}/${this.playerData[1].slippi.character.costumeId}/ani_stock.png'); transform: scale(${1/6}); width: 192px; height: 192px; animation: 0.2s linear 0s 1 onP2death-${this.playerData[1].slippi.stockCountNow==3};"></div>
 				</div>
-				<div id="dmg" class="p2damage-${(this.playerData[1].slippi.damage>300)}"><span id="p2dmg" class="${this.playerData[1].slippi.damage>=100 && this.playerData[1].slippi.stockCountNow>0}">${Math.floor(this.playerData[1].slippi.damage/100)}</span><span id="p2dmg-10"  class="${this.playerData[1].slippi.damage>=10 && this.playerData[1].slippi.stockCountNow>0}">${Math.floor(this.playerData[1].slippi.damage/10)-(Math.floor(this.playerData[1].slippi.damage/100)*10)}</span><span id="p2dmg" class="${this.playerData[1].slippi.stockCountNow>0}">${this.playerData[1].slippi.damage-(Math.floor(this.playerData[1].slippi.damage/10)*10)}</span><span id="percent" class="${this.playerData[1].slippi.stockCountNow>0}" style="font-size : 66%">%</span></div>	
-		</div>	
+				<div id="dmg" class="p2damage-${(this.playerData[1].slippi.damage>300)}"><span id="p2dmg" class="${this.playerData[1].slippi.damage>=100 && this.playerData[1].slippi.stockCountNow>0}">${Math.floor(this.playerData[1].slippi.damage/100)}</span><span id="p2dmg-10"  class="${this.playerData[1].slippi.damage>=10 && this.playerData[1].slippi.stockCountNow>0}">${Math.floor(this.playerData[1].slippi.damage/10)-(Math.floor(this.playerData[1].slippi.damage/100)*10)}</span><span id="p2dmg" class="${this.playerData[1].slippi.stockCountNow>0}">${this.playerData[1].slippi.damage-(Math.floor(this.playerData[1].slippi.damage/10)*10)}</span><span id="percent" class="${this.playerData[1].slippi.stockCountNow>0}" style="font-size : 66%">%</span></div>
+		</div>
 
 		<div id="score-${this.playerData[2].slippi.teamId > this.playerData[0].slippi.teamId}">${this.generalData.tournament.scores[0].score}</div>
 
@@ -1654,7 +1654,7 @@ ${this.generalData.slippi.isTeams
 		<div id='teamright'>
 			<div id="name2" class="name2"><span><div class="P3sponsor"></div><div class="P3pronouns">${this.playerData[2].player.pronouns}</div><div class="tag">${this.playerData[2].player.name} & ${this.playerData[3].player.name}</div><div class="P4pronouns">${this.playerData[3].player.pronouns}</div><div  class="P4sponsor"></div></span></div>
 		</div>
-		
+
 		<div id="player3" class="port">
 				<div id="P3Series" class="team-${this.playerData[2].slippi.teamId}"></div>
 				<div id="stocks">
@@ -1665,7 +1665,7 @@ ${this.generalData.slippi.isTeams
 				</div>
 				<div id="dmg" class="p3damage-${(this.playerData[2].slippi.damage>300)}"><span id="p3dmg" class="${this.playerData[2].slippi.damage>=100 && this.playerData[2].slippi.stockCountNow>0}">${Math.floor(this.playerData[2].slippi.damage/100)}</span><span id="p3dmg-10" class= "${this.playerData[2].slippi.damage>=10 && this.playerData[2].slippi.stockCountNow>0}">${Math.floor(this.playerData[2].slippi.damage/10)-(Math.floor(this.playerData[2].slippi.damage/100)*10)}</span><span id="p3dmg" class="${this.playerData[2].slippi.stockCountNow>0}">${this.playerData[2].slippi.damage-(Math.floor(this.playerData[2].slippi.damage/10)*10)}</span><span id="percent" class="${this.playerData[2].slippi.stockCountNow>0}" style="font-size : 66%">%</span></div>
 		</div>
-					
+
 		<div id="player4" class="port">
 				<div id="P4Series" class="team-${this.playerData[3].slippi.teamId}"></div>
 				<div id="stocks">
@@ -1674,17 +1674,17 @@ ${this.generalData.slippi.isTeams
 					<div id="stock" class="stock-3 ${this.playerData[3].slippi.stockCountNow>2}" style="background: url('./img/characters/${this.playerData[3].slippi.character.id}/${this.playerData[3].slippi.character.costumeId}/ani_stock.png'); transform: scale(${1/6}); width: 192px; height: 192px; animation: 0.2s linear 0s 1 onP2death-${this.playerData[3].slippi.stockCountNow==2};"></div>
 					<div id="stock" class="stock-4 ${this.playerData[3].slippi.stockCountNow>3}" style="background: url('./img/characters/${this.playerData[3].slippi.character.id}/${this.playerData[3].slippi.character.costumeId}/ani_stock.png'); transform: scale(${1/6}); width: 192px; height: 192px; animation: 0.2s linear 0s 1 onP2death-${this.playerData[3].slippi.stockCountNow==3};"></div>
 				</div>
-				<div id="dmg" class="p4damage-${(this.playerData[3].slippi.damage>300)} "><span id="p4dmg" class="${this.playerData[3].slippi.damage>=100 && this.playerData[3].slippi.stockCountNow>0}">${Math.floor(this.playerData[3].slippi.damage/100)}</span><span id="p4dmg-10" class= "${this.playerData[3].slippi.damage>=10 && this.playerData[3].slippi.stockCountNow>0}">${Math.floor(this.playerData[3].slippi.damage/10)-(Math.floor(this.playerData[3].slippi.damage/100)*10)}</span><span id="p4dmg" class="${this.playerData[3].slippi.stockCountNow>0}">${this.playerData[3].slippi.damage-(Math.floor(this.playerData[3].slippi.damage/10)*10)}</span><span id="percent" class="${this.playerData[3].slippi.stockCountNow>0}" style="font-size : 66%">%</span></div>				
+				<div id="dmg" class="p4damage-${(this.playerData[3].slippi.damage>300)} "><span id="p4dmg" class="${this.playerData[3].slippi.damage>=100 && this.playerData[3].slippi.stockCountNow>0}">${Math.floor(this.playerData[3].slippi.damage/100)}</span><span id="p4dmg-10" class= "${this.playerData[3].slippi.damage>=10 && this.playerData[3].slippi.stockCountNow>0}">${Math.floor(this.playerData[3].slippi.damage/10)-(Math.floor(this.playerData[3].slippi.damage/100)*10)}</span><span id="p4dmg" class="${this.playerData[3].slippi.stockCountNow>0}">${this.playerData[3].slippi.damage-(Math.floor(this.playerData[3].slippi.damage/10)*10)}</span><span id="percent" class="${this.playerData[3].slippi.stockCountNow>0}" style="font-size : 66%">%</span></div>
 		</div>
-			
+
 		<div id="score-${this.playerData[2].slippi.teamId < this.playerData[0].slippi.teamId}">${this.generalData.tournament.scores[1].score}</div>
-		
+
 		<div id="panels" class="panel-container">
 			<div id="game"><div id="gametext">GAME ${this.generalData.tournament.scores[0].score+this.generalData.tournament.scores[1].score+1} - Best Of ${this.generalData.tournament.bestOf}</div></div>
 			<div id="round">${this.generalData.tournament.round}</div>
 			<div id="timer" span id="timer1">${this.generalData.slippi.timer.formatted}</span></div><div id="timerms" span id="timerms">${this.generalData.slippi.timer.milliseconds}</span></div>
 		</div>
-			
+
 </div>
 
 <div id="controls" class="${this.generalData.tournament.inputDisplay}">
@@ -1707,7 +1707,7 @@ ${this.generalData.slippi.isTeams
 		<div id="RTrigger" style="width: ${this.playerData[0].slippi.controller.rightTrigger*73}px;"></div>
 		<div id="outline" class="button"><img src="./img/controllers/new/input_module2.png" width="215" height="80"></img></div>
 	</div>
-	
+
 	<div id="p2buttons" class="sticks">
 		<div id="p2stick" class="astick" style="position: absolute; top: ${Math.round(30-(this.playerData[1].slippi.controller.mainStickY*17))}px; left: ${Math.round(22+(this.playerData[1].slippi.controller.mainStickX*17))}px"></div>
 		<div id="p2cstick" class="cstick"  style="position: absolute; top: ${41-(this.playerData[1].slippi.controller.cStickY*18)}px; left: ${82+(this.playerData[1].slippi.controller.cStickX*18)}px"></div>
@@ -1727,7 +1727,7 @@ ${this.generalData.slippi.isTeams
 		<div id="RTrigger" style="width: ${this.playerData[1].slippi.controller.rightTrigger*73}px;"></div>
 		<div id="outline" class="button"><img src="./img/controllers/new/input_module2.png" width="215" height="80"></img></div>
 	</div>
-	
+
 	<div id="p3buttons" class="sticks">
 		<div id="p3stick" class="astick" style="position: absolute; top: ${Math.round(30-(this.playerData[2].slippi.controller.mainStickY*17))}px; left: ${Math.round(22+(this.playerData[2].slippi.controller.mainStickX*17))}px"></div>
 		<div id="p3cstick" class="cstick"  style="position: absolute; top: ${41-(this.playerData[2].slippi.controller.cStickY*18)}px; left: ${82+(this.playerData[2].slippi.controller.cStickX*18)}px"></div>
@@ -1747,7 +1747,7 @@ ${this.generalData.slippi.isTeams
 		<div id="RTrigger" style="width: ${this.playerData[2].slippi.controller.rightTrigger*73}px;"></div>
 		<div id="outline" class="button"><img src="./img/controllers/new/input_module2.png" width="215" height="80"></img></div>
 	</div>
-	
+
 	<div id="p4buttons" class="sticks">
 		<div id="p4stick" class="astick" style="position: absolute; top: ${Math.round(30-(this.playerData[3].slippi.controller.mainStickY*17))}px; left: ${Math.round(22+(this.playerData[3].slippi.controller.mainStickX*17))}px"></div>
 		<div id="p4cstick" class="cstick"  style="position: absolute; top: ${41-(this.playerData[3].slippi.controller.cStickY*18)}px; left: ${82+(this.playerData[3].slippi.controller.cStickX*18)}px"></div>
@@ -1773,7 +1773,7 @@ ${this.generalData.slippi.isTeams
 : html`
 	<div id="sgl-overlay">
 		<div id='sgl-logo' class='ov_blue'></div>
-		
+
 		<div id="coms">
 			<div id="com">${this.generalData.tournament.commentators[0].name}</div>
 			<div id="com">${this.generalData.tournament.commentators[1].name}</div>
@@ -1782,7 +1782,7 @@ ${this.generalData.slippi.isTeams
 			<div id="mic"></div>
 			<div id="mic"></div>
 		</div>
-		
+
 		<div id='sgl-ssblogo' ></div>
 			<div id='sgl-playermoduleleft'>
 			<div id="sgl-P1Series" class="port-${this.playerData[0].slippi.port}"></div>
@@ -1808,8 +1808,8 @@ ${this.generalData.slippi.isTeams
 					<div id="sgl-dmg" class="p1damage-${(this.playerData[0].slippi.damage>300)} ${this.playerData[0].slippi.stockCountNow>0}"><span id="p1dmg" class="${this.playerData[0].slippi.damage>=100}">${Math.floor(this.playerData[0].slippi.damage/100)}</span><span id="p1dmg-10"  class="${this.playerData[0].slippi.damage>=10}">${Math.floor(this.playerData[0].slippi.damage/10)-(Math.floor(this.playerData[0].slippi.damage/100)*10)}</span><span id="p1dmg">${this.playerData[0].slippi.damage-(Math.floor(this.playerData[0].slippi.damage/10)*10)}</span><span id="percent" style="font-size : 66%">%</span></div>
 					<div id="sgl-name1" class="name1"><span><div class="sgl-tag">${this.playerData[0].player.name}</div></span></div>
 			</div>
-									
-			
+
+
 			<div id="sgl-player2" class="port">
 					<div id="sgl-stocks">
 						<div id="stock" class="stock-1 ${this.playerData[1].slippi.stockCountNow>0}" style="background: url('./img/characters/${this.playerData[1].slippi.character.id}/${this.playerData[1].slippi.character.costumeId}/ani_stock.png'); transform: scale(${1/6}); width: 192px; height: 192px; animation: 0.2s linear 0s 1 onP2death-${this.playerData[1].slippi.stockCountNow==0};"></div>
@@ -1821,24 +1821,24 @@ ${this.generalData.slippi.isTeams
 					<div id="sgl-dmg" class="p2damage-${(this.playerData[1].slippi.damage>300)} ${this.playerData[1].slippi.stockCountNow>0}"><span id="p2dmg" class="${this.playerData[1].slippi.damage>=100}">${Math.floor(this.playerData[1].slippi.damage/100)}</span><span id="p2dmg-10" class= "${this.playerData[1].slippi.damage>=10}">${Math.floor(this.playerData[1].slippi.damage/10)-(Math.floor(this.playerData[1].slippi.damage/100)*10)}</span><span id="p2dmg">${this.playerData[1].slippi.damage-(Math.floor(this.playerData[1].slippi.damage/10)*10)}</span><span id="percent" style="font-size : 66%">%</span></div>
 					<div id="sgl-name2" class="name2"><span><div class="sgl-tag">${this.playerData[1].player.name}</div></span></div>
 			</div>
-					
-				
+
+
 
 			</div>
 		<div id="sgl-panels" class="panel-container">
 			<div id="sgl-game"><div id="sgl-gametext">GAME ${this.generalData.tournament.scores[0].score+this.generalData.tournament.scores[1].score+1}</div></div>
-			
+
 			<div id="sgl-rnd_module" class="ov_blue"></div>
-			
+
 			<div id="sgl-round">${this.generalData.tournament.round}</div>
-			
+
 			<div id="sgl-best" class="ov_blue">Best Of ${this.generalData.tournament.bestOf}</div>
-			
+
 			<div id="sgl-timer" span id="timer1">${this.generalData.slippi.timer.formatted}</span></div><div id="sgl-timerms" span id="sgl-timerms">${this.generalData.slippi.timer.milliseconds}</span></div>
 			</div>
-			
-	<div id="sgl-accents" class="ov_blue"></div>		
-		
+
+	<div id="sgl-accents" class="ov_blue"></div>
+
 
 <div id="sgl-controls" class="${this.generalData.tournament.inputDisplay}">
 <div id="sgl-p1buttons" class="sgl-sticks">

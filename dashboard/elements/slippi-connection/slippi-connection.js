@@ -72,7 +72,7 @@ export class SlippiConnection extends LitElement {
 	}
 
 	_connectButtonClicked() {
-	
+
 		//Dolphin
 		if (this.connectionType === "Dolphin") {
 			nodecg.sendMessage("slippi_connect", { type: "dolphin" });

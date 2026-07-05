@@ -37,7 +37,7 @@ function refreshTemplates() {
 			templateList.push(template);
 		}
 	});
-	
+
 	templates.value.availableTemplates = templateList;
 
 	//Default to first found template if none is selected

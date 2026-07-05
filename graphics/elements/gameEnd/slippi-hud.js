@@ -127,11 +127,11 @@ return html`
 }
 #Index-${this.playerData[0].slippi.id}-Data{
 	Postion: absolute;
-	
+
 }
 #Index-${this.playerData[1].slippi.id}-Data{
 	Postion: absolute;
-	
+
 }
 #Index-${this.playerData[0].slippi.id}-Stats{
 position: absolute;
@@ -174,17 +174,17 @@ position: absolute;
 #Stat3 {
 	top: 214px;
 	position: absolute;
-	
+
 }
 #Stat4 {
 	top: 312px;
   	position: absolute;
-	
+
 }
 #Stat5 {
 	top: 406px;
   	position: absolute;
-	
+
 }
 #Stat6 {
 	top: 493px;
@@ -199,7 +199,7 @@ position: absolute;
 	left: 1480px;
 }
 #stage {
-	position: absolute;	
+	position: absolute;
 	left: 0px;
 	top: 0px;
 	height: 1080px;
@@ -234,7 +234,7 @@ position: absolute;
 	font-size: 22px;
 	width: 222px;
 	text-align: center;
-	
+
 }
 
 .data {
@@ -282,7 +282,7 @@ position: absolute;
 .label2 {
 	text-align: center;
 	width: 430px;
-	
+
 }
 .label3 {
 	text-align: center;
@@ -300,7 +300,7 @@ position: absolute;
 .ov_blue {
 	filter: hue-rotate(325deg) brightness(105%);
 }
-	
+
 .ov_red {
 	filter: hue-rotate(95deg) brightness(105%);
 }
@@ -308,7 +308,7 @@ position: absolute;
 .ov_green {
 	filter: hue-rotate(200deg) brightness(105%);
 }
-	
+
 .ov_violet {
 	filter: hue-rotate(0deg);
 }
@@ -339,7 +339,7 @@ position: absolute;
 		<div id="RPort" class="port-${this.playerData[1].slippi.port}"></div>
 		<div id="LTag" class="tag">${this.playerData[0].player.pronouns}</div>
 		<div id="RTag" class="tag">${this.playerData[1].player.pronouns}</div>
-		
+
 	</div>
 
 	<div id="LName" class="name">${this.playerData[0].player.name}</div>
