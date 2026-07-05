@@ -3,55 +3,55 @@
   "description": "Slippi HUD",
   "version": "3.5.0",
   "contributors": [
-	"Marwin Misselhorn",
-	"Steven Knepper",
-	"PartlyAwesome",
-	"yvng.h",
-	"Vancity Primal"
+    "Marwin Misselhorn",
+    "Steven Knepper",
+    "PartlyAwesome",
+    "yvng.h",
+    "Vancity Primal"
   ],
   "dependencies": {
-	"@polymer/app-layout": "^3.0.0",
-	"@polymer/app-route": "^3.0.0",
-	"@polymer/iron-collapse": "^3.0.0",
-	"@polymer/iron-flex-layout": "^3.0.0",
-	"@polymer/iron-icons": "^3.0.0",
-	"@polymer/iron-image": "^3.0.0",
-	"@polymer/iron-localstorage": "^3.0.0",
-	"@polymer/iron-pages": "^3.0.0",
-	"@polymer/iron-selector": "^3.0.0",
-	"@polymer/paper-button": "^3.0.0",
-	"@polymer/paper-card": "^3.0.0",
-	"@polymer/paper-dialog": "^3.0.0",
-	"@polymer/paper-dialog-behavior": "^3.0.0",
-	"@polymer/paper-dialog-scrollable": "^3.0.0",
-	"@polymer/paper-icon-button": "^3.0.0",
-	"@polymer/paper-item": "^3.0.0",
-	"@polymer/paper-slider": "^3.0.0",
-	"@polymer/paper-spinner": "^3.0.0",
-	"@polymer/paper-styles": "^3.0.0",
-	"@polymer/paper-tabs": "^3.0.0",
-	"@polymer/paper-toast": "^3.0.0",
-	"@polymer/paper-toolbar": "^3.0.0",
-	"@polymer/polymer": "^3.0.0",
-	"@types/node": "^10.14.4",
-	"@vaadin/vaadin-checkbox": "^20.0.5",
-	"@vaadin/vaadin-combo-box": "^20.0.5",
-	"@vaadin/vaadin-dialog": "^20.0.5",
-	"@vaadin/vaadin-radio-button": "^20.0.5",
-	"@vaadin/vaadin-text-field": "^20.0.5",
-	"@vaadin/vaadin-button": "^20.0.5",
-	"@vaadin/vaadin-grid": "^20.0.5",
-	"@vaadin/vaadin-ordered-layout": "^20.0.5",
-	"@vaadin/vaadin-select": "^20.0.5",
-	"@vaadin/vaadin-template-renderer": "^21.0.0",
-	"@webcomponents/webcomponentsjs": "^2.2.10",
-	"@slippi/slippi-js": "^6.2.1",
-	"@vinceau/slp-realtime": "https://github.com/dragonbane0/slp-realtime/tarball/ade1ce10fd7fe58e91d4d951d361c5ec55b3f9a1",
-	"got": "^11.8.5",
-	"lit": "^2.2.7",
-	"obs-websocket-js": "^5.0.3",
-	"rxjs": "^6.6.7",
-	"slp-stats-nodecg": "https://github.com/dragonbane0/slp-stats-nodecg/tarball/192a49b67c749b0b7e7786e70cad360704f9003b"
+    "@polymer/app-layout": "^3.0.0",
+    "@polymer/app-route": "^3.0.0",
+    "@polymer/iron-collapse": "^3.0.0",
+    "@polymer/iron-flex-layout": "^3.0.0",
+    "@polymer/iron-icons": "^3.0.0",
+    "@polymer/iron-image": "^3.0.0",
+    "@polymer/iron-localstorage": "^3.0.0",
+    "@polymer/iron-pages": "^3.0.0",
+    "@polymer/iron-selector": "^3.0.0",
+    "@polymer/paper-button": "^3.0.0",
+    "@polymer/paper-card": "^3.0.0",
+    "@polymer/paper-dialog": "^3.0.0",
+    "@polymer/paper-dialog-behavior": "^3.0.0",
+    "@polymer/paper-dialog-scrollable": "^3.0.0",
+    "@polymer/paper-icon-button": "^3.0.0",
+    "@polymer/paper-item": "^3.0.0",
+    "@polymer/paper-slider": "^3.0.0",
+    "@polymer/paper-spinner": "^3.0.0",
+    "@polymer/paper-styles": "^3.0.0",
+    "@polymer/paper-tabs": "^3.0.0",
+    "@polymer/paper-toast": "^3.0.0",
+    "@polymer/paper-toolbar": "^3.0.0",
+    "@polymer/polymer": "^3.0.0",
+    "@types/node": "^10.14.4",
+    "@vaadin/vaadin-checkbox": "^20.0.5",
+    "@vaadin/vaadin-combo-box": "^20.0.5",
+    "@vaadin/vaadin-dialog": "^20.0.5",
+    "@vaadin/vaadin-radio-button": "^20.0.5",
+    "@vaadin/vaadin-text-field": "^20.0.5",
+    "@vaadin/vaadin-button": "^20.0.5",
+    "@vaadin/vaadin-grid": "^20.0.5",
+    "@vaadin/vaadin-ordered-layout": "^20.0.5",
+    "@vaadin/vaadin-select": "^20.0.5",
+    "@vaadin/vaadin-template-renderer": "^21.0.0",
+    "@webcomponents/webcomponentsjs": "^2.2.10",
+    "@slippi/slippi-js": "^6.2.1",
+    "@vinceau/slp-realtime": "https://github.com/dragonbane0/slp-realtime/tarball/ade1ce10fd7fe58e91d4d951d361c5ec55b3f9a1",
+    "got": "^11.8.5",
+    "lit": "^2.2.7",
+    "obs-websocket-js": "^5.0.3",
+    "rxjs": "^6.6.7",
+    "slp-stats-nodecg": "https://github.com/dragonbane0/slp-stats-nodecg/tarball/192a49b67c749b0b7e7786e70cad360704f9003b"
   },
   "devDependencies": {},
   "optionalDependencies": {},
@@ -59,104 +59,104 @@
   "homepage": "",
   "license": "",
   "nodecg": {
-	"compatibleRange": ">1.8.1",
-	"transformBareModuleSpecifiers": true,
-	"dashboardPanels": [
-	  {
-		"name": "connection",
-		"title": "Slippi Connection",
-		"width": 2,
-		"file": "slippi-connection-panel.html",
-		"headerColor": "#2d4e8a",
-		"workspace": "1. Main Dash"
-	  },
-	  {
-		"name": "timer",
-		"title": "Match Timer",
-		"width": 2,
-		"file": "match-timer-panel.html",
-		"headerColor": "#2d4e8a",
-		"workspace": "1. Main Dash"
-	  },
-	  {
-		"name": "tournament",
-		"title": "Tournament",
-		"width": 3,
-		"file": "tournament-panel.html",
-		"headerColor": "#2d4e8a",
-		"workspace": "1. Main Dash"
-	  },
-	  {
-		"name": "players",
-		"title": "Player Info",
-		"width": 6,
-		"file": "player-panel.html",
-		"headerColor": "#2d4e8a",
-		"workspace": "1. Main Dash"
-	  },
-	  {
-		"name": "templates",
-		"title": "Templates",
-		"width": 2,
-		"file": "template-panel.html",
-		"headerColor": "#2d4e8a",
-		"workspace": "1. Main Dash"
-	  },
-	  {
-		"name": "obs",
-		"title": "OBS Connection",
-		"width": 2,
-		"file": "obs-connection-panel.html",
-		"headerColor": "#2d4e8a",
-		"workspace": "1. Main Dash"
-	  },
-	  {
-		"name": "startgg",
-		"title": "Start.gg API",
-		"width": 4,
-		"file": "startgg-api-panel.html",
-		"headerColor": "#2d4e8a",
-		"workspace": "1. Main Dash"
-	  }
-	],
-	"graphics": [
-	  {
-		"file": "Tournament.html",
-		"width": 1920,
-		"height": 1080,
-		"singleInstance": false
-	  },
-	  {
-		"file": "Handwarmer.html",
-		"width": 1920,
-		"height": 1080,
-		"singleInstance": false
-	  },
-	  {
-		"file": "Wait.html",
-		"width": 1920,
-		"height": 1080,
-		"singleInstance": false
-	  },
-	  {
-		"file": "gameEnd.html",
-		"width": 1920,
-		"height": 1080,
-		"singleInstance": false
-	  },
-	  {
-		"file": "setEnd.html",
-		"width": 1920,
-		"height": 1080,
-		"singleInstance": false
-	  },
-	  {
-		"file": "Standings.html",
-		"width": 1920,
-		"height": 1080,
-		"singleInstance": false
-	  }
-	]
+    "compatibleRange": ">1.8.1",
+    "transformBareModuleSpecifiers": true,
+    "dashboardPanels": [
+      {
+        "name": "connection",
+        "title": "Slippi Connection",
+        "width": 2,
+        "file": "slippi-connection-panel.html",
+        "headerColor": "#2d4e8a",
+        "workspace": "1. Main Dash"
+      },
+      {
+        "name": "timer",
+        "title": "Match Timer",
+        "width": 2,
+        "file": "match-timer-panel.html",
+        "headerColor": "#2d4e8a",
+        "workspace": "1. Main Dash"
+      },
+      {
+        "name": "tournament",
+        "title": "Tournament",
+        "width": 3,
+        "file": "tournament-panel.html",
+        "headerColor": "#2d4e8a",
+        "workspace": "1. Main Dash"
+      },
+      {
+        "name": "players",
+        "title": "Player Info",
+        "width": 6,
+        "file": "player-panel.html",
+        "headerColor": "#2d4e8a",
+        "workspace": "1. Main Dash"
+      },
+      {
+        "name": "templates",
+        "title": "Templates",
+        "width": 2,
+        "file": "template-panel.html",
+        "headerColor": "#2d4e8a",
+        "workspace": "1. Main Dash"
+      },
+      {
+        "name": "obs",
+        "title": "OBS Connection",
+        "width": 2,
+        "file": "obs-connection-panel.html",
+        "headerColor": "#2d4e8a",
+        "workspace": "1. Main Dash"
+      },
+      {
+        "name": "startgg",
+        "title": "Start.gg API",
+        "width": 4,
+        "file": "startgg-api-panel.html",
+        "headerColor": "#2d4e8a",
+        "workspace": "1. Main Dash"
+      }
+    ],
+    "graphics": [
+      {
+        "file": "Tournament.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      },
+      {
+        "file": "Handwarmer.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      },
+      {
+        "file": "Wait.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      },
+      {
+        "file": "gameEnd.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      },
+      {
+        "file": "setEnd.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      },
+      {
+        "file": "Standings.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      }
+    ]
   },
   "scripts": {}
 }

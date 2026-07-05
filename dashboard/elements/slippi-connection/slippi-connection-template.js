@@ -38,19 +38,19 @@ return html`
 
 <vaadin-vertical-layout>
   <vaadin-select id="connection-type" theme="slippi-style" label="Connection Type" value=${this.connectionType} @change=${this._connectionTypeChange}>
-	<template>
-	  <vaadin-list-box>
-		<vaadin-item>Dolphin</vaadin-item>
-		<vaadin-item>Console Relay</vaadin-item>
-	  </vaadin-list-box>
-	</template>
+    <template>
+      <vaadin-list-box>
+        <vaadin-item>Dolphin</vaadin-item>
+        <vaadin-item>Console Relay</vaadin-item>
+      </vaadin-list-box>
+    </template>
   </vaadin-select>
   <vaadin-integer-field id="port" theme="slippi-style" label="Port" ?disabled=${this.connectionType === 'Dolphin'} value=${this.port}></vaadin-integer-field>
   ${this.connected ? html`
-	 <vaadin-button id="disconnectButton" theme="primary" @click=${this._disconnectButtonClicked}>Disconnect</vaadin-button>
-	 ` : html`
-	 <vaadin-button id="connectButton" theme="primary" @click=${this._connectButtonClicked}>Connect</vaadin-button>
-	 `}
+     <vaadin-button id="disconnectButton" theme="primary" @click=${this._disconnectButtonClicked}>Disconnect</vaadin-button>
+     ` : html`
+     <vaadin-button id="connectButton" theme="primary" @click=${this._connectButtonClicked}>Connect</vaadin-button>
+     `}
 </vaadin-vertical-layout>
 
 `;
@@ -61,7 +61,7 @@ return html`
 <button @click=${this._clickHandler}>Hit me!</button>
 <br/>
  <paper-button id="copyButton">
-		<iron-icon icon="content-copy"></iron-icon>
-		<span id="copyButton-text">&nbsp; Paper from Module</span>
+        <iron-icon icon="content-copy"></iron-icon>
+        <span id="copyButton-text">&nbsp; Paper from Module</span>
 </paper-button>
  */

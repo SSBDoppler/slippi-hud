@@ -693,19 +693,19 @@ return html`
 }
 
 #dmg{
-  font-size: 69px;
-  font-family: 'Eurostile', sans-serif;
-  font-weight: 900;
-  font-style: italic;
-  line-height: 1.2;
-  text-align: center;
-  text-shadow: 4px 4px 0px #000, 1px 0 #000, -1px 0 #000, 0 1px #000, 0 -1px #000;
-  -webkit-transform: scale(1, 1.2);
+	font-size: 69px;
+	font-family: 'Eurostile', sans-serif;
+	font-weight: 900;
+	font-style: italic;
+	line-height: 1.2;
+	text-align: center;
+	text-shadow: 4px 4px 0px #000, 1px 0 #000, -1px 0 #000, 0 1px #000, 0 -1px #000;
+	-webkit-transform: scale(1, 1.2);
 	position: absolute;
 	top: 124px;
 	left: 0px;
-  z-index: 16;
-  opacity: 1
+	z-index: 16;
+	opacity: 1
 }
 
 #dmg span{
@@ -837,37 +837,37 @@ left: 47px;
 }
 
 #timer{
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: crop;
-  font-size: 73px;
-  width: 200px;
-  height: auto;
-  font-family: "Eurostile";
-  color: rgb(255, 255, 255, 255);
-  text-align: left;
-  text-shadow: 4px 4px 0px rgb(6, 0, 0);
-  -webkit-transform: scale(0.9, 1.0);
-  position: absolute;
-  left: 210px;
-  top: -810px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: crop;
+	font-size: 73px;
+	width: 200px;
+	height: auto;
+	font-family: "Eurostile";
+	color: rgb(255, 255, 255, 255);
+	text-align: left;
+	text-shadow: 4px 4px 0px rgb(6, 0, 0);
+	-webkit-transform: scale(0.9, 1.0);
+	position: absolute;
+	left: 210px;
+	top: -810px;
 }
 
 #timerms{
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: crop;
-  font-size: 60px;
-  width: 72px;
-  height: auto;
-  font-family: "Eurostile";
-  color: rgb(255, 255, 255, 255);
-  text-align: left;
-  text-shadow: 4px 4px 0px rgb(6, 0, 0);
-  -webkit-transform: scale(0.9, 1.0);
-  position: absolute;
-  left: 400px;
-  top: -805px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: crop;
+	font-size: 60px;
+	width: 72px;
+	height: auto;
+	font-family: "Eurostile";
+	color: rgb(255, 255, 255, 255);
+	text-align: left;
+	text-shadow: 4px 4px 0px rgb(6, 0, 0);
+	-webkit-transform: scale(0.9, 1.0);
+	position: absolute;
+	left: 400px;
+	top: -805px;
 }
 
 #round {
@@ -1316,18 +1316,18 @@ left: 47px;
 }
 
 #sgl-dmg{
-  font-size: 84px;
-  font-family: 'Eurostile', sans-serif;
-  font-weight: 900;
-  font-style: italic;
-  line-height: 1.2;
-  text-align: center;
-  text-shadow: 4px 4px 0px black;
-  -webkit-transform: scale(1, 1.2);
+	font-size: 84px;
+	font-family: 'Eurostile', sans-serif;
+	font-weight: 900;
+	font-style: italic;
+	line-height: 1.2;
+	text-align: center;
+	text-shadow: 4px 4px 0px black;
+	-webkit-transform: scale(1, 1.2);
 	position: absolute;
 	bottom: -75px;
 	right: 100px;
-  z-index: 16;
+	z-index: 16;
 }
 
 #sgl-dmg span{
@@ -1484,39 +1484,39 @@ filter: brightness(100%) sepia(.5) hue-rotate(88.8deg) saturate(174.2%) brightne
 }
 
 #sgl-timer{
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: crop;
-  font-size: 73px;
-  width: 200px;
-  height: auto;
-  font-family: "Eurostile";
-  color: rgb(255, 255, 255, 255);
-  text-align: left;
-  -webkit-text-stroke: 0px black;
-  text-shadow: 4px 4px 0px rgb(6, 0, 0);
-  -webkit-transform: scale(0.9, 1.0);
-  position: absolute;
-  left: 210px;
-  top: 85px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: crop;
+	font-size: 73px;
+	width: 200px;
+	height: auto;
+	font-family: "Eurostile";
+	color: rgb(255, 255, 255, 255);
+	text-align: left;
+	-webkit-text-stroke: 0px black;
+	text-shadow: 4px 4px 0px rgb(6, 0, 0);
+	-webkit-transform: scale(0.9, 1.0);
+	position: absolute;
+	left: 210px;
+	top: 85px;
 }
 
 #sgl-timerms{
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: crop;
-  font-size: 55px;
-  width: 66px;
-  height: auto;
-  font-family: "Eurostile";
-  color: rgb(255, 255, 255, 255);
-  text-align: left;
-  -webkit-text-stroke: 0px black;
-  text-shadow: 4px 4px 0px rgb(6, 0, 0);
-  -webkit-transform: scale(0.9, 1.0);
-  position: absolute;
-  left: 395px;
-  top: 90px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: crop;
+	font-size: 55px;
+	width: 66px;
+	height: auto;
+	font-family: "Eurostile";
+	color: rgb(255, 255, 255, 255);
+	text-align: left;
+	-webkit-text-stroke: 0px black;
+	text-shadow: 4px 4px 0px rgb(6, 0, 0);
+	-webkit-transform: scale(0.9, 1.0);
+	position: absolute;
+	left: 395px;
+	top: 90px;
 }
 
 #sgl-round {
@@ -1623,7 +1623,7 @@ ${this.generalData.slippi.isTeams
 		<div id="mic"></div>
 		</div>
 		<div id='teamleft'>
-			<div id="name1" class="name1"><span><div class="P1sponsor"></div><div class="P1pronouns">${this.playerData[0].player.pronouns}</div><div class="tag">${this.playerData[0].player.name} & ${this.playerData[1].player.name}</div><div class="P2pronouns">${this.playerData[1].player.pronouns}</div><div  class="P2sponsor"></div></span></div>
+			<div id="name1" class="name1"><span><div class="P1sponsor"></div><div class="P1pronouns">${this.playerData[0].player.pronouns}</div><div class="tag">${this.playerData[0].player.name} & ${this.playerData[1].player.name}</div><div class="P2pronouns">${this.playerData[1].player.pronouns}</div><div	class="P2sponsor"></div></span></div>
 		</div>
 
 		<div id="player1" class="port">
@@ -1634,7 +1634,7 @@ ${this.generalData.slippi.isTeams
 					<div id="stock" class="stock-3 ${this.playerData[0].slippi.stockCountNow>2}" style="background: url('./img/characters/${this.playerData[0].slippi.character.id}/${this.playerData[0].slippi.character.costumeId}/ani_stock.png'); transform: scale(${1/6}); width: 200px; height: 200px; animation: 0.2s linear 0s 1 onP1death-${this.playerData[0].slippi.stockCountNow==2};"></div>
 					<div id="stock" class="stock-4 ${this.playerData[0].slippi.stockCountNow>3}" style="background: url('./img/characters/${this.playerData[0].slippi.character.id}/${this.playerData[0].slippi.character.costumeId}/ani_stock.png'); transform: scale(${1/6}); width: 200px; height: 200px; animation: 0.2s linear 0s 1 onP1death-${this.playerData[0].slippi.stockCountNow==3};"></div>
 				</div>
-				<div id="dmg" class="p1damage-${(this.playerData[0].slippi.damage>300)}"><span id="p1dmg" class="${this.playerData[0].slippi.damage>=100 && this.playerData[0].slippi.stockCountNow>0}">${Math.floor(this.playerData[0].slippi.damage/100)}</span><span id="p1dmg-10"  class="${this.playerData[0].slippi.damage>=10 && this.playerData[0].slippi.stockCountNow>0}">${Math.floor(this.playerData[0].slippi.damage/10)-(Math.floor(this.playerData[0].slippi.damage/100)*10)}</span><span id="p1dmg" class="${this.playerData[0].slippi.stockCountNow>0}">${this.playerData[0].slippi.damage-(Math.floor(this.playerData[0].slippi.damage/10)*10)}</span><span id="percent" class="${this.playerData[0].slippi.stockCountNow>0}" style="font-size : 66%">%</span></div>
+				<div id="dmg" class="p1damage-${(this.playerData[0].slippi.damage>300)}"><span id="p1dmg" class="${this.playerData[0].slippi.damage>=100 && this.playerData[0].slippi.stockCountNow>0}">${Math.floor(this.playerData[0].slippi.damage/100)}</span><span id="p1dmg-10"	class="${this.playerData[0].slippi.damage>=10 && this.playerData[0].slippi.stockCountNow>0}">${Math.floor(this.playerData[0].slippi.damage/10)-(Math.floor(this.playerData[0].slippi.damage/100)*10)}</span><span id="p1dmg" class="${this.playerData[0].slippi.stockCountNow>0}">${this.playerData[0].slippi.damage-(Math.floor(this.playerData[0].slippi.damage/10)*10)}</span><span id="percent" class="${this.playerData[0].slippi.stockCountNow>0}" style="font-size : 66%">%</span></div>
 		</div>
 
 		<div id="player2" class="port">
@@ -1645,14 +1645,14 @@ ${this.generalData.slippi.isTeams
 					<div id="stock" class="stock-3 ${this.playerData[1].slippi.stockCountNow>2}" style="background: url('./img/characters/${this.playerData[1].slippi.character.id}/${this.playerData[1].slippi.character.costumeId}/ani_stock.png'); transform: scale(${1/6}); width: 192px; height: 192px; animation: 0.2s linear 0s 1 onP2death-${this.playerData[1].slippi.stockCountNow==2};"></div>
 					<div id="stock" class="stock-4 ${this.playerData[1].slippi.stockCountNow>3}" style="background: url('./img/characters/${this.playerData[1].slippi.character.id}/${this.playerData[1].slippi.character.costumeId}/ani_stock.png'); transform: scale(${1/6}); width: 192px; height: 192px; animation: 0.2s linear 0s 1 onP2death-${this.playerData[1].slippi.stockCountNow==3};"></div>
 				</div>
-				<div id="dmg" class="p2damage-${(this.playerData[1].slippi.damage>300)}"><span id="p2dmg" class="${this.playerData[1].slippi.damage>=100 && this.playerData[1].slippi.stockCountNow>0}">${Math.floor(this.playerData[1].slippi.damage/100)}</span><span id="p2dmg-10"  class="${this.playerData[1].slippi.damage>=10 && this.playerData[1].slippi.stockCountNow>0}">${Math.floor(this.playerData[1].slippi.damage/10)-(Math.floor(this.playerData[1].slippi.damage/100)*10)}</span><span id="p2dmg" class="${this.playerData[1].slippi.stockCountNow>0}">${this.playerData[1].slippi.damage-(Math.floor(this.playerData[1].slippi.damage/10)*10)}</span><span id="percent" class="${this.playerData[1].slippi.stockCountNow>0}" style="font-size : 66%">%</span></div>
+				<div id="dmg" class="p2damage-${(this.playerData[1].slippi.damage>300)}"><span id="p2dmg" class="${this.playerData[1].slippi.damage>=100 && this.playerData[1].slippi.stockCountNow>0}">${Math.floor(this.playerData[1].slippi.damage/100)}</span><span id="p2dmg-10"	class="${this.playerData[1].slippi.damage>=10 && this.playerData[1].slippi.stockCountNow>0}">${Math.floor(this.playerData[1].slippi.damage/10)-(Math.floor(this.playerData[1].slippi.damage/100)*10)}</span><span id="p2dmg" class="${this.playerData[1].slippi.stockCountNow>0}">${this.playerData[1].slippi.damage-(Math.floor(this.playerData[1].slippi.damage/10)*10)}</span><span id="percent" class="${this.playerData[1].slippi.stockCountNow>0}" style="font-size : 66%">%</span></div>
 		</div>
 
 		<div id="score-${this.playerData[2].slippi.teamId > this.playerData[0].slippi.teamId}">${this.generalData.tournament.scores[0].score}</div>
 
 
 		<div id='teamright'>
-			<div id="name2" class="name2"><span><div class="P3sponsor"></div><div class="P3pronouns">${this.playerData[2].player.pronouns}</div><div class="tag">${this.playerData[2].player.name} & ${this.playerData[3].player.name}</div><div class="P4pronouns">${this.playerData[3].player.pronouns}</div><div  class="P4sponsor"></div></span></div>
+			<div id="name2" class="name2"><span><div class="P3sponsor"></div><div class="P3pronouns">${this.playerData[2].player.pronouns}</div><div class="tag">${this.playerData[2].player.name} & ${this.playerData[3].player.name}</div><div class="P4pronouns">${this.playerData[3].player.pronouns}</div><div	class="P4sponsor"></div></span></div>
 		</div>
 
 		<div id="player3" class="port">
@@ -1690,7 +1690,7 @@ ${this.generalData.slippi.isTeams
 <div id="controls" class="${this.generalData.tournament.inputDisplay}">
 	<div id="p1buttons" class="sticks">
 		<div id="p1stick" class="astick" style="position: absolute; top: ${Math.round(30-(this.playerData[0].slippi.controller.mainStickY*17))}px; left: ${Math.round(22+(this.playerData[0].slippi.controller.mainStickX*17))}px"></div>
-		<div id="p1cstick" class="cstick"  style="position: absolute; top: ${41-(this.playerData[0].slippi.controller.cStickY*18)}px; left: ${82+(this.playerData[0].slippi.controller.cStickX*18)}px"></div>
+		<div id="p1cstick" class="cstick"	style="position: absolute; top: ${41-(this.playerData[0].slippi.controller.cStickY*18)}px; left: ${82+(this.playerData[0].slippi.controller.cStickX*18)}px"></div>
 		<div id="Abutton" class="${this.playerData[0].slippi.controller.pressedButtons.A}"></div>
 		<div id="Bbutton" class="${this.playerData[0].slippi.controller.pressedButtons.B}"></div>
 		<div id="Xbutton" class="${this.playerData[0].slippi.controller.pressedButtons.X}"></div>
@@ -1710,7 +1710,7 @@ ${this.generalData.slippi.isTeams
 
 	<div id="p2buttons" class="sticks">
 		<div id="p2stick" class="astick" style="position: absolute; top: ${Math.round(30-(this.playerData[1].slippi.controller.mainStickY*17))}px; left: ${Math.round(22+(this.playerData[1].slippi.controller.mainStickX*17))}px"></div>
-		<div id="p2cstick" class="cstick"  style="position: absolute; top: ${41-(this.playerData[1].slippi.controller.cStickY*18)}px; left: ${82+(this.playerData[1].slippi.controller.cStickX*18)}px"></div>
+		<div id="p2cstick" class="cstick"	style="position: absolute; top: ${41-(this.playerData[1].slippi.controller.cStickY*18)}px; left: ${82+(this.playerData[1].slippi.controller.cStickX*18)}px"></div>
 		<div id="Abutton" class="${this.playerData[1].slippi.controller.pressedButtons.A}"></div>
 		<div id="Bbutton" class="${this.playerData[1].slippi.controller.pressedButtons.B}"></div>
 		<div id="Xbutton" class="${this.playerData[1].slippi.controller.pressedButtons.X}"></div>
@@ -1730,7 +1730,7 @@ ${this.generalData.slippi.isTeams
 
 	<div id="p3buttons" class="sticks">
 		<div id="p3stick" class="astick" style="position: absolute; top: ${Math.round(30-(this.playerData[2].slippi.controller.mainStickY*17))}px; left: ${Math.round(22+(this.playerData[2].slippi.controller.mainStickX*17))}px"></div>
-		<div id="p3cstick" class="cstick"  style="position: absolute; top: ${41-(this.playerData[2].slippi.controller.cStickY*18)}px; left: ${82+(this.playerData[2].slippi.controller.cStickX*18)}px"></div>
+		<div id="p3cstick" class="cstick"	style="position: absolute; top: ${41-(this.playerData[2].slippi.controller.cStickY*18)}px; left: ${82+(this.playerData[2].slippi.controller.cStickX*18)}px"></div>
 		<div id="Abutton" class="${this.playerData[2].slippi.controller.pressedButtons.A}"></div>
 		<div id="Bbutton" class="${this.playerData[2].slippi.controller.pressedButtons.B}"></div>
 		<div id="Xbutton" class="${this.playerData[2].slippi.controller.pressedButtons.X}"></div>
@@ -1750,7 +1750,7 @@ ${this.generalData.slippi.isTeams
 
 	<div id="p4buttons" class="sticks">
 		<div id="p4stick" class="astick" style="position: absolute; top: ${Math.round(30-(this.playerData[3].slippi.controller.mainStickY*17))}px; left: ${Math.round(22+(this.playerData[3].slippi.controller.mainStickX*17))}px"></div>
-		<div id="p4cstick" class="cstick"  style="position: absolute; top: ${41-(this.playerData[3].slippi.controller.cStickY*18)}px; left: ${82+(this.playerData[3].slippi.controller.cStickX*18)}px"></div>
+		<div id="p4cstick" class="cstick"	style="position: absolute; top: ${41-(this.playerData[3].slippi.controller.cStickY*18)}px; left: ${82+(this.playerData[3].slippi.controller.cStickX*18)}px"></div>
 		<div id="Abutton" class="${this.playerData[3].slippi.controller.pressedButtons.A}"></div>
 		<div id="Bbutton" class="${this.playerData[3].slippi.controller.pressedButtons.B}"></div>
 		<div id="Xbutton" class="${this.playerData[3].slippi.controller.pressedButtons.X}"></div>
@@ -1793,7 +1793,7 @@ ${this.generalData.slippi.isTeams
 		<div id='sgl-playermoduleright'>
 			<div id="sgl-P2Series" class="port-${this.playerData[1].slippi.port}"></div>
 			<div id="sgl-P2Pronouns">${this.playerData[1].player.pronouns}</div>
-			<div  class="sgl-Rsponsor"></div>
+			<div	class="sgl-Rsponsor"></div>
 			<div id='sgl-cameraport'></div>
 		</div>
 			</div>
@@ -1805,7 +1805,7 @@ ${this.generalData.slippi.isTeams
 						<div id="stock" class="stock-4 ${this.playerData[0].slippi.stockCountNow>3}" style="background: url('./img/characters/${this.playerData[0].slippi.character.id}/${this.playerData[0].slippi.character.costumeId}/ani_stock.png'); transform: scale(${1/6}); width: 200px; height: 200px; animation: 0.2s linear 0s 1 onP1death-${this.playerData[0].slippi.stockCountNow==3};"></div>
 					</div>
 					<div id="sgl-score1">${this.generalData.tournament.scores[this.playerData[0].slippi.id].score}</div>
-					<div id="sgl-dmg" class="p1damage-${(this.playerData[0].slippi.damage>300)} ${this.playerData[0].slippi.stockCountNow>0}"><span id="p1dmg" class="${this.playerData[0].slippi.damage>=100}">${Math.floor(this.playerData[0].slippi.damage/100)}</span><span id="p1dmg-10"  class="${this.playerData[0].slippi.damage>=10}">${Math.floor(this.playerData[0].slippi.damage/10)-(Math.floor(this.playerData[0].slippi.damage/100)*10)}</span><span id="p1dmg">${this.playerData[0].slippi.damage-(Math.floor(this.playerData[0].slippi.damage/10)*10)}</span><span id="percent" style="font-size : 66%">%</span></div>
+					<div id="sgl-dmg" class="p1damage-${(this.playerData[0].slippi.damage>300)} ${this.playerData[0].slippi.stockCountNow>0}"><span id="p1dmg" class="${this.playerData[0].slippi.damage>=100}">${Math.floor(this.playerData[0].slippi.damage/100)}</span><span id="p1dmg-10"	class="${this.playerData[0].slippi.damage>=10}">${Math.floor(this.playerData[0].slippi.damage/10)-(Math.floor(this.playerData[0].slippi.damage/100)*10)}</span><span id="p1dmg">${this.playerData[0].slippi.damage-(Math.floor(this.playerData[0].slippi.damage/10)*10)}</span><span id="percent" style="font-size : 66%">%</span></div>
 					<div id="sgl-name1" class="name1"><span><div class="sgl-tag">${this.playerData[0].player.name}</div></span></div>
 			</div>
 
@@ -1843,7 +1843,7 @@ ${this.generalData.slippi.isTeams
 <div id="sgl-controls" class="${this.generalData.tournament.inputDisplay}">
 <div id="sgl-p1buttons" class="sgl-sticks">
 	<div id="sgl-p1stick" class="astick" style="position: absolute; top: ${Math.round(50-(this.playerData[0].slippi.controller.mainStickY*17))}px; left: ${Math.round(25+(this.playerData[0].slippi.controller.mainStickX*17))}px"></div>
-	<div id="sgl-p1cstick" class="cstick"  style="position: absolute; top: ${116-(this.playerData[0].slippi.controller.cStickY*18)}px; left: ${32+(this.playerData[0].slippi.controller.cStickX*18)}px"></div>
+	<div id="sgl-p1cstick" class="cstick"	style="position: absolute; top: ${116-(this.playerData[0].slippi.controller.cStickY*18)}px; left: ${32+(this.playerData[0].slippi.controller.cStickX*18)}px"></div>
 	<div id="sgl-Abutton" class="${this.playerData[0].slippi.controller.pressedButtons.A}"></div>
 	<div id="sgl-Bbutton" class="${this.playerData[0].slippi.controller.pressedButtons.B}"></div>
 	<div id="sgl-Xbutton" class="${this.playerData[0].slippi.controller.pressedButtons.X}"></div>
@@ -1862,7 +1862,7 @@ ${this.generalData.slippi.isTeams
 </div>
 <div id="sgl-p2buttons" class="sgl-sticks">
 	<div id="sgl-p2stick" class="astick" style="position: absolute; top: ${Math.round(50-(this.playerData[1].slippi.controller.mainStickY*17))}px; left: ${Math.round(25+(this.playerData[1].slippi.controller.mainStickX*17))}px"></div>
-	<div id="sgl-p2cstick" class="cstick"  style="position: absolute; top: ${116-(this.playerData[1].slippi.controller.cStickY*18)}px; left: ${32+(this.playerData[1].slippi.controller.cStickX*18)}px"></div>
+	<div id="sgl-p2cstick" class="cstick"	style="position: absolute; top: ${116-(this.playerData[1].slippi.controller.cStickY*18)}px; left: ${32+(this.playerData[1].slippi.controller.cStickX*18)}px"></div>
 	<div id="sgl-Abutton" class="${this.playerData[1].slippi.controller.pressedButtons.A}"></div>
 	<div id="sgl-Bbutton" class="${this.playerData[1].slippi.controller.pressedButtons.B}"></div>
 	<div id="sgl-Xbutton" class="${this.playerData[1].slippi.controller.pressedButtons.X}"></div>
