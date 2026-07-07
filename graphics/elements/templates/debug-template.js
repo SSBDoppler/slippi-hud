@@ -55,7 +55,7 @@ ${this.playerData[0].slippi.teamId<this.playerData[2].slippi.teamId
 <div style="font-weight: bold;">PLAYER 1</div>
 <div>this.playerData[0].player.name "${this.playerData[0].player.name}"</div>
 <div>this.playerData[0].player.sponsor "${this.playerData[0].player.sponsor}"</div>
-<div>this.playerData[0].player.sponsor "${this.playerData[0].player.pronouns}"</div>
+<div>this.playerData[0].player.pronouns "${this.playerData[0].player.pronouns}"</div>
 <div>this.playerData[0].slippi.id "${this.playerData[0].slippi.id}"</div>
 <div>this.playerData[0].slippi.index "${this.playerData[0].slippi.index}"</div>
 <div>this.playerData[0].slippi.port "${this.playerData[0].slippi.port}"</div>
@@ -115,7 +115,7 @@ ${this.playerData[0].slippi.teamId<this.playerData[2].slippi.teamId
 <div style="font-weight: bold;">PLAYER 2</div>
 <div>this.playerData[1].player.name "${this.playerData[1].player.name}"</div>
 <div>this.playerData[1].player.sponsor "${this.playerData[1].player.sponsor}"</div>
-<div>this.playerData[1].player.sponsor "${this.playerData[1].player.pronouns}"</div>
+<div>this.playerData[1].player.pronouns "${this.playerData[1].player.pronouns}"</div>
 <div>this.playerData[1].slippi.id "${this.playerData[1].slippi.id}"</div>
 <div>this.playerData[1].slippi.index "${this.playerData[1].slippi.index}"</div>
 <div>this.playerData[1].slippi.port "${this.playerData[1].slippi.port}"</div>
@@ -131,7 +131,6 @@ ${this.playerData[0].slippi.teamId<this.playerData[2].slippi.teamId
 <div>this.playerData[1].slippi.display "${this.playerData[1].slippi.display}"</div>
 <div>this.playerData[1].slippi.connect "${this.playerData[1].slippi.connect}"</div>
 <div>this.playerData[1].slippi.damage "${this.playerData[1].slippi.damage}"</div>
-
 <div>this.playerData[1].slippi.controller.mainStickX "${this.playerData[1].slippi.controller.mainStickX}"</div>
 <div>this.playerData[1].slippi.controller.mainStickY "${this.playerData[1].slippi.controller.mainStickY}"</div>
 <div>this.playerData[1].slippi.controller.cStickX "${this.playerData[1].slippi.controller.cStickX}"</div>
@@ -186,7 +185,7 @@ ${this.playerData[2].slippi.teamId < this.playerData[0].slippi.teamId
 <div style="font-weight: bold;">PLAYER 3</div>
 <div>this.playerData[2].player.name "${this.playerData[2].player.name}"</div>
 <div>this.playerData[2].player.sponsor "${this.playerData[2].player.sponsor}"</div>
-<div>this.playerData[2].player.sponsor "${this.playerData[2].player.pronouns}"</div>
+<div>this.playerData[2].player.pronouns "${this.playerData[2].player.pronouns}"</div>
 <div>this.playerData[2].slippi.id "${this.playerData[2].slippi.id}"</div>
 <div>this.playerData[2].slippi.index "${this.playerData[2].slippi.index}"</div>
 <div>this.playerData[2].slippi.port "${this.playerData[2].slippi.port}"</div>
@@ -202,7 +201,6 @@ ${this.playerData[2].slippi.teamId < this.playerData[0].slippi.teamId
 <div>this.playerData[2].slippi.display "${this.playerData[2].slippi.display}"</div>
 <div>this.playerData[2].slippi.connect "${this.playerData[2].slippi.connect}"</div>
 <div>this.playerData[2].slippi.damage "${this.playerData[2].slippi.damage}"</div>
-
 <div>this.playerData[2].slippi.controller.mainStickX "${this.playerData[2].slippi.controller.mainStickX}"</div>
 <div>this.playerData[2].slippi.controller.mainStickY "${this.playerData[2].slippi.controller.mainStickY}"</div>
 <div>this.playerData[2].slippi.controller.cStickX "${this.playerData[2].slippi.controller.cStickX}"</div>
@@ -248,7 +246,7 @@ ${this.playerData[2].slippi.teamId < this.playerData[0].slippi.teamId
 <div style="font-weight: bold;">PLAYER 4</div>
 <div>this.playerData[3].player.name "${this.playerData[3].player.name}"</div>
 <div>this.playerData[3].player.sponsor "${this.playerData[3].player.sponsor}"</div>
-<div>this.playerData[3].player.sponsor "${this.playerData[3].player.pronouns}"</div>
+<div>this.playerData[3].player.pronouns "${this.playerData[3].player.pronouns}"</div>
 <div>this.playerData[3].slippi.id "${this.playerData[3].slippi.id}"</div>
 <div>this.playerData[3].slippi.index "${this.playerData[3].slippi.index}"</div>
 <div>this.playerData[3].slippi.port "${this.playerData[3].slippi.port}"</div>
@@ -264,7 +262,6 @@ ${this.playerData[2].slippi.teamId < this.playerData[0].slippi.teamId
 <div>this.playerData[3].slippi.display "${this.playerData[3].slippi.display}"</div>
 <div>this.playerData[3].slippi.connect "${this.playerData[3].slippi.connect}"</div>
 <div>this.playerData[3].slippi.damage "${this.playerData[3].slippi.damage}"</div>
-
 <div>this.playerData[3].slippi.controller.mainStickX "${this.playerData[3].slippi.controller.mainStickX}"</div>
 <div>this.playerData[3].slippi.controller.mainStickY "${this.playerData[3].slippi.controller.mainStickY}"</div>
 <div>this.playerData[3].slippi.controller.cStickX "${this.playerData[3].slippi.controller.cStickX}"</div>
@@ -315,7 +312,7 @@ ${this.playerData[2].slippi.teamId < this.playerData[0].slippi.teamId
 <div style="font-weight: bold;">PLAYER 1</div>
 <div>this.playerData[0].player.name "${this.playerData[0].player.name}"</div>
 <div>this.playerData[0].player.sponsor "${this.playerData[0].player.sponsor}"</div>
-<div>this.playerData[0].player.sponsor "${this.playerData[0].player.pronouns}"</div>
+<div>this.playerData[0].player.pronouns "${this.playerData[0].player.pronouns}"</div>
 <div>this.generalData.tournament.scores[0].score "${this.generalData.tournament.scores[0].score}"</div>
 <div>this.playerData[0].slippi.id "${this.playerData[0].slippi.id}"</div>
 <div>this.playerData[0].slippi.index "${this.playerData[0].slippi.index}"</div>
@@ -375,7 +372,7 @@ ${this.playerData[2].slippi.teamId < this.playerData[0].slippi.teamId
 <div style="font-weight: bold;">PLAYER 2</div>
 <div>this.playerData[1].player.name "${this.playerData[1].player.name}"</div>
 <div>this.playerData[1].player.sponsor "${this.playerData[1].player.sponsor}"</div>
-<div>this.playerData[1].player.sponsor "${this.playerData[1].player.pronouns}"</div>
+<div>this.playerData[1].player.pronouns "${this.playerData[1].player.pronouns}"</div>
 <div>this.generalData.tournament.scores[1].score "${this.generalData.tournament.scores[1].score}"</div>
 <div>this.playerData[1].slippi.id "${this.playerData[1].slippi.id}"</div>
 <div>this.playerData[1].slippi.index "${this.playerData[1].slippi.index}"</div>
@@ -439,7 +436,7 @@ ${this.playerData[2].slippi.teamId < this.playerData[0].slippi.teamId
 <div>this.statData.latestGame.gt "${this.statData.latestGame.gt}"</div>
 <div>this.statData.latestGame.g1 "${this.statData.latestGame.g1}"</div>
 <div style="font-weight: bold;">Low Port Data</div>
-<div>this.statData.latestGame.rightColor "${this.statData.latestGame.leftColor}"</div>
+<div>this.statData.latestGame.leftColor "${this.statData.latestGame.leftColor}"</div>
 <div>this.statData.latestGame.char1 "${this.statData.latestGame.char1}"</div>
 <div>this.statData.latestGame.color1 "${this.statData.latestGame.color1}"</div>
 <div>this.statData.latestGame.name1 "${this.statData.latestGame.name1}"</div>
@@ -555,7 +552,7 @@ ${this.statData.latestSet.gt>4
 :html``}
 
 <div style="font-weight: bold;">Low Port Data</div>
-<div>this.statData.latestSet.rightColor "${this.statData.latestSet.leftColor}"</div>
+<div>this.statData.latestSet.leftColor "${this.statData.latestSet.leftColor}"</div>
 <div>this.statData.latestSet.char1 "${this.statData.latestSet.char1}"</div>
 <div>this.statData.latestSet.color1 "${this.statData.latestSet.color1}"</div>
 <div>this.statData.latestSet.name1 "${this.statData.latestSet.name1}"</div>
